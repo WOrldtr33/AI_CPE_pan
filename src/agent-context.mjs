@@ -12,7 +12,7 @@ export function historyNote(messages) {
     if (message.role === 'tool') {
       try {
         const result = JSON.parse(message.content);
-        lines.push(`历史工具 ${names.get(message.tool_call_id) || 'unknown'}：${JSON.stringify({ status: result.status, error: result.error, observedAt: result.observedAt, assetId: result.assetId || result.asset?.id, capturedAt: result.capturedAt || result.asset?.createdAt, text: clip(result.text, 450), data: result.data, diagnosticSummary: result.diagnosticSummary }).slice(0, 800)}`);
+        lines.push(`历史工具 ${names.get(message.tool_call_id) || 'unknown'}：${JSON.stringify({ status: result.status, error: result.error, observedAt: result.observedAt, reading: result.reading, assetId: result.assetId || result.asset?.id, capturedAt: result.capturedAt || result.asset?.createdAt, text: clip(result.text, 450), data: result.data, diagnosticSummary: result.diagnosticSummary }).slice(0, 800)}`);
       } catch { lines.push('历史工具结果无法摘要。'); }
     }
   }

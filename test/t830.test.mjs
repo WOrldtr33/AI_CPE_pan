@@ -1,12 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
-import { T830 } from '../src/t830.mjs';
+import { T830, redact } from '../src/t830.mjs';
 import { reads, writes, toolName } from '../src/catalog.mjs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { fileURLToPath } from 'node:url';
-import { validateResponse } from '../src/response.mjs';
+import { deviceReading, validateResponse } from '../src/response.mjs';
 import { readFile } from 'node:fs/promises';
 import { writeReport } from '../src/artifacts.mjs';
 
@@ -491,6 +491,28 @@ test('response validation rejects incomplete or wrong-type data and preserves wa
   );
   assert.equal(check('unknown', { data: { x: 1 } }).coverage, 'basic');
   assert.equal(check('sim_presence', { data: { simcard_inslot: '0' } }).status, 'passed');
+  assert.equal(deviceReading('sim_presence', { data: { simcard_inslot: '21' } }).state, 'present');
+  assert.equal(deviceReading('sim_presence', { data: { simcard_inslot: '0' } }).state, 'absent');
+  assert.equal(deviceReading('sim_presence', { data: { simcard_inslot: '3' } }).state, 'unavailable');
+  assert.equal(deviceReading('sim_presence', { data: { simcard_inslot: '9' } }).state, 'abnormal');
+  assert.equal(deviceReading('status', { data: { wanstat: 'true,false', SimStatus: '1' } }).uplink, 'connected');
+  assert.equal(deviceReading('status', { data: { wanstat: 'false,false', SimStatus: '0' } }).uplink, 'not_connected');
+  assert.equal(deviceReading('status', { data: { wanstat: 'false,ccmni', SimStatus: '3' } }).pin, 'pin_required');
+  assert.equal(deviceReading('status', { data: { wanstat: 'false,ccmni', SimStatus: '4' } }).pin, 'puk_required');
+  const registered = deviceReading('device', { code: '200', PS_eAct: 'NR', plmn: '46001' });
+  assert.equal(registered.state, 'registered');
+  assert.equal(registered.radio, 'NR');
+  assert.equal(registered.provesUplink, false);
+  assert.equal(deviceReading('device', { code: '206', Warn: 'Mobile Network registration failed', PS_eAct: 'UMTS' }).state, 'not_registered');
+  const ready = deviceReading('sim', { sim: { status: 'READY', lock: '0', remain: { pin1: '3' } } });
+  assert.equal(ready.state, 'ready');
+  assert.equal(ready.pinLock, 'disabled');
+  assert.equal(ready.pinAttempts, '3');
+  assert.equal(deviceReading('sim', { sim: { status: 'READY', lock: '1' } }).pinLock, 'enabled');
+  assert.equal(deviceReading('status', { data: { wanstat: 'true,ccmni', SimStatus: '21', SignalValue: '-78 dBm', long_eons: 'ChinaUnicom', NR_or_LTE: '5G' } }).signal, '-78 dBm');
+  assert.equal(redact({ SIM: '8610000000000', SimStatus: '21' }).SIM, '[REDACTED]');
+  assert.equal(redact({ SIM: '8610000000000', SimStatus: '21' }).SimStatus, '21');
+  assert.equal(deviceReading('wifi', { data: {} }), undefined);
   assert.equal(check('wifi', []).status, 'failed');
 });
 

@@ -3,7 +3,7 @@
 export const verifiedReadSections = [
   'first_setup', 'country', 'wifi', 'guest', 'wps', 'wps_run', 'workmode',
   'mesh_status', 'mesh_role', 'mesh_routers', 'clients', 'status', 'device_info',
-  'version', 'sim_presence', 'network_mode', 'apn', 'cells', 'band_lock',
+  'version', 'device', 'sim_presence', 'sim', 'network_mode', 'apn', 'cells', 'band_lock', 'traffic',
   'mac_filter', 'ip_filter', 'port_forward', 'port_map', 'url_filter',
   'upnp', 'dmz', 'alg', 'dns', 'dhcp', 'time', 'developer_mode',
 ];

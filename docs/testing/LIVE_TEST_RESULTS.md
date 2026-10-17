@@ -4,7 +4,7 @@
 
 ## 汇总
 
-共 48 项：正常返回 31，业务告警 3，失败 14，跳过 0。存在失败，smoke 退出码为 1。
+共 48 项。2026-10-08 为 31 项正常返回、3 项业务告警、14 项失败。2026-10-17 已插入 SIM 且蜂窝上联连接后，复测蜂窝相关只读项：`device`、`sim`、`traffic` 由业务告警变为正常返回；`sim_presence` 为在槽（21），`status` 上联为 connected。`sim_slot` 与 `roaming` 仍是会话无权限。其余行仍是 2026-10-08 的结果，本轮没有重跑。当前表为 34 项正常返回、0 项业务告警、14 项失败。未执行写配置，也未提交 PIN/PUK。
 
 | API | section | 状态 | 证据／结果 |
 |---|---|---|---|
@@ -25,11 +25,11 @@
 | 38 | clients | returned | 返回并通过当前基本解析 |
 | 41 | status | returned | 返回并通过当前基本解析 |
 | 42 | device_info | returned | 返回并通过当前基本解析 |
-| 43 | device | device_warning | [{"field":"code","value":"206"},{"field":"Warn","value":"Mobile Network registration failed"}] |
+| 43 | device | returned | 2026-10-17 插卡复测：code=200，PS_eAct=NR，reading.state=registered；不代表测速 |
 | 44 | version | returned | 返回并通过当前基本解析 |
 | 49 | sim_presence | returned | 返回并通过当前基本解析 |
 | 50 | sim_slot | error | RPC_ERROR_-32002；目标 access=false，对照 WiFi access=true |
-| 52 | sim | device_warning | [{"field":"sim.ERROR","value":"10"}] |
+| 52 | sim | returned | 2026-10-17 插卡复测：sim.status=READY，lock=0；号码已脱敏 |
 | 58 | network_mode | returned | 返回并通过当前基本解析 |
 | 60 | apn | returned | 返回并通过当前基本解析 |
 | 63 | cells | returned | 返回并通过当前基本解析 |
@@ -53,7 +53,7 @@
 | 105 | tr069 | error | RPC_ERROR_-32002；目标 access=false，对照 WiFi access=true |
 | 107 | gps | error | HTTP_403 |
 | 109 | developer_mode | returned | 补 Cookie 后恢复 |
-| 112 | traffic | device_warning | [{"field":"stats.code","value":"204"}] |
+| 112 | traffic | returned | 2026-10-17 插卡复测：stats.code=200 |
 | 114 | diagnose | error | HTTP_403 |
 | 128 | share | error | RPC_ERROR_-32000；设备返回 Object not found，access=false，根因未知 |
 

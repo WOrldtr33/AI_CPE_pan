@@ -21,11 +21,11 @@
 | 31 | mesh | mesh_role | t830_get_mesh_role | Mesh 角色；无需 SIM，读取设备状态或已保存配置 |
 | 34 | mesh | mesh_routers | t830_get_mesh_routers | Mesh 节点；无需 SIM，需要实际组网才有节点 |
 | 38 | device | clients | t830_get_clients | 接入设备；无需 SIM，读取设备状态或已保存配置 |
-| 41 | device | status | t830_get_status | 设备状态页；无需 SIM，读取设备状态或已保存配置 |
+| 41 | device | status | t830_get_status | 设备状态页。reading.uplink 为 connected 表示上联已连接；SimStatus 3 需要 PIN，4 需要 PUK。是否在槽看 sim_presence；无需 SIM，读取设备状态或已保存配置 |
 | 42 | device | device_info | t830_get_device_info | 设备基本信息；无需 SIM，读取设备状态或已保存配置 |
 | 43 | cellular | device | t830_get_device | 蜂窝设备信息；无 SIM 可返回未注册告警 |
 | 44 | device | version | t830_get_version | 固件版本；无需 SIM，读取设备状态或已保存配置 |
-| 49 | cellular | sim_presence | t830_get_sim_presence | SIM 在槽状态；无需 SIM，读取设备状态或已保存配置 |
+| 49 | cellular | sim_presence | t830_get_sim_presence | SIM 在槽状态。reading.state：present=21 在槽可用，absent=0 未插入，unavailable=3 或 4 暂时不可用，abnormal=其他。不代表上联已连接；无需 SIM，读取设备状态或已保存配置 |
 | 50 | cellular | sim_slot | t830_get_sim_slot | SIM 插槽配置；无需 SIM，读取设备状态或已保存配置 |
 | 52 | cellular | sim | t830_get_sim | SIM 信息；无 SIM 可产生业务告警 |
 | 58 | cellular | network_mode | t830_get_network_mode | 蜂窝网络模式；无需 SIM，读取设备状态或已保存配置 |

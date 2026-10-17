@@ -301,10 +301,10 @@
     "code": "200"
   },
   "device": {
-    "cell_id": "0x00D9D5B23",
-    "code": "206",
-    "PS_eAct": "UMTS",
-    "Warn": "Mobile Network registration failed",
+    "cell_id": "0x1",
+    "code": "200",
+    "PS_eAct": "NR",
+    "plmn": "46001",
     "imsi": "[REDACTED]",
     "imei": "[REDACTED]",
     "cnum": "[REDACTED]"
@@ -324,7 +324,9 @@
   },
   "sim": {
     "sim": {
-      "ERROR": "10"
+      "status": "READY",
+      "lock": "0",
+      "remain": { "pin1": "3", "pin2": "3" }
     }
   },
   "network_mode": {
@@ -570,8 +572,9 @@
       "start_day": "1"
     },
     "stats": {
-      "tips": "Not Sim Card!",
-      "code": "204"
+      "month_traffic": "0",
+      "day_traffic": "0",
+      "code": "200"
     }
   }
 }

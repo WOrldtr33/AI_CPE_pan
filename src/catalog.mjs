@@ -96,7 +96,7 @@ export const reads = [
     condition: '无需 SIM，需要实际组网才有节点',
   },
   rpc('clients', 38, 'device', 'jytl_api', 'ue_get', '接入设备'),
-  rpc('status', 41, 'device', 'jytl_api', 'get_status_info', '设备状态页'),
+  rpc('status', 41, 'device', 'jytl_api', 'get_status_info', '设备状态页。reading.uplink 为 connected 表示上联已连接；SimStatus 3 需要 PIN，4 需要 PUK。是否在槽看 sim_presence'),
   rpc('device_info', 42, 'device', 'jytl_api', 'devinfo_get', '设备基本信息'),
   rpc(
     'device',
@@ -113,7 +113,7 @@ export const reads = [
     49,
     'cellular',
     '/cgi-bin/get_simcard_inslot_stat',
-    'SIM 在槽状态',
+    'SIM 在槽状态。reading.state：present=21 在槽可用，absent=0 未插入，unavailable=3 或 4 暂时不可用，abnormal=其他。不代表上联已连接',
     false,
   ),
   rpc('sim_slot', 50, 'cellular', 'mtk.cell', 'get_simcard_index', 'SIM 插槽配置'),

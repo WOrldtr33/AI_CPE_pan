@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile, mkdtemp, rm, mkdir } from 'node:fs/promises';
-import { Agent } from '../src/agent-core.mjs';
+import { Agent, requiresFreshDeviceRead } from '../src/agent-core.mjs';
 import { ModelApi } from '../src/agent-api.mjs';
 import { config } from '../src/agent-config.mjs';
 import { connectTools, deviceEnvironment } from '../src/agent-mcp.mjs';
@@ -33,6 +33,33 @@ test('Agent tool loop preserves call IDs and reasoning; multi-turn and clear wor
   await f.agent.turn('再说一次'); assert.equal(f.sent[2].at(-1).content, '再说一次');
   f.agent.clear(); assert.equal(f.agent.messages.length, 1);
   assert(!JSON.stringify(f.events).includes('internal'));
+});
+
+test('Current network status is not answered from history until a device tool runs', async () => {
+  assert.equal(requiresFreshDeviceRead('查看网络状态'), true);
+  assert.equal(requiresFreshDeviceRead('再说一次'), false);
+  const statusTool = { type: 'function', function: { name: 't830_get_status', parameters: { type: 'object' } } };
+  const presenceTool = { type: 'function', function: { name: 't830_get_sim_presence', parameters: { type: 'object' } } };
+  const responses = [
+    answer('SIM 不在槽，WAN 未连接'),
+    { message: { role: 'assistant', tool_calls: [request('status', 't830_get_status'), request('sim', 't830_get_sim_presence')] } },
+    answer('上联已连接，SIM 在槽'),
+  ];
+  const f = fixture(responses, async (name) => name === 't830_get_sim_presence'
+    ? { status: 'returned', reading: { state: 'present' }, data: { data: { simcard_inslot: '21' } } }
+    : { status: 'returned', reading: { uplink: 'connected' }, data: { data: { wanstat: 'true,true', SimStatus: '1' } } });
+  f.agent.mcp.definitions = [statusTool, presenceTool];
+  f.agent.summary = '历史：SimStatus 0，wanstat false,false';
+  const result = await f.agent.turn('查看网络状态');
+  assert.equal(result.answer, '上联已连接，SIM 在槽');
+  assert.equal(f.executed.length, 2);
+  assert.match(f.sent[1].at(-1).content, /请调用对应的 t830 只读工具/);
+  assert.equal(f.sent[1].some(m => m.role === 'assistant' && !m.tool_calls), false);
+  const skipped = fixture([answer('仍是未插卡'), answer('仍是未插卡')]);
+  skipped.agent.mcp.definitions = [statusTool];
+  await assert.rejects(skipped.agent.turn('查看网络状态'), /DEVICE_READ_REQUIRED/);
+  assert.equal(skipped.executed.length, 0);
+  assert.equal(skipped.agent.messages.length, 1);
 });
 
 test('Unlisted writes and malformed JSON never execute; all tool replies correlate', async () => {

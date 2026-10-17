@@ -48,16 +48,17 @@ async function fixture(fn, enableWrites = true) {
   } finally { await mcp?.close(); await new Promise(resolve => server.close(resolve)); }
 }
 
-test('Expanded default tools match exactly the 31 successful live smoke rows', async () => {
+test('Default tools match exactly the live rows that returned', async () => {
   const doc = await readFile(new URL('../docs/testing/LIVE_TEST_RESULTS.md', import.meta.url), 'utf8');
   const passed = [...doc.matchAll(/^\|\s*\d+\s*\|\s*(\w+)\s*\|\s*returned\s*\|/gm)].map(m => m[1]);
-  assert.equal(passed.length, 31);
+  assert.equal(passed.length, 34);
   assert.deepEqual([...verifiedReadSections].sort(), passed.sort());
-  assert(!verifiedReadSections.includes('device')); assert(!verifiedReadSections.includes('wifi_ad'));
+  assert.deepEqual(['device', 'sim', 'traffic'].filter(key => verifiedReadSections.includes(key)), ['device', 'sim', 'traffic']);
+  assert(!verifiedReadSections.includes('sim_slot')); assert(!verifiedReadSections.includes('roaming')); assert(!verifiedReadSections.includes('wifi_ad'));
 });
 
-test('All 31 read tools call through real MCP; only verified UPnP write is exposed', () => fixture(async ({ mcp, stats }) => {
-  assert.equal(mcp.definitions.length, 32);
+test('All default read tools call through real MCP; only verified UPnP write is exposed', () => fixture(async ({ mcp, stats }) => {
+  assert.equal(mcp.definitions.length, 35);
   assert.deepEqual([...mcp.writeTools], [verifiedWriteTool]);
   for (const section of verifiedReadSections) {
     const def = reads.find(d => d.key === section);
@@ -102,7 +103,7 @@ test('Agent proposal → approval → real MCP verified write works against simu
 }));
 
 test('Read-only configuration still excludes writes at the MCP boundary', () => fixture(async ({ mcp }) => {
-  assert.equal(mcp.definitions.length, 31); assert.equal(mcp.writeTools.size, 0);
+  assert.equal(mcp.definitions.length, 34); assert.equal(mcp.writeTools.size, 0);
   await assert.rejects(mcp.executeApprovedWrite(verifiedWriteTool, {}), /WRITE_TOOL_DISABLED/);
 }, false));
 

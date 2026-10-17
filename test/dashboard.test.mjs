@@ -9,6 +9,9 @@ test('dashboard preserves unknown quality and rate units; counts terminals rathe
  const r=normalizeDashboard({status:result({DLrate:'20',ULrate:'2',wanstat:'true,false'}),clients:result({brlan_count:'2',ra0_count:1})});assert.equal(r.rates.down,null);assert.equal(r.quality.level,null);assert.equal(r.clients,3);
  assert.equal(normalizeDashboard({status:result({DLrate:'20',ULrate:'0',wanstat:'false,false'})},'Mbps').rates.down,2500000);
  assert.equal(normalizeDashboard({status:result({DLrate:'0',ULrate:'0'})}).rates.down,0);
+ const live=normalizeDashboard({status:result({DLrate:'0',ULrate:'0',wanstat:'true,ccmni',SignalValue:'-78 dBm',long_eons:'ChinaUnicom',NR_or_LTE:'5G',SimStatus:'21'}),sim_presence:{status:'returned',data:{data:{simcard_inslot:'21'}}}});
+ assert.equal(live.quality.level,4);assert.equal(live.cellular.slot,'present');assert.equal(live.cellular.operator,'ChinaUnicom');assert.equal(live.cellular.radio,'5G');
+ assert.equal(normalizeDashboard({status:result({wanstat:'true,ccmni',SIM:'8610000000000'})}).cellular.operator,null);
 });
 async function fixture(fn){await mkdir('.media-state',{recursive:true});const dir=await mkdtemp(join(process.cwd(),'.media-state/dashboard-test-')),store=new AgentStore(join(dir,'agent'));let value='0',writes=0,uptime=500;
  const mcp={deviceKey:'test-device',writeTools:new Set(['t830_set_upnp_verified']),definitions:['status','clients','device_info','dhcp','upnp'].map(n=>({function:{name:'t830_get_'+n}})),call:async name=>result(name.endsWith('upnp')?{upnp_switch:value}:name.endsWith('device_info')?{up_second:uptime,LanIP:'192.168.0.1'}:name.endsWith('status')?{DLrate:'0',ULrate:'0',wanstat:'false,false'}:{})};

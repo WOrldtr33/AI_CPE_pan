@@ -3,7 +3,7 @@ import { executeWriteWorkflow } from './write-workflow.mjs';
 import { writeProfiles } from './write-profiles.mjs';
 import { OperationQueue } from './queue.mjs';
 import { setTimeout as delay } from 'node:timers/promises';
-import { validateResponse, summarizeDiagnostics } from './response.mjs';
+import { validateResponse, summarizeDiagnostics, deviceReading } from './response.mjs';
 import { createHash, randomBytes } from 'node:crypto';
 import { readByKey, writeByKey, reads } from './catalog.mjs';
 // 对外输出前统一脱敏；保留 withCookie 布尔值，便于判断认证处理过程。
@@ -11,6 +11,8 @@ export function redact(value, key = '') {
   if (key === 'withCookie' && typeof value === 'boolean') {
     return value;
   }
+  // 状态页的 SIM 字段是号码，不能和 SimStatus 一起按子串匹配。
+  if (key === 'SIM') return '[REDACTED]';
   if (
     /password|passwd|wpapsk|token|sessionid|cookie|imei|imsi|iccid|serial|mac|ssid|phone|pincode|pin_str|puk|salt|cnum|secret/i.test(
       key,
@@ -456,19 +458,22 @@ export class T830 {
             data,
           });
           options.captureRaw?.(data);
+          const status = issues.length
+            ? 'device_warning'
+            : readonly
+              ? 'returned'
+              : 'submitted';
+          const reading = readonly ? deviceReading(def.key, data) : undefined;
           return {
-            status: issues.length
-              ? 'device_warning'
-              : readonly
-                ? 'returned'
-                : 'submitted',
+            status,
             data: redact(data),
+            ...(reading ? { reading } : {}),
             warnings: redact(issues),
             validation,
             diagnosticSummary: summarizeDiagnostics(trace, def),
             diagnostics: trace,
             note: readonly
-              ? '返回数据不代表已联网；无 SIM 仍可能有无线信息。'
+              ? '返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。'
               : '仅接口返回，未自动确认配置生效；不重试写操作。',
           };
         } catch (e) {

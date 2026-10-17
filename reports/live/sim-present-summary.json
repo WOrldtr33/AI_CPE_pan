@@ -1,0 +1,191 @@
+{
+  "at": "2026-10-17T06:43:54.852Z",
+  "summary": [
+    {
+      "key": "sim_presence",
+      "status": "returned",
+      "ms": 99,
+      "error": null,
+      "reading": {
+        "field": "data.simcard_inslot",
+        "value": "21",
+        "state": "present",
+        "text": "SIM 在槽且设备前端允许继续使用",
+        "provesUplink": false
+      },
+      "warnings": [],
+      "fields": [
+        "simcard_inslot"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "status",
+      "status": "returned",
+      "ms": 568,
+      "error": null,
+      "reading": {
+        "wanstat": "true,ccmni",
+        "uplink": "connected",
+        "simStatus": "21",
+        "pin": "not_indicated",
+        "text": "上联已连接",
+        "provesSimSlot": false
+      },
+      "warnings": [],
+      "fields": [
+        "long_eons",
+        "DLrate",
+        "WifiType",
+        "SIM",
+        "IMEI",
+        "MSI",
+        "wifimode",
+        "NR_or_LTE",
+        "SignalValue",
+        "ICCID",
+        "SimStatus",
+        "ULrate",
+        "stcpinlock",
+        "stcdatactrl",
+        "open",
+        "SignalName",
+        "stclockstatus",
+        "wanstat"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "device",
+      "status": "returned",
+      "ms": 292,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "cell_id",
+        "NR",
+        "act",
+        "PS_eAct",
+        "code",
+        "combo_band",
+        "LTE",
+        "plmn",
+        "gNodeBID",
+        "WCDMA",
+        "imsi",
+        "imei",
+        "cnum"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "sim",
+      "status": "returned",
+      "ms": 96,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "sim"
+      ],
+      "sim": [
+        "status",
+        "remain",
+        "lock"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "sim_slot",
+      "status": "error",
+      "ms": 169,
+      "error": "RPC_ERROR_-32002",
+      "reading": null,
+      "warnings": [],
+      "fields": [],
+      "note": null
+    },
+    {
+      "key": "network_mode",
+      "status": "returned",
+      "ms": 108,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "ratPrefer",
+        "ratMode",
+        "code",
+        "modeList",
+        "currAct"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "apn",
+      "status": "returned",
+      "ms": 104,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "manual",
+        "code"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "cells",
+      "status": "returned",
+      "ms": 416,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "neighbour",
+        "serving",
+        "num_of_cell"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "band_lock",
+      "status": "returned",
+      "ms": 62,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "Band",
+        "Pci",
+        "multi_band",
+        "args"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    },
+    {
+      "key": "roaming",
+      "status": "error",
+      "ms": 169,
+      "error": "RPC_ERROR_-32002",
+      "reading": null,
+      "warnings": [],
+      "fields": [],
+      "note": null
+    },
+    {
+      "key": "traffic",
+      "status": "returned",
+      "ms": 232,
+      "error": null,
+      "reading": null,
+      "warnings": [],
+      "fields": [
+        "cfgs",
+        "stats"
+      ],
+      "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+    }
+  ]
+}

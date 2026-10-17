@@ -33,9 +33,16 @@ const rules = {
     ['data.SoftwareVersion', 'string'],
     ['data.LanIP', 'string'],
   ],
+  device: [
+    ['code', 'scalar'],
+    ['PS_eAct', 'scalar'],
+  ],
   version: [['data.version', 'string']],
   sim_presence: [['data.simcard_inslot', 'scalar']],
-  sim: [['sim', 'object']],
+  sim: [
+    ['sim', 'object'],
+    ['sim.status', 'string'],
+  ],
   network_mode: [
     ['ratMode', 'scalar'],
     ['modeList', 'object'],
@@ -171,6 +178,105 @@ export function validateResponse(def, data, businessWarnings = []) {
     report.issues.push({ path: [], reason: 'missing_wps_result' });
   if (report.issues.length) report.status = 'failed';
   return report;
+}
+const simSlotStates = {
+  21: ['present', 'SIM 在槽且设备前端允许继续使用'],
+  0: ['absent', '未检测到 SIM'],
+  3: ['unavailable', 'SIM 暂时不可用'],
+  4: ['unavailable', 'SIM 暂时不可用'],
+};
+export function simPresenceReading(data) {
+  const raw = data?.data?.simcard_inslot;
+  const value = raw === undefined || raw === null ? '' : String(raw);
+  const known = simSlotStates[value];
+  return {
+    field: 'data.simcard_inslot',
+    value,
+    state: known?.[0] || (value ? 'abnormal' : 'unknown'),
+    text: known?.[1] || (value ? '未识别的在槽码，设备前端视为 SIM 异常' : '响应没有在槽字段'),
+    provesUplink: false,
+  };
+}
+export function statusReading(data) {
+  const row = data?.data && typeof data.data === 'object' && !Array.isArray(data.data) ? data.data : {};
+  const first = typeof row.wanstat === 'string' ? row.wanstat.split(',')[0].trim() : '';
+  const simStatus = row.SimStatus === undefined || row.SimStatus === null ? '' : String(row.SimStatus);
+  const uplink = first === 'true' ? 'connected' : first === 'false' ? 'not_connected' : 'unknown';
+  const pin = simStatus === '3' ? 'pin_required' : simStatus === '4' ? 'puk_required' : 'not_indicated';
+  const signal = typeof row.SignalValue === 'string' && row.SignalValue.trim() ? row.SignalValue.trim() : null;
+  const operator = typeof row.long_eons === 'string' && row.long_eons.trim() ? row.long_eons.trim() : null;
+  const radio = typeof row.NR_or_LTE === 'string' && row.NR_or_LTE.trim() ? row.NR_or_LTE.trim() : null;
+  const text = uplink === 'connected'
+    ? '上联已连接'
+    : uplink === 'not_connected'
+      ? pin === 'pin_required'
+        ? '上联未连接，需要 PIN'
+        : pin === 'puk_required'
+          ? '上联未连接，需要 PUK'
+          : '上联未连接'
+      : '上联状态未知';
+  return {
+    wanstat: typeof row.wanstat === 'string' ? row.wanstat : null,
+    uplink,
+    simStatus,
+    pin,
+    signal,
+    operator,
+    radio,
+    text,
+    provesSimSlot: false,
+  };
+}
+export function cellularDeviceReading(data) {
+  const row = data && typeof data === 'object' && !Array.isArray(data) ? data : {};
+  const code = row.code === undefined || row.code === null ? '' : String(row.code);
+  const warn = typeof row.Warn === 'string' && row.Warn && row.Warn !== '0' ? row.Warn : '';
+  const radio = typeof row.PS_eAct === 'string' && row.PS_eAct.trim() ? row.PS_eAct.trim() : null;
+  const registered = code === '200' && !warn;
+  return {
+    field: 'code',
+    value: code,
+    state: registered ? 'registered' : warn || code ? 'not_registered' : 'unknown',
+    radio,
+    plmn: typeof row.plmn === 'string' && row.plmn ? row.plmn : null,
+    text: registered
+      ? `蜂窝已注册${radio ? `，制式 ${radio}` : ''}`
+      : warn
+        ? `蜂窝未注册：${warn}`
+        : '蜂窝注册状态未知',
+    provesUplink: false,
+    provesSimSlot: false,
+  };
+}
+export function simInfoReading(data) {
+  const sim = data?.sim && typeof data.sim === 'object' && !Array.isArray(data.sim) ? data.sim : {};
+  const status = typeof sim.status === 'string' ? sim.status : '';
+  const lock = sim.lock === undefined || sim.lock === null ? '' : String(sim.lock);
+  const pinLock = lock === '0' ? 'disabled' : lock === '1' ? 'enabled' : 'unknown';
+  const attempts = sim.remain?.pin1;
+  const pinAttempts = attempts === undefined || attempts === null || attempts === '' ? null : String(attempts);
+  const ready = status === 'READY';
+  return {
+    field: 'sim.status',
+    value: status,
+    state: ready ? 'ready' : status ? 'not_ready' : 'unknown',
+    pinLock,
+    pinAttempts,
+    text: ready
+      ? `SIM 可用${pinLock === 'disabled' ? '，PIN 锁关闭' : pinLock === 'enabled' ? '，PIN 锁开启' : ''}`
+      : status
+        ? `SIM 状态 ${status}`
+        : '没有 SIM 状态字段',
+    provesUplink: false,
+    provesSimSlot: false,
+  };
+}
+export function deviceReading(key, data) {
+  if (key === 'sim_presence') return simPresenceReading(data);
+  if (key === 'status') return statusReading(data);
+  if (key === 'device') return cellularDeviceReading(data);
+  if (key === 'sim') return simInfoReading(data);
+  return undefined;
 }
 // 摘要从轨迹提取事实与假设；access=false 单独不能解释 Object not found。
 export function summarizeDiagnostics(trace, def, error) {

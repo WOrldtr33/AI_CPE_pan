@@ -1,10 +1,12 @@
 import {reads} from './catalog.mjs';
+import {deviceReading} from './response.mjs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
 
 export const payload = result => ['returned','device_warning'].includes(result?.status) ? (result.data?.data || result.data || {}) : {};
-const number = value => value !== '' && value !== null && value !== undefined && Number.isFinite(Number(value)) ? Number(value) : null;
+ const number = value => value !== '' && value !== null && value !== undefined && Number.isFinite(Number(value)) ? Number(value) : null;
+function signalBars(value){const match=typeof value==='string'?value.match(/-?\d+(?:\.\d+)?/):null;if(!match)return null;const dbm=Number(match[0]);if(!Number.isFinite(dbm)||dbm>-30||dbm<-140)return null;if(dbm>=-80)return 4;if(dbm>=-90)return 3;if(dbm>=-100)return 2;if(dbm>=-110)return 1;return 0;}
 const ip = value => typeof value==='string' && value.trim() && value!=='[REDACTED]' ? value.trim() : null;
 export function normalizeDashboard(results, rateUnit) {
  const status=payload(results.status),device=payload(results.device_info),clients=payload(results.clients),dhcp=payload(results.dhcp),upnp=payload(results.upnp);
@@ -13,10 +15,15 @@ export function normalizeDashboard(results, rateUnit) {
  const convert=v=>v===0?0:v!==null&&v>=0&&factors[rateUnit]?v*factors[rateUnit]:null;
  const counts=['brlan_count','ra0_count','ra1_count','rai0_count','rai1_count'].map(k=>number(clients[k]));
  const online=typeof status.wanstat==='string'?status.wanstat.split(',').some(v=>v.trim()==='true'):null;
+ const statusReading=results.status?.status==='returned'?deviceReading('status',results.status.data):undefined;
+ const presence=results.sim_presence?.status==='returned'?deviceReading('sim_presence',results.sim_presence.data):undefined;
+ const bars=signalBars(statusReading?.signal);
+ const offline=online===false;
  return { observedAt:Date.now(), available:results.status?.status==='returned', online,
   rates:{down:convert(down),up:convert(up),rawDown:down,rawUp:up,unit:rateUnit||null},
   clients:counts.some(v=>v!==null)?counts.reduce((s,n)=>s+(n||0),0):null,
-  quality:{level:online===false?0:null,label:online===false?'上联未连接':'质量待测',basis:online===false?'设备上联状态':'尚无经验证的网络质量测量'},
+  quality:offline?{level:0,label:'上联未连接',basis:'设备上联状态'}:bars===null?{level:null,label:'信号待测',basis:'尚无设备上报的信号强度'}:{level:bars,label:statusReading.signal,basis:'设备状态页上报的信号强度，不是吞吐测速'},
+  cellular:{slot:presence?.state||null,slotText:presence?.text||null,operator:statusReading?.operator||null,radio:statusReading?.radio||null,signal:statusReading?.signal||null,pin:statusReading?.pin||null},
   ips:{lan:ip(device.LanIP)||ip(dhcp.gateway),wan:ip(device.ccmni_ipv4)||ip(device.eth1_ipv4),ipv6:ip(device.ccmni_ipv6)||ip(device.eth1_ipv6),gateway:ip(dhcp.gateway),dns:ip(device.ccmni_dns)},
   device:{model:ip(device.ModelName),firmware:ip(device.SoftwareVersion),hardware:ip(device.HardwareVersion),uptimeSeconds:number(device.up_second)},
   upnp:['0','1'].includes(upnp.upnp_switch)?upnp.upnp_switch:null,
@@ -30,7 +37,7 @@ export class Dashboard {
  async snapshot(force=false,externalSignal){
   if(this.pending)return this.pending;if(!force&&this.current&&Date.now()-this.current.observedAt<2500)return this.current;
   this.pending=(async()=>{const signal=AbortSignal.any([AbortSignal.timeout(12000),...(externalSignal?[externalSignal]:[])]);
-   for(const name of ['status','clients','device_info','dhcp','upnp']){if(force||!this.cache[name]||Date.now()-this.cache[name].at>(name==='status'?2500:30000))this.cache[name]={at:Date.now(),result:await this.read(name,signal)};}
+   for(const name of ['status','sim_presence','clients','device_info','dhcp','upnp']){if(force||!this.cache[name]||Date.now()-this.cache[name].at>(name==='status'?2500:30000))this.cache[name]={at:Date.now(),result:await this.read(name,signal)};}
    const normalized=normalizeDashboard(Object.fromEntries(Object.entries(this.cache).map(([key,v])=>[key,v.result])),this.rateUnit);
    const uptime=normalized.device.uptimeSeconds;
    if(uptime!==null){const predicted=this.lastUptime===undefined?null:this.lastUptime+(Date.now()-this.lastUptimeAt)/1000;if(!this.boot||predicted!==null&&Math.abs(uptime-predicted)>60){this.boot=randomUUID();this.points=[];}this.lastUptime=uptime;this.lastUptimeAt=Date.now();}
