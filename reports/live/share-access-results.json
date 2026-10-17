@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-08T06:48:52.094Z",
+  "section": "share",
+  "mode": "live-read-only",
+  "output": {
+    "status": "error",
+    "error": "RPC_ERROR_-32000",
+    "details": {
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32000,
+          "message": "Object not found"
+        }
+      },
+      "diagnostics": [
+        {
+          "at": "2026-10-08T06:48:52.404Z",
+          "step": "attempt",
+          "attempt": 1,
+          "withCookie": false,
+          "error": "RPC_ERROR_-32000",
+          "details": {
+            "response": {
+              "jsonrpc": "2.0",
+              "id": 1,
+              "error": {
+                "code": -32000,
+                "message": "Object not found"
+              }
+            }
+          }
+        },
+        {
+          "at": "2026-10-08T06:48:52.466Z",
+          "step": "diagnostic",
+          "service": "session",
+          "method": "access",
+          "data": {
+            "access": false
+          }
+        }
+      ],
+      "exhausted": true
+    }
+  }
+}

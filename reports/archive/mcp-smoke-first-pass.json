@@ -1,0 +1,2849 @@
+{
+  "at": "2026-10-08T03:33:11.194Z",
+  "mode": "live-read-only",
+  "cookieMode": "auto",
+  "records": [
+    {
+      "api": 1,
+      "section": "first_setup",
+      "group": "system",
+      "status": "returned",
+      "ms": 383,
+      "output": {
+        "status": "returned",
+        "data": {
+          "first_setup": "0",
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:11.910Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "first_setup": "0",
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 2,
+      "section": "setup",
+      "group": "system",
+      "status": "error",
+      "ms": 398,
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": false,
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:12.311Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": false
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 8,
+      "section": "country",
+      "group": "system",
+      "status": "device_warning",
+      "ms": 78,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "data": {
+            "country_code": "ZA"
+          },
+          "code": 0
+        },
+        "warnings": [
+          {
+            "field": "data.country_code",
+            "value": "ZA"
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:12.389Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "data": {
+                "country_code": "ZA"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 9,
+      "section": "wifi",
+      "group": "wifi",
+      "status": "returned",
+      "ms": 262,
+      "output": {
+        "status": "returned",
+        "data": {
+          "5G_code": "200",
+          "2.4G_code": "200",
+          "5G": {
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "hidden": "0",
+            "state": "up",
+            "Channel": "0",
+            "authmode": "WPA2PSKWPA3PSK",
+            "wpapsk": "[REDACTED]",
+            "WirelessMode": "23",
+            "BandWidth": "3"
+          },
+          "Unity_switch": "OFF",
+          "2.4G": {
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "hidden": "0",
+            "state": "up",
+            "Channel": "0",
+            "authmode": "WPA2PSKWPA3PSK",
+            "wpapsk": "[REDACTED]",
+            "WirelessMode": "22",
+            "BandWidth": "1"
+          },
+          "Unity_code": "200",
+          "Unity": {
+            "state": "up",
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "authmode": "WPA2PSKWPA3PSK",
+            "hidden": "0",
+            "wpapsk": "[REDACTED]"
+          }
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:12.651Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "5G_code": "200",
+              "2.4G_code": "200",
+              "5G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "23",
+                "BandWidth": "3"
+              },
+              "Unity_switch": "OFF",
+              "2.4G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "22",
+                "BandWidth": "1"
+              },
+              "Unity_code": "200",
+              "Unity": {
+                "state": "up",
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "authmode": "WPA2PSKWPA3PSK",
+                "hidden": "0",
+                "wpapsk": "[REDACTED]"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 12,
+      "section": "guest",
+      "group": "wifi",
+      "status": "returned",
+      "ms": 262,
+      "output": {
+        "status": "returned",
+        "data": {
+          "Guest5G": {
+            "state": "down",
+            "ssid": "[REDACTED]",
+            "on_mode": "Only",
+            "authmode": "Disable",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "wpapsk": "[REDACTED]",
+            "closetime": "NONE"
+          },
+          "Guest_code": "200",
+          "Guest5G_code": "200",
+          "Guest": {
+            "state": "down",
+            "ssid": "[REDACTED]",
+            "on_mode": "Only",
+            "authmode": "Disable",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "wpapsk": "[REDACTED]",
+            "closetime": "NONE"
+          }
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:12.914Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "Guest5G": {
+                "state": "down",
+                "ssid": "[REDACTED]",
+                "on_mode": "Only",
+                "authmode": "Disable",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "wpapsk": "[REDACTED]",
+                "closetime": "NONE"
+              },
+              "Guest_code": "200",
+              "Guest5G_code": "200",
+              "Guest": {
+                "state": "down",
+                "ssid": "[REDACTED]",
+                "on_mode": "Only",
+                "authmode": "Disable",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "wpapsk": "[REDACTED]",
+                "closetime": "NONE"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 15,
+      "section": "wps",
+      "group": "wifi",
+      "status": "returned",
+      "ms": 280,
+      "output": {
+        "status": "returned",
+        "data": {
+          "guest": {
+            "5G": {
+              "WPS_info": {
+                "WscResult": "0",
+                "WscStatus": "Not used"
+              },
+              "ssid": "[REDACTED]",
+              "restrict": "NONE"
+            },
+            "2.4G": {
+              "WPS_info": {
+                "WscResult": "0",
+                "WscStatus": "Not used"
+              },
+              "ssid": "[REDACTED]",
+              "restrict": "NONE"
+            }
+          },
+          "host": {
+            "5G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Idle"
+              },
+              "ssid": "[REDACTED]",
+              "restrict": "NONE;NONE"
+            },
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Idle"
+              },
+              "ssid": "[REDACTED]",
+              "restrict": "NONE;NONE"
+            }
+          }
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:13.193Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "guest": {
+                "5G": {
+                  "WPS_info": {
+                    "WscResult": "0",
+                    "WscStatus": "Not used"
+                  },
+                  "ssid": "[REDACTED]",
+                  "restrict": "NONE"
+                },
+                "2.4G": {
+                  "WPS_info": {
+                    "WscResult": "0",
+                    "WscStatus": "Not used"
+                  },
+                  "ssid": "[REDACTED]",
+                  "restrict": "NONE"
+                }
+              },
+              "host": {
+                "5G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Idle"
+                  },
+                  "ssid": "[REDACTED]",
+                  "restrict": "NONE;NONE"
+                },
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Idle"
+                  },
+                  "ssid": "[REDACTED]",
+                  "restrict": "NONE;NONE"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 16,
+      "section": "wps_run",
+      "group": "wifi",
+      "status": "returned",
+      "ms": 249,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": []
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:13.443Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": []
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 19,
+      "section": "wifi_ad",
+      "group": "wifi",
+      "status": "error",
+      "ms": 190,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 5,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:13.507Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 5,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.570Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.633Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.633Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 21,
+      "section": "wifi_night",
+      "group": "wifi",
+      "status": "error",
+      "ms": 187,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 8,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:13.693Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 8,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.757Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.821Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:13.821Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 23,
+      "section": "workmode",
+      "group": "network",
+      "status": "returned",
+      "ms": 62,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:13.883Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 25,
+      "section": "wifi_rt",
+      "group": "network",
+      "status": "error",
+      "ms": 501,
+      "output": {
+        "status": "error",
+        "error": "UBUS_ERROR_5_NO_DATA",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 12,
+            "result": [
+              5
+            ]
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:14.258Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "UBUS_ERROR_5_NO_DATA",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 12,
+                  "result": [
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:14.322Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:14.384Z",
+              "step": "diagnostic",
+              "service": "web_api",
+              "method": "get_workmode",
+              "data": {
+                "data": {
+                  "bonding": "0",
+                  "add_ccmni_to_bridge": "0",
+                  "ip_passthrough": "1",
+                  "if_index": "",
+                  "data_switch": "1",
+                  "gateway": "",
+                  "workmode": 4
+                },
+                "code": 0
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:14.384Z",
+              "step": "hypothesis",
+              "reason": "router_data_depends_on_mode_and_upstream_connection",
+              "workmode": 4,
+              "confirmed": false
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 30,
+      "section": "mesh_status",
+      "group": "mesh",
+      "status": "returned",
+      "ms": 295,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "easymesh_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:14.450Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:14.450Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:14.680Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "easymesh_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 31,
+      "section": "mesh_role",
+      "group": "mesh",
+      "status": "returned",
+      "ms": 296,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "role": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:14.741Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:14.741Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:14.976Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "role": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 34,
+      "section": "mesh_routers",
+      "group": "mesh",
+      "status": "returned",
+      "ms": 326,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "count": 0,
+            "dev_list": {}
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:15.037Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:15.037Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:15.304Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "count": 0,
+                "dev_list": {}
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 38,
+      "section": "clients",
+      "group": "device",
+      "status": "returned",
+      "ms": 451,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "offline_count": 0,
+            "rai1_list": [],
+            "ra0_count": 0,
+            "ra1_list": [],
+            "rai0_list": [],
+            "ra1_count": 0,
+            "rai0_count": 0,
+            "rai1_count": 0,
+            "offline_list": [],
+            "brlan_list": [
+              {
+                "mac": "[REDACTED]",
+                "name": "LAPTOP-OC9C2FGM",
+                "OnlineTime": 1178,
+                "forbid": "off",
+                "ip": "192.168.0.208"
+              }
+            ],
+            "brlan_count": 1,
+            "ra0_list": []
+          },
+          "code": "200"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:15.755Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "offline_count": 0,
+                "rai1_list": [],
+                "ra0_count": 0,
+                "ra1_list": [],
+                "rai0_list": [],
+                "ra1_count": 0,
+                "rai0_count": 0,
+                "rai1_count": 0,
+                "offline_list": [],
+                "brlan_list": [
+                  {
+                    "mac": "[REDACTED]",
+                    "name": "LAPTOP-OC9C2FGM",
+                    "OnlineTime": 1178,
+                    "forbid": "off",
+                    "ip": "192.168.0.208"
+                  }
+                ],
+                "brlan_count": 1,
+                "ra0_list": []
+              },
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 41,
+      "section": "status",
+      "group": "device",
+      "status": "returned",
+      "ms": 326,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "--",
+            "IMEI": "[REDACTED]",
+            "MSI": "",
+            "wifimode": "100",
+            "NR_or_LTE": "",
+            "SignalValue": "  ",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "0",
+            "ULrate": "0",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "",
+            "stclockstatus": "0",
+            "wanstat": "false,false"
+          },
+          "dataCode": "200"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:16.081Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "--",
+                "IMEI": "[REDACTED]",
+                "MSI": "",
+                "wifimode": "100",
+                "NR_or_LTE": "",
+                "SignalValue": "  ",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "0",
+                "ULrate": "0",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "",
+                "stclockstatus": "0",
+                "wanstat": "false,false"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 42,
+      "section": "device_info",
+      "group": "device",
+      "status": "returned",
+      "ms": 548,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "MAC_24G": "[REDACTED]",
+            "boardSN": "23M05KHO91000094",
+            "ccmni_ipv6": "",
+            "DLRATE4g": "0",
+            "WiFiBW2g": "40",
+            "up_second": "1179",
+            "WiFiChannel2g": "13 (auto)",
+            "LanIP": "192.168.0.1",
+            "WiFiBW5g": "160",
+            "WiFiChannel5g": "36 (auto)",
+            "ccmni_dns": "",
+            "WiFiTX_PWR": "100% (high)",
+            "ULRATE5g": "0",
+            "MAC_WAN": "[REDACTED]",
+            "DLRATE5g": "0",
+            "ULRATE4g": "0",
+            "WLANRssi": "5G Rssi: 0 0 0 0 0 , 2.4G Rssi: 0 0 0 0 0 .",
+            "ModelName": "the101pro",
+            "VendorName": "VTJZNVNS",
+            "eth1_ipv4": "",
+            "SVN": "\n",
+            "ccmni_ipv4": "",
+            "HardwareVersion": "V2.0",
+            "NickName": "5G CPE",
+            "productSN": "RAWSZAC0P13003936",
+            "uptime": " 19 min",
+            "eth1_ipv6": "",
+            "cpu": "18.20%",
+            "WanInterface": ",",
+            "MAC_5G": "[REDACTED]",
+            "SoftwareVersion": "RA_M5_v9.10.debug"
+          },
+          "code": "200"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:16.629Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "MAC_24G": "[REDACTED]",
+                "boardSN": "23M05KHO91000094",
+                "ccmni_ipv6": "",
+                "DLRATE4g": "0",
+                "WiFiBW2g": "40",
+                "up_second": "1179",
+                "WiFiChannel2g": "13 (auto)",
+                "LanIP": "192.168.0.1",
+                "WiFiBW5g": "160",
+                "WiFiChannel5g": "36 (auto)",
+                "ccmni_dns": "",
+                "WiFiTX_PWR": "100% (high)",
+                "ULRATE5g": "0",
+                "MAC_WAN": "[REDACTED]",
+                "DLRATE5g": "0",
+                "ULRATE4g": "0",
+                "WLANRssi": "5G Rssi: 0 0 0 0 0 , 2.4G Rssi: 0 0 0 0 0 .",
+                "ModelName": "the101pro",
+                "VendorName": "VTJZNVNS",
+                "eth1_ipv4": "",
+                "SVN": "\n",
+                "ccmni_ipv4": "",
+                "HardwareVersion": "V2.0",
+                "NickName": "5G CPE",
+                "productSN": "RAWSZAC0P13003936",
+                "uptime": " 19 min",
+                "eth1_ipv6": "",
+                "cpu": "18.20%",
+                "WanInterface": ",",
+                "MAC_5G": "[REDACTED]",
+                "SoftwareVersion": "RA_M5_v9.10.debug"
+              },
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 43,
+      "section": "device",
+      "group": "cellular",
+      "status": "device_warning",
+      "ms": 236,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "cell_id": "0x00D9D5B23",
+          "code": "206",
+          "PS_eAct": "UMTS",
+          "Warn": "Mobile Network registration failed",
+          "imsi": "[REDACTED]",
+          "imei": "[REDACTED]",
+          "cnum": "[REDACTED]"
+        },
+        "warnings": [
+          {
+            "field": "code",
+            "value": "206"
+          },
+          {
+            "field": "Warn",
+            "value": "Mobile Network registration failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:16.865Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "cell_id": "0x00D9D5B23",
+              "code": "206",
+              "PS_eAct": "UMTS",
+              "Warn": "Mobile Network registration failed",
+              "imsi": "[REDACTED]",
+              "imei": "[REDACTED]",
+              "cnum": "[REDACTED]"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 44,
+      "section": "version",
+      "group": "device",
+      "status": "returned",
+      "ms": 62,
+      "output": {
+        "status": "returned",
+        "data": {
+          "dataCode": "200",
+          "data": {
+            "upgradeState": "0",
+            "version": "RA_M5_v9.10.debug"
+          }
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:16.927Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "dataCode": "200",
+              "data": {
+                "upgradeState": "0",
+                "version": "RA_M5_v9.10.debug"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 49,
+      "section": "sim_presence",
+      "group": "cellular",
+      "status": "returned",
+      "ms": 78,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "simcard_inslot": "0"
+          },
+          "dataCode": 200
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.005Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "simcard_inslot": "0"
+              },
+              "dataCode": 200
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 50,
+      "section": "sim_slot",
+      "group": "cellular",
+      "status": "error",
+      "ms": 188,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 19,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:17.068Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 19,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.130Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.193Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.193Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 52,
+      "section": "sim",
+      "group": "cellular",
+      "status": "device_warning",
+      "ms": 109,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "sim": {
+            "ERROR": "10"
+          }
+        },
+        "warnings": [
+          {
+            "field": "sim.ERROR",
+            "value": "10"
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.303Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "sim": {
+                "ERROR": "10"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 58,
+      "section": "network_mode",
+      "group": "cellular",
+      "status": "returned",
+      "ms": 108,
+      "output": {
+        "status": "returned",
+        "data": {
+          "ratPrefer": "4,128,4,2,1",
+          "ratMode": "21",
+          "code": "200",
+          "modeList": {
+            "0": "GSM only",
+            "1": "UMTS only",
+            "2": "GSM + UMTS",
+            "3": "LTE only",
+            "4": "GSM + LTE",
+            "5": "UMTS + LTE",
+            "6": "GSM + UMTS + LTE",
+            "7": "C2K only",
+            "8": "GSM + C2K",
+            "9": "UMTS + C2K",
+            "10": "GSM + UMTS + C2K",
+            "11": "LTE + C2K",
+            "12": "GSM + LTE + C2K",
+            "13": "UMTS + LTE+ C2K",
+            "14": "GSM + UMTS + LTE + C2K",
+            "15": "NR",
+            "16": "GSM + NR",
+            "17": "UMTS + NR",
+            "18": "GSM + UMTS + NR",
+            "19": "LTE + NR",
+            "20": "GSM + LTE + NR",
+            "21": "UMTS + LTE +NR",
+            "22": "GSM + UMTS + LTE + NR",
+            "23": "NR + C2K",
+            "24": "GSM + NR + C2K",
+            "25": "UMTS + NR +C2K",
+            "26": "GSM + UMTS + NR + C2K",
+            "27": "LTE + NR + C2K",
+            "28": "GSM + LTE + NR + C2K",
+            "29": "UMTS + LTE + NR + C2K",
+            "30": "GSM + UMTS + LTE + NR + C2K"
+          },
+          "currAct": "255"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.411Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "ratPrefer": "4,128,4,2,1",
+              "ratMode": "21",
+              "code": "200",
+              "modeList": {
+                "0": "GSM only",
+                "1": "UMTS only",
+                "2": "GSM + UMTS",
+                "3": "LTE only",
+                "4": "GSM + LTE",
+                "5": "UMTS + LTE",
+                "6": "GSM + UMTS + LTE",
+                "7": "C2K only",
+                "8": "GSM + C2K",
+                "9": "UMTS + C2K",
+                "10": "GSM + UMTS + C2K",
+                "11": "LTE + C2K",
+                "12": "GSM + LTE + C2K",
+                "13": "UMTS + LTE+ C2K",
+                "14": "GSM + UMTS + LTE + C2K",
+                "15": "NR",
+                "16": "GSM + NR",
+                "17": "UMTS + NR",
+                "18": "GSM + UMTS + NR",
+                "19": "LTE + NR",
+                "20": "GSM + LTE + NR",
+                "21": "UMTS + LTE +NR",
+                "22": "GSM + UMTS + LTE + NR",
+                "23": "NR + C2K",
+                "24": "GSM + NR + C2K",
+                "25": "UMTS + NR +C2K",
+                "26": "GSM + UMTS + NR + C2K",
+                "27": "LTE + NR + C2K",
+                "28": "GSM + LTE + NR + C2K",
+                "29": "UMTS + LTE + NR + C2K",
+                "30": "GSM + UMTS + LTE + NR + C2K"
+              },
+              "currAct": "255"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 60,
+      "section": "apn",
+      "group": "cellular",
+      "status": "returned",
+      "ms": 110,
+      "output": {
+        "status": "returned",
+        "data": {
+          "manual": {
+            "count": "1",
+            "apn_list": [
+              {
+                "auth_pref": "none",
+                "ip_version": "IPv4v6",
+                "apn_name": "rain",
+                "user_password": "[REDACTED]",
+                "user_name": "",
+                "config_file": "APN1"
+              }
+            ]
+          },
+          "code": "200"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.520Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "manual": {
+                "count": "1",
+                "apn_list": [
+                  {
+                    "auth_pref": "none",
+                    "ip_version": "IPv4v6",
+                    "apn_name": "rain",
+                    "user_password": "[REDACTED]",
+                    "user_name": "",
+                    "config_file": "APN1"
+                  }
+                ]
+              },
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 63,
+      "section": "cells",
+      "group": "cellular",
+      "status": "returned",
+      "ms": 111,
+      "output": {
+        "status": "returned",
+        "data": {
+          "neighbour": [],
+          "serving": [
+            {
+              "csi_rsrq": "-9.5 dB",
+              "act": "2",
+              "csi_sinr": "--",
+              "pci": "344",
+              "ss_rsrq": "-9.5 dB",
+              "csi_rsrp": "-96 dBm",
+              "cid": "00D9D5B23",
+              "lac": "A6D7",
+              "mcc": "460",
+              "net_band": "B1",
+              "ss_rsrp": "-96 dBm",
+              "mnc": "1",
+              "arfcn": "10763",
+              "bsic": "",
+              "ss_sinr": "--",
+              "net_type": "WCDMA",
+              "ta": ""
+            }
+          ],
+          "num_of_cell": "1"
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.631Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "neighbour": [],
+              "serving": [
+                {
+                  "csi_rsrq": "-9.5 dB",
+                  "act": "2",
+                  "csi_sinr": "--",
+                  "pci": "344",
+                  "ss_rsrq": "-9.5 dB",
+                  "csi_rsrp": "-96 dBm",
+                  "cid": "00D9D5B23",
+                  "lac": "A6D7",
+                  "mcc": "460",
+                  "net_band": "B1",
+                  "ss_rsrp": "-96 dBm",
+                  "mnc": "1",
+                  "arfcn": "10763",
+                  "bsic": "",
+                  "ss_sinr": "--",
+                  "net_type": "WCDMA",
+                  "ta": ""
+                }
+              ],
+              "num_of_cell": "1"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 63,
+      "section": "band_lock",
+      "group": "cellular",
+      "status": "returned",
+      "ms": 107,
+      "output": {
+        "status": "returned",
+        "data": {
+          "Band": {
+            "supp_list": {
+              "4G": {
+                "B46": "46790-54539",
+                "B38": "37750-38249",
+                "B20": "6150-6449",
+                "B42": "41590-43589",
+                "B1": "0-599",
+                "B40": "38650-39649",
+                "B5": "2400-2649",
+                "B28": "9210-9659",
+                "B8": "3450-3799",
+                "B7": "2750-3449",
+                "B43": "43590-45589",
+                "B32": "9920-10359",
+                "B41": "39650-41589",
+                "B3": "1200-1949"
+              },
+              "3G": {
+                "B5": "4357-4458",
+                "B1": "10562-10838",
+                "B8": "2937-3088"
+              },
+              "5G": {
+                "n76": "285400-286400",
+                "n20": "158200-164200",
+                "n40": "460000-480000",
+                "n38": "514000-524000",
+                "n28": "151600-160600",
+                "n8": "185000-192000",
+                "n77": "620000-680000",
+                "n1": "422000-434000",
+                "n41": "499200-537999",
+                "n3": "361000-376000",
+                "n5": "173800-178800",
+                "n75": "286400-303400",
+                "n7": "524000-538000",
+                "n78": "620000-653333"
+              }
+            }
+          },
+          "Pci": {
+            "supp_list": {
+              "4G": "0-503",
+              "3G": "0-511",
+              "5G": "0-1007"
+            }
+          },
+          "multi_band": {
+            "4G": [],
+            "3G": [],
+            "state": {
+              "state_4G": "FULL",
+              "state_5G": "FULL",
+              "state_3G": "FULL"
+            },
+            "5G": []
+          },
+          "args": {
+            "band": "n41",
+            "type": "NR",
+            "arfcn": "504990",
+            "pci": "850",
+            "state": "FULL"
+          }
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.738Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "Band": {
+                "supp_list": {
+                  "4G": {
+                    "B46": "46790-54539",
+                    "B38": "37750-38249",
+                    "B20": "6150-6449",
+                    "B42": "41590-43589",
+                    "B1": "0-599",
+                    "B40": "38650-39649",
+                    "B5": "2400-2649",
+                    "B28": "9210-9659",
+                    "B8": "3450-3799",
+                    "B7": "2750-3449",
+                    "B43": "43590-45589",
+                    "B32": "9920-10359",
+                    "B41": "39650-41589",
+                    "B3": "1200-1949"
+                  },
+                  "3G": {
+                    "B5": "4357-4458",
+                    "B1": "10562-10838",
+                    "B8": "2937-3088"
+                  },
+                  "5G": {
+                    "n76": "285400-286400",
+                    "n20": "158200-164200",
+                    "n40": "460000-480000",
+                    "n38": "514000-524000",
+                    "n28": "151600-160600",
+                    "n8": "185000-192000",
+                    "n77": "620000-680000",
+                    "n1": "422000-434000",
+                    "n41": "499200-537999",
+                    "n3": "361000-376000",
+                    "n5": "173800-178800",
+                    "n75": "286400-303400",
+                    "n7": "524000-538000",
+                    "n78": "620000-653333"
+                  }
+                }
+              },
+              "Pci": {
+                "supp_list": {
+                  "4G": "0-503",
+                  "3G": "0-511",
+                  "5G": "0-1007"
+                }
+              },
+              "multi_band": {
+                "4G": [],
+                "3G": [],
+                "state": {
+                  "state_4G": "FULL",
+                  "state_5G": "FULL",
+                  "state_3G": "FULL"
+                },
+                "5G": []
+              },
+              "args": {
+                "band": "n41",
+                "type": "NR",
+                "arfcn": "504990",
+                "pci": "850",
+                "state": "FULL"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 67,
+      "section": "roaming",
+      "group": "cellular",
+      "status": "error",
+      "ms": 187,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 27,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:17.801Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 27,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.863Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.926Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:17.926Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 69,
+      "section": "mac_filter",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 64,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "1",
+            "macfilter_list": "[REDACTED]"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:17.989Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "1",
+                "macfilter_list": "[REDACTED]"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 72,
+      "section": "ip_filter",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 62,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "0",
+            "ipfilter_list": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.052Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "0",
+                "ipfilter_list": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 75,
+      "section": "port_forward",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 65,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.116Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 78,
+      "section": "port_map",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 64,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.180Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 81,
+      "section": "url_filter",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 63,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "urlfilter_list": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.243Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "urlfilter_list": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 83,
+      "section": "upnp",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 110,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.354Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 85,
+      "section": "dmz",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 62,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "dmz_switch": 0,
+            "lan_ip": ""
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.415Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "dmz_switch": 0,
+                "lan_ip": ""
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 87,
+      "section": "alg",
+      "group": "firewall",
+      "status": "returned",
+      "ms": 61,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable_snmp": 0,
+            "enable_sip": 0,
+            "enable_gre": 0,
+            "enable_pptp": 0,
+            "enable_tftp": 0,
+            "alg_switch": 1,
+            "enable_ftp": 1,
+            "enable_h323": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.476Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable_snmp": 0,
+                "enable_sip": 0,
+                "enable_gre": 0,
+                "enable_pptp": 0,
+                "enable_tftp": 0,
+                "alg_switch": 1,
+                "enable_ftp": 1,
+                "enable_h323": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 89,
+      "section": "dns",
+      "group": "network",
+      "status": "returned",
+      "ms": 191,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": "0",
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.539Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:18.539Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:18.667Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": "0",
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 91,
+      "section": "dhcp",
+      "group": "network",
+      "status": "returned",
+      "ms": 194,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "leasetime": 43200,
+            "end": "249",
+            "gateway": "192.168.0.1",
+            "start": "100",
+            "netmask": "255.255.255.0",
+            "dhcp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:18.723Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:18.723Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:18.862Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 94,
+      "section": "static_ip",
+      "group": "network",
+      "status": "error",
+      "ms": 185,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 38,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:18.923Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 38,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:18.984Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.047Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.047Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 95,
+      "section": "ntp",
+      "group": "system",
+      "status": "error",
+      "ms": 185,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 41,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:19.109Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 41,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.170Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.231Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.231Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 97,
+      "section": "time",
+      "group": "system",
+      "status": "returned",
+      "ms": 63,
+      "output": {
+        "status": "returned",
+        "data": {
+          "result": 1727141322
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:19.295Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "result": 1727141322
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 98,
+      "section": "reboot_schedule",
+      "group": "system",
+      "status": "error",
+      "ms": 186,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 45,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:19.358Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 45,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.419Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.481Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.481Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 101,
+      "section": "signal_records",
+      "group": "diagnostics",
+      "status": "error",
+      "ms": 188,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 48,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:19.543Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 48,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.606Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.670Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.670Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 105,
+      "section": "tr069",
+      "group": "system",
+      "status": "error",
+      "ms": 186,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 51,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:19.732Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 51,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.793Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.855Z",
+              "step": "diagnostic",
+              "service": "session",
+              "method": "access",
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.855Z",
+              "step": "conclusion",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 107,
+      "section": "gps",
+      "group": "system",
+      "status": "error",
+      "ms": 529,
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:19.922Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:19.922Z",
+              "step": "retry_reason",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-08T03:33:20.027Z",
+              "step": "attempt",
+              "attempt": 2,
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:20.277Z",
+              "step": "retry_reason",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-08T03:33:20.384Z",
+              "step": "attempt",
+              "attempt": 3,
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 109,
+      "section": "developer_mode",
+      "group": "system",
+      "status": "returned",
+      "ms": 188,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "develop_mode": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:20.442Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:33:20.442Z",
+            "step": "retry_reason",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-08T03:33:20.572Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "develop_mode": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 112,
+      "section": "traffic",
+      "group": "cellular",
+      "status": "device_warning",
+      "ms": 61,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "cfgs": {
+            "enable": "0",
+            "day_limit": "0",
+            "month_limit": "0",
+            "start_day": "1"
+          },
+          "stats": {
+            "tips": "Not Sim Card!",
+            "code": "204"
+          }
+        },
+        "warnings": [
+          {
+            "field": "stats.code",
+            "value": "204"
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:33:20.634Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "cfgs": {
+                "enable": "0",
+                "day_limit": "0",
+                "month_limit": "0",
+                "start_day": "1"
+              },
+              "stats": {
+                "tips": "Not Sim Card!",
+                "code": "204"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "api": 114,
+      "section": "diagnose",
+      "group": "diagnostics",
+      "status": "error",
+      "ms": 478,
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:20.695Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:20.695Z",
+              "step": "retry_reason",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-08T03:33:20.788Z",
+              "step": "attempt",
+              "attempt": 2,
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T03:33:21.006Z",
+              "step": "retry_reason",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-08T03:33:21.113Z",
+              "step": "attempt",
+              "attempt": 3,
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    },
+    {
+      "api": 128,
+      "section": "share",
+      "group": "system",
+      "status": "error",
+      "ms": 63,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32000",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 55,
+            "error": {
+              "code": -32000,
+              "message": "Object not found"
+            }
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T03:33:21.176Z",
+              "step": "attempt",
+              "attempt": 1,
+              "withCookie": false,
+              "error": "RPC_ERROR_-32000",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 55,
+                  "error": {
+                    "code": -32000,
+                    "message": "Object not found"
+                  }
+                }
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "returned": 30,
+    "device_warning": 4,
+    "error": 14,
+    "skipped": 0
+  },
+  "toolCount": 51,
+  "invalidSectionRejected": true
+}

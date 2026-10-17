@@ -1,0 +1,1385 @@
+{
+  "at": "2026-10-08T10:29:40.628Z",
+  "mode": "live-read-only",
+  "scope": "concurrent MCP submissions; FIFO operations in one server",
+  "batches": [
+    {
+      "sections": [
+        "wifi",
+        "version",
+        "mesh_status",
+        "dhcp",
+        "workmode",
+        "country"
+      ],
+      "ms": 1248,
+      "records": [
+        {
+          "section": "wifi",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "5G_code": "200",
+              "2.4G_code": "200",
+              "5G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "23",
+                "BandWidth": "3"
+              },
+              "Unity_switch": "OFF",
+              "2.4G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "22",
+                "BandWidth": "1"
+              },
+              "Unity_code": "200",
+              "Unity": {
+                "state": "up",
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "authmode": "WPA2PSKWPA3PSK",
+                "hidden": "0",
+                "wpapsk": "[REDACTED]"
+              }
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "5G",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "Channel"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "BandWidth"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "Channel"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "BandWidth"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_run",
+                "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 1,
+              "retries": []
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:40.940Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 1,
+                "section": "wifi",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 0,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:41.459Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "ubus",
+                  "service": "mtk.wifi",
+                  "method": "get_ssidPage_info"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "5G",
+                        "ssid"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "5G",
+                        "state"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "5G",
+                        "Channel"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "5G",
+                        "BandWidth"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "2.4G",
+                        "ssid"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "2.4G",
+                        "state"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "2.4G",
+                        "Channel"
+                      ],
+                      "expected": "string"
+                    },
+                    {
+                      "path": [
+                        "2.4G",
+                        "BandWidth"
+                      ],
+                      "expected": "string"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.459Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "ubus",
+                  "service": "mtk.wifi",
+                  "method": "get_ssidPage_info"
+                },
+                "params": {},
+                "withCookie": false,
+                "outcome": "returned",
+                "data": {
+                  "5G_code": "200",
+                  "2.4G_code": "200",
+                  "5G": {
+                    "ssid": "[REDACTED]",
+                    "AuthModeList": [
+                      "Disable",
+                      "OPEN",
+                      "Enhanced Open",
+                      "SHARED",
+                      "WEPAUTO",
+                      "WPA2",
+                      "WPA3",
+                      "WPA3-192-bit",
+                      "WPA2PSK",
+                      "WPA3PSK",
+                      "WPAPSKWPA2PSK",
+                      "WPA2PSKWPA3PSK",
+                      "WPA1WPA2",
+                      "IEEE8021X"
+                    ],
+                    "hidden": "0",
+                    "state": "up",
+                    "Channel": "0",
+                    "authmode": "WPA2PSKWPA3PSK",
+                    "wpapsk": "[REDACTED]",
+                    "WirelessMode": "23",
+                    "BandWidth": "3"
+                  },
+                  "Unity_switch": "OFF",
+                  "2.4G": {
+                    "ssid": "[REDACTED]",
+                    "AuthModeList": [
+                      "Disable",
+                      "OPEN",
+                      "Enhanced Open",
+                      "SHARED",
+                      "WEPAUTO",
+                      "WPA2",
+                      "WPA3",
+                      "WPA3-192-bit",
+                      "WPA2PSK",
+                      "WPA3PSK",
+                      "WPAPSKWPA2PSK",
+                      "WPA2PSKWPA3PSK",
+                      "WPA1WPA2",
+                      "IEEE8021X"
+                    ],
+                    "hidden": "0",
+                    "state": "up",
+                    "Channel": "0",
+                    "authmode": "WPA2PSKWPA3PSK",
+                    "wpapsk": "[REDACTED]",
+                    "WirelessMode": "22",
+                    "BandWidth": "1"
+                  },
+                  "Unity_code": "200",
+                  "Unity": {
+                    "state": "up",
+                    "ssid": "[REDACTED]",
+                    "AuthModeList": [
+                      "Disable",
+                      "OPEN",
+                      "Enhanced Open",
+                      "SHARED",
+                      "WEPAUTO",
+                      "WPA2",
+                      "WPA3",
+                      "WPA3-192-bit",
+                      "WPA2PSK",
+                      "WPA3PSK",
+                      "WPAPSKWPA2PSK",
+                      "WPA2PSKWPA3PSK",
+                      "WPA1WPA2",
+                      "IEEE8021X"
+                    ],
+                    "authmode": "WPA2PSKWPA3PSK",
+                    "hidden": "0",
+                    "wpapsk": "[REDACTED]"
+                  }
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "version",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "dataCode": "200",
+              "data": {
+                "upgradeState": "0",
+                "version": "RA_M5_v9.10.debug"
+              }
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "version"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 1,
+              "retries": []
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:41.460Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 2,
+                "section": "version",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 520,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:41.522Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/upgrade-set.lua",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "version"
+                      ],
+                      "expected": "string"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.522Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/upgrade-set.lua",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "outcome": "returned",
+                "data": {
+                  "dataCode": "200",
+                  "data": {
+                    "upgradeState": "0",
+                    "version": "RA_M5_v9.10.debug"
+                  }
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "mesh_status",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "data": {
+                "easymesh_switch": "0"
+              },
+              "code": 0
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "easymesh_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 2,
+              "retries": [
+                "login_required_retry_with_cookie"
+              ]
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:41.522Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 3,
+                "section": "mesh_status",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 582,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:41.583Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "error": "HTTP_403",
+                "details": {
+                  "http": 403,
+                  "loginRequired": true
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.583Z",
+                "step": "retry_reason",
+                "evidence": "observation",
+                "reason": "login_required_retry_with_cookie"
+              },
+              {
+                "at": "2026-10-08T10:29:41.814Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "easymesh_switch"
+                      ],
+                      "expected": "scalar"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.814Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 2,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": true,
+                "outcome": "returned",
+                "data": {
+                  "data": {
+                    "easymesh_switch": "0"
+                  },
+                  "code": 0
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "dhcp",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dhcp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "start"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "end"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "netmask"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 2,
+              "retries": [
+                "login_required_retry_with_cookie"
+              ]
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:41.814Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 4,
+                "section": "dhcp",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 874,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:41.869Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "error": "HTTP_403",
+                "details": {
+                  "http": 403,
+                  "loginRequired": true
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.869Z",
+                "step": "retry_reason",
+                "evidence": "observation",
+                "reason": "login_required_retry_with_cookie"
+              },
+              {
+                "at": "2026-10-08T10:29:41.998Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "dhcp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "start"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "end"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "netmask"
+                      ],
+                      "expected": "string"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:41.998Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 2,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": true,
+                "outcome": "returned",
+                "data": {
+                  "data": {
+                    "leasetime": 43200,
+                    "end": "249",
+                    "gateway": "192.168.0.1",
+                    "start": "100",
+                    "netmask": "255.255.255.0",
+                    "dhcp_switch": "1"
+                  },
+                  "code": 0
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "workmode",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_run",
+                "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 1,
+              "retries": []
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:41.999Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 5,
+                "section": "workmode",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 1059,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:42.107Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "ubus",
+                  "service": "web_api",
+                  "method": "get_workmode"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "workmode"
+                      ],
+                      "expected": "scalar"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:42.107Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "ubus",
+                  "service": "web_api",
+                  "method": "get_workmode"
+                },
+                "params": {},
+                "withCookie": false,
+                "outcome": "returned",
+                "data": {
+                  "data": {
+                    "bonding": "0",
+                    "add_ccmni_to_bridge": "0",
+                    "ip_passthrough": "1",
+                    "if_index": "",
+                    "data_switch": "1",
+                    "gateway": "",
+                    "workmode": 4
+                  },
+                  "code": 0
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "country",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "data": {
+                "country_code": "ZA"
+              },
+              "code": 0
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "country_code"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 1,
+              "retries": []
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:42.107Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 6,
+                "section": "country",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 1167,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:42.184Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/get_country_code",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "country_code"
+                      ],
+                      "expected": "string"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:42.184Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/get_country_code",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "outcome": "returned",
+                "data": {
+                  "data": {
+                    "country_code": "ZA"
+                  },
+                  "code": 0
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        }
+      ]
+    },
+    {
+      "sections": [
+        "mesh_status",
+        "share",
+        "version"
+      ],
+      "ms": 479,
+      "records": [
+        {
+          "section": "mesh_status",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "data": {
+                "easymesh_switch": "0"
+              },
+              "code": 0
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "easymesh_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 2,
+              "retries": [
+                "login_required_retry_with_cookie"
+              ]
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:42.186Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 7,
+                "section": "mesh_status",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 0,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:42.248Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "error": "HTTP_403",
+                "details": {
+                  "http": 403,
+                  "loginRequired": true
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:42.248Z",
+                "step": "retry_reason",
+                "evidence": "observation",
+                "reason": "login_required_retry_with_cookie"
+              },
+              {
+                "at": "2026-10-08T10:29:42.477Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "easymesh_switch"
+                      ],
+                      "expected": "scalar"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:42.477Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 2,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/luci/admin/jt_easymesh/get_easymesh_switch",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": true,
+                "outcome": "returned",
+                "data": {
+                  "data": {
+                    "easymesh_switch": "0"
+                  },
+                  "code": 0
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        },
+        {
+          "section": "share",
+          "isError": true,
+          "output": {
+            "status": "error",
+            "error": "RPC_ERROR_-32000",
+            "details": {
+              "response": {
+                "jsonrpc": "2.0",
+                "id": 3,
+                "error": {
+                  "code": -32000,
+                  "message": "Object not found"
+                }
+              },
+              "endpoint": {
+                "transport": "ubus",
+                "service": "cpe-ctrl",
+                "method": "get_101share_status"
+              },
+              "diagnosticSummary": {
+                "outcome": "failed",
+                "rootCause": "unknown",
+                "permissionCheck": {
+                  "status": "completed",
+                  "access": false,
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": [],
+                "remainingUnknowns": [
+                  "Failure root cause has not been established."
+                ],
+                "stopped": true
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:29:42.477Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 8,
+                  "section": "share",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 290,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:29:42.538Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "cpe-ctrl",
+                    "method": "get_101share_status"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "RPC_ERROR_-32000",
+                  "details": {
+                    "response": {
+                      "jsonrpc": "2.0",
+                      "id": 3,
+                      "error": {
+                        "code": -32000,
+                        "message": "Object not found"
+                      }
+                    }
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:29:42.601Z",
+                  "step": "diagnostic",
+                  "evidence": "observation",
+                  "service": "session",
+                  "method": "access",
+                  "params": {
+                    "scope": "ubus",
+                    "object": "cpe-ctrl",
+                    "function": "get_101share_status"
+                  },
+                  "purpose": "target_permission",
+                  "withCookie": false,
+                  "data": {
+                    "access": false
+                  }
+                }
+              ],
+              "exhausted": true
+            }
+          }
+        },
+        {
+          "section": "version",
+          "isError": false,
+          "output": {
+            "status": "returned",
+            "data": {
+              "dataCode": "200",
+              "data": {
+                "upgradeState": "0",
+                "version": "RA_M5_v9.10.debug"
+              }
+            },
+            "warnings": [],
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "version"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            },
+            "diagnosticSummary": {
+              "outcome": "returned",
+              "rootCause": "not_applicable",
+              "permissionCheck": {
+                "status": "not_applicable",
+                "note": "UBUS session/access does not check CGI path authorization."
+              },
+              "confirmedFindings": [],
+              "hypotheses": [],
+              "attempts": 1,
+              "retries": []
+            },
+            "diagnostics": [
+              {
+                "at": "2026-10-08T10:29:42.602Z",
+                "step": "queue",
+                "evidence": "observation",
+                "operationId": 9,
+                "section": "version",
+                "maxPending": 16,
+                "waitTimeoutMs": 30000,
+                "waitMs": 415,
+                "policy": "fifo_per_device_instance",
+                "state": "started"
+              },
+              {
+                "at": "2026-10-08T10:29:42.664Z",
+                "step": "response_validation",
+                "evidence": "observation",
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/upgrade-set.lua",
+                  "httpMethod": "GET"
+                },
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "version"
+                      ],
+                      "expected": "string"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                }
+              },
+              {
+                "at": "2026-10-08T10:29:42.664Z",
+                "step": "attempt",
+                "evidence": "observation",
+                "attempt": 1,
+                "endpoint": {
+                  "transport": "cgi",
+                  "path": "/cgi-bin/upgrade-set.lua",
+                  "httpMethod": "GET"
+                },
+                "params": {},
+                "withCookie": false,
+                "outcome": "returned",
+                "data": {
+                  "dataCode": "200",
+                  "data": {
+                    "upgradeState": "0",
+                    "version": "RA_M5_v9.10.debug"
+                  }
+                }
+              }
+            ],
+            "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "calls": 9,
+    "returned": 8,
+    "error": 1,
+    "expectedReadsReturned": true,
+    "failureDidNotBlockLaterRead": true,
+    "queueRecordsPresent": true,
+    "operationIdsUnique": true
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-13T21:19:10.242-07:00",
+  "syntheticOnly": true,
+  "realDeviceAccess": false,
+  "results": [
+    {
+      "step": "voice_transcript_ack_answer",
+      "events": [
+        {
+          "type": "state",
+          "state": "transcribing"
+        },
+        {
+          "type": "transcript",
+          "text": "现在可以查询哪些指令？"
+        },
+        {
+          "type": "ack",
+          "text": "稍等，我确认一下。"
+        },
+        {
+          "type": "answer",
+          "status": "answered",
+          "answer": "可以查三类：\n\n**设备（T830）**\n- 固件版本 `t830_get_version`\n- 工作模式 `t830_get_workmode`\n\n**媒体服务**\n- 服务与配置状态 `media_status`\n- 素材列表 `media_list_assets`\n- 录音 `media_record_audio`\n- 单次拍照 `media_capture_photo`\n- 音频归一化 `media_normalize_audio`\n- 语音转文字 `media_transcribe`\n- 图像分析 `media_analyze_image`\n- 文字转语音 `media_synthesize_speech`\n- 播放/停止播报 `media_play_audio` / `media_stop_audio`\n\n**摄像头监测**\n- 提交监测计划 `media_prepare_monitor`（需网页确认才启动）\n- 查询状态 `media_monitor_status`\n- 停止监测 `media_stop_monitor`\n\n需要我先读一下设备版本或工作模式吗？",
+          "calls": 0,
+          "tokens": 2442,
+          "taskId": "e1b81d84-eb16-46bb-8f3f-3d5dffa28222",
+          "proposals": []
+        }
+      ]
+    },
+    {
+      "step": "vague_monitor_request",
+      "answer": "这个需求还不够具体，我需要先确认几点：\n\n1. **监测什么变化**？（如：是否有人员进入、某个指示灯是否亮、物品是否被移动等）\n2. **持续多长时间**？（最长 1 小时）\n3. **采样间隔**？（每隔几秒拍一次，2~60 秒）\n4. **是否需要生成总结报告**？\n\n另外说明：确认后我会生成一份待确认的监测计划，**需要你在网页上审核并确认才会真正启动**，我无法代替你确认。监测过程会保存关键画面，并生成图文（HTML）、Markdown 和 JSON 报告。\n\n请补充以上信息。",
+      "plans": 0
+    },
+    {
+      "step": "agent_plan_waits_for_confirmation",
+      "plan": {
+        "objective": "监测纯色测试画面：红色背景是否变为蓝色",
+        "durationSeconds": 30,
+        "intervalSeconds": 3,
+        "summarize": true
+      }
+    },
+    {
+      "step": "camera_sampling_report",
+      "state": "stopped",
+      "reportPath": "C:\\Users\\admin\\Documents\\我在金英托联\\项目\\AI CPE\\Codex\\reports\\mock\\monitoring-demo\\3db7b372-9142-460e-a4df-e28cd94f7bec\\23698602-92be-4dab-a85d-7b38986bf488\\index.html",
+      "summary": "任务目标为监测纯色测试画面中红色背景是否变为蓝色。采样记录覆盖两个时间点，间隔约5秒，均显示画面为纯红色背景，未观察到颜色变化。首个采样无历史对比数据，第二个采样与前一采样状态一致，均为红色，未出现蓝色。画面内容单一，无其他视觉元素或动态干扰，未发现与任务无关的信息。记录仅陈述可见事实，未推断设备状态或未采样时段事件。证据限制在于采样间隔较长，仅能确认采样时刻状态，无法排除采样间隙中可能发生的瞬时变化。无异常事件报告，所有记录均符合任务要求的监测范围，未发现颜色变更。结论：在采样时段内，红色背景未变为蓝色，状态稳定。"
+    }
+  ],
+  "status": "passed"
+}

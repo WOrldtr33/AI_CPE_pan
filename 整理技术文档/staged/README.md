@@ -1,0 +1,16 @@
+﻿# RK3588 + RK1828 技术资料入口
+
+按硬件角色和实施过程整理。当前主板系统目标为 Android 16；主板板型、匹配镜像、烧录工具与教程待供应商确认。
+
+1. [先看：系统运行过程与阅读路线](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/00_系统总览与阅读导航/系统运行过程与阅读路线.md>)
+2. [资源位置、云端来源与待确认事项](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/00_系统总览与阅读导航/资源来源与待确认事项.md>)
+3. [RK3588主板：系统、开发环境、自带NPU、RGA](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/01_RK3588主板>)
+4. [RK1828协处理器：固件、模型转换、设备管理、量产](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/02_RK1828协处理器>)
+5. [主板与协处理器协同：连接、Android集成、Runtime与应用](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/03_主板与协处理器协同>)
+6. [原始SDK与参考仓库](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/90_原始SDK与参考仓库>)
+
+源码、SDK和压缩包保留内部结构与原名；独立PDF按过程归类，中英文版放在一起。每个过程目录的README说明适用范围并链接到原仓库文档。
+
+RKNN3 Model Zoo 位于 [D盘 RKNN3 Model Zoo](<D:/BaiduNetdiskDownload/rknn/rknn/rknn3-model-zoo>)，保留原位。
+
+文件旧路径与新路径见 [文件迁移清单](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/00_系统总览与阅读导航/文件迁移清单.csv>)。移动后的文件数量、大小以及独立文档哈希校验见 [整理校验结果](<C:/Users/admin/Documents/我在金英托联/项目/AI CPE/src/00_系统总览与阅读导航/整理校验结果.json>)。

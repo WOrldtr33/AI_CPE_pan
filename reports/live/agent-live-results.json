@@ -1,0 +1,61 @@
+{
+  "at": "2026-10-12T07:24:10.202Z",
+  "mode": "real-model-mcp-mock-device",
+  "realDeviceAccessed": false,
+  "events": [
+    {
+      "event": "turn_start"
+    },
+    {
+      "event": "model_response",
+      "model": "deepseek-flash",
+      "ms": 1107,
+      "usage": {
+        "prompt_tokens": 292,
+        "completion_tokens": 23,
+        "total_tokens": 315,
+        "prompt_tokens_details": "[REDACTED]",
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 164
+      },
+      "finishReason": "tool_calls"
+    },
+    {
+      "event": "tool_result",
+      "name": "get_demo_version",
+      "args": {},
+      "result": {
+        "status": "returned",
+        "data": {
+          "version": "DEMO-ONLY-1.0"
+        }
+      }
+    },
+    {
+      "event": "model_response",
+      "model": "deepseek-flash",
+      "ms": 576,
+      "usage": {
+        "prompt_tokens": 347,
+        "completion_tokens": 16,
+        "total_tokens": 363,
+        "prompt_tokens_details": "[REDACTED]",
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 219
+      },
+      "finishReason": "stop"
+    },
+    {
+      "event": "turn_end",
+      "rounds": 2,
+      "calls": 1,
+      "tokens": 678
+    }
+  ],
+  "model": "deepseek-flash",
+  "answer": "虚构演示版本为 **DEMO-ONLY-1.0**。",
+  "calls": 1,
+  "tokens": 678,
+  "deviceCalls": 1,
+  "status": "passed"
+}

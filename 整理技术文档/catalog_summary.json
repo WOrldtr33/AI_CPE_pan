@@ -1,0 +1,11 @@
+{
+  "curated_resources": 33,
+  "model_candidate_urls": 213,
+  "audit_urls": 486,
+  "outputs": [
+    "文档外部链接审计附表.csv",
+    "模型资源链接附表.csv",
+    "项目资源下载清单.csv",
+    "项目资源下载链接清单.md"
+  ]
+}

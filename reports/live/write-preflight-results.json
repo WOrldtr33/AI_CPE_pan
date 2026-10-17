@@ -1,0 +1,1204 @@
+{
+  "at": "2026-10-08T10:24:01.909Z",
+  "mode": "live-read-only-write-preflight",
+  "realWrites": 0,
+  "records": [
+    {
+      "section": "wifi_switch",
+      "readback": "wifi",
+      "basis": "API10/实机 WiFi state",
+      "read": {
+        "status": "returned",
+        "values": {
+          "state": "up"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": true
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:02.424Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:02.487Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:02.487Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.wifi",
+              "function": "set_wifi_switch"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": true
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "wifi_config",
+      "readback": "wifi",
+      "basis": "API11/实机双频对象",
+      "read": {
+        "status": "returned",
+        "values": {
+          "2.4G.hidden": "0",
+          "2.4G.ssid": "[REDACTED]",
+          "2.4G.state": "up",
+          "2.4G.authmode": "WPA2PSKWPA3PSK",
+          "5G.hidden": "0",
+          "5G.ssid": "[REDACTED]",
+          "5G.state": "up",
+          "5G.authmode": "WPA2PSKWPA3PSK"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": true
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:02.754Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:02.802Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:02.803Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.wifi",
+              "function": "set_wifi_cfgs"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": true
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "guest_switch",
+      "readback": "guest",
+      "basis": "API13/实机 Guest state",
+      "read": {
+        "status": "returned",
+        "values": {
+          "state": "down"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": true
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:03.068Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:03.116Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:03.116Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.wifi",
+              "function": "set_guest_wifi"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": true
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "guest_config",
+      "readback": "guest",
+      "basis": "API14/实机访客对象",
+      "read": {
+        "status": "returned",
+        "values": {
+          "Guest.state": "down",
+          "Guest.ssid": "[REDACTED]",
+          "Guest.authmode": "Disable",
+          "Guest.on_mode": "Only",
+          "Guest5G.state": "down",
+          "Guest5G.ssid": "[REDACTED]",
+          "Guest5G.authmode": "Disable",
+          "Guest5G.on_mode": "Only"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": true
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:03.382Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:03.445Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:03.445Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.wifi",
+              "function": "set_guest_cfgs"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": true
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "wifi_night",
+      "readback": "wifi_night",
+      "basis": "API22/设备网页 daylight 的 action/openTime/closeTime",
+      "read": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 9,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "endpoint": {
+            "transport": "ubus",
+            "service": "mtk.wifi",
+            "method": "get_NigWifi_info"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "target_permission_denied",
+            "permissionCheck": {
+              "status": "completed",
+              "access": false,
+              "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+            },
+            "confirmedFindings": [
+              {
+                "reason": "target_permission_denied",
+                "evidence": "confirmed"
+              }
+            ],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "remainingUnknowns": [],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T10:24:03.445Z",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 9,
+              "section": "wifi_night",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-08T10:24:03.508Z",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "ubus",
+                "service": "mtk.wifi",
+                "method": "get_NigWifi_info"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 9,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:03.570Z",
+              "step": "diagnostic",
+              "evidence": "observation",
+              "service": "session",
+              "method": "access",
+              "params": {
+                "scope": "ubus",
+                "object": "mtk.wifi",
+                "function": "get_NigWifi_info"
+              },
+              "purpose": "target_permission",
+              "withCookie": false,
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:03.632Z",
+              "step": "diagnostic",
+              "evidence": "observation",
+              "service": "session",
+              "method": "access",
+              "params": {
+                "scope": "ubus",
+                "object": "mtk.wifi",
+                "function": "get_ssidPage_info"
+              },
+              "purpose": "control_permission",
+              "withCookie": false,
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:03.633Z",
+              "step": "conclusion",
+              "evidence": "confirmed",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "baselineAvailable": false,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:03.633Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:03.695Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:03.695Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.wifi",
+              "function": "set_NigWifi_cfg"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": false
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "apn_save",
+      "readback": "apn",
+      "basis": "API61/实机 manual.apn_list，以 config_file 定位",
+      "read": {
+        "status": "returned",
+        "values": {
+          "config_file": null,
+          "apn_name": null,
+          "ip_version": null,
+          "auth_pref": null
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": true
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:03.806Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:03.868Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:03.868Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "jytl_api",
+              "function": "apn_R_save"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": true
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "roaming",
+      "readback": "roaming",
+      "basis": "API68/设备网页 connection mode 的 action",
+      "read": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 15,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "endpoint": {
+            "transport": "ubus",
+            "service": "mtk.cell",
+            "method": "get_roaming_info"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "target_permission_denied",
+            "permissionCheck": {
+              "status": "completed",
+              "access": false,
+              "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+            },
+            "confirmedFindings": [
+              {
+                "reason": "target_permission_denied",
+                "evidence": "confirmed"
+              }
+            ],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "remainingUnknowns": [],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T10:24:03.869Z",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 13,
+              "section": "roaming",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-08T10:24:03.931Z",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "ubus",
+                "service": "mtk.cell",
+                "method": "get_roaming_info"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 15,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:03.992Z",
+              "step": "diagnostic",
+              "evidence": "observation",
+              "service": "session",
+              "method": "access",
+              "params": {
+                "scope": "ubus",
+                "object": "mtk.cell",
+                "function": "get_roaming_info"
+              },
+              "purpose": "target_permission",
+              "withCookie": false,
+              "data": {
+                "access": false
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:04.040Z",
+              "step": "diagnostic",
+              "evidence": "observation",
+              "service": "session",
+              "method": "access",
+              "params": {
+                "scope": "ubus",
+                "object": "mtk.wifi",
+                "function": "get_ssidPage_info"
+              },
+              "purpose": "control_permission",
+              "withCookie": false,
+              "data": {
+                "access": true
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:04.040Z",
+              "step": "conclusion",
+              "evidence": "confirmed",
+              "reason": "target_permission_denied",
+              "confirmed": true
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "baselineAvailable": false,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:04.040Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:04.101Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:04.101Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "mtk.cell",
+              "function": "set_roaming_cfg"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": false
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "section": "upnp",
+      "readback": "upnp",
+      "basis": "API84/实机 data.upnp_switch",
+      "read": {
+        "status": "returned",
+        "values": {
+          "upnp_switch": "0"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "not_applicable",
+        "note": "UBUS access 不检查 CGI 路径权限。"
+      }
+    },
+    {
+      "section": "dns",
+      "readback": "dns",
+      "basis": "API90/设备网页 protection 的 data 标量",
+      "read": {
+        "status": "returned",
+        "values": {
+          "rebind_protection": "0"
+        },
+        "unavailable": [],
+        "warnings": []
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "not_applicable",
+        "note": "UBUS access 不检查 CGI 路径权限。"
+      }
+    },
+    {
+      "section": "gps",
+      "readback": "gps",
+      "basis": "API108/设备网页 GPS 的 enable→1、disable→0",
+      "read": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-08T10:24:04.403Z",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 17,
+              "section": "gps",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-08T10:24:04.464Z",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:04.464Z",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-08T10:24:04.575Z",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-08T10:24:04.795Z",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-08T10:24:04.904Z",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "baselineAvailable": false,
+      "writePermission": {
+        "status": "not_applicable",
+        "note": "UBUS access 不检查 CGI 路径权限。"
+      }
+    },
+    {
+      "section": "traffic",
+      "readback": "traffic",
+      "basis": "API113/网页 X0 的 MB/GB→字节；仅验证 cfgs，不验证蜂窝流量",
+      "read": {
+        "status": "device_warning",
+        "values": {
+          "day_limit": "0",
+          "month_limit": "0",
+          "start_day": "1"
+        },
+        "unavailable": [],
+        "warnings": [
+          {
+            "field": "stats.code",
+            "value": "204"
+          }
+        ]
+      },
+      "baselineAvailable": true,
+      "writePermission": {
+        "status": "returned",
+        "data": {
+          "access": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:24:04.969Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 19,
+            "section": "access",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:24:05.031Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:24:05.031Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "access"
+            },
+            "params": {
+              "scope": "ubus",
+              "object": "cell.traffic",
+              "function": "set_traffic_cfg"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "access": false
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1521 @@
+{
+  "at": "2026-10-08T10:27:28.128Z",
+  "mode": "live-upnp-change-and-restore",
+  "records": [
+    {
+      "at": "2026-10-08T10:27:28.857Z",
+      "tool": "t830_get_upnp",
+      "args": {},
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "upnp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "pf_rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:27:28.493Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "upnp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:27:28.855Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "upnp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "pf_rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:28.855Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      },
+      "isError": false
+    },
+    {
+      "at": "2026-10-08T10:27:29.524Z",
+      "tool": "t830_set_upnp_verified",
+      "args": {
+        "upnp_switch": "1",
+        "expectedCurrent": "0"
+      },
+      "output": {
+        "status": "verified_field",
+        "section": "upnp",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "upnp_switch"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "acknowledged",
+        "writeAttempts": 1,
+        "original": {
+          "upnp_switch": "0"
+        },
+        "expected": {
+          "upnp_switch": "1"
+        },
+        "observed": {
+          "upnp_switch": "1"
+        },
+        "alreadyMatchedBeforeWrite": false,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:28.859Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:28.963Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:28.963Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:28.963Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:29.072Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:29.072Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "submitted",
+              "data": {
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "submitted",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:29.072Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:29.430Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:29.430Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "params": {
+                    "upnp_switch": "1"
+                  },
+                  "withCookie": true,
+                  "outcome": "submitted",
+                  "data": {
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "1"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:29.430Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:29.523Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:29.523Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "1"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:27:28.963Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [],
+              "different": [
+                "upnp_switch"
+              ],
+              "unknown": [],
+              "allMatched": false
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:29.072Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [],
+              "different": [
+                "upnp_switch"
+              ],
+              "unknown": [],
+              "allMatched": false
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:29.430Z",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "submitted"
+          },
+          {
+            "at": "2026-10-08T10:27:29.523Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "upnp_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:29.523Z",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。",
+        "field": "data.upnp_switch",
+        "value": "1"
+      },
+      "isError": false
+    },
+    {
+      "at": "2026-10-08T10:27:29.631Z",
+      "tool": "t830_get_upnp",
+      "args": {},
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "upnp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "pf_rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:27:29.525Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "upnp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:27:29.631Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "upnp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "pf_rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:29.631Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      },
+      "isError": false
+    },
+    {
+      "at": "2026-10-08T10:27:30.223Z",
+      "tool": "t830_set_upnp_verified",
+      "args": {
+        "upnp_switch": "0",
+        "expectedCurrent": "1"
+      },
+      "output": {
+        "status": "verified_field",
+        "section": "upnp",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "upnp_switch"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "acknowledged",
+        "writeAttempts": 1,
+        "original": {
+          "upnp_switch": "1"
+        },
+        "expected": {
+          "upnp_switch": "0"
+        },
+        "observed": {
+          "upnp_switch": "0"
+        },
+        "alreadyMatchedBeforeWrite": false,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "1"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:29.633Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 4,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:29.740Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:29.740Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "1"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "1"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:29.740Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 4,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:29.851Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:29.851Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "1"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "submitted",
+              "data": {
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "submitted",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:29.851Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 4,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:30.114Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:30.114Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "params": {
+                    "upnp_switch": "0"
+                  },
+                  "withCookie": true,
+                  "outcome": "submitted",
+                  "data": {
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-08T10:27:30.114Z",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 4,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-08T10:27:30.222Z",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-08T10:27:30.222Z",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:27:29.740Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [],
+              "different": [
+                "upnp_switch"
+              ],
+              "unknown": [],
+              "allMatched": false
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:29.851Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [],
+              "different": [
+                "upnp_switch"
+              ],
+              "unknown": [],
+              "allMatched": false
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:30.114Z",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "submitted"
+          },
+          {
+            "at": "2026-10-08T10:27:30.222Z",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "upnp_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:30.222Z",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。",
+        "field": "data.upnp_switch",
+        "value": "0"
+      },
+      "isError": false
+    },
+    {
+      "at": "2026-10-08T10:27:30.332Z",
+      "tool": "t830_get_upnp",
+      "args": {},
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "upnp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "pf_rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-08T10:27:30.224Z",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "upnp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-08T10:27:30.332Z",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "upnp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "pf_rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-08T10:27:30.332Z",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      },
+      "isError": false
+    }
+  ],
+  "summary": {
+    "testVerified": true,
+    "restored": true
+  },
+  "original": "0",
+  "testTarget": "1"
+}

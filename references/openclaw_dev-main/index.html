@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>AI Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="header">
+    <div class="logo" id="logoBox"><span id="logoText">AI</span></div>
+    <div>
+      <div class="brand-name" id="brandName">AI Assistant</div>
+      <div class="brand-sub" id="brandSub">Powered by OpenClaw</div>
+    </div>
+    <button class="lang-toggle" id="btnLang" title="Language" style="display:none">中 / EN</button>
+    <div class="status">
+      <div class="status-dot connecting" id="statusDot"></div>
+      <span id="statusLabel">连接中...</span>
+    </div>
+  </div>
+
+  <div class="messages" id="messages">
+    <div class="welcome" id="welcome">
+      <div class="welcome-icon" id="welcomeIcon"><span id="welcomeLogoText">AI</span></div>
+      <h2 id="welcomeTitle">你好，有什么可以帮你？</h2>
+      <p id="welcomeDesc">我可以文字聊天、语音对话，也能拍照分析图片内容。</p>
+      <div class="quick-actions" id="quickActions"></div>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <div class="input-row">
+      <textarea id="input" rows="1" placeholder="输入消息..."></textarea>
+      <button class="btn-icon" id="btnCamera" title="拍照">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </button>
+      <button class="btn-icon" id="btnMic" title="语音输入">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      </button>
+      <button class="btn-icon btn-send" id="btnSend" disabled title="发送">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="camera-modal" id="cameraModal">
+  <video id="camVideo" autoplay playsinline></video>
+  <canvas id="camCanvas"></canvas>
+  <div class="camera-controls">
+    <button class="cam-btn close-cam" id="btnCloseCam">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="cam-btn shutter" id="btnShutter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+<button class="config-toggle" id="btnConfig">&#9881;</button>
+<div class="config-panel" id="configPanel">
+  <label>Gateway 地址</label>
+  <input id="cfgHost" value="127.0.0.1:18789" placeholder="127.0.0.1:18789">
+  <label>Token</label>
+  <input id="cfgToken" type="password" placeholder="Gateway Token">
+  <label>品牌名称</label>
+  <input id="cfgBrand" placeholder="AI Assistant">
+  <label>副标题</label>
+  <input id="cfgSub" placeholder="Powered by OpenClaw">
+  <label>主题色 (Hex)</label>
+  <input id="cfgColor" type="color" value="#0A6EBD">
+  <label>Logo URL (可选)</label>
+  <input id="cfgLogo" placeholder="https://...">
+  <label>欢迎语</label>
+  <input id="cfgWelcome" placeholder="你好，有什么可以帮你？">
+  <label>Session Key (可选)</label>
+  <input id="cfgSession" placeholder="留空使用默认">
+  <button class="cfg-save" id="btnSaveConfig">保存并重连</button>
+</div>
+
+<script src="app.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

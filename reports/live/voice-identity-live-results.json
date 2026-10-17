@@ -1,0 +1,87 @@
+{
+  "syntheticOnly": true,
+  "realMicrophone": false,
+  "results": [
+    {
+      "label": "background",
+      "status": "waiting_wake",
+      "diagnostic": {
+        "wakeChecked": true,
+        "wakeDetected": false,
+        "wakeThreshold": 0.1,
+        "keywordBoost": 5,
+        "wakeMethod": "none",
+        "wakeAlias": "",
+        "localWakeText": "今天天气很好，我们待会儿一起去吃午饭。",
+        "wakeAsrUsed": true,
+        "denoise": "spectral-soft-mask-v1",
+        "speakerCheck": false
+      }
+    },
+    {
+      "label": "wake",
+      "status": "woke",
+      "diagnostic": {
+        "wakeChecked": true,
+        "wakeDetected": true,
+        "wakeThreshold": 0.1,
+        "keywordBoost": 5,
+        "wakeMethod": "keyword_model",
+        "wakeAlias": "Hi_Claude",
+        "localWakeText": "",
+        "wakeAsrUsed": false,
+        "denoise": "spectral-soft-mask-v1",
+        "speakerCheck": false
+      }
+    },
+    {
+      "label": "owner",
+      "status": "accepted",
+      "diagnostic": {
+        "wakeChecked": false,
+        "wakeDetected": false,
+        "wakeThreshold": 0.1,
+        "keywordBoost": 5,
+        "wakeMethod": "none",
+        "wakeAlias": "",
+        "localWakeText": "",
+        "wakeAsrUsed": false,
+        "denoise": "spectral-soft-mask-v1",
+        "speakerCheck": false
+      }
+    },
+    {
+      "label": "other",
+      "status": "accepted",
+      "diagnostic": {
+        "wakeChecked": false,
+        "wakeDetected": false,
+        "wakeThreshold": 0.1,
+        "keywordBoost": 5,
+        "wakeMethod": "none",
+        "wakeAlias": "",
+        "localWakeText": "",
+        "wakeAsrUsed": false,
+        "denoise": "spectral-soft-mask-v1",
+        "speakerCheck": false
+      }
+    },
+    {
+      "label": "owner_again",
+      "status": "accepted",
+      "diagnostic": {
+        "wakeChecked": false,
+        "wakeDetected": false,
+        "wakeThreshold": 0.1,
+        "keywordBoost": 5,
+        "wakeMethod": "none",
+        "wakeAlias": "",
+        "localWakeText": "",
+        "wakeAsrUsed": false,
+        "denoise": "spectral-soft-mask-v1",
+        "speakerCheck": false
+      }
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,159 @@
+{
+  "changes": [
+    {
+      "relative": "README.md",
+      "before_sha256": "5dd6a73c6ec66ed438bf564afe4d3a528c3e944063038400f12bd763c61ceff9"
+    },
+    {
+      "relative": "00_系统总览与阅读导航/README.md",
+      "before_sha256": "9d74abb3070a3a176818c2f7e2a8d0c6f98f728e3803b1887bccb232b32a6a3a"
+    },
+    {
+      "relative": "00_系统总览与阅读导航/系统运行过程与阅读路线.md",
+      "before_sha256": "a7f132aed14c1f8862aa39163c1130bce2268f6d505a772000c7a7356911912c"
+    },
+    {
+      "relative": "00_系统总览与阅读导航/资源来源与待确认事项.md",
+      "before_sha256": "bd917c253f16aba5ed12968d13e5a55d9b3a71a62faf110692cc63128e54e645"
+    },
+    {
+      "relative": "01_RK3588主板/README.md",
+      "before_sha256": "1d19349bd122fdde57a2a801cbb9d2b7c97f469f967559c5a8723dd387423ca6"
+    },
+    {
+      "relative": "02_RK1828协处理器/README.md",
+      "before_sha256": "f6c82120f5432f0835ac5bef9853479f83b8cfd4583059e3b3d51eb5d6a4edd7"
+    },
+    {
+      "relative": "03_主板与协处理器协同/README.md",
+      "before_sha256": "aae80564b7e0c28f3668f5c4cafff8eb29795d9f20460c76553f2719a1d14a79"
+    },
+    {
+      "relative": "90_原始SDK与参考仓库/README.md",
+      "before_sha256": "ab2a9e208ccaae9d0ed81cf05221dcad8e0d0646277fbf491a1448bbfb3864a5"
+    },
+    {
+      "relative": "00_系统总览与阅读导航/01_SDK组成与版本/README.md",
+      "before_sha256": "578b8fee010559675dd5f8836c8401c3a73b6b8f897d045fbe07606517f60947"
+    },
+    {
+      "relative": "00_系统总览与阅读导航/02_SDK申请与资源来源/README.md",
+      "before_sha256": "1859f66f8ac6286594fd1cbc2e7bd7e8a0cb2becf5f6134983f552a1bde7bec6"
+    },
+    {
+      "relative": "01_RK3588主板/01_系统镜像与烧录/README.md",
+      "before_sha256": "00f388fa8a649436639ed3db750667df4d69b6db237b6e3a9166ae590fc557a6"
+    },
+    {
+      "relative": "01_RK3588主板/02_开发环境与工具安装/README.md",
+      "before_sha256": "0ad8d812cad7ed8e367ce9b3f990c101793756fdf89ae060e67822b36cd40ac7"
+    },
+    {
+      "relative": "01_RK3588主板/03_自带NPU模型转换与部署/README.md",
+      "before_sha256": "1966baac90c36e46c256d75cd000ce3ff978a1e66206cd13a2acd62a5e9c5073"
+    },
+    {
+      "relative": "01_RK3588主板/04_RGA图像预处理/README.md",
+      "before_sha256": "4ef82e4824979092434c0112b3a898d2d67e740eccfdfa534ff9491a71342b84"
+    },
+    {
+      "relative": "01_RK3588主板/05_应用运行参考/README.md",
+      "before_sha256": "fe172a510147a73b2465d29c09d3233fadb9790d36cc54b44a108dec58cc3937"
+    },
+    {
+      "relative": "02_RK1828协处理器/01_主机接入_Windows参考/README.md",
+      "before_sha256": "d4bf6474909b04000f1cbc9f1a1cb76979aac08aceb4d1e95f34ab30082d6b55"
+    },
+    {
+      "relative": "02_RK1828协处理器/02_固件与启动升级/README.md",
+      "before_sha256": "f6cd5ecb43a3e6232331d6a892cf37a464a67cf6906da3876bdf7ffafa5b915e"
+    },
+    {
+      "relative": "02_RK1828协处理器/03_RKNN3模型转换/README.md",
+      "before_sha256": "3fc9fb893f56f32876e110ba25e4146b10945941a6377b10721017ffd7cb1d8e"
+    },
+    {
+      "relative": "02_RK1828协处理器/04_设备管理与故障诊断/README.md",
+      "before_sha256": "99f094e448e619832f75fbe9edb46388c044a6fd66a682b007fd9ca9c07eba04"
+    },
+    {
+      "relative": "02_RK1828协处理器/05_产测与量产安全/README.md",
+      "before_sha256": "6ae1344dc90feec2cf13410cc115b6614d8276f9327ade4946b03d4ca89379bc"
+    },
+    {
+      "relative": "03_主板与协处理器协同/01_整体接入与快速验证/README.md",
+      "before_sha256": "99c90133104d18fa30c7606f5b946794c08c69b85e5ddd7300d48a1ebf3cb0ab"
+    },
+    {
+      "relative": "03_主板与协处理器协同/02_Android主控集成/README.md",
+      "before_sha256": "3e94e41a47f9771f72b87a622e020479c277e9fd18c5175b3234b40e1201f9f4"
+    },
+    {
+      "relative": "03_主板与协处理器协同/03_以太网接入/README.md",
+      "before_sha256": "2bab4778c9f9edb35f243ab264b0cc1762b5afb499933dae5567df597417101d"
+    },
+    {
+      "relative": "03_主板与协处理器协同/04_Runtime与推理接口/README.md",
+      "before_sha256": "0d2b5c96c82cab22c5935effc7df1a148461b5941e765cb04fdd286c3107dab7"
+    },
+    {
+      "relative": "03_主板与协处理器协同/05_视频流水线与插件/README.md",
+      "before_sha256": "86817b53714aea2968a4a15b88da25d4978c3c710ae930468518fa7bfa0bac05"
+    },
+    {
+      "relative": "03_主板与协处理器协同/06_大模型服务与接口/README.md",
+      "before_sha256": "29a3b616f00b987ccb3fdde52bbb71528c47dcc1c2f9446cef67736fa330cd8a"
+    },
+    {
+      "relative": "03_主板与协处理器协同/07_模型测试与性能验证/README.md",
+      "before_sha256": "7fe179d0ad7be97e3fee48ad55f9a2cbfdab22fdcab676ea68e2c4c3b676c417"
+    },
+    {
+      "relative": "03_主板与协处理器协同/08_业务应用与交付/README.md",
+      "before_sha256": "2b6470d95213a9e193616c7834b0fabad5e3b65ef7b19239588afad1408cb0f4"
+    },
+    {
+      "relative": "90_原始SDK与参考仓库/RK1828/RKNN3_Model_Zoo_位置.md",
+      "before_sha256": "0b1ee1215c22cf57d6535fe66fb34b388e7a1bef2798cb5bfbca294f37d3c0ef"
+    }
+  ],
+  "outputs": [
+    "README.md",
+    "00_系统总览与阅读导航/README.md",
+    "00_系统总览与阅读导航/系统运行过程与阅读路线.md",
+    "00_系统总览与阅读导航/目录索引/rknn3(面向专用AI协处理器)_1c7b016c.md",
+    "00_系统总览与阅读导航/目录索引/原始压缩包_b0c78e3b.md",
+    "00_系统总览与阅读导航/资源来源与待确认事项.md",
+    "01_RK3588主板/README.md",
+    "02_RK1828协处理器/README.md",
+    "03_主板与协处理器协同/README.md",
+    "90_原始SDK与参考仓库/README.md",
+    "00_系统总览与阅读导航/01_SDK组成与版本/README.md",
+    "00_系统总览与阅读导航/02_SDK申请与资源来源/README.md",
+    "01_RK3588主板/01_系统镜像与烧录/README.md",
+    "01_RK3588主板/02_开发环境与工具安装/README.md",
+    "00_系统总览与阅读导航/目录索引/rknpu2_aa7c9874.md",
+    "00_系统总览与阅读导航/目录索引/examples_0647ff4f.md",
+    "01_RK3588主板/03_自带NPU模型转换与部署/README.md",
+    "01_RK3588主板/04_RGA图像预处理/README.md",
+    "01_RK3588主板/05_应用运行参考/README.md",
+    "02_RK1828协处理器/01_主机接入_Windows参考/README.md",
+    "02_RK1828协处理器/02_固件与启动升级/README.md",
+    "00_系统总览与阅读导航/目录索引/examples_add3ebfa.md",
+    "00_系统总览与阅读导航/目录索引/examples_5fdfa94c.md",
+    "02_RK1828协处理器/03_RKNN3模型转换/README.md",
+    "02_RK1828协处理器/04_设备管理与故障诊断/README.md",
+    "02_RK1828协处理器/05_产测与量产安全/README.md",
+    "03_主板与协处理器协同/01_整体接入与快速验证/README.md",
+    "03_主板与协处理器协同/02_Android主控集成/README.md",
+    "03_主板与协处理器协同/03_以太网接入/README.md",
+    "03_主板与协处理器协同/04_Runtime与推理接口/README.md",
+    "00_系统总览与阅读导航/目录索引/rknn-gstreamer-plugins_592a3bbc.md",
+    "03_主板与协处理器协同/05_视频流水线与插件/README.md",
+    "03_主板与协处理器协同/06_大模型服务与接口/README.md",
+    "00_系统总览与阅读导航/目录索引/tools_123d6008.md",
+    "03_主板与协处理器协同/07_模型测试与性能验证/README.md",
+    "03_主板与协处理器协同/08_业务应用与交付/README.md",
+    "90_原始SDK与参考仓库/RK1828/RKNN3_Model_Zoo_位置.md"
+  ]
+}

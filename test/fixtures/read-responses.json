@@ -1,0 +1,577 @@
+{
+  "first_setup": {
+    "first_setup": "0",
+    "code": 0
+  },
+  "country": {
+    "data": {
+      "country_code": "ZA"
+    },
+    "code": 0
+  },
+  "wifi": {
+    "5G_code": "200",
+    "2.4G_code": "200",
+    "5G": {
+      "ssid": "[REDACTED]",
+      "AuthModeList": [
+        "Disable",
+        "OPEN",
+        "Enhanced Open",
+        "SHARED",
+        "WEPAUTO",
+        "WPA2",
+        "WPA3",
+        "WPA3-192-bit",
+        "WPA2PSK",
+        "WPA3PSK",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK",
+        "WPA1WPA2",
+        "IEEE8021X"
+      ],
+      "hidden": "0",
+      "state": "up",
+      "Channel": "0",
+      "authmode": "WPA2PSKWPA3PSK",
+      "wpapsk": "[REDACTED]",
+      "WirelessMode": "23",
+      "BandWidth": "3"
+    },
+    "Unity_switch": "OFF",
+    "2.4G": {
+      "ssid": "[REDACTED]",
+      "AuthModeList": [
+        "Disable",
+        "OPEN",
+        "Enhanced Open",
+        "SHARED",
+        "WEPAUTO",
+        "WPA2",
+        "WPA3",
+        "WPA3-192-bit",
+        "WPA2PSK",
+        "WPA3PSK",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK",
+        "WPA1WPA2",
+        "IEEE8021X"
+      ],
+      "hidden": "0",
+      "state": "up",
+      "Channel": "0",
+      "authmode": "WPA2PSKWPA3PSK",
+      "wpapsk": "[REDACTED]",
+      "WirelessMode": "22",
+      "BandWidth": "1"
+    },
+    "Unity_code": "200",
+    "Unity": {
+      "state": "up",
+      "ssid": "[REDACTED]",
+      "AuthModeList": [
+        "Disable",
+        "OPEN",
+        "Enhanced Open",
+        "SHARED",
+        "WEPAUTO",
+        "WPA2",
+        "WPA3",
+        "WPA3-192-bit",
+        "WPA2PSK",
+        "WPA3PSK",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK",
+        "WPA1WPA2",
+        "IEEE8021X"
+      ],
+      "authmode": "WPA2PSKWPA3PSK",
+      "hidden": "0",
+      "wpapsk": "[REDACTED]"
+    }
+  },
+  "guest": {
+    "Guest5G": {
+      "state": "down",
+      "ssid": "[REDACTED]",
+      "on_mode": "Only",
+      "authmode": "Disable",
+      "AuthModeList": [
+        "Disable",
+        "OPEN",
+        "Enhanced Open",
+        "SHARED",
+        "WEPAUTO",
+        "WPA2",
+        "WPA3",
+        "WPA3-192-bit",
+        "WPA2PSK",
+        "WPA3PSK",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK",
+        "WPA1WPA2",
+        "IEEE8021X"
+      ],
+      "wpapsk": "[REDACTED]",
+      "closetime": "NONE"
+    },
+    "Guest_code": "200",
+    "Guest5G_code": "200",
+    "Guest": {
+      "state": "down",
+      "ssid": "[REDACTED]",
+      "on_mode": "Only",
+      "authmode": "Disable",
+      "AuthModeList": [
+        "Disable",
+        "OPEN",
+        "Enhanced Open",
+        "SHARED",
+        "WEPAUTO",
+        "WPA2",
+        "WPA3",
+        "WPA3-192-bit",
+        "WPA2PSK",
+        "WPA3PSK",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK",
+        "WPA1WPA2",
+        "IEEE8021X"
+      ],
+      "wpapsk": "[REDACTED]",
+      "closetime": "NONE"
+    }
+  },
+  "wps": {
+    "guest": {
+      "5G": {
+        "WPS_info": {
+          "WscResult": "0",
+          "WscStatus": "Not used"
+        },
+        "ssid": "[REDACTED]",
+        "restrict": "NONE"
+      },
+      "2.4G": {
+        "WPS_info": {
+          "WscResult": "0",
+          "WscStatus": "Not used"
+        },
+        "ssid": "[REDACTED]",
+        "restrict": "NONE"
+      }
+    },
+    "host": {
+      "5G": {
+        "WPS_info": {
+          "DRIVER_RSP": "YES",
+          "WscResult": "0",
+          "WscStatus": "Idle"
+        },
+        "ssid": "[REDACTED]",
+        "restrict": "NONE;NONE"
+      },
+      "2.4G": {
+        "WPS_info": {
+          "DRIVER_RSP": "YES",
+          "WscResult": "0",
+          "WscStatus": "Idle"
+        },
+        "ssid": "[REDACTED]",
+        "restrict": "NONE;NONE"
+      }
+    }
+  },
+  "wps_run": {
+    "host": []
+  },
+  "workmode": {
+    "data": {
+      "bonding": "0",
+      "add_ccmni_to_bridge": "0",
+      "ip_passthrough": "1",
+      "if_index": "",
+      "data_switch": "1",
+      "gateway": "",
+      "workmode": 4
+    },
+    "code": 0
+  },
+  "mesh_status": {
+    "data": {
+      "easymesh_switch": "0"
+    },
+    "code": 0
+  },
+  "mesh_role": {
+    "data": {
+      "role": 0
+    },
+    "code": 0
+  },
+  "mesh_routers": {
+    "data": {
+      "count": 0,
+      "dev_list": {}
+    },
+    "code": 0
+  },
+  "clients": {
+    "data": {
+      "offline_count": 0,
+      "rai1_list": [],
+      "ra0_count": 0,
+      "ra1_list": [],
+      "rai0_list": [],
+      "ra1_count": 0,
+      "rai0_count": 0,
+      "rai1_count": 0,
+      "offline_list": [],
+      "brlan_list": [
+        {
+          "mac": "[REDACTED]",
+          "name": "[REDACTED]",
+          "OnlineTime": 1178,
+          "forbid": "off",
+          "ip": "192.168.0.208"
+        }
+      ],
+      "brlan_count": 1,
+      "ra0_list": []
+    },
+    "code": "200"
+  },
+  "status": {
+    "data": {
+      "long_eons": "",
+      "DLrate": "0",
+      "WifiType": "rai0,ra0",
+      "SIM": "--",
+      "IMEI": "[REDACTED]",
+      "MSI": "",
+      "wifimode": "100",
+      "NR_or_LTE": "",
+      "SignalValue": "  ",
+      "ICCID": "[REDACTED]",
+      "SimStatus": "0",
+      "ULrate": "0",
+      "stcpinlock": "0",
+      "stcdatactrl": "1",
+      "open": "1",
+      "SignalName": "",
+      "stclockstatus": "0",
+      "wanstat": "false,false"
+    },
+    "dataCode": "200"
+  },
+  "device_info": {
+    "data": {
+      "MAC_24G": "[REDACTED]",
+      "boardSN": "[REDACTED]",
+      "ccmni_ipv6": "",
+      "DLRATE4g": "0",
+      "WiFiBW2g": "40",
+      "up_second": "1275",
+      "WiFiChannel2g": "13 (auto)",
+      "LanIP": "192.168.0.1",
+      "WiFiBW5g": "160",
+      "WiFiChannel5g": "36 (auto)",
+      "ccmni_dns": "",
+      "WiFiTX_PWR": "100% (high)",
+      "ULRATE5g": "0",
+      "MAC_WAN": "[REDACTED]",
+      "DLRATE5g": "0",
+      "ULRATE4g": "0",
+      "WLANRssi": "5G Rssi: 0 0 0 0 0 , 2.4G Rssi: 0 0 0 0 0 .",
+      "ModelName": "the101pro",
+      "VendorName": "VTJZNVNS",
+      "eth1_ipv4": "",
+      "SVN": "\n",
+      "ccmni_ipv4": "",
+      "HardwareVersion": "V2.0",
+      "NickName": "5G CPE",
+      "productSN": "[REDACTED]",
+      "uptime": " 21 min",
+      "eth1_ipv6": "",
+      "cpu": "4.60%",
+      "WanInterface": ",",
+      "MAC_5G": "[REDACTED]",
+      "SoftwareVersion": "RA_M5_v9.10.debug"
+    },
+    "code": "200"
+  },
+  "device": {
+    "cell_id": "0x00D9D5B23",
+    "code": "206",
+    "PS_eAct": "UMTS",
+    "Warn": "Mobile Network registration failed",
+    "imsi": "[REDACTED]",
+    "imei": "[REDACTED]",
+    "cnum": "[REDACTED]"
+  },
+  "version": {
+    "dataCode": "200",
+    "data": {
+      "upgradeState": "0",
+      "version": "RA_M5_v9.10.debug"
+    }
+  },
+  "sim_presence": {
+    "data": {
+      "simcard_inslot": "0"
+    },
+    "dataCode": 200
+  },
+  "sim": {
+    "sim": {
+      "ERROR": "10"
+    }
+  },
+  "network_mode": {
+    "ratPrefer": "4,128,4,2,1",
+    "ratMode": "21",
+    "code": "200",
+    "modeList": {
+      "0": "GSM only",
+      "1": "UMTS only",
+      "2": "GSM + UMTS",
+      "3": "LTE only",
+      "4": "GSM + LTE",
+      "5": "UMTS + LTE",
+      "6": "GSM + UMTS + LTE",
+      "7": "C2K only",
+      "8": "GSM + C2K",
+      "9": "UMTS + C2K",
+      "10": "GSM + UMTS + C2K",
+      "11": "LTE + C2K",
+      "12": "GSM + LTE + C2K",
+      "13": "UMTS + LTE+ C2K",
+      "14": "GSM + UMTS + LTE + C2K",
+      "15": "NR",
+      "16": "GSM + NR",
+      "17": "UMTS + NR",
+      "18": "GSM + UMTS + NR",
+      "19": "LTE + NR",
+      "20": "GSM + LTE + NR",
+      "21": "UMTS + LTE +NR",
+      "22": "GSM + UMTS + LTE + NR",
+      "23": "NR + C2K",
+      "24": "GSM + NR + C2K",
+      "25": "UMTS + NR +C2K",
+      "26": "GSM + UMTS + NR + C2K",
+      "27": "LTE + NR + C2K",
+      "28": "GSM + LTE + NR + C2K",
+      "29": "UMTS + LTE + NR + C2K",
+      "30": "GSM + UMTS + LTE + NR + C2K"
+    },
+    "currAct": "255"
+  },
+  "apn": {
+    "manual": {
+      "count": "1",
+      "apn_list": [
+        {
+          "auth_pref": "none",
+          "ip_version": "IPv4v6",
+          "apn_name": "rain",
+          "user_password": "[REDACTED]",
+          "user_name": "",
+          "config_file": "APN1"
+        }
+      ]
+    },
+    "code": "200"
+  },
+  "cells": {
+    "neighbour": [],
+    "serving": [
+      {
+        "csi_rsrq": "-8.5 dB",
+        "act": "2",
+        "csi_sinr": "--",
+        "pci": "344",
+        "ss_rsrq": "-8.5 dB",
+        "csi_rsrp": "-96 dBm",
+        "cid": "00D9D5B23",
+        "lac": "A6D7",
+        "mcc": "460",
+        "net_band": "B1",
+        "ss_rsrp": "-96 dBm",
+        "mnc": "1",
+        "arfcn": "10763",
+        "bsic": "",
+        "ss_sinr": "--",
+        "net_type": "WCDMA",
+        "ta": ""
+      }
+    ],
+    "num_of_cell": "1"
+  },
+  "band_lock": {
+    "Band": {
+      "supp_list": {
+        "4G": {
+          "B46": "46790-54539",
+          "B38": "37750-38249",
+          "B20": "6150-6449",
+          "B42": "41590-43589",
+          "B1": "0-599",
+          "B40": "38650-39649",
+          "B5": "2400-2649",
+          "B28": "9210-9659",
+          "B8": "3450-3799",
+          "B7": "2750-3449",
+          "B43": "43590-45589",
+          "B32": "9920-10359",
+          "B41": "39650-41589",
+          "B3": "1200-1949"
+        },
+        "3G": {
+          "B5": "4357-4458",
+          "B1": "10562-10838",
+          "B8": "2937-3088"
+        },
+        "5G": {
+          "n76": "285400-286400",
+          "n20": "158200-164200",
+          "n40": "460000-480000",
+          "n38": "514000-524000",
+          "n28": "151600-160600",
+          "n8": "185000-192000",
+          "n77": "620000-680000",
+          "n1": "422000-434000",
+          "n41": "499200-537999",
+          "n3": "361000-376000",
+          "n5": "173800-178800",
+          "n75": "286400-303400",
+          "n7": "524000-538000",
+          "n78": "620000-653333"
+        }
+      }
+    },
+    "Pci": {
+      "supp_list": {
+        "4G": "0-503",
+        "3G": "0-511",
+        "5G": "0-1007"
+      }
+    },
+    "multi_band": {
+      "4G": [],
+      "3G": [],
+      "state": {
+        "state_4G": "FULL",
+        "state_5G": "FULL",
+        "state_3G": "FULL"
+      },
+      "5G": []
+    },
+    "args": {
+      "band": "n41",
+      "type": "NR",
+      "arfcn": "504990",
+      "pci": "850",
+      "state": "FULL"
+    }
+  },
+  "mac_filter": {
+    "data": {
+      "enable": "1",
+      "mode": "1",
+      "macfilter_list": "[REDACTED]"
+    },
+    "code": 0
+  },
+  "ip_filter": {
+    "data": {
+      "enable": "1",
+      "mode": "0",
+      "ipfilter_list": []
+    },
+    "code": 0
+  },
+  "port_forward": {
+    "data": {
+      "switch": 1,
+      "rules": []
+    },
+    "code": 0
+  },
+  "port_map": {
+    "data": {
+      "switch": 1,
+      "rules": []
+    },
+    "code": 0
+  },
+  "url_filter": {
+    "data": {
+      "enable": "1",
+      "urlfilter_list": []
+    },
+    "code": 0
+  },
+  "upnp": {
+    "data": {
+      "pf_rules": [],
+      "upnp_switch": "0"
+    },
+    "code": 0
+  },
+  "dmz": {
+    "data": {
+      "dmz_switch": 0,
+      "lan_ip": ""
+    },
+    "code": 0
+  },
+  "alg": {
+    "data": {
+      "enable_snmp": 0,
+      "enable_sip": 0,
+      "enable_gre": 0,
+      "enable_pptp": 0,
+      "enable_tftp": 0,
+      "alg_switch": 1,
+      "enable_ftp": 1,
+      "enable_h323": 0
+    },
+    "code": 0
+  },
+  "dns": {
+    "data": "0",
+    "code": 0
+  },
+  "dhcp": {
+    "data": {
+      "leasetime": 43200,
+      "end": "249",
+      "gateway": "192.168.0.1",
+      "start": "100",
+      "netmask": "255.255.255.0",
+      "dhcp_switch": "1"
+    },
+    "code": 0
+  },
+  "time": {
+    "result": 1727141418
+  },
+  "developer_mode": {
+    "data": {
+      "develop_mode": 0
+    },
+    "code": 0
+  },
+  "traffic": {
+    "cfgs": {
+      "enable": "0",
+      "day_limit": "0",
+      "month_limit": "0",
+      "start_day": "1"
+    },
+    "stats": {
+      "tips": "Not Sim Card!",
+      "code": "204"
+    }
+  }
+}

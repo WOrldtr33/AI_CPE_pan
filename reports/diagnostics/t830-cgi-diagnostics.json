@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-08T03:34:47.764Z",
+  "cookieMode": "always",
+  "records": [
+    {
+      "key": "mesh_status",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "easymesh_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:34:46.690Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "easymesh_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+      }
+    },
+    {
+      "key": "setup",
+      "error": "HTTP_403",
+      "details": {
+        "http": 403,
+        "loginRequired": false,
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:34:46.863Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": false
+            }
+          }
+        ],
+        "exhausted": true
+      }
+    },
+    {
+      "key": "gps",
+      "error": "HTTP_403",
+      "details": {
+        "http": 403,
+        "loginRequired": true,
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:34:46.969Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:34:47.205Z",
+            "step": "retry_reason",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-08T03:34:47.312Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          }
+        ],
+        "exhausted": true
+      }
+    },
+    {
+      "key": "diagnose",
+      "error": "HTTP_403",
+      "details": {
+        "http": 403,
+        "loginRequired": true,
+        "diagnostics": [
+          {
+            "at": "2026-10-08T03:34:47.420Z",
+            "step": "attempt",
+            "attempt": 1,
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-08T03:34:47.655Z",
+            "step": "retry_reason",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-08T03:34:47.764Z",
+            "step": "attempt",
+            "attempt": 2,
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          }
+        ],
+        "exhausted": true
+      }
+    }
+  ]
+}

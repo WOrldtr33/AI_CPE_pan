@@ -1,0 +1,7 @@
+asr-models/*.onnx
+asr-models/tokens.txt
+piper-models/
+photos/
+*.log
+__pycache__/
+*.pyc

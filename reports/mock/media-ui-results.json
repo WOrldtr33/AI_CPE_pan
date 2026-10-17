@@ -1,0 +1,15 @@
+{
+  "syntheticOnly": true,
+  "fakeDevices": true,
+  "checks": [
+    "desktop CSS loaded",
+    "mobile layout fits",
+    "single photo requires consent and shutter",
+    "session audio cache cleaned on end",
+    "microphone samples during delayed model startup; first wake window preserved from sample zero",
+    "wake confirmation then two spoken turns without repeated clicks; no camera",
+    "answer text waits for audio playback, including delayed synthesis",
+    "monitor requires review; captures silently; partial HTML report downloads"
+  ],
+  "status": "passed"
+}

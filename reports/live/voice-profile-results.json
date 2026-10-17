@@ -1,0 +1,23 @@
+{
+  "syntheticOnly": true,
+  "realMicrophone": false,
+  "profiles": [
+    {
+      "profile": "female",
+      "text": "我在。你可以直接告诉我想了解什么，我们一起看看。",
+      "seconds": 4.4772083333333335,
+      "path": "C:\\Users\\admin\\Documents\\我在金英托联\\项目\\AI CPE\\Codex\\reports\\live\\voice-profile-female.wav",
+      "transcript": "我在，你可以直接告诉我想了解什么，我们一起看看。",
+      "transcriptionMatches": true
+    },
+    {
+      "profile": "male",
+      "text": "我在。你可以直接告诉我想了解什么，我们一起看看。",
+      "seconds": 4.326083333333333,
+      "path": "C:\\Users\\admin\\Documents\\我在金英托联\\项目\\AI CPE\\Codex\\reports\\live\\voice-profile-male.wav",
+      "transcript": "我在，你可以直接告诉我想了解什么，我们一起看看。",
+      "transcriptionMatches": true
+    }
+  ],
+  "status": "passed"
+}

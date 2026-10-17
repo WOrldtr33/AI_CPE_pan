@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "syntheticOnly": true,
+  "checks": [
+    "automatic microphone standby without orb click or autoplay override",
+    "home wake stays collapsed; opening shows the same in-flight transcript and state",
+    "collapse does not abort reply audio; reopening shares answer and speaking state with one microphone",
+    "explicit stop releases microphone and connectivity polling does not restart it",
+    "opt-out survives reload; homepage button restarts voice without opening chat",
+    "permission denial remains visible on home and is not automatically retried"
+  ]
+}

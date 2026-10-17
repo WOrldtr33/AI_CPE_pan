@@ -1,0 +1,242 @@
+[
+  {
+    "from": "rknn-toolkit2-master",
+    "to": "90_原始SDK与参考仓库/RK3588/rknn-toolkit2-master"
+  },
+  {
+    "from": "rknn_model_zoo-main",
+    "to": "90_原始SDK与参考仓库/RK3588/rknn_model_zoo-main"
+  },
+  {
+    "from": "librga-main",
+    "to": "90_原始SDK与参考仓库/RK3588/librga-main"
+  },
+  {
+    "from": "rknn3(面向专用AI协处理器)",
+    "to": "90_原始SDK与参考仓库/RK1828/rknn3(面向专用AI协处理器)"
+  },
+  {
+    "from": "openclaw_dev-main",
+    "to": "90_原始SDK与参考仓库/应用参考/openclaw_dev-main"
+  },
+  {
+    "from": "docs(1828).zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/docs(1828).zip"
+  },
+  {
+    "from": "librga-main.zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/librga-main.zip"
+  },
+  {
+    "from": "openclaw_dev-main.zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/openclaw_dev-main.zip"
+  },
+  {
+    "from": "rknn-toolkit2-master.zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/rknn-toolkit2-master.zip"
+  },
+  {
+    "from": "rknn.zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/rknn.zip"
+  },
+  {
+    "from": "rknn_model_zoo-main.zip",
+    "to": "90_原始SDK与参考仓库/原始压缩包/rknn_model_zoo-main.zip"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_AI_Media_Base_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_AI_Media_Base_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_AI_Media_Base_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_AI_Media_Base_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_AI_Meeting_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_AI_Meeting_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_AI_Meeting_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_AI_Meeting_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_App_Portal_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_App_Portal_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_App_Portal_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_App_Portal_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_IntelliGate_Demo_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_IntelliGate_Demo_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_IntelliGate_Demo_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_IntelliGate_Demo_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_Multistream_Detect_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_Multistream_Detect_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_Developer_Guide_Multistream_Detect_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_Developer_Guide_Multistream_Detect_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_Introduction_Android_Demo_CN.pdf",
+    "to": "03_主板与协处理器协同/02_Android主控集成/Rockchip_RK1820_RK1828_Introduction_Android_Demo_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_Introduction_Android_Demo_EN.pdf",
+    "to": "03_主板与协处理器协同/02_Android主控集成/Rockchip_RK1820_RK1828_Introduction_Android_Demo_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_User_Guide_Applications_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_RK1820_RK1828_User_Guide_Applications_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_User_Guide_Applications_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_RK1820_RK1828_User_Guide_Applications_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_User_Guide_Llama_RKNN3_Server_CN.pdf",
+    "to": "03_主板与协处理器协同/06_大模型服务与接口/Rockchip_RK1820_RK1828_User_Guide_Llama_RKNN3_Server_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Applications/Rockchip_RK1820_RK1828_User_Guide_Llama_RKNN3_Server_EN.pdf",
+    "to": "03_主板与协处理器协同/06_大模型服务与接口/Rockchip_RK1820_RK1828_User_Guide_Llama_RKNN3_Server_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Windows_CN.pdf",
+    "to": "02_RK1828协处理器/01_主机接入_Windows参考/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Windows_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Windows_EN.pdf",
+    "to": "02_RK1828协处理器/01_主机接入_Windows参考/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Windows_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_Develop_Guide_PCBA_CN.pdf",
+    "to": "02_RK1828协处理器/05_产测与量产安全/Rockchip_RK1820_RK1828_Develop_Guide_PCBA_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_Develop_Guide_PCBA_EN.pdf",
+    "to": "02_RK1828协处理器/05_产测与量产安全/Rockchip_RK1820_RK1828_Develop_Guide_PCBA_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_User_Guide_Ethernet_CN.pdf",
+    "to": "03_主板与协处理器协同/03_以太网接入/Rockchip_RK1820_RK1828_User_Guide_Ethernet_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_User_Guide_Ethernet_EN.pdf",
+    "to": "03_主板与协处理器协同/03_以太网接入/Rockchip_RK1820_RK1828_User_Guide_Ethernet_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_User_Guide_SecureBoot_CN.pdf",
+    "to": "02_RK1828协处理器/05_产测与量产安全/Rockchip_RK1820_RK1828_User_Guide_SecureBoot_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Develop/Rockchip_RK1820_RK1828_User_Guide_SecureBoot_EN.pdf",
+    "to": "02_RK1828协处理器/05_产测与量产安全/Rockchip_RK1820_RK1828_User_Guide_SecureBoot_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_Developer_Guide_RKNN_GStreamer_Plugins_CN.pdf",
+    "to": "03_主板与协处理器协同/05_视频流水线与插件/Rockchip_Developer_Guide_RKNN_GStreamer_Plugins_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_Developer_Guide_RKNN_GStreamer_Plugins_EN.pdf",
+    "to": "03_主板与协处理器协同/05_视频流水线与插件/Rockchip_Developer_Guide_RKNN_GStreamer_Plugins_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_Developer_Guide_RKNN_Rockit_DEMO_CN.pdf",
+    "to": "03_主板与协处理器协同/05_视频流水线与插件/Rockchip_Developer_Guide_RKNN_Rockit_DEMO_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_Developer_Guide_RKNN_Rockit_DEMO_EN.pdf",
+    "to": "03_主板与协处理器协同/05_视频流水线与插件/Rockchip_Developer_Guide_RKNN_Rockit_DEMO_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_AI_Hub_Benchmark_CN.pdf",
+    "to": "03_主板与协处理器协同/07_模型测试与性能验证/Rockchip_User_Guide_AI_Hub_Benchmark_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_AI_Hub_Benchmark_EN.pdf",
+    "to": "03_主板与协处理器协同/07_模型测试与性能验证/Rockchip_User_Guide_AI_Hub_Benchmark_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_RK1820_RK1828_Applications_CN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_User_Guide_RK1820_RK1828_Applications_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_RK1820_RK1828_Applications_EN.pdf",
+    "to": "03_主板与协处理器协同/08_业务应用与交付/Rockchip_User_Guide_RK1820_RK1828_Applications_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_RKNN_RKLLM3_Server_DEMO_CN.pdf",
+    "to": "03_主板与协处理器协同/06_大模型服务与接口/Rockchip_User_Guide_RKNN_RKLLM3_Server_DEMO_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Examples/Rockchip_User_Guide_RKNN_RKLLM3_Server_DEMO_EN.pdf",
+    "to": "03_主板与协处理器协同/06_大模型服务与接口/Rockchip_User_Guide_RKNN_RKLLM3_Server_DEMO_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Others/Rockchip_User_Guide_SDK_Application_And_Synchronization_CN.pdf",
+    "to": "00_系统总览与阅读导航/02_SDK申请与资源来源/Rockchip_User_Guide_SDK_Application_And_Synchronization_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Others/Rockchip_User_Guide_SDK_Application_And_Synchronization_EN.pdf",
+    "to": "00_系统总览与阅读导航/02_SDK申请与资源来源/Rockchip_User_Guide_SDK_Application_And_Synchronization_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_CN.pdf",
+    "to": "03_主板与协处理器协同/01_整体接入与快速验证/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_EN.pdf",
+    "to": "03_主板与协处理器协同/01_整体接入与快速验证/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Android_CN.pdf",
+    "to": "03_主板与协处理器协同/02_Android主控集成/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Android_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Android_EN.pdf",
+    "to": "03_主板与协处理器协同/02_Android主控集成/Rockchip_RK1820_RK1828_AI_SDK_Quick_Start_For_Android_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_RELEASE_CN.pdf",
+    "to": "00_系统总览与阅读导航/01_SDK组成与版本/Rockchip_RK1820_RK1828_AI_SDK_RELEASE_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Release/Rockchip_RK1820_RK1828_AI_SDK_RELEASE_EN.pdf",
+    "to": "00_系统总览与阅读导航/01_SDK组成与版本/Rockchip_RK1820_RK1828_AI_SDK_RELEASE_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828/RK1820_RK1828_AI_Release-Note_CN.md",
+    "to": "00_系统总览与阅读导航/01_SDK组成与版本/RK1820_RK1828_AI_Release-Note_CN.md"
+  },
+  {
+    "from": "docs_rk1828/RK1820_RK1828_AI_Release-Note_EN.md",
+    "to": "00_系统总览与阅读导航/01_SDK组成与版本/RK1820_RK1828_AI_Release-Note_EN.md"
+  },
+  {
+    "from": "docs_rk1828/Tools/Rockchip_User_Guide_RKNN-SMI_Tool_CN.pdf",
+    "to": "02_RK1828协处理器/04_设备管理与故障诊断/Rockchip_User_Guide_RKNN-SMI_Tool_CN.pdf"
+  },
+  {
+    "from": "docs_rk1828/Tools/Rockchip_User_Guide_RKNN-SMI_Tool_EN.pdf",
+    "to": "02_RK1828协处理器/04_设备管理与故障诊断/Rockchip_User_Guide_RKNN-SMI_Tool_EN.pdf"
+  },
+  {
+    "from": "docs_rk1828",
+    "to": "90_原始SDK与参考仓库/历史空目录/docs_rk1828"
+  },
+  {
+    "from": "整理的",
+    "to": "90_原始SDK与参考仓库/历史空目录/整理的"
+  },
+  {
+    "from": "rknn2(面向通用SoC芯片)",
+    "to": "90_原始SDK与参考仓库/历史空目录/rknn2(面向通用SoC芯片)"
+  }
+]

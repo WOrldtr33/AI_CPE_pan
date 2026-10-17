@@ -1,0 +1,22 @@
+{
+  "source": "http://192.168.0.1/assets/index-CR_moC_F.js",
+  "at": "2026-10-08T10:02:48.372Z",
+  "records": [
+    {
+      "marker": "Uwe().then",
+      "snippet": "__name:\"protection\",setup(n){let e=Te({rebind_protection:\"0\"}),o=()=>{Uwe().then(r=>{r.code==0&&(e.rebind_protection=r.data)})};o();const s=$(null);let l=()=>{s.value=_t(\"Saving your configuration, please wait...\"),q5e(e).then(r=>{s.value.close(),r.code==0?(Se(\"success\",\"Apply successfully!\"),o()):Se(\"error\",\"Apply failed!\")})};return(r,a)=>{const u=oe(\"el-switch\"),c=oe(\"el-button\");return y(),P(ve,null,[b(\"div\",nHe,[a[4]||(a[4]=b(\"h1\",{class:\"content-title\"},\"protection\",-1)),b(\"div\",oHe,[b(\"div\",sHe,[C(u,{modelValue:i(e).rebind_prot"
+    },
+    {
+      "marker": "s=Te({action:",
+      "snippet": "name:\"daylight\",setup(n){let e=$(rt.state.isPc),o=$(rt.state.version),s=Te({action:\"Disable\",openTime:\"\",closeTime:\"\"}),l=Te({action:\"Disable\",schweek:\"\",schTime:\"\"}),r=$([]);const a=$(null);let f=Te({sleepTime:[{validator:(E,N,I)=>{if(s.closeTime==null||s.openTime==null)return I(new Error(\"Required fields should not be empty.\"));if(s.closeTime==s.openTime)return I(new Error(\"The start time and end time cannot be the same.\"));I()},trigger:\"blur\"}],schweek:[{validator:(E,N,I)=>{if(r.value.length==0)return I(new Error(\"Required fields s"
+    },
+    {
+      "marker": "function X0",
+      "snippet": "oat(n)/1024),e=n.toFixed(2)+\"KB\"):e=parseFloat(n).toFixed(2)+\"Byte\",e}function X0(n){return n.indexOf(\"GB\")!=-1?n=parseFloat(n)*1024*1024*1024:n.indexOf(\"MB\")!=-1?n=parseFloat(n)*1024*1024:n=parseFloat(n),n}function wt(){rt.state.useRouter.push(\"/simLock\")}function OCe(n,e){let o=In.actions.find(s=>s.flag===n);o&&NCe(o.action,e)}async function NCe(n,e){let s=new nt().get(\"token\");if(s){let l=JSON.stringify(e),r={message:n+`\n data:`+l,level:\"notice\"},a={jsonrpc:\"2.0\",method:\"call\",params:[s,\"web_api\",\"set_security_log\",r]};_n.post(\"/ub"
+    },
+    {
+      "marker": "DM().then",
+      "snippet": "a.MSI),E()})};const p=new nt;let h=$(p.get(\"roles\")),m=$(null),v=()=>{DM().then(N=>{if(N.code==0)[{label:\"Number of satellites\",value:N.data.number},{label:\"Latitude and longitude\",value:N.data.position}].forEach(O=>{let M=o.value.findIndex(R=>R.label===O.label);M!==-1?o.value[M].value=O.value:o.value.push(O)});else{let I=[{label:\"Number of satellites\",value:\"\"},{label:\"Latitude and longitude\",value:\"\"}];N.data.number?I[0].value=N.data.number:I[0].value=0,I.forEach(O=>{let M=o.value.findIndex(R=>R.label===O.label);M!==-1?o.value[M].va"
+    }
+  ]
+}

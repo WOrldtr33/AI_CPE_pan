@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T18:28:41.921-07:00",
+  "syntheticOnly": true,
+  "model": "qwen3-omni-flash",
+  "results": [
+    {
+      "step": "http_upload",
+      "status": "stored",
+      "kind": "video",
+      "bytes": 1993
+    },
+    {
+      "step": "mcp_extract_frame",
+      "status": "processed",
+      "mime": "image/jpeg",
+      "bytes": 6959
+    },
+    {
+      "step": "mcp_qwen_analysis",
+      "status": "analyzed",
+      "text": "背景为纯红色，中央有一个纯蓝色的矩形。"
+    }
+  ],
+  "status": "passed"
+}

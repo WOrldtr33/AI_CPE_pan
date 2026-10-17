@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "syntheticOnly": true,
+  "checks": [
+    "dashboard CSS and device state loaded",
+    "chart zoom, history range, pan, follow live",
+    "frosted quick panel and volume preference",
+    "prepare never writes; confirm and undo require review",
+    "theme changes visibly; custom menus, saved preferences, voice speed and preview; toast never changes modal height",
+    "AI expands in-place and responds with synchronized speech text",
+    "new React voice path wakes, transcribes and answers using fake microphone; actual Chrome AGC and NS are disabled",
+    "structured answer cards and custom scroll rail; speech is a brief summary; suggestions rotate without arrows; live mic animates orb",
+    "390px mobile layout fits",
+    "awake conversation returns to idle after inactivity timeout, without stopping standby"
+  ]
+}

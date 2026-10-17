@@ -1,0 +1,481 @@
+{
+  "at": "2026-10-17T02:53:57.173Z",
+  "mode": "mock-only",
+  "realDeviceModified": false,
+  "readCount": 48,
+  "writeCount": 11,
+  "records": [
+    {
+      "api": 1,
+      "key": "first_setup",
+      "kind": "read",
+      "tool": "t830_get_first_setup",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 2,
+      "key": "setup",
+      "kind": "read",
+      "tool": "t830_get_setup",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 8,
+      "key": "country",
+      "kind": "read",
+      "tool": "t830_get_country",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 9,
+      "key": "wifi",
+      "kind": "read",
+      "tool": "t830_get_wifi",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 12,
+      "key": "guest",
+      "kind": "read",
+      "tool": "t830_get_guest",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 15,
+      "key": "wps",
+      "kind": "read",
+      "tool": "t830_get_wps",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 16,
+      "key": "wps_run",
+      "kind": "read",
+      "tool": "t830_get_wps_run",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 19,
+      "key": "wifi_ad",
+      "kind": "read",
+      "tool": "t830_get_wifi_ad",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 21,
+      "key": "wifi_night",
+      "kind": "read",
+      "tool": "t830_get_wifi_night",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 23,
+      "key": "workmode",
+      "kind": "read",
+      "tool": "t830_get_workmode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 25,
+      "key": "wifi_rt",
+      "kind": "read",
+      "tool": "t830_get_wifi_rt",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 30,
+      "key": "mesh_status",
+      "kind": "read",
+      "tool": "t830_get_mesh_status",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 31,
+      "key": "mesh_role",
+      "kind": "read",
+      "tool": "t830_get_mesh_role",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 34,
+      "key": "mesh_routers",
+      "kind": "read",
+      "tool": "t830_get_mesh_routers",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 38,
+      "key": "clients",
+      "kind": "read",
+      "tool": "t830_get_clients",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 41,
+      "key": "status",
+      "kind": "read",
+      "tool": "t830_get_status",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 42,
+      "key": "device_info",
+      "kind": "read",
+      "tool": "t830_get_device_info",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 43,
+      "key": "device",
+      "kind": "read",
+      "tool": "t830_get_device",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 44,
+      "key": "version",
+      "kind": "read",
+      "tool": "t830_get_version",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 49,
+      "key": "sim_presence",
+      "kind": "read",
+      "tool": "t830_get_sim_presence",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 50,
+      "key": "sim_slot",
+      "kind": "read",
+      "tool": "t830_get_sim_slot",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 52,
+      "key": "sim",
+      "kind": "read",
+      "tool": "t830_get_sim",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 58,
+      "key": "network_mode",
+      "kind": "read",
+      "tool": "t830_get_network_mode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 60,
+      "key": "apn",
+      "kind": "read",
+      "tool": "t830_get_apn",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 63,
+      "key": "cells",
+      "kind": "read",
+      "tool": "t830_get_cells",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 63,
+      "key": "band_lock",
+      "kind": "read",
+      "tool": "t830_get_band_lock",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 67,
+      "key": "roaming",
+      "kind": "read",
+      "tool": "t830_get_roaming",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 69,
+      "key": "mac_filter",
+      "kind": "read",
+      "tool": "t830_get_mac_filter",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 72,
+      "key": "ip_filter",
+      "kind": "read",
+      "tool": "t830_get_ip_filter",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 75,
+      "key": "port_forward",
+      "kind": "read",
+      "tool": "t830_get_port_forward",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 78,
+      "key": "port_map",
+      "kind": "read",
+      "tool": "t830_get_port_map",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 81,
+      "key": "url_filter",
+      "kind": "read",
+      "tool": "t830_get_url_filter",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 83,
+      "key": "upnp",
+      "kind": "read",
+      "tool": "t830_get_upnp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 85,
+      "key": "dmz",
+      "kind": "read",
+      "tool": "t830_get_dmz",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 87,
+      "key": "alg",
+      "kind": "read",
+      "tool": "t830_get_alg",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 89,
+      "key": "dns",
+      "kind": "read",
+      "tool": "t830_get_dns",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 91,
+      "key": "dhcp",
+      "kind": "read",
+      "tool": "t830_get_dhcp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 94,
+      "key": "static_ip",
+      "kind": "read",
+      "tool": "t830_get_static_ip",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 95,
+      "key": "ntp",
+      "kind": "read",
+      "tool": "t830_get_ntp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 97,
+      "key": "time",
+      "kind": "read",
+      "tool": "t830_get_time",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 98,
+      "key": "reboot_schedule",
+      "kind": "read",
+      "tool": "t830_get_reboot_schedule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 101,
+      "key": "signal_records",
+      "kind": "read",
+      "tool": "t830_get_signal_records",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 105,
+      "key": "tr069",
+      "kind": "read",
+      "tool": "t830_get_tr069",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 107,
+      "key": "gps",
+      "kind": "read",
+      "tool": "t830_get_gps",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 109,
+      "key": "developer_mode",
+      "kind": "read",
+      "tool": "t830_get_developer_mode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 112,
+      "key": "traffic",
+      "kind": "read",
+      "tool": "t830_get_traffic",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 114,
+      "key": "diagnose",
+      "kind": "read",
+      "tool": "t830_get_diagnose",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 128,
+      "key": "share",
+      "kind": "read",
+      "tool": "t830_get_share",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 10,
+      "key": "wifi_switch",
+      "kind": "write",
+      "tool": "t830_set_wifi_switch",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 11,
+      "key": "wifi_config",
+      "kind": "write",
+      "tool": "t830_set_wifi_config",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 13,
+      "key": "guest_switch",
+      "kind": "write",
+      "tool": "t830_set_guest_switch",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 14,
+      "key": "guest_config",
+      "kind": "write",
+      "tool": "t830_set_guest_config",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 22,
+      "key": "wifi_night",
+      "kind": "write",
+      "tool": "t830_set_wifi_night",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 61,
+      "key": "apn_save",
+      "kind": "write",
+      "tool": "t830_set_apn_save",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 68,
+      "key": "roaming",
+      "kind": "write",
+      "tool": "t830_set_roaming",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 84,
+      "key": "upnp",
+      "kind": "write",
+      "tool": "t830_set_upnp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 90,
+      "key": "dns",
+      "kind": "write",
+      "tool": "t830_set_dns",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 108,
+      "key": "gps",
+      "kind": "write",
+      "tool": "t830_set_gps",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 113,
+      "key": "traffic",
+      "kind": "write",
+      "tool": "t830_set_traffic",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    }
+  ]
+}

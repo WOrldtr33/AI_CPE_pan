@@ -1,0 +1,9 @@
+{
+  "name": "t830-mcp-demo",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node src/server.mjs", "media": "node scripts/media.mjs", "agent": "node scripts/agent.mjs", "agent:check": "node scripts/agent.mjs --check-api", "test": "node --test", "smoke": "node scripts/smoke.mjs", "catalog": "node scripts/catalog.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.0.0", "zod": "^3.25.0" }
+}

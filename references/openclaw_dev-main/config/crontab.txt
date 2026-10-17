@@ -1,0 +1,1 @@
+@reboot sleep 10 && for dev in /dev/video*; do case "$dev" in /dev/video20) ;; *) chmod 000 "$dev" 2>/dev/null;; esac; done

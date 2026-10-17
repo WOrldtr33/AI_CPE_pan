@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-13T02:26:34.296-07:00",
+  "model": "qwen3-omni-flash",
+  "baseUrl": "https://maas.qianwenaiapi.com/compatible-mode/v1",
+  "syntheticOnly": true,
+  "results": [
+    {
+      "tool": "media_analyze_image",
+      "status": "analyzed",
+      "text": "这张虚构测试图片整体呈现为纯红色，色彩均匀、无渐变或纹理，属于单色背景图。"
+    },
+    {
+      "tool": "media_synthesize_speech",
+      "status": "synthesized",
+      "bytes": 176684,
+      "sampleRate": 24000
+    },
+    {
+      "tool": "media_transcribe",
+      "status": "transcribed",
+      "text": "这是虚构演示测试，今天阳光很好。"
+    }
+  ]
+}

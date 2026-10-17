@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Kiosk
+Exec=/usr/bin/kiosk.sh
+Type=Application
