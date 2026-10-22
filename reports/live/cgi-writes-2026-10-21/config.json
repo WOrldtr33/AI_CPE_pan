@@ -1,0 +1,5617 @@
+{
+  "at": "2026-10-21T03:03:16.147-07:00",
+  "phase": "config",
+  "records": [
+    {
+      "at": "2026-10-21T03:03:17.508-07:00",
+      "tool": "t830_get_dmz",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "dmz_switch": 0,
+            "lan_ip": ""
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dmz_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "lan_ip"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:16.424-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "dmz",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:17.506-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dmz_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "lan_ip"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:17.506-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "dmz_switch": 0,
+                "lan_ip": ""
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.116-07:00",
+      "tool": "t830_set_dmz",
+      "args": {
+        "dmz_switch": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:17.510-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "dmz",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.115-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_dmz",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.115-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_dmz",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "dmz_switch": "0"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.178-07:00",
+      "tool": "t830_get_dmz",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "dmz_switch": 0,
+            "lan_ip": ""
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dmz_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "lan_ip"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.118-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "dmz",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.177-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dmz_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "lan_ip"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.177-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "dmz_switch": 0,
+                "lan_ip": ""
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.238-07:00",
+      "tool": "t830_get_alg",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable_snmp": 0,
+            "enable_sip": 0,
+            "enable_gre": 0,
+            "enable_pptp": 0,
+            "enable_tftp": 0,
+            "alg_switch": 1,
+            "enable_ftp": 1,
+            "enable_h323": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "alg_switch"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.180-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "alg",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.237-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "alg_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.237-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable_snmp": 0,
+                "enable_sip": 0,
+                "enable_gre": 0,
+                "enable_pptp": 0,
+                "enable_tftp": 0,
+                "alg_switch": 1,
+                "enable_ftp": 1,
+                "enable_h323": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.300-07:00",
+      "tool": "t830_get_alg",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable_snmp": 0,
+            "enable_sip": 0,
+            "enable_gre": 0,
+            "enable_pptp": 0,
+            "enable_tftp": 0,
+            "alg_switch": 1,
+            "enable_ftp": 1,
+            "enable_h323": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "alg_switch"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.240-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "alg",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.300-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "alg_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.300-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable_snmp": 0,
+                "enable_sip": 0,
+                "enable_gre": 0,
+                "enable_pptp": 0,
+                "enable_tftp": 0,
+                "alg_switch": 1,
+                "enable_ftp": 1,
+                "enable_h323": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.487-07:00",
+      "tool": "t830_set_alg",
+      "args": {
+        "alg_switch": "1",
+        "enable_tftp": "0",
+        "enable_ftp": "1",
+        "enable_pptp": "0",
+        "enable_sip": "0",
+        "enable_h323": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.302-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "alg",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.487-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_alg/set_alg",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.487-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_alg/set_alg",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "alg_switch": "1",
+              "enable_tftp": "0",
+              "enable_ftp": "1",
+              "enable_pptp": "0",
+              "enable_sip": "0",
+              "enable_h323": "0"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.550-07:00",
+      "tool": "t830_get_alg",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable_snmp": 0,
+            "enable_sip": 0,
+            "enable_gre": 0,
+            "enable_pptp": 0,
+            "enable_tftp": 0,
+            "alg_switch": 1,
+            "enable_ftp": 1,
+            "enable_h323": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "alg_switch"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.489-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "alg",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.549-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "alg_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.549-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable_snmp": 0,
+                "enable_sip": 0,
+                "enable_gre": 0,
+                "enable_pptp": 0,
+                "enable_tftp": 0,
+                "alg_switch": 1,
+                "enable_ftp": 1,
+                "enable_h323": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.718-07:00",
+      "tool": "t830_get_dhcp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "leasetime": 43200,
+            "end": "249",
+            "gateway": "192.168.0.1",
+            "start": "100",
+            "netmask": "255.255.255.0",
+            "dhcp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dhcp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "start"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "end"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "netmask"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.551-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "dhcp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.590-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.590-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:20.717-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dhcp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "start"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "end"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "netmask"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.717-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:20.889-07:00",
+      "tool": "t830_get_dhcp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "leasetime": 43200,
+            "end": "249",
+            "gateway": "192.168.0.1",
+            "start": "100",
+            "netmask": "255.255.255.0",
+            "dhcp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dhcp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "start"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "end"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "netmask"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.719-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "dhcp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:20.757-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.757-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:20.889-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dhcp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "start"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "end"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "netmask"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:20.889-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:21.029-07:00",
+      "tool": "t830_set_dhcp",
+      "args": {
+        "dhcp_switch": "1",
+        "gateway": "192.168.0.1",
+        "netmask": "255.255.255.0",
+        "leasetime": "12h",
+        "start": "100",
+        "end": "249"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:20.891-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "dhcp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:21.029-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_dhcp",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:21.029-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_dhcp",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "dhcp_switch": "1",
+              "gateway": "192.168.0.1",
+              "netmask": "255.255.255.0",
+              "leasetime": "12h",
+              "start": "100",
+              "end": "249"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:21.199-07:00",
+      "tool": "t830_get_dhcp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "leasetime": 43200,
+            "end": "249",
+            "gateway": "192.168.0.1",
+            "start": "100",
+            "netmask": "255.255.255.0",
+            "dhcp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dhcp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "start"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "end"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "netmask"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:21.031-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "dhcp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:21.071-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:21.071-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:21.198-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dhcp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "start"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "end"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "netmask"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:21.198-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:21.238-07:00",
+      "tool": "t830_get_ntp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "zonename": "Africa/Johannesburg",
+            "ntp_server2": "1.openwrt.pool.ntp.org",
+            "ntp_server1": "0.openwrt.pool.ntp.org",
+            "timezone": "SAST-2",
+            "timezone_list": [
+              "UTC",
+              "Africa/Abidjan",
+              "Africa/Accra",
+              "Africa/Addis Ababa",
+              "Africa/Algiers",
+              "Africa/Asmara",
+              "Africa/Bamako",
+              "Africa/Bangui",
+              "Africa/Banjul",
+              "Africa/Bissau",
+              "Africa/Blantyre",
+              "Africa/Brazzaville",
+              "Africa/Bujumbura",
+              "Africa/Cairo",
+              "Africa/Casablanca",
+              "Africa/Ceuta",
+              "Africa/Conakry",
+              "Africa/Dakar",
+              "Africa/Dar es Salaam",
+              "Africa/Djibouti",
+              "Africa/Douala",
+              "Africa/El Aaiun",
+              "Africa/Freetown",
+              "Africa/Gaborone",
+              "Africa/Harare",
+              "Africa/Johannesburg",
+              "Africa/Juba",
+              "Africa/Kampala",
+              "Africa/Khartoum",
+              "Africa/Kigali",
+              "Africa/Kinshasa",
+              "Africa/Lagos",
+              "Africa/Libreville",
+              "Africa/Lome",
+              "Africa/Luanda",
+              "Africa/Lubumbashi",
+              "Africa/Lusaka",
+              "Africa/Malabo",
+              "Africa/Maputo",
+              "Africa/Maseru",
+              "Africa/Mbabane",
+              "Africa/Mogadishu",
+              "Africa/Monrovia",
+              "Africa/Nairobi",
+              "Africa/Ndjamena",
+              "Africa/Niamey",
+              "Africa/Nouakchott",
+              "Africa/Ouagadougou",
+              "Africa/Porto-Novo",
+              "Africa/Sao Tome",
+              "Africa/Tripoli",
+              "Africa/Tunis",
+              "Africa/Windhoek",
+              "America/Adak",
+              "America/Anchorage",
+              "America/Anguilla",
+              "America/Antigua",
+              "America/Araguaina",
+              "America/Argentina/Buenos Aires",
+              "America/Argentina/Catamarca",
+              "America/Argentina/Cordoba",
+              "America/Argentina/Jujuy",
+              "America/Argentina/La Rioja",
+              "America/Argentina/Mendoza",
+              "America/Argentina/Rio Gallegos",
+              "America/Argentina/Salta",
+              "America/Argentina/San Juan",
+              "America/Argentina/San Luis",
+              "America/Argentina/Tucuman",
+              "America/Argentina/Ushuaia",
+              "America/Aruba",
+              "America/Asuncion",
+              "America/Atikokan",
+              "America/Bahia",
+              "America/Bahia Banderas",
+              "America/Barbados",
+              "America/Belem",
+              "America/Belize",
+              "America/Blanc-Sablon",
+              "America/Boa Vista",
+              "America/Bogota",
+              "America/Boise",
+              "America/Cambridge Bay",
+              "America/Campo Grande",
+              "America/Cancun",
+              "America/Caracas",
+              "America/Cayenne",
+              "America/Cayman",
+              "America/Chicago",
+              "America/Chihuahua",
+              "America/Costa Rica",
+              "America/Creston",
+              "America/Cuiaba",
+              "America/Curacao",
+              "America/Danmarkshavn",
+              "America/Dawson",
+              "America/Dawson Creek",
+              "America/Denver",
+              "America/Detroit",
+              "America/Dominica",
+              "America/Edmonton",
+              "America/Eirunepe",
+              "America/El Salvador",
+              "America/Fort Nelson",
+              "America/Fortaleza",
+              "America/Glace Bay",
+              "America/Goose Bay",
+              "America/Grand Turk",
+              "America/Grenada",
+              "America/Guadeloupe",
+              "America/Guatemala",
+              "America/Guayaquil",
+              "America/Guyana",
+              "America/Halifax",
+              "America/Havana",
+              "America/Hermosillo",
+              "America/Indiana/Indianapolis",
+              "America/Indiana/Knox",
+              "America/Indiana/Marengo",
+              "America/Indiana/Petersburg",
+              "America/Indiana/Tell City",
+              "America/Indiana/Vevay",
+              "America/Indiana/Vincennes",
+              "America/Indiana/Winamac",
+              "America/Inuvik",
+              "America/Iqaluit",
+              "America/Jamaica",
+              "America/Juneau",
+              "America/Kentucky/Louisville",
+              "America/Kentucky/Monticello",
+              "America/Kralendijk",
+              "America/La Paz",
+              "America/Lima",
+              "America/Los Angeles",
+              "America/Lower Princes",
+              "America/Maceio",
+              "America/Managua",
+              "America/Manaus",
+              "America/Marigot",
+              "America/Martinique",
+              "America/Matamoros",
+              "America/Mazatlan",
+              "America/Menominee",
+              "America/Merida",
+              "America/Metlakatla",
+              "America/Mexico City",
+              "America/Miquelon",
+              "America/Moncton",
+              "America/Monterrey",
+              "America/Montevideo",
+              "America/Montserrat",
+              "America/Nassau",
+              "America/New York",
+              "America/Nipigon",
+              "America/Nome",
+              "America/Noronha",
+              "America/North Dakota/Beulah",
+              "America/North Dakota/Center",
+              "America/North Dakota/New Salem",
+              "America/Nuuk",
+              "America/Ojinaga",
+              "America/Panama",
+              "America/Pangnirtung",
+              "America/Paramaribo",
+              "America/Phoenix",
+              "America/Port of Spain",
+              "America/Port-au-Prince",
+              "America/Porto Velho",
+              "America/Puerto Rico",
+              "America/Punta Arenas",
+              "America/Rainy River",
+              "America/Rankin Inlet",
+              "America/Recife",
+              "America/Regina",
+              "America/Resolute",
+              "America/Rio Branco",
+              "America/Santarem",
+              "America/Santiago",
+              "America/Santo Domingo",
+              "America/Sao Paulo",
+              "America/Scoresbysund",
+              "America/Sitka",
+              "America/St Barthelemy",
+              "America/St Johns",
+              "America/St Kitts",
+              "America/St Lucia",
+              "America/St Thomas",
+              "America/St Vincent",
+              "America/Swift Current",
+              "America/Tegucigalpa",
+              "America/Thule",
+              "America/Thunder Bay",
+              "America/Tijuana",
+              "America/Toronto",
+              "America/Tortola",
+              "America/Vancouver",
+              "America/Whitehorse",
+              "America/Winnipeg",
+              "America/Yakutat",
+              "America/Yellowknife",
+              "Antarctica/Casey",
+              "Antarctica/Davis",
+              "Antarctica/DumontDUrville",
+              "Antarctica/Macquarie",
+              "Antarctica/Mawson",
+              "Antarctica/McMurdo",
+              "Antarctica/Palmer",
+              "Antarctica/Rothera",
+              "Antarctica/Syowa",
+              "Antarctica/Troll",
+              "Antarctica/Vostok",
+              "Arctic/Longyearbyen",
+              "Asia/Aden",
+              "Asia/Almaty",
+              "Asia/Amman",
+              "Asia/Anadyr",
+              "Asia/Aqtau",
+              "Asia/Aqtobe",
+              "Asia/Ashgabat",
+              "Asia/Atyrau",
+              "Asia/Baghdad",
+              "Asia/Bahrain",
+              "Asia/Baku",
+              "Asia/Bangkok",
+              "Asia/Barnaul",
+              "Asia/Beirut",
+              "Asia/Bishkek",
+              "Asia/Brunei",
+              "Asia/Chita",
+              "Asia/Choibalsan",
+              "Asia/Colombo",
+              "Asia/Damascus",
+              "Asia/Dhaka",
+              "Asia/Dili",
+              "Asia/Dubai",
+              "Asia/Dushanbe",
+              "Asia/Famagusta",
+              "Asia/Gaza",
+              "Asia/Hebron",
+              "Asia/Ho Chi Minh",
+              "Asia/Hong Kong",
+              "Asia/Hovd",
+              "Asia/Irkutsk",
+              "Asia/Jakarta",
+              "Asia/Jayapura",
+              "Asia/Jerusalem",
+              "Asia/Kabul",
+              "Asia/Kamchatka",
+              "Asia/Karachi",
+              "Asia/Kathmandu",
+              "Asia/Khandyga",
+              "Asia/Kolkata",
+              "Asia/Krasnoyarsk",
+              "Asia/Kuala Lumpur",
+              "Asia/Kuching",
+              "Asia/Kuwait",
+              "Asia/Macau",
+              "Asia/Magadan",
+              "Asia/Makassar",
+              "Asia/Manila",
+              "Asia/Muscat",
+              "Asia/Nicosia",
+              "Asia/Novokuznetsk",
+              "Asia/Novosibirsk",
+              "Asia/Omsk",
+              "Asia/Oral",
+              "Asia/Phnom Penh",
+              "Asia/Pontianak",
+              "Asia/Pyongyang",
+              "Asia/Qatar",
+              "Asia/Qostanay",
+              "Asia/Qyzylorda",
+              "Asia/Riyadh",
+              "Asia/Sakhalin",
+              "Asia/Samarkand",
+              "Asia/Seoul",
+              "Asia/Shanghai",
+              "Asia/Singapore",
+              "Asia/Srednekolymsk",
+              "Asia/Taipei",
+              "Asia/Tashkent",
+              "Asia/Tbilisi",
+              "Asia/Tehran",
+              "Asia/Thimphu",
+              "Asia/Tokyo",
+              "Asia/Tomsk",
+              "Asia/Ulaanbaatar",
+              "Asia/Urumqi",
+              "Asia/Ust-Nera",
+              "Asia/Vientiane",
+              "Asia/Vladivostok",
+              "Asia/Yakutsk",
+              "Asia/Yangon",
+              "Asia/Yekaterinburg",
+              "Asia/Yerevan",
+              "Atlantic/Azores",
+              "Atlantic/Bermuda",
+              "Atlantic/Canary",
+              "Atlantic/Cape Verde",
+              "Atlantic/Faroe",
+              "Atlantic/Madeira",
+              "Atlantic/Reykjavik",
+              "Atlantic/South Georgia",
+              "Atlantic/St Helena",
+              "Atlantic/Stanley",
+              "Australia/Adelaide",
+              "Australia/Brisbane",
+              "Australia/Broken Hill",
+              "Australia/Darwin",
+              "Australia/Eucla",
+              "Australia/Hobart",
+              "Australia/Lindeman",
+              "Australia/Lord Howe",
+              "Australia/Melbourne",
+              "Australia/Perth",
+              "Australia/Sydney",
+              "Etc/GMT",
+              "Etc/GMT+1",
+              "Etc/GMT+10",
+              "Etc/GMT+11",
+              "Etc/GMT+12",
+              "Etc/GMT+2",
+              "Etc/GMT+3",
+              "Etc/GMT+4",
+              "Etc/GMT+5",
+              "Etc/GMT+6",
+              "Etc/GMT+7",
+              "Etc/GMT+8",
+              "Etc/GMT+9",
+              "Etc/GMT-1",
+              "Etc/GMT-10",
+              "Etc/GMT-11",
+              "Etc/GMT-12",
+              "Etc/GMT-13",
+              "Etc/GMT-14",
+              "Etc/GMT-2",
+              "Etc/GMT-3",
+              "Etc/GMT-4",
+              "Etc/GMT-5",
+              "Etc/GMT-6",
+              "Etc/GMT-7",
+              "Etc/GMT-8",
+              "Etc/GMT-9",
+              "Europe/Amsterdam",
+              "Europe/Andorra",
+              "Europe/Astrakhan",
+              "Europe/Athens",
+              "Europe/Belgrade",
+              "Europe/Berlin",
+              "Europe/Bratislava",
+              "Europe/Brussels",
+              "Europe/Bucharest",
+              "Europe/Budapest",
+              "Europe/Busingen",
+              "Europe/Chisinau",
+              "Europe/Copenhagen",
+              "Europe/Dublin",
+              "Europe/Gibraltar",
+              "Europe/Guernsey",
+              "Europe/Helsinki",
+              "Europe/Isle of Man",
+              "Europe/Istanbul",
+              "Europe/Jersey",
+              "Europe/Kaliningrad",
+              "Europe/Kirov",
+              "Europe/Kyiv",
+              "Europe/Lisbon",
+              "Europe/Ljubljana",
+              "Europe/London",
+              "Europe/Luxembourg",
+              "Europe/Madrid",
+              "Europe/Malta",
+              "Europe/Mariehamn",
+              "Europe/Minsk",
+              "Europe/Monaco",
+              "Europe/Moscow",
+              "Europe/Oslo",
+              "Europe/Paris",
+              "Europe/Podgorica",
+              "Europe/Prague",
+              "Europe/Riga",
+              "Europe/Rome",
+              "Europe/Samara",
+              "Europe/San Marino",
+              "Europe/Sarajevo",
+              "Europe/Saratov",
+              "Europe/Simferopol",
+              "Europe/Skopje",
+              "Europe/Sofia",
+              "Europe/Stockholm",
+              "Europe/Tallinn",
+              "Europe/Tirane",
+              "Europe/Ulyanovsk",
+              "Europe/Vaduz",
+              "Europe/Vatican",
+              "Europe/Vienna",
+              "Europe/Vilnius",
+              "Europe/Volgograd",
+              "Europe/Warsaw",
+              "Europe/Zagreb",
+              "Europe/Zurich",
+              "Indian/Antananarivo",
+              "Indian/Chagos",
+              "Indian/Christmas",
+              "Indian/Cocos",
+              "Indian/Comoro",
+              "Indian/Kerguelen",
+              "Indian/Mahe",
+              "Indian/Maldives",
+              "Indian/Mauritius",
+              "Indian/Mayotte",
+              "Indian/Reunion",
+              "Pacific/Apia",
+              "Pacific/Auckland",
+              "Pacific/Bougainville",
+              "Pacific/Chatham",
+              "Pacific/Chuuk",
+              "Pacific/Easter",
+              "Pacific/Efate",
+              "Pacific/Fakaofo",
+              "Pacific/Fiji",
+              "Pacific/Funafuti",
+              "Pacific/Galapagos",
+              "Pacific/Gambier",
+              "Pacific/Guadalcanal",
+              "Pacific/Guam",
+              "Pacific/Honolulu",
+              "Pacific/Kanton",
+              "Pacific/Kiritimati",
+              "Pacific/Kosrae",
+              "Pacific/Kwajalein",
+              "Pacific/Majuro",
+              "Pacific/Marquesas",
+              "Pacific/Midway",
+              "Pacific/Nauru",
+              "Pacific/Niue",
+              "Pacific/Norfolk",
+              "Pacific/Noumea",
+              "Pacific/Pago Pago",
+              "Pacific/Palau",
+              "Pacific/Pitcairn",
+              "Pacific/Pohnpei",
+              "Pacific/Port Moresby",
+              "Pacific/Rarotonga",
+              "Pacific/Saipan",
+              "Pacific/Tahiti",
+              "Pacific/Tarawa",
+              "Pacific/Tongatapu",
+              "Pacific/Wake",
+              "Pacific/Wallis"
+            ],
+            "current_time": "2026-10-21 12:03:22",
+            "ntp_switch": 1,
+            "ntp_server3": "2.openwrt.pool.ntp.org",
+            "ntp_server4": "3.openwrt.pool.ntp.org"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:21.200-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "ntp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:21.237-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:21.237-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "zonename": "Africa/Johannesburg",
+                "ntp_server2": "1.openwrt.pool.ntp.org",
+                "ntp_server1": "0.openwrt.pool.ntp.org",
+                "timezone": "SAST-2",
+                "timezone_list": [
+                  "UTC",
+                  "Africa/Abidjan",
+                  "Africa/Accra",
+                  "Africa/Addis Ababa",
+                  "Africa/Algiers",
+                  "Africa/Asmara",
+                  "Africa/Bamako",
+                  "Africa/Bangui",
+                  "Africa/Banjul",
+                  "Africa/Bissau",
+                  "Africa/Blantyre",
+                  "Africa/Brazzaville",
+                  "Africa/Bujumbura",
+                  "Africa/Cairo",
+                  "Africa/Casablanca",
+                  "Africa/Ceuta",
+                  "Africa/Conakry",
+                  "Africa/Dakar",
+                  "Africa/Dar es Salaam",
+                  "Africa/Djibouti",
+                  "Africa/Douala",
+                  "Africa/El Aaiun",
+                  "Africa/Freetown",
+                  "Africa/Gaborone",
+                  "Africa/Harare",
+                  "Africa/Johannesburg",
+                  "Africa/Juba",
+                  "Africa/Kampala",
+                  "Africa/Khartoum",
+                  "Africa/Kigali",
+                  "Africa/Kinshasa",
+                  "Africa/Lagos",
+                  "Africa/Libreville",
+                  "Africa/Lome",
+                  "Africa/Luanda",
+                  "Africa/Lubumbashi",
+                  "Africa/Lusaka",
+                  "Africa/Malabo",
+                  "Africa/Maputo",
+                  "Africa/Maseru",
+                  "Africa/Mbabane",
+                  "Africa/Mogadishu",
+                  "Africa/Monrovia",
+                  "Africa/Nairobi",
+                  "Africa/Ndjamena",
+                  "Africa/Niamey",
+                  "Africa/Nouakchott",
+                  "Africa/Ouagadougou",
+                  "Africa/Porto-Novo",
+                  "Africa/Sao Tome",
+                  "Africa/Tripoli",
+                  "Africa/Tunis",
+                  "Africa/Windhoek",
+                  "America/Adak",
+                  "America/Anchorage",
+                  "America/Anguilla",
+                  "America/Antigua",
+                  "America/Araguaina",
+                  "America/Argentina/Buenos Aires",
+                  "America/Argentina/Catamarca",
+                  "America/Argentina/Cordoba",
+                  "America/Argentina/Jujuy",
+                  "America/Argentina/La Rioja",
+                  "America/Argentina/Mendoza",
+                  "America/Argentina/Rio Gallegos",
+                  "America/Argentina/Salta",
+                  "America/Argentina/San Juan",
+                  "America/Argentina/San Luis",
+                  "America/Argentina/Tucuman",
+                  "America/Argentina/Ushuaia",
+                  "America/Aruba",
+                  "America/Asuncion",
+                  "America/Atikokan",
+                  "America/Bahia",
+                  "America/Bahia Banderas",
+                  "America/Barbados",
+                  "America/Belem",
+                  "America/Belize",
+                  "America/Blanc-Sablon",
+                  "America/Boa Vista",
+                  "America/Bogota",
+                  "America/Boise",
+                  "America/Cambridge Bay",
+                  "America/Campo Grande",
+                  "America/Cancun",
+                  "America/Caracas",
+                  "America/Cayenne",
+                  "America/Cayman",
+                  "America/Chicago",
+                  "America/Chihuahua",
+                  "America/Costa Rica",
+                  "America/Creston",
+                  "America/Cuiaba",
+                  "America/Curacao",
+                  "America/Danmarkshavn",
+                  "America/Dawson",
+                  "America/Dawson Creek",
+                  "America/Denver",
+                  "America/Detroit",
+                  "America/Dominica",
+                  "America/Edmonton",
+                  "America/Eirunepe",
+                  "America/El Salvador",
+                  "America/Fort Nelson",
+                  "America/Fortaleza",
+                  "America/Glace Bay",
+                  "America/Goose Bay",
+                  "America/Grand Turk",
+                  "America/Grenada",
+                  "America/Guadeloupe",
+                  "America/Guatemala",
+                  "America/Guayaquil",
+                  "America/Guyana",
+                  "America/Halifax",
+                  "America/Havana",
+                  "America/Hermosillo",
+                  "America/Indiana/Indianapolis",
+                  "America/Indiana/Knox",
+                  "America/Indiana/Marengo",
+                  "America/Indiana/Petersburg",
+                  "America/Indiana/Tell City",
+                  "America/Indiana/Vevay",
+                  "America/Indiana/Vincennes",
+                  "America/Indiana/Winamac",
+                  "America/Inuvik",
+                  "America/Iqaluit",
+                  "America/Jamaica",
+                  "America/Juneau",
+                  "America/Kentucky/Louisville",
+                  "America/Kentucky/Monticello",
+                  "America/Kralendijk",
+                  "America/La Paz",
+                  "America/Lima",
+                  "America/Los Angeles",
+                  "America/Lower Princes",
+                  "America/Maceio",
+                  "America/Managua",
+                  "America/Manaus",
+                  "America/Marigot",
+                  "America/Martinique",
+                  "America/Matamoros",
+                  "America/Mazatlan",
+                  "America/Menominee",
+                  "America/Merida",
+                  "America/Metlakatla",
+                  "America/Mexico City",
+                  "America/Miquelon",
+                  "America/Moncton",
+                  "America/Monterrey",
+                  "America/Montevideo",
+                  "America/Montserrat",
+                  "America/Nassau",
+                  "America/New York",
+                  "America/Nipigon",
+                  "America/Nome",
+                  "America/Noronha",
+                  "America/North Dakota/Beulah",
+                  "America/North Dakota/Center",
+                  "America/North Dakota/New Salem",
+                  "America/Nuuk",
+                  "America/Ojinaga",
+                  "America/Panama",
+                  "America/Pangnirtung",
+                  "America/Paramaribo",
+                  "America/Phoenix",
+                  "America/Port of Spain",
+                  "America/Port-au-Prince",
+                  "America/Porto Velho",
+                  "America/Puerto Rico",
+                  "America/Punta Arenas",
+                  "America/Rainy River",
+                  "America/Rankin Inlet",
+                  "America/Recife",
+                  "America/Regina",
+                  "America/Resolute",
+                  "America/Rio Branco",
+                  "America/Santarem",
+                  "America/Santiago",
+                  "America/Santo Domingo",
+                  "America/Sao Paulo",
+                  "America/Scoresbysund",
+                  "America/Sitka",
+                  "America/St Barthelemy",
+                  "America/St Johns",
+                  "America/St Kitts",
+                  "America/St Lucia",
+                  "America/St Thomas",
+                  "America/St Vincent",
+                  "America/Swift Current",
+                  "America/Tegucigalpa",
+                  "America/Thule",
+                  "America/Thunder Bay",
+                  "America/Tijuana",
+                  "America/Toronto",
+                  "America/Tortola",
+                  "America/Vancouver",
+                  "America/Whitehorse",
+                  "America/Winnipeg",
+                  "America/Yakutat",
+                  "America/Yellowknife",
+                  "Antarctica/Casey",
+                  "Antarctica/Davis",
+                  "Antarctica/DumontDUrville",
+                  "Antarctica/Macquarie",
+                  "Antarctica/Mawson",
+                  "Antarctica/McMurdo",
+                  "Antarctica/Palmer",
+                  "Antarctica/Rothera",
+                  "Antarctica/Syowa",
+                  "Antarctica/Troll",
+                  "Antarctica/Vostok",
+                  "Arctic/Longyearbyen",
+                  "Asia/Aden",
+                  "Asia/Almaty",
+                  "Asia/Amman",
+                  "Asia/Anadyr",
+                  "Asia/Aqtau",
+                  "Asia/Aqtobe",
+                  "Asia/Ashgabat",
+                  "Asia/Atyrau",
+                  "Asia/Baghdad",
+                  "Asia/Bahrain",
+                  "Asia/Baku",
+                  "Asia/Bangkok",
+                  "Asia/Barnaul",
+                  "Asia/Beirut",
+                  "Asia/Bishkek",
+                  "Asia/Brunei",
+                  "Asia/Chita",
+                  "Asia/Choibalsan",
+                  "Asia/Colombo",
+                  "Asia/Damascus",
+                  "Asia/Dhaka",
+                  "Asia/Dili",
+                  "Asia/Dubai",
+                  "Asia/Dushanbe",
+                  "Asia/Famagusta",
+                  "Asia/Gaza",
+                  "Asia/Hebron",
+                  "Asia/Ho Chi Minh",
+                  "Asia/Hong Kong",
+                  "Asia/Hovd",
+                  "Asia/Irkutsk",
+                  "Asia/Jakarta",
+                  "Asia/Jayapura",
+                  "Asia/Jerusalem",
+                  "Asia/Kabul",
+                  "Asia/Kamchatka",
+                  "Asia/Karachi",
+                  "Asia/Kathmandu",
+                  "Asia/Khandyga",
+                  "Asia/Kolkata",
+                  "Asia/Krasnoyarsk",
+                  "Asia/Kuala Lumpur",
+                  "Asia/Kuching",
+                  "Asia/Kuwait",
+                  "Asia/Macau",
+                  "Asia/Magadan",
+                  "Asia/Makassar",
+                  "Asia/Manila",
+                  "Asia/Muscat",
+                  "Asia/Nicosia",
+                  "Asia/Novokuznetsk",
+                  "Asia/Novosibirsk",
+                  "Asia/Omsk",
+                  "Asia/Oral",
+                  "Asia/Phnom Penh",
+                  "Asia/Pontianak",
+                  "Asia/Pyongyang",
+                  "Asia/Qatar",
+                  "Asia/Qostanay",
+                  "Asia/Qyzylorda",
+                  "Asia/Riyadh",
+                  "Asia/Sakhalin",
+                  "Asia/Samarkand",
+                  "Asia/Seoul",
+                  "Asia/Shanghai",
+                  "Asia/Singapore",
+                  "Asia/Srednekolymsk",
+                  "Asia/Taipei",
+                  "Asia/Tashkent",
+                  "Asia/Tbilisi",
+                  "Asia/Tehran",
+                  "Asia/Thimphu",
+                  "Asia/Tokyo",
+                  "Asia/Tomsk",
+                  "Asia/Ulaanbaatar",
+                  "Asia/Urumqi",
+                  "Asia/Ust-Nera",
+                  "Asia/Vientiane",
+                  "Asia/Vladivostok",
+                  "Asia/Yakutsk",
+                  "Asia/Yangon",
+                  "Asia/Yekaterinburg",
+                  "Asia/Yerevan",
+                  "Atlantic/Azores",
+                  "Atlantic/Bermuda",
+                  "Atlantic/Canary",
+                  "Atlantic/Cape Verde",
+                  "Atlantic/Faroe",
+                  "Atlantic/Madeira",
+                  "Atlantic/Reykjavik",
+                  "Atlantic/South Georgia",
+                  "Atlantic/St Helena",
+                  "Atlantic/Stanley",
+                  "Australia/Adelaide",
+                  "Australia/Brisbane",
+                  "Australia/Broken Hill",
+                  "Australia/Darwin",
+                  "Australia/Eucla",
+                  "Australia/Hobart",
+                  "Australia/Lindeman",
+                  "Australia/Lord Howe",
+                  "Australia/Melbourne",
+                  "Australia/Perth",
+                  "Australia/Sydney",
+                  "Etc/GMT",
+                  "Etc/GMT+1",
+                  "Etc/GMT+10",
+                  "Etc/GMT+11",
+                  "Etc/GMT+12",
+                  "Etc/GMT+2",
+                  "Etc/GMT+3",
+                  "Etc/GMT+4",
+                  "Etc/GMT+5",
+                  "Etc/GMT+6",
+                  "Etc/GMT+7",
+                  "Etc/GMT+8",
+                  "Etc/GMT+9",
+                  "Etc/GMT-1",
+                  "Etc/GMT-10",
+                  "Etc/GMT-11",
+                  "Etc/GMT-12",
+                  "Etc/GMT-13",
+                  "Etc/GMT-14",
+                  "Etc/GMT-2",
+                  "Etc/GMT-3",
+                  "Etc/GMT-4",
+                  "Etc/GMT-5",
+                  "Etc/GMT-6",
+                  "Etc/GMT-7",
+                  "Etc/GMT-8",
+                  "Etc/GMT-9",
+                  "Europe/Amsterdam",
+                  "Europe/Andorra",
+                  "Europe/Astrakhan",
+                  "Europe/Athens",
+                  "Europe/Belgrade",
+                  "Europe/Berlin",
+                  "Europe/Bratislava",
+                  "Europe/Brussels",
+                  "Europe/Bucharest",
+                  "Europe/Budapest",
+                  "Europe/Busingen",
+                  "Europe/Chisinau",
+                  "Europe/Copenhagen",
+                  "Europe/Dublin",
+                  "Europe/Gibraltar",
+                  "Europe/Guernsey",
+                  "Europe/Helsinki",
+                  "Europe/Isle of Man",
+                  "Europe/Istanbul",
+                  "Europe/Jersey",
+                  "Europe/Kaliningrad",
+                  "Europe/Kirov",
+                  "Europe/Kyiv",
+                  "Europe/Lisbon",
+                  "Europe/Ljubljana",
+                  "Europe/London",
+                  "Europe/Luxembourg",
+                  "Europe/Madrid",
+                  "Europe/Malta",
+                  "Europe/Mariehamn",
+                  "Europe/Minsk",
+                  "Europe/Monaco",
+                  "Europe/Moscow",
+                  "Europe/Oslo",
+                  "Europe/Paris",
+                  "Europe/Podgorica",
+                  "Europe/Prague",
+                  "Europe/Riga",
+                  "Europe/Rome",
+                  "Europe/Samara",
+                  "Europe/San Marino",
+                  "Europe/Sarajevo",
+                  "Europe/Saratov",
+                  "Europe/Simferopol",
+                  "Europe/Skopje",
+                  "Europe/Sofia",
+                  "Europe/Stockholm",
+                  "Europe/Tallinn",
+                  "Europe/Tirane",
+                  "Europe/Ulyanovsk",
+                  "Europe/Vaduz",
+                  "Europe/Vatican",
+                  "Europe/Vienna",
+                  "Europe/Vilnius",
+                  "Europe/Volgograd",
+                  "Europe/Warsaw",
+                  "Europe/Zagreb",
+                  "Europe/Zurich",
+                  "Indian/Antananarivo",
+                  "Indian/Chagos",
+                  "Indian/Christmas",
+                  "Indian/Cocos",
+                  "Indian/Comoro",
+                  "Indian/Kerguelen",
+                  "Indian/Mahe",
+                  "Indian/Maldives",
+                  "Indian/Mauritius",
+                  "Indian/Mayotte",
+                  "Indian/Reunion",
+                  "Pacific/Apia",
+                  "Pacific/Auckland",
+                  "Pacific/Bougainville",
+                  "Pacific/Chatham",
+                  "Pacific/Chuuk",
+                  "Pacific/Easter",
+                  "Pacific/Efate",
+                  "Pacific/Fakaofo",
+                  "Pacific/Fiji",
+                  "Pacific/Funafuti",
+                  "Pacific/Galapagos",
+                  "Pacific/Gambier",
+                  "Pacific/Guadalcanal",
+                  "Pacific/Guam",
+                  "Pacific/Honolulu",
+                  "Pacific/Kanton",
+                  "Pacific/Kiritimati",
+                  "Pacific/Kosrae",
+                  "Pacific/Kwajalein",
+                  "Pacific/Majuro",
+                  "Pacific/Marquesas",
+                  "Pacific/Midway",
+                  "Pacific/Nauru",
+                  "Pacific/Niue",
+                  "Pacific/Norfolk",
+                  "Pacific/Noumea",
+                  "Pacific/Pago Pago",
+                  "Pacific/Palau",
+                  "Pacific/Pitcairn",
+                  "Pacific/Pohnpei",
+                  "Pacific/Port Moresby",
+                  "Pacific/Rarotonga",
+                  "Pacific/Saipan",
+                  "Pacific/Tahiti",
+                  "Pacific/Tarawa",
+                  "Pacific/Tongatapu",
+                  "Pacific/Wake",
+                  "Pacific/Wallis"
+                ],
+                "current_time": "2026-10-21 12:03:22",
+                "ntp_switch": 1,
+                "ntp_server3": "2.openwrt.pool.ntp.org",
+                "ntp_server4": "3.openwrt.pool.ntp.org"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:21.279-07:00",
+      "tool": "t830_get_ntp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "zonename": "Africa/Johannesburg",
+            "ntp_server2": "1.openwrt.pool.ntp.org",
+            "ntp_server1": "0.openwrt.pool.ntp.org",
+            "timezone": "SAST-2",
+            "timezone_list": [
+              "UTC",
+              "Africa/Abidjan",
+              "Africa/Accra",
+              "Africa/Addis Ababa",
+              "Africa/Algiers",
+              "Africa/Asmara",
+              "Africa/Bamako",
+              "Africa/Bangui",
+              "Africa/Banjul",
+              "Africa/Bissau",
+              "Africa/Blantyre",
+              "Africa/Brazzaville",
+              "Africa/Bujumbura",
+              "Africa/Cairo",
+              "Africa/Casablanca",
+              "Africa/Ceuta",
+              "Africa/Conakry",
+              "Africa/Dakar",
+              "Africa/Dar es Salaam",
+              "Africa/Djibouti",
+              "Africa/Douala",
+              "Africa/El Aaiun",
+              "Africa/Freetown",
+              "Africa/Gaborone",
+              "Africa/Harare",
+              "Africa/Johannesburg",
+              "Africa/Juba",
+              "Africa/Kampala",
+              "Africa/Khartoum",
+              "Africa/Kigali",
+              "Africa/Kinshasa",
+              "Africa/Lagos",
+              "Africa/Libreville",
+              "Africa/Lome",
+              "Africa/Luanda",
+              "Africa/Lubumbashi",
+              "Africa/Lusaka",
+              "Africa/Malabo",
+              "Africa/Maputo",
+              "Africa/Maseru",
+              "Africa/Mbabane",
+              "Africa/Mogadishu",
+              "Africa/Monrovia",
+              "Africa/Nairobi",
+              "Africa/Ndjamena",
+              "Africa/Niamey",
+              "Africa/Nouakchott",
+              "Africa/Ouagadougou",
+              "Africa/Porto-Novo",
+              "Africa/Sao Tome",
+              "Africa/Tripoli",
+              "Africa/Tunis",
+              "Africa/Windhoek",
+              "America/Adak",
+              "America/Anchorage",
+              "America/Anguilla",
+              "America/Antigua",
+              "America/Araguaina",
+              "America/Argentina/Buenos Aires",
+              "America/Argentina/Catamarca",
+              "America/Argentina/Cordoba",
+              "America/Argentina/Jujuy",
+              "America/Argentina/La Rioja",
+              "America/Argentina/Mendoza",
+              "America/Argentina/Rio Gallegos",
+              "America/Argentina/Salta",
+              "America/Argentina/San Juan",
+              "America/Argentina/San Luis",
+              "America/Argentina/Tucuman",
+              "America/Argentina/Ushuaia",
+              "America/Aruba",
+              "America/Asuncion",
+              "America/Atikokan",
+              "America/Bahia",
+              "America/Bahia Banderas",
+              "America/Barbados",
+              "America/Belem",
+              "America/Belize",
+              "America/Blanc-Sablon",
+              "America/Boa Vista",
+              "America/Bogota",
+              "America/Boise",
+              "America/Cambridge Bay",
+              "America/Campo Grande",
+              "America/Cancun",
+              "America/Caracas",
+              "America/Cayenne",
+              "America/Cayman",
+              "America/Chicago",
+              "America/Chihuahua",
+              "America/Costa Rica",
+              "America/Creston",
+              "America/Cuiaba",
+              "America/Curacao",
+              "America/Danmarkshavn",
+              "America/Dawson",
+              "America/Dawson Creek",
+              "America/Denver",
+              "America/Detroit",
+              "America/Dominica",
+              "America/Edmonton",
+              "America/Eirunepe",
+              "America/El Salvador",
+              "America/Fort Nelson",
+              "America/Fortaleza",
+              "America/Glace Bay",
+              "America/Goose Bay",
+              "America/Grand Turk",
+              "America/Grenada",
+              "America/Guadeloupe",
+              "America/Guatemala",
+              "America/Guayaquil",
+              "America/Guyana",
+              "America/Halifax",
+              "America/Havana",
+              "America/Hermosillo",
+              "America/Indiana/Indianapolis",
+              "America/Indiana/Knox",
+              "America/Indiana/Marengo",
+              "America/Indiana/Petersburg",
+              "America/Indiana/Tell City",
+              "America/Indiana/Vevay",
+              "America/Indiana/Vincennes",
+              "America/Indiana/Winamac",
+              "America/Inuvik",
+              "America/Iqaluit",
+              "America/Jamaica",
+              "America/Juneau",
+              "America/Kentucky/Louisville",
+              "America/Kentucky/Monticello",
+              "America/Kralendijk",
+              "America/La Paz",
+              "America/Lima",
+              "America/Los Angeles",
+              "America/Lower Princes",
+              "America/Maceio",
+              "America/Managua",
+              "America/Manaus",
+              "America/Marigot",
+              "America/Martinique",
+              "America/Matamoros",
+              "America/Mazatlan",
+              "America/Menominee",
+              "America/Merida",
+              "America/Metlakatla",
+              "America/Mexico City",
+              "America/Miquelon",
+              "America/Moncton",
+              "America/Monterrey",
+              "America/Montevideo",
+              "America/Montserrat",
+              "America/Nassau",
+              "America/New York",
+              "America/Nipigon",
+              "America/Nome",
+              "America/Noronha",
+              "America/North Dakota/Beulah",
+              "America/North Dakota/Center",
+              "America/North Dakota/New Salem",
+              "America/Nuuk",
+              "America/Ojinaga",
+              "America/Panama",
+              "America/Pangnirtung",
+              "America/Paramaribo",
+              "America/Phoenix",
+              "America/Port of Spain",
+              "America/Port-au-Prince",
+              "America/Porto Velho",
+              "America/Puerto Rico",
+              "America/Punta Arenas",
+              "America/Rainy River",
+              "America/Rankin Inlet",
+              "America/Recife",
+              "America/Regina",
+              "America/Resolute",
+              "America/Rio Branco",
+              "America/Santarem",
+              "America/Santiago",
+              "America/Santo Domingo",
+              "America/Sao Paulo",
+              "America/Scoresbysund",
+              "America/Sitka",
+              "America/St Barthelemy",
+              "America/St Johns",
+              "America/St Kitts",
+              "America/St Lucia",
+              "America/St Thomas",
+              "America/St Vincent",
+              "America/Swift Current",
+              "America/Tegucigalpa",
+              "America/Thule",
+              "America/Thunder Bay",
+              "America/Tijuana",
+              "America/Toronto",
+              "America/Tortola",
+              "America/Vancouver",
+              "America/Whitehorse",
+              "America/Winnipeg",
+              "America/Yakutat",
+              "America/Yellowknife",
+              "Antarctica/Casey",
+              "Antarctica/Davis",
+              "Antarctica/DumontDUrville",
+              "Antarctica/Macquarie",
+              "Antarctica/Mawson",
+              "Antarctica/McMurdo",
+              "Antarctica/Palmer",
+              "Antarctica/Rothera",
+              "Antarctica/Syowa",
+              "Antarctica/Troll",
+              "Antarctica/Vostok",
+              "Arctic/Longyearbyen",
+              "Asia/Aden",
+              "Asia/Almaty",
+              "Asia/Amman",
+              "Asia/Anadyr",
+              "Asia/Aqtau",
+              "Asia/Aqtobe",
+              "Asia/Ashgabat",
+              "Asia/Atyrau",
+              "Asia/Baghdad",
+              "Asia/Bahrain",
+              "Asia/Baku",
+              "Asia/Bangkok",
+              "Asia/Barnaul",
+              "Asia/Beirut",
+              "Asia/Bishkek",
+              "Asia/Brunei",
+              "Asia/Chita",
+              "Asia/Choibalsan",
+              "Asia/Colombo",
+              "Asia/Damascus",
+              "Asia/Dhaka",
+              "Asia/Dili",
+              "Asia/Dubai",
+              "Asia/Dushanbe",
+              "Asia/Famagusta",
+              "Asia/Gaza",
+              "Asia/Hebron",
+              "Asia/Ho Chi Minh",
+              "Asia/Hong Kong",
+              "Asia/Hovd",
+              "Asia/Irkutsk",
+              "Asia/Jakarta",
+              "Asia/Jayapura",
+              "Asia/Jerusalem",
+              "Asia/Kabul",
+              "Asia/Kamchatka",
+              "Asia/Karachi",
+              "Asia/Kathmandu",
+              "Asia/Khandyga",
+              "Asia/Kolkata",
+              "Asia/Krasnoyarsk",
+              "Asia/Kuala Lumpur",
+              "Asia/Kuching",
+              "Asia/Kuwait",
+              "Asia/Macau",
+              "Asia/Magadan",
+              "Asia/Makassar",
+              "Asia/Manila",
+              "Asia/Muscat",
+              "Asia/Nicosia",
+              "Asia/Novokuznetsk",
+              "Asia/Novosibirsk",
+              "Asia/Omsk",
+              "Asia/Oral",
+              "Asia/Phnom Penh",
+              "Asia/Pontianak",
+              "Asia/Pyongyang",
+              "Asia/Qatar",
+              "Asia/Qostanay",
+              "Asia/Qyzylorda",
+              "Asia/Riyadh",
+              "Asia/Sakhalin",
+              "Asia/Samarkand",
+              "Asia/Seoul",
+              "Asia/Shanghai",
+              "Asia/Singapore",
+              "Asia/Srednekolymsk",
+              "Asia/Taipei",
+              "Asia/Tashkent",
+              "Asia/Tbilisi",
+              "Asia/Tehran",
+              "Asia/Thimphu",
+              "Asia/Tokyo",
+              "Asia/Tomsk",
+              "Asia/Ulaanbaatar",
+              "Asia/Urumqi",
+              "Asia/Ust-Nera",
+              "Asia/Vientiane",
+              "Asia/Vladivostok",
+              "Asia/Yakutsk",
+              "Asia/Yangon",
+              "Asia/Yekaterinburg",
+              "Asia/Yerevan",
+              "Atlantic/Azores",
+              "Atlantic/Bermuda",
+              "Atlantic/Canary",
+              "Atlantic/Cape Verde",
+              "Atlantic/Faroe",
+              "Atlantic/Madeira",
+              "Atlantic/Reykjavik",
+              "Atlantic/South Georgia",
+              "Atlantic/St Helena",
+              "Atlantic/Stanley",
+              "Australia/Adelaide",
+              "Australia/Brisbane",
+              "Australia/Broken Hill",
+              "Australia/Darwin",
+              "Australia/Eucla",
+              "Australia/Hobart",
+              "Australia/Lindeman",
+              "Australia/Lord Howe",
+              "Australia/Melbourne",
+              "Australia/Perth",
+              "Australia/Sydney",
+              "Etc/GMT",
+              "Etc/GMT+1",
+              "Etc/GMT+10",
+              "Etc/GMT+11",
+              "Etc/GMT+12",
+              "Etc/GMT+2",
+              "Etc/GMT+3",
+              "Etc/GMT+4",
+              "Etc/GMT+5",
+              "Etc/GMT+6",
+              "Etc/GMT+7",
+              "Etc/GMT+8",
+              "Etc/GMT+9",
+              "Etc/GMT-1",
+              "Etc/GMT-10",
+              "Etc/GMT-11",
+              "Etc/GMT-12",
+              "Etc/GMT-13",
+              "Etc/GMT-14",
+              "Etc/GMT-2",
+              "Etc/GMT-3",
+              "Etc/GMT-4",
+              "Etc/GMT-5",
+              "Etc/GMT-6",
+              "Etc/GMT-7",
+              "Etc/GMT-8",
+              "Etc/GMT-9",
+              "Europe/Amsterdam",
+              "Europe/Andorra",
+              "Europe/Astrakhan",
+              "Europe/Athens",
+              "Europe/Belgrade",
+              "Europe/Berlin",
+              "Europe/Bratislava",
+              "Europe/Brussels",
+              "Europe/Bucharest",
+              "Europe/Budapest",
+              "Europe/Busingen",
+              "Europe/Chisinau",
+              "Europe/Copenhagen",
+              "Europe/Dublin",
+              "Europe/Gibraltar",
+              "Europe/Guernsey",
+              "Europe/Helsinki",
+              "Europe/Isle of Man",
+              "Europe/Istanbul",
+              "Europe/Jersey",
+              "Europe/Kaliningrad",
+              "Europe/Kirov",
+              "Europe/Kyiv",
+              "Europe/Lisbon",
+              "Europe/Ljubljana",
+              "Europe/London",
+              "Europe/Luxembourg",
+              "Europe/Madrid",
+              "Europe/Malta",
+              "Europe/Mariehamn",
+              "Europe/Minsk",
+              "Europe/Monaco",
+              "Europe/Moscow",
+              "Europe/Oslo",
+              "Europe/Paris",
+              "Europe/Podgorica",
+              "Europe/Prague",
+              "Europe/Riga",
+              "Europe/Rome",
+              "Europe/Samara",
+              "Europe/San Marino",
+              "Europe/Sarajevo",
+              "Europe/Saratov",
+              "Europe/Simferopol",
+              "Europe/Skopje",
+              "Europe/Sofia",
+              "Europe/Stockholm",
+              "Europe/Tallinn",
+              "Europe/Tirane",
+              "Europe/Ulyanovsk",
+              "Europe/Vaduz",
+              "Europe/Vatican",
+              "Europe/Vienna",
+              "Europe/Vilnius",
+              "Europe/Volgograd",
+              "Europe/Warsaw",
+              "Europe/Zagreb",
+              "Europe/Zurich",
+              "Indian/Antananarivo",
+              "Indian/Chagos",
+              "Indian/Christmas",
+              "Indian/Cocos",
+              "Indian/Comoro",
+              "Indian/Kerguelen",
+              "Indian/Mahe",
+              "Indian/Maldives",
+              "Indian/Mauritius",
+              "Indian/Mayotte",
+              "Indian/Reunion",
+              "Pacific/Apia",
+              "Pacific/Auckland",
+              "Pacific/Bougainville",
+              "Pacific/Chatham",
+              "Pacific/Chuuk",
+              "Pacific/Easter",
+              "Pacific/Efate",
+              "Pacific/Fakaofo",
+              "Pacific/Fiji",
+              "Pacific/Funafuti",
+              "Pacific/Galapagos",
+              "Pacific/Gambier",
+              "Pacific/Guadalcanal",
+              "Pacific/Guam",
+              "Pacific/Honolulu",
+              "Pacific/Kanton",
+              "Pacific/Kiritimati",
+              "Pacific/Kosrae",
+              "Pacific/Kwajalein",
+              "Pacific/Majuro",
+              "Pacific/Marquesas",
+              "Pacific/Midway",
+              "Pacific/Nauru",
+              "Pacific/Niue",
+              "Pacific/Norfolk",
+              "Pacific/Noumea",
+              "Pacific/Pago Pago",
+              "Pacific/Palau",
+              "Pacific/Pitcairn",
+              "Pacific/Pohnpei",
+              "Pacific/Port Moresby",
+              "Pacific/Rarotonga",
+              "Pacific/Saipan",
+              "Pacific/Tahiti",
+              "Pacific/Tarawa",
+              "Pacific/Tongatapu",
+              "Pacific/Wake",
+              "Pacific/Wallis"
+            ],
+            "current_time": "2026-10-21 12:03:22",
+            "ntp_switch": 1,
+            "ntp_server3": "2.openwrt.pool.ntp.org",
+            "ntp_server4": "3.openwrt.pool.ntp.org"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:21.239-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "ntp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:21.278-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:21.278-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "zonename": "Africa/Johannesburg",
+                "ntp_server2": "1.openwrt.pool.ntp.org",
+                "ntp_server1": "0.openwrt.pool.ntp.org",
+                "timezone": "SAST-2",
+                "timezone_list": [
+                  "UTC",
+                  "Africa/Abidjan",
+                  "Africa/Accra",
+                  "Africa/Addis Ababa",
+                  "Africa/Algiers",
+                  "Africa/Asmara",
+                  "Africa/Bamako",
+                  "Africa/Bangui",
+                  "Africa/Banjul",
+                  "Africa/Bissau",
+                  "Africa/Blantyre",
+                  "Africa/Brazzaville",
+                  "Africa/Bujumbura",
+                  "Africa/Cairo",
+                  "Africa/Casablanca",
+                  "Africa/Ceuta",
+                  "Africa/Conakry",
+                  "Africa/Dakar",
+                  "Africa/Dar es Salaam",
+                  "Africa/Djibouti",
+                  "Africa/Douala",
+                  "Africa/El Aaiun",
+                  "Africa/Freetown",
+                  "Africa/Gaborone",
+                  "Africa/Harare",
+                  "Africa/Johannesburg",
+                  "Africa/Juba",
+                  "Africa/Kampala",
+                  "Africa/Khartoum",
+                  "Africa/Kigali",
+                  "Africa/Kinshasa",
+                  "Africa/Lagos",
+                  "Africa/Libreville",
+                  "Africa/Lome",
+                  "Africa/Luanda",
+                  "Africa/Lubumbashi",
+                  "Africa/Lusaka",
+                  "Africa/Malabo",
+                  "Africa/Maputo",
+                  "Africa/Maseru",
+                  "Africa/Mbabane",
+                  "Africa/Mogadishu",
+                  "Africa/Monrovia",
+                  "Africa/Nairobi",
+                  "Africa/Ndjamena",
+                  "Africa/Niamey",
+                  "Africa/Nouakchott",
+                  "Africa/Ouagadougou",
+                  "Africa/Porto-Novo",
+                  "Africa/Sao Tome",
+                  "Africa/Tripoli",
+                  "Africa/Tunis",
+                  "Africa/Windhoek",
+                  "America/Adak",
+                  "America/Anchorage",
+                  "America/Anguilla",
+                  "America/Antigua",
+                  "America/Araguaina",
+                  "America/Argentina/Buenos Aires",
+                  "America/Argentina/Catamarca",
+                  "America/Argentina/Cordoba",
+                  "America/Argentina/Jujuy",
+                  "America/Argentina/La Rioja",
+                  "America/Argentina/Mendoza",
+                  "America/Argentina/Rio Gallegos",
+                  "America/Argentina/Salta",
+                  "America/Argentina/San Juan",
+                  "America/Argentina/San Luis",
+                  "America/Argentina/Tucuman",
+                  "America/Argentina/Ushuaia",
+                  "America/Aruba",
+                  "America/Asuncion",
+                  "America/Atikokan",
+                  "America/Bahia",
+                  "America/Bahia Banderas",
+                  "America/Barbados",
+                  "America/Belem",
+                  "America/Belize",
+                  "America/Blanc-Sablon",
+                  "America/Boa Vista",
+                  "America/Bogota",
+                  "America/Boise",
+                  "America/Cambridge Bay",
+                  "America/Campo Grande",
+                  "America/Cancun",
+                  "America/Caracas",
+                  "America/Cayenne",
+                  "America/Cayman",
+                  "America/Chicago",
+                  "America/Chihuahua",
+                  "America/Costa Rica",
+                  "America/Creston",
+                  "America/Cuiaba",
+                  "America/Curacao",
+                  "America/Danmarkshavn",
+                  "America/Dawson",
+                  "America/Dawson Creek",
+                  "America/Denver",
+                  "America/Detroit",
+                  "America/Dominica",
+                  "America/Edmonton",
+                  "America/Eirunepe",
+                  "America/El Salvador",
+                  "America/Fort Nelson",
+                  "America/Fortaleza",
+                  "America/Glace Bay",
+                  "America/Goose Bay",
+                  "America/Grand Turk",
+                  "America/Grenada",
+                  "America/Guadeloupe",
+                  "America/Guatemala",
+                  "America/Guayaquil",
+                  "America/Guyana",
+                  "America/Halifax",
+                  "America/Havana",
+                  "America/Hermosillo",
+                  "America/Indiana/Indianapolis",
+                  "America/Indiana/Knox",
+                  "America/Indiana/Marengo",
+                  "America/Indiana/Petersburg",
+                  "America/Indiana/Tell City",
+                  "America/Indiana/Vevay",
+                  "America/Indiana/Vincennes",
+                  "America/Indiana/Winamac",
+                  "America/Inuvik",
+                  "America/Iqaluit",
+                  "America/Jamaica",
+                  "America/Juneau",
+                  "America/Kentucky/Louisville",
+                  "America/Kentucky/Monticello",
+                  "America/Kralendijk",
+                  "America/La Paz",
+                  "America/Lima",
+                  "America/Los Angeles",
+                  "America/Lower Princes",
+                  "America/Maceio",
+                  "America/Managua",
+                  "America/Manaus",
+                  "America/Marigot",
+                  "America/Martinique",
+                  "America/Matamoros",
+                  "America/Mazatlan",
+                  "America/Menominee",
+                  "America/Merida",
+                  "America/Metlakatla",
+                  "America/Mexico City",
+                  "America/Miquelon",
+                  "America/Moncton",
+                  "America/Monterrey",
+                  "America/Montevideo",
+                  "America/Montserrat",
+                  "America/Nassau",
+                  "America/New York",
+                  "America/Nipigon",
+                  "America/Nome",
+                  "America/Noronha",
+                  "America/North Dakota/Beulah",
+                  "America/North Dakota/Center",
+                  "America/North Dakota/New Salem",
+                  "America/Nuuk",
+                  "America/Ojinaga",
+                  "America/Panama",
+                  "America/Pangnirtung",
+                  "America/Paramaribo",
+                  "America/Phoenix",
+                  "America/Port of Spain",
+                  "America/Port-au-Prince",
+                  "America/Porto Velho",
+                  "America/Puerto Rico",
+                  "America/Punta Arenas",
+                  "America/Rainy River",
+                  "America/Rankin Inlet",
+                  "America/Recife",
+                  "America/Regina",
+                  "America/Resolute",
+                  "America/Rio Branco",
+                  "America/Santarem",
+                  "America/Santiago",
+                  "America/Santo Domingo",
+                  "America/Sao Paulo",
+                  "America/Scoresbysund",
+                  "America/Sitka",
+                  "America/St Barthelemy",
+                  "America/St Johns",
+                  "America/St Kitts",
+                  "America/St Lucia",
+                  "America/St Thomas",
+                  "America/St Vincent",
+                  "America/Swift Current",
+                  "America/Tegucigalpa",
+                  "America/Thule",
+                  "America/Thunder Bay",
+                  "America/Tijuana",
+                  "America/Toronto",
+                  "America/Tortola",
+                  "America/Vancouver",
+                  "America/Whitehorse",
+                  "America/Winnipeg",
+                  "America/Yakutat",
+                  "America/Yellowknife",
+                  "Antarctica/Casey",
+                  "Antarctica/Davis",
+                  "Antarctica/DumontDUrville",
+                  "Antarctica/Macquarie",
+                  "Antarctica/Mawson",
+                  "Antarctica/McMurdo",
+                  "Antarctica/Palmer",
+                  "Antarctica/Rothera",
+                  "Antarctica/Syowa",
+                  "Antarctica/Troll",
+                  "Antarctica/Vostok",
+                  "Arctic/Longyearbyen",
+                  "Asia/Aden",
+                  "Asia/Almaty",
+                  "Asia/Amman",
+                  "Asia/Anadyr",
+                  "Asia/Aqtau",
+                  "Asia/Aqtobe",
+                  "Asia/Ashgabat",
+                  "Asia/Atyrau",
+                  "Asia/Baghdad",
+                  "Asia/Bahrain",
+                  "Asia/Baku",
+                  "Asia/Bangkok",
+                  "Asia/Barnaul",
+                  "Asia/Beirut",
+                  "Asia/Bishkek",
+                  "Asia/Brunei",
+                  "Asia/Chita",
+                  "Asia/Choibalsan",
+                  "Asia/Colombo",
+                  "Asia/Damascus",
+                  "Asia/Dhaka",
+                  "Asia/Dili",
+                  "Asia/Dubai",
+                  "Asia/Dushanbe",
+                  "Asia/Famagusta",
+                  "Asia/Gaza",
+                  "Asia/Hebron",
+                  "Asia/Ho Chi Minh",
+                  "Asia/Hong Kong",
+                  "Asia/Hovd",
+                  "Asia/Irkutsk",
+                  "Asia/Jakarta",
+                  "Asia/Jayapura",
+                  "Asia/Jerusalem",
+                  "Asia/Kabul",
+                  "Asia/Kamchatka",
+                  "Asia/Karachi",
+                  "Asia/Kathmandu",
+                  "Asia/Khandyga",
+                  "Asia/Kolkata",
+                  "Asia/Krasnoyarsk",
+                  "Asia/Kuala Lumpur",
+                  "Asia/Kuching",
+                  "Asia/Kuwait",
+                  "Asia/Macau",
+                  "Asia/Magadan",
+                  "Asia/Makassar",
+                  "Asia/Manila",
+                  "Asia/Muscat",
+                  "Asia/Nicosia",
+                  "Asia/Novokuznetsk",
+                  "Asia/Novosibirsk",
+                  "Asia/Omsk",
+                  "Asia/Oral",
+                  "Asia/Phnom Penh",
+                  "Asia/Pontianak",
+                  "Asia/Pyongyang",
+                  "Asia/Qatar",
+                  "Asia/Qostanay",
+                  "Asia/Qyzylorda",
+                  "Asia/Riyadh",
+                  "Asia/Sakhalin",
+                  "Asia/Samarkand",
+                  "Asia/Seoul",
+                  "Asia/Shanghai",
+                  "Asia/Singapore",
+                  "Asia/Srednekolymsk",
+                  "Asia/Taipei",
+                  "Asia/Tashkent",
+                  "Asia/Tbilisi",
+                  "Asia/Tehran",
+                  "Asia/Thimphu",
+                  "Asia/Tokyo",
+                  "Asia/Tomsk",
+                  "Asia/Ulaanbaatar",
+                  "Asia/Urumqi",
+                  "Asia/Ust-Nera",
+                  "Asia/Vientiane",
+                  "Asia/Vladivostok",
+                  "Asia/Yakutsk",
+                  "Asia/Yangon",
+                  "Asia/Yekaterinburg",
+                  "Asia/Yerevan",
+                  "Atlantic/Azores",
+                  "Atlantic/Bermuda",
+                  "Atlantic/Canary",
+                  "Atlantic/Cape Verde",
+                  "Atlantic/Faroe",
+                  "Atlantic/Madeira",
+                  "Atlantic/Reykjavik",
+                  "Atlantic/South Georgia",
+                  "Atlantic/St Helena",
+                  "Atlantic/Stanley",
+                  "Australia/Adelaide",
+                  "Australia/Brisbane",
+                  "Australia/Broken Hill",
+                  "Australia/Darwin",
+                  "Australia/Eucla",
+                  "Australia/Hobart",
+                  "Australia/Lindeman",
+                  "Australia/Lord Howe",
+                  "Australia/Melbourne",
+                  "Australia/Perth",
+                  "Australia/Sydney",
+                  "Etc/GMT",
+                  "Etc/GMT+1",
+                  "Etc/GMT+10",
+                  "Etc/GMT+11",
+                  "Etc/GMT+12",
+                  "Etc/GMT+2",
+                  "Etc/GMT+3",
+                  "Etc/GMT+4",
+                  "Etc/GMT+5",
+                  "Etc/GMT+6",
+                  "Etc/GMT+7",
+                  "Etc/GMT+8",
+                  "Etc/GMT+9",
+                  "Etc/GMT-1",
+                  "Etc/GMT-10",
+                  "Etc/GMT-11",
+                  "Etc/GMT-12",
+                  "Etc/GMT-13",
+                  "Etc/GMT-14",
+                  "Etc/GMT-2",
+                  "Etc/GMT-3",
+                  "Etc/GMT-4",
+                  "Etc/GMT-5",
+                  "Etc/GMT-6",
+                  "Etc/GMT-7",
+                  "Etc/GMT-8",
+                  "Etc/GMT-9",
+                  "Europe/Amsterdam",
+                  "Europe/Andorra",
+                  "Europe/Astrakhan",
+                  "Europe/Athens",
+                  "Europe/Belgrade",
+                  "Europe/Berlin",
+                  "Europe/Bratislava",
+                  "Europe/Brussels",
+                  "Europe/Bucharest",
+                  "Europe/Budapest",
+                  "Europe/Busingen",
+                  "Europe/Chisinau",
+                  "Europe/Copenhagen",
+                  "Europe/Dublin",
+                  "Europe/Gibraltar",
+                  "Europe/Guernsey",
+                  "Europe/Helsinki",
+                  "Europe/Isle of Man",
+                  "Europe/Istanbul",
+                  "Europe/Jersey",
+                  "Europe/Kaliningrad",
+                  "Europe/Kirov",
+                  "Europe/Kyiv",
+                  "Europe/Lisbon",
+                  "Europe/Ljubljana",
+                  "Europe/London",
+                  "Europe/Luxembourg",
+                  "Europe/Madrid",
+                  "Europe/Malta",
+                  "Europe/Mariehamn",
+                  "Europe/Minsk",
+                  "Europe/Monaco",
+                  "Europe/Moscow",
+                  "Europe/Oslo",
+                  "Europe/Paris",
+                  "Europe/Podgorica",
+                  "Europe/Prague",
+                  "Europe/Riga",
+                  "Europe/Rome",
+                  "Europe/Samara",
+                  "Europe/San Marino",
+                  "Europe/Sarajevo",
+                  "Europe/Saratov",
+                  "Europe/Simferopol",
+                  "Europe/Skopje",
+                  "Europe/Sofia",
+                  "Europe/Stockholm",
+                  "Europe/Tallinn",
+                  "Europe/Tirane",
+                  "Europe/Ulyanovsk",
+                  "Europe/Vaduz",
+                  "Europe/Vatican",
+                  "Europe/Vienna",
+                  "Europe/Vilnius",
+                  "Europe/Volgograd",
+                  "Europe/Warsaw",
+                  "Europe/Zagreb",
+                  "Europe/Zurich",
+                  "Indian/Antananarivo",
+                  "Indian/Chagos",
+                  "Indian/Christmas",
+                  "Indian/Cocos",
+                  "Indian/Comoro",
+                  "Indian/Kerguelen",
+                  "Indian/Mahe",
+                  "Indian/Maldives",
+                  "Indian/Mauritius",
+                  "Indian/Mayotte",
+                  "Indian/Reunion",
+                  "Pacific/Apia",
+                  "Pacific/Auckland",
+                  "Pacific/Bougainville",
+                  "Pacific/Chatham",
+                  "Pacific/Chuuk",
+                  "Pacific/Easter",
+                  "Pacific/Efate",
+                  "Pacific/Fakaofo",
+                  "Pacific/Fiji",
+                  "Pacific/Funafuti",
+                  "Pacific/Galapagos",
+                  "Pacific/Gambier",
+                  "Pacific/Guadalcanal",
+                  "Pacific/Guam",
+                  "Pacific/Honolulu",
+                  "Pacific/Kanton",
+                  "Pacific/Kiritimati",
+                  "Pacific/Kosrae",
+                  "Pacific/Kwajalein",
+                  "Pacific/Majuro",
+                  "Pacific/Marquesas",
+                  "Pacific/Midway",
+                  "Pacific/Nauru",
+                  "Pacific/Niue",
+                  "Pacific/Norfolk",
+                  "Pacific/Noumea",
+                  "Pacific/Pago Pago",
+                  "Pacific/Palau",
+                  "Pacific/Pitcairn",
+                  "Pacific/Pohnpei",
+                  "Pacific/Port Moresby",
+                  "Pacific/Rarotonga",
+                  "Pacific/Saipan",
+                  "Pacific/Tahiti",
+                  "Pacific/Tarawa",
+                  "Pacific/Tongatapu",
+                  "Pacific/Wake",
+                  "Pacific/Wallis"
+                ],
+                "current_time": "2026-10-21 12:03:22",
+                "ntp_switch": 1,
+                "ntp_server3": "2.openwrt.pool.ntp.org",
+                "ntp_server4": "3.openwrt.pool.ntp.org"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:22.129-07:00",
+      "tool": "t830_set_ntp",
+      "args": {
+        "ntp_switch": "1",
+        "ntp_server1": "0.openwrt.pool.ntp.org",
+        "ntp_server2": "1.openwrt.pool.ntp.org",
+        "zonename": "Africa/Johannesburg"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:21.280-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "ntp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:22.129-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_ntp/set_ntp",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.129-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_ntp/set_ntp",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ntp_switch": "1",
+              "ntp_server1": "0.openwrt.pool.ntp.org",
+              "ntp_server2": "1.openwrt.pool.ntp.org",
+              "zonename": "Africa/Johannesburg"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:22.172-07:00",
+      "tool": "t830_get_ntp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "zonename": "Africa/Johannesburg",
+            "ntp_server2": "1.openwrt.pool.ntp.org",
+            "ntp_server1": "0.openwrt.pool.ntp.org",
+            "timezone": "SAST-2",
+            "timezone_list": [
+              "UTC",
+              "Africa/Abidjan",
+              "Africa/Accra",
+              "Africa/Addis Ababa",
+              "Africa/Algiers",
+              "Africa/Asmara",
+              "Africa/Bamako",
+              "Africa/Bangui",
+              "Africa/Banjul",
+              "Africa/Bissau",
+              "Africa/Blantyre",
+              "Africa/Brazzaville",
+              "Africa/Bujumbura",
+              "Africa/Cairo",
+              "Africa/Casablanca",
+              "Africa/Ceuta",
+              "Africa/Conakry",
+              "Africa/Dakar",
+              "Africa/Dar es Salaam",
+              "Africa/Djibouti",
+              "Africa/Douala",
+              "Africa/El Aaiun",
+              "Africa/Freetown",
+              "Africa/Gaborone",
+              "Africa/Harare",
+              "Africa/Johannesburg",
+              "Africa/Juba",
+              "Africa/Kampala",
+              "Africa/Khartoum",
+              "Africa/Kigali",
+              "Africa/Kinshasa",
+              "Africa/Lagos",
+              "Africa/Libreville",
+              "Africa/Lome",
+              "Africa/Luanda",
+              "Africa/Lubumbashi",
+              "Africa/Lusaka",
+              "Africa/Malabo",
+              "Africa/Maputo",
+              "Africa/Maseru",
+              "Africa/Mbabane",
+              "Africa/Mogadishu",
+              "Africa/Monrovia",
+              "Africa/Nairobi",
+              "Africa/Ndjamena",
+              "Africa/Niamey",
+              "Africa/Nouakchott",
+              "Africa/Ouagadougou",
+              "Africa/Porto-Novo",
+              "Africa/Sao Tome",
+              "Africa/Tripoli",
+              "Africa/Tunis",
+              "Africa/Windhoek",
+              "America/Adak",
+              "America/Anchorage",
+              "America/Anguilla",
+              "America/Antigua",
+              "America/Araguaina",
+              "America/Argentina/Buenos Aires",
+              "America/Argentina/Catamarca",
+              "America/Argentina/Cordoba",
+              "America/Argentina/Jujuy",
+              "America/Argentina/La Rioja",
+              "America/Argentina/Mendoza",
+              "America/Argentina/Rio Gallegos",
+              "America/Argentina/Salta",
+              "America/Argentina/San Juan",
+              "America/Argentina/San Luis",
+              "America/Argentina/Tucuman",
+              "America/Argentina/Ushuaia",
+              "America/Aruba",
+              "America/Asuncion",
+              "America/Atikokan",
+              "America/Bahia",
+              "America/Bahia Banderas",
+              "America/Barbados",
+              "America/Belem",
+              "America/Belize",
+              "America/Blanc-Sablon",
+              "America/Boa Vista",
+              "America/Bogota",
+              "America/Boise",
+              "America/Cambridge Bay",
+              "America/Campo Grande",
+              "America/Cancun",
+              "America/Caracas",
+              "America/Cayenne",
+              "America/Cayman",
+              "America/Chicago",
+              "America/Chihuahua",
+              "America/Costa Rica",
+              "America/Creston",
+              "America/Cuiaba",
+              "America/Curacao",
+              "America/Danmarkshavn",
+              "America/Dawson",
+              "America/Dawson Creek",
+              "America/Denver",
+              "America/Detroit",
+              "America/Dominica",
+              "America/Edmonton",
+              "America/Eirunepe",
+              "America/El Salvador",
+              "America/Fort Nelson",
+              "America/Fortaleza",
+              "America/Glace Bay",
+              "America/Goose Bay",
+              "America/Grand Turk",
+              "America/Grenada",
+              "America/Guadeloupe",
+              "America/Guatemala",
+              "America/Guayaquil",
+              "America/Guyana",
+              "America/Halifax",
+              "America/Havana",
+              "America/Hermosillo",
+              "America/Indiana/Indianapolis",
+              "America/Indiana/Knox",
+              "America/Indiana/Marengo",
+              "America/Indiana/Petersburg",
+              "America/Indiana/Tell City",
+              "America/Indiana/Vevay",
+              "America/Indiana/Vincennes",
+              "America/Indiana/Winamac",
+              "America/Inuvik",
+              "America/Iqaluit",
+              "America/Jamaica",
+              "America/Juneau",
+              "America/Kentucky/Louisville",
+              "America/Kentucky/Monticello",
+              "America/Kralendijk",
+              "America/La Paz",
+              "America/Lima",
+              "America/Los Angeles",
+              "America/Lower Princes",
+              "America/Maceio",
+              "America/Managua",
+              "America/Manaus",
+              "America/Marigot",
+              "America/Martinique",
+              "America/Matamoros",
+              "America/Mazatlan",
+              "America/Menominee",
+              "America/Merida",
+              "America/Metlakatla",
+              "America/Mexico City",
+              "America/Miquelon",
+              "America/Moncton",
+              "America/Monterrey",
+              "America/Montevideo",
+              "America/Montserrat",
+              "America/Nassau",
+              "America/New York",
+              "America/Nipigon",
+              "America/Nome",
+              "America/Noronha",
+              "America/North Dakota/Beulah",
+              "America/North Dakota/Center",
+              "America/North Dakota/New Salem",
+              "America/Nuuk",
+              "America/Ojinaga",
+              "America/Panama",
+              "America/Pangnirtung",
+              "America/Paramaribo",
+              "America/Phoenix",
+              "America/Port of Spain",
+              "America/Port-au-Prince",
+              "America/Porto Velho",
+              "America/Puerto Rico",
+              "America/Punta Arenas",
+              "America/Rainy River",
+              "America/Rankin Inlet",
+              "America/Recife",
+              "America/Regina",
+              "America/Resolute",
+              "America/Rio Branco",
+              "America/Santarem",
+              "America/Santiago",
+              "America/Santo Domingo",
+              "America/Sao Paulo",
+              "America/Scoresbysund",
+              "America/Sitka",
+              "America/St Barthelemy",
+              "America/St Johns",
+              "America/St Kitts",
+              "America/St Lucia",
+              "America/St Thomas",
+              "America/St Vincent",
+              "America/Swift Current",
+              "America/Tegucigalpa",
+              "America/Thule",
+              "America/Thunder Bay",
+              "America/Tijuana",
+              "America/Toronto",
+              "America/Tortola",
+              "America/Vancouver",
+              "America/Whitehorse",
+              "America/Winnipeg",
+              "America/Yakutat",
+              "America/Yellowknife",
+              "Antarctica/Casey",
+              "Antarctica/Davis",
+              "Antarctica/DumontDUrville",
+              "Antarctica/Macquarie",
+              "Antarctica/Mawson",
+              "Antarctica/McMurdo",
+              "Antarctica/Palmer",
+              "Antarctica/Rothera",
+              "Antarctica/Syowa",
+              "Antarctica/Troll",
+              "Antarctica/Vostok",
+              "Arctic/Longyearbyen",
+              "Asia/Aden",
+              "Asia/Almaty",
+              "Asia/Amman",
+              "Asia/Anadyr",
+              "Asia/Aqtau",
+              "Asia/Aqtobe",
+              "Asia/Ashgabat",
+              "Asia/Atyrau",
+              "Asia/Baghdad",
+              "Asia/Bahrain",
+              "Asia/Baku",
+              "Asia/Bangkok",
+              "Asia/Barnaul",
+              "Asia/Beirut",
+              "Asia/Bishkek",
+              "Asia/Brunei",
+              "Asia/Chita",
+              "Asia/Choibalsan",
+              "Asia/Colombo",
+              "Asia/Damascus",
+              "Asia/Dhaka",
+              "Asia/Dili",
+              "Asia/Dubai",
+              "Asia/Dushanbe",
+              "Asia/Famagusta",
+              "Asia/Gaza",
+              "Asia/Hebron",
+              "Asia/Ho Chi Minh",
+              "Asia/Hong Kong",
+              "Asia/Hovd",
+              "Asia/Irkutsk",
+              "Asia/Jakarta",
+              "Asia/Jayapura",
+              "Asia/Jerusalem",
+              "Asia/Kabul",
+              "Asia/Kamchatka",
+              "Asia/Karachi",
+              "Asia/Kathmandu",
+              "Asia/Khandyga",
+              "Asia/Kolkata",
+              "Asia/Krasnoyarsk",
+              "Asia/Kuala Lumpur",
+              "Asia/Kuching",
+              "Asia/Kuwait",
+              "Asia/Macau",
+              "Asia/Magadan",
+              "Asia/Makassar",
+              "Asia/Manila",
+              "Asia/Muscat",
+              "Asia/Nicosia",
+              "Asia/Novokuznetsk",
+              "Asia/Novosibirsk",
+              "Asia/Omsk",
+              "Asia/Oral",
+              "Asia/Phnom Penh",
+              "Asia/Pontianak",
+              "Asia/Pyongyang",
+              "Asia/Qatar",
+              "Asia/Qostanay",
+              "Asia/Qyzylorda",
+              "Asia/Riyadh",
+              "Asia/Sakhalin",
+              "Asia/Samarkand",
+              "Asia/Seoul",
+              "Asia/Shanghai",
+              "Asia/Singapore",
+              "Asia/Srednekolymsk",
+              "Asia/Taipei",
+              "Asia/Tashkent",
+              "Asia/Tbilisi",
+              "Asia/Tehran",
+              "Asia/Thimphu",
+              "Asia/Tokyo",
+              "Asia/Tomsk",
+              "Asia/Ulaanbaatar",
+              "Asia/Urumqi",
+              "Asia/Ust-Nera",
+              "Asia/Vientiane",
+              "Asia/Vladivostok",
+              "Asia/Yakutsk",
+              "Asia/Yangon",
+              "Asia/Yekaterinburg",
+              "Asia/Yerevan",
+              "Atlantic/Azores",
+              "Atlantic/Bermuda",
+              "Atlantic/Canary",
+              "Atlantic/Cape Verde",
+              "Atlantic/Faroe",
+              "Atlantic/Madeira",
+              "Atlantic/Reykjavik",
+              "Atlantic/South Georgia",
+              "Atlantic/St Helena",
+              "Atlantic/Stanley",
+              "Australia/Adelaide",
+              "Australia/Brisbane",
+              "Australia/Broken Hill",
+              "Australia/Darwin",
+              "Australia/Eucla",
+              "Australia/Hobart",
+              "Australia/Lindeman",
+              "Australia/Lord Howe",
+              "Australia/Melbourne",
+              "Australia/Perth",
+              "Australia/Sydney",
+              "Etc/GMT",
+              "Etc/GMT+1",
+              "Etc/GMT+10",
+              "Etc/GMT+11",
+              "Etc/GMT+12",
+              "Etc/GMT+2",
+              "Etc/GMT+3",
+              "Etc/GMT+4",
+              "Etc/GMT+5",
+              "Etc/GMT+6",
+              "Etc/GMT+7",
+              "Etc/GMT+8",
+              "Etc/GMT+9",
+              "Etc/GMT-1",
+              "Etc/GMT-10",
+              "Etc/GMT-11",
+              "Etc/GMT-12",
+              "Etc/GMT-13",
+              "Etc/GMT-14",
+              "Etc/GMT-2",
+              "Etc/GMT-3",
+              "Etc/GMT-4",
+              "Etc/GMT-5",
+              "Etc/GMT-6",
+              "Etc/GMT-7",
+              "Etc/GMT-8",
+              "Etc/GMT-9",
+              "Europe/Amsterdam",
+              "Europe/Andorra",
+              "Europe/Astrakhan",
+              "Europe/Athens",
+              "Europe/Belgrade",
+              "Europe/Berlin",
+              "Europe/Bratislava",
+              "Europe/Brussels",
+              "Europe/Bucharest",
+              "Europe/Budapest",
+              "Europe/Busingen",
+              "Europe/Chisinau",
+              "Europe/Copenhagen",
+              "Europe/Dublin",
+              "Europe/Gibraltar",
+              "Europe/Guernsey",
+              "Europe/Helsinki",
+              "Europe/Isle of Man",
+              "Europe/Istanbul",
+              "Europe/Jersey",
+              "Europe/Kaliningrad",
+              "Europe/Kirov",
+              "Europe/Kyiv",
+              "Europe/Lisbon",
+              "Europe/Ljubljana",
+              "Europe/London",
+              "Europe/Luxembourg",
+              "Europe/Madrid",
+              "Europe/Malta",
+              "Europe/Mariehamn",
+              "Europe/Minsk",
+              "Europe/Monaco",
+              "Europe/Moscow",
+              "Europe/Oslo",
+              "Europe/Paris",
+              "Europe/Podgorica",
+              "Europe/Prague",
+              "Europe/Riga",
+              "Europe/Rome",
+              "Europe/Samara",
+              "Europe/San Marino",
+              "Europe/Sarajevo",
+              "Europe/Saratov",
+              "Europe/Simferopol",
+              "Europe/Skopje",
+              "Europe/Sofia",
+              "Europe/Stockholm",
+              "Europe/Tallinn",
+              "Europe/Tirane",
+              "Europe/Ulyanovsk",
+              "Europe/Vaduz",
+              "Europe/Vatican",
+              "Europe/Vienna",
+              "Europe/Vilnius",
+              "Europe/Volgograd",
+              "Europe/Warsaw",
+              "Europe/Zagreb",
+              "Europe/Zurich",
+              "Indian/Antananarivo",
+              "Indian/Chagos",
+              "Indian/Christmas",
+              "Indian/Cocos",
+              "Indian/Comoro",
+              "Indian/Kerguelen",
+              "Indian/Mahe",
+              "Indian/Maldives",
+              "Indian/Mauritius",
+              "Indian/Mayotte",
+              "Indian/Reunion",
+              "Pacific/Apia",
+              "Pacific/Auckland",
+              "Pacific/Bougainville",
+              "Pacific/Chatham",
+              "Pacific/Chuuk",
+              "Pacific/Easter",
+              "Pacific/Efate",
+              "Pacific/Fakaofo",
+              "Pacific/Fiji",
+              "Pacific/Funafuti",
+              "Pacific/Galapagos",
+              "Pacific/Gambier",
+              "Pacific/Guadalcanal",
+              "Pacific/Guam",
+              "Pacific/Honolulu",
+              "Pacific/Kanton",
+              "Pacific/Kiritimati",
+              "Pacific/Kosrae",
+              "Pacific/Kwajalein",
+              "Pacific/Majuro",
+              "Pacific/Marquesas",
+              "Pacific/Midway",
+              "Pacific/Nauru",
+              "Pacific/Niue",
+              "Pacific/Norfolk",
+              "Pacific/Noumea",
+              "Pacific/Pago Pago",
+              "Pacific/Palau",
+              "Pacific/Pitcairn",
+              "Pacific/Pohnpei",
+              "Pacific/Port Moresby",
+              "Pacific/Rarotonga",
+              "Pacific/Saipan",
+              "Pacific/Tahiti",
+              "Pacific/Tarawa",
+              "Pacific/Tongatapu",
+              "Pacific/Wake",
+              "Pacific/Wallis"
+            ],
+            "current_time": "2026-10-21 12:03:23",
+            "ntp_switch": 1,
+            "ntp_server3": "2.openwrt.pool.ntp.org",
+            "ntp_server4": "3.openwrt.pool.ntp.org"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:22.130-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "ntp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:22.171-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.171-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "zonename": "Africa/Johannesburg",
+                "ntp_server2": "1.openwrt.pool.ntp.org",
+                "ntp_server1": "0.openwrt.pool.ntp.org",
+                "timezone": "SAST-2",
+                "timezone_list": [
+                  "UTC",
+                  "Africa/Abidjan",
+                  "Africa/Accra",
+                  "Africa/Addis Ababa",
+                  "Africa/Algiers",
+                  "Africa/Asmara",
+                  "Africa/Bamako",
+                  "Africa/Bangui",
+                  "Africa/Banjul",
+                  "Africa/Bissau",
+                  "Africa/Blantyre",
+                  "Africa/Brazzaville",
+                  "Africa/Bujumbura",
+                  "Africa/Cairo",
+                  "Africa/Casablanca",
+                  "Africa/Ceuta",
+                  "Africa/Conakry",
+                  "Africa/Dakar",
+                  "Africa/Dar es Salaam",
+                  "Africa/Djibouti",
+                  "Africa/Douala",
+                  "Africa/El Aaiun",
+                  "Africa/Freetown",
+                  "Africa/Gaborone",
+                  "Africa/Harare",
+                  "Africa/Johannesburg",
+                  "Africa/Juba",
+                  "Africa/Kampala",
+                  "Africa/Khartoum",
+                  "Africa/Kigali",
+                  "Africa/Kinshasa",
+                  "Africa/Lagos",
+                  "Africa/Libreville",
+                  "Africa/Lome",
+                  "Africa/Luanda",
+                  "Africa/Lubumbashi",
+                  "Africa/Lusaka",
+                  "Africa/Malabo",
+                  "Africa/Maputo",
+                  "Africa/Maseru",
+                  "Africa/Mbabane",
+                  "Africa/Mogadishu",
+                  "Africa/Monrovia",
+                  "Africa/Nairobi",
+                  "Africa/Ndjamena",
+                  "Africa/Niamey",
+                  "Africa/Nouakchott",
+                  "Africa/Ouagadougou",
+                  "Africa/Porto-Novo",
+                  "Africa/Sao Tome",
+                  "Africa/Tripoli",
+                  "Africa/Tunis",
+                  "Africa/Windhoek",
+                  "America/Adak",
+                  "America/Anchorage",
+                  "America/Anguilla",
+                  "America/Antigua",
+                  "America/Araguaina",
+                  "America/Argentina/Buenos Aires",
+                  "America/Argentina/Catamarca",
+                  "America/Argentina/Cordoba",
+                  "America/Argentina/Jujuy",
+                  "America/Argentina/La Rioja",
+                  "America/Argentina/Mendoza",
+                  "America/Argentina/Rio Gallegos",
+                  "America/Argentina/Salta",
+                  "America/Argentina/San Juan",
+                  "America/Argentina/San Luis",
+                  "America/Argentina/Tucuman",
+                  "America/Argentina/Ushuaia",
+                  "America/Aruba",
+                  "America/Asuncion",
+                  "America/Atikokan",
+                  "America/Bahia",
+                  "America/Bahia Banderas",
+                  "America/Barbados",
+                  "America/Belem",
+                  "America/Belize",
+                  "America/Blanc-Sablon",
+                  "America/Boa Vista",
+                  "America/Bogota",
+                  "America/Boise",
+                  "America/Cambridge Bay",
+                  "America/Campo Grande",
+                  "America/Cancun",
+                  "America/Caracas",
+                  "America/Cayenne",
+                  "America/Cayman",
+                  "America/Chicago",
+                  "America/Chihuahua",
+                  "America/Costa Rica",
+                  "America/Creston",
+                  "America/Cuiaba",
+                  "America/Curacao",
+                  "America/Danmarkshavn",
+                  "America/Dawson",
+                  "America/Dawson Creek",
+                  "America/Denver",
+                  "America/Detroit",
+                  "America/Dominica",
+                  "America/Edmonton",
+                  "America/Eirunepe",
+                  "America/El Salvador",
+                  "America/Fort Nelson",
+                  "America/Fortaleza",
+                  "America/Glace Bay",
+                  "America/Goose Bay",
+                  "America/Grand Turk",
+                  "America/Grenada",
+                  "America/Guadeloupe",
+                  "America/Guatemala",
+                  "America/Guayaquil",
+                  "America/Guyana",
+                  "America/Halifax",
+                  "America/Havana",
+                  "America/Hermosillo",
+                  "America/Indiana/Indianapolis",
+                  "America/Indiana/Knox",
+                  "America/Indiana/Marengo",
+                  "America/Indiana/Petersburg",
+                  "America/Indiana/Tell City",
+                  "America/Indiana/Vevay",
+                  "America/Indiana/Vincennes",
+                  "America/Indiana/Winamac",
+                  "America/Inuvik",
+                  "America/Iqaluit",
+                  "America/Jamaica",
+                  "America/Juneau",
+                  "America/Kentucky/Louisville",
+                  "America/Kentucky/Monticello",
+                  "America/Kralendijk",
+                  "America/La Paz",
+                  "America/Lima",
+                  "America/Los Angeles",
+                  "America/Lower Princes",
+                  "America/Maceio",
+                  "America/Managua",
+                  "America/Manaus",
+                  "America/Marigot",
+                  "America/Martinique",
+                  "America/Matamoros",
+                  "America/Mazatlan",
+                  "America/Menominee",
+                  "America/Merida",
+                  "America/Metlakatla",
+                  "America/Mexico City",
+                  "America/Miquelon",
+                  "America/Moncton",
+                  "America/Monterrey",
+                  "America/Montevideo",
+                  "America/Montserrat",
+                  "America/Nassau",
+                  "America/New York",
+                  "America/Nipigon",
+                  "America/Nome",
+                  "America/Noronha",
+                  "America/North Dakota/Beulah",
+                  "America/North Dakota/Center",
+                  "America/North Dakota/New Salem",
+                  "America/Nuuk",
+                  "America/Ojinaga",
+                  "America/Panama",
+                  "America/Pangnirtung",
+                  "America/Paramaribo",
+                  "America/Phoenix",
+                  "America/Port of Spain",
+                  "America/Port-au-Prince",
+                  "America/Porto Velho",
+                  "America/Puerto Rico",
+                  "America/Punta Arenas",
+                  "America/Rainy River",
+                  "America/Rankin Inlet",
+                  "America/Recife",
+                  "America/Regina",
+                  "America/Resolute",
+                  "America/Rio Branco",
+                  "America/Santarem",
+                  "America/Santiago",
+                  "America/Santo Domingo",
+                  "America/Sao Paulo",
+                  "America/Scoresbysund",
+                  "America/Sitka",
+                  "America/St Barthelemy",
+                  "America/St Johns",
+                  "America/St Kitts",
+                  "America/St Lucia",
+                  "America/St Thomas",
+                  "America/St Vincent",
+                  "America/Swift Current",
+                  "America/Tegucigalpa",
+                  "America/Thule",
+                  "America/Thunder Bay",
+                  "America/Tijuana",
+                  "America/Toronto",
+                  "America/Tortola",
+                  "America/Vancouver",
+                  "America/Whitehorse",
+                  "America/Winnipeg",
+                  "America/Yakutat",
+                  "America/Yellowknife",
+                  "Antarctica/Casey",
+                  "Antarctica/Davis",
+                  "Antarctica/DumontDUrville",
+                  "Antarctica/Macquarie",
+                  "Antarctica/Mawson",
+                  "Antarctica/McMurdo",
+                  "Antarctica/Palmer",
+                  "Antarctica/Rothera",
+                  "Antarctica/Syowa",
+                  "Antarctica/Troll",
+                  "Antarctica/Vostok",
+                  "Arctic/Longyearbyen",
+                  "Asia/Aden",
+                  "Asia/Almaty",
+                  "Asia/Amman",
+                  "Asia/Anadyr",
+                  "Asia/Aqtau",
+                  "Asia/Aqtobe",
+                  "Asia/Ashgabat",
+                  "Asia/Atyrau",
+                  "Asia/Baghdad",
+                  "Asia/Bahrain",
+                  "Asia/Baku",
+                  "Asia/Bangkok",
+                  "Asia/Barnaul",
+                  "Asia/Beirut",
+                  "Asia/Bishkek",
+                  "Asia/Brunei",
+                  "Asia/Chita",
+                  "Asia/Choibalsan",
+                  "Asia/Colombo",
+                  "Asia/Damascus",
+                  "Asia/Dhaka",
+                  "Asia/Dili",
+                  "Asia/Dubai",
+                  "Asia/Dushanbe",
+                  "Asia/Famagusta",
+                  "Asia/Gaza",
+                  "Asia/Hebron",
+                  "Asia/Ho Chi Minh",
+                  "Asia/Hong Kong",
+                  "Asia/Hovd",
+                  "Asia/Irkutsk",
+                  "Asia/Jakarta",
+                  "Asia/Jayapura",
+                  "Asia/Jerusalem",
+                  "Asia/Kabul",
+                  "Asia/Kamchatka",
+                  "Asia/Karachi",
+                  "Asia/Kathmandu",
+                  "Asia/Khandyga",
+                  "Asia/Kolkata",
+                  "Asia/Krasnoyarsk",
+                  "Asia/Kuala Lumpur",
+                  "Asia/Kuching",
+                  "Asia/Kuwait",
+                  "Asia/Macau",
+                  "Asia/Magadan",
+                  "Asia/Makassar",
+                  "Asia/Manila",
+                  "Asia/Muscat",
+                  "Asia/Nicosia",
+                  "Asia/Novokuznetsk",
+                  "Asia/Novosibirsk",
+                  "Asia/Omsk",
+                  "Asia/Oral",
+                  "Asia/Phnom Penh",
+                  "Asia/Pontianak",
+                  "Asia/Pyongyang",
+                  "Asia/Qatar",
+                  "Asia/Qostanay",
+                  "Asia/Qyzylorda",
+                  "Asia/Riyadh",
+                  "Asia/Sakhalin",
+                  "Asia/Samarkand",
+                  "Asia/Seoul",
+                  "Asia/Shanghai",
+                  "Asia/Singapore",
+                  "Asia/Srednekolymsk",
+                  "Asia/Taipei",
+                  "Asia/Tashkent",
+                  "Asia/Tbilisi",
+                  "Asia/Tehran",
+                  "Asia/Thimphu",
+                  "Asia/Tokyo",
+                  "Asia/Tomsk",
+                  "Asia/Ulaanbaatar",
+                  "Asia/Urumqi",
+                  "Asia/Ust-Nera",
+                  "Asia/Vientiane",
+                  "Asia/Vladivostok",
+                  "Asia/Yakutsk",
+                  "Asia/Yangon",
+                  "Asia/Yekaterinburg",
+                  "Asia/Yerevan",
+                  "Atlantic/Azores",
+                  "Atlantic/Bermuda",
+                  "Atlantic/Canary",
+                  "Atlantic/Cape Verde",
+                  "Atlantic/Faroe",
+                  "Atlantic/Madeira",
+                  "Atlantic/Reykjavik",
+                  "Atlantic/South Georgia",
+                  "Atlantic/St Helena",
+                  "Atlantic/Stanley",
+                  "Australia/Adelaide",
+                  "Australia/Brisbane",
+                  "Australia/Broken Hill",
+                  "Australia/Darwin",
+                  "Australia/Eucla",
+                  "Australia/Hobart",
+                  "Australia/Lindeman",
+                  "Australia/Lord Howe",
+                  "Australia/Melbourne",
+                  "Australia/Perth",
+                  "Australia/Sydney",
+                  "Etc/GMT",
+                  "Etc/GMT+1",
+                  "Etc/GMT+10",
+                  "Etc/GMT+11",
+                  "Etc/GMT+12",
+                  "Etc/GMT+2",
+                  "Etc/GMT+3",
+                  "Etc/GMT+4",
+                  "Etc/GMT+5",
+                  "Etc/GMT+6",
+                  "Etc/GMT+7",
+                  "Etc/GMT+8",
+                  "Etc/GMT+9",
+                  "Etc/GMT-1",
+                  "Etc/GMT-10",
+                  "Etc/GMT-11",
+                  "Etc/GMT-12",
+                  "Etc/GMT-13",
+                  "Etc/GMT-14",
+                  "Etc/GMT-2",
+                  "Etc/GMT-3",
+                  "Etc/GMT-4",
+                  "Etc/GMT-5",
+                  "Etc/GMT-6",
+                  "Etc/GMT-7",
+                  "Etc/GMT-8",
+                  "Etc/GMT-9",
+                  "Europe/Amsterdam",
+                  "Europe/Andorra",
+                  "Europe/Astrakhan",
+                  "Europe/Athens",
+                  "Europe/Belgrade",
+                  "Europe/Berlin",
+                  "Europe/Bratislava",
+                  "Europe/Brussels",
+                  "Europe/Bucharest",
+                  "Europe/Budapest",
+                  "Europe/Busingen",
+                  "Europe/Chisinau",
+                  "Europe/Copenhagen",
+                  "Europe/Dublin",
+                  "Europe/Gibraltar",
+                  "Europe/Guernsey",
+                  "Europe/Helsinki",
+                  "Europe/Isle of Man",
+                  "Europe/Istanbul",
+                  "Europe/Jersey",
+                  "Europe/Kaliningrad",
+                  "Europe/Kirov",
+                  "Europe/Kyiv",
+                  "Europe/Lisbon",
+                  "Europe/Ljubljana",
+                  "Europe/London",
+                  "Europe/Luxembourg",
+                  "Europe/Madrid",
+                  "Europe/Malta",
+                  "Europe/Mariehamn",
+                  "Europe/Minsk",
+                  "Europe/Monaco",
+                  "Europe/Moscow",
+                  "Europe/Oslo",
+                  "Europe/Paris",
+                  "Europe/Podgorica",
+                  "Europe/Prague",
+                  "Europe/Riga",
+                  "Europe/Rome",
+                  "Europe/Samara",
+                  "Europe/San Marino",
+                  "Europe/Sarajevo",
+                  "Europe/Saratov",
+                  "Europe/Simferopol",
+                  "Europe/Skopje",
+                  "Europe/Sofia",
+                  "Europe/Stockholm",
+                  "Europe/Tallinn",
+                  "Europe/Tirane",
+                  "Europe/Ulyanovsk",
+                  "Europe/Vaduz",
+                  "Europe/Vatican",
+                  "Europe/Vienna",
+                  "Europe/Vilnius",
+                  "Europe/Volgograd",
+                  "Europe/Warsaw",
+                  "Europe/Zagreb",
+                  "Europe/Zurich",
+                  "Indian/Antananarivo",
+                  "Indian/Chagos",
+                  "Indian/Christmas",
+                  "Indian/Cocos",
+                  "Indian/Comoro",
+                  "Indian/Kerguelen",
+                  "Indian/Mahe",
+                  "Indian/Maldives",
+                  "Indian/Mauritius",
+                  "Indian/Mayotte",
+                  "Indian/Reunion",
+                  "Pacific/Apia",
+                  "Pacific/Auckland",
+                  "Pacific/Bougainville",
+                  "Pacific/Chatham",
+                  "Pacific/Chuuk",
+                  "Pacific/Easter",
+                  "Pacific/Efate",
+                  "Pacific/Fakaofo",
+                  "Pacific/Fiji",
+                  "Pacific/Funafuti",
+                  "Pacific/Galapagos",
+                  "Pacific/Gambier",
+                  "Pacific/Guadalcanal",
+                  "Pacific/Guam",
+                  "Pacific/Honolulu",
+                  "Pacific/Kanton",
+                  "Pacific/Kiritimati",
+                  "Pacific/Kosrae",
+                  "Pacific/Kwajalein",
+                  "Pacific/Majuro",
+                  "Pacific/Marquesas",
+                  "Pacific/Midway",
+                  "Pacific/Nauru",
+                  "Pacific/Niue",
+                  "Pacific/Norfolk",
+                  "Pacific/Noumea",
+                  "Pacific/Pago Pago",
+                  "Pacific/Palau",
+                  "Pacific/Pitcairn",
+                  "Pacific/Pohnpei",
+                  "Pacific/Port Moresby",
+                  "Pacific/Rarotonga",
+                  "Pacific/Saipan",
+                  "Pacific/Tahiti",
+                  "Pacific/Tarawa",
+                  "Pacific/Tongatapu",
+                  "Pacific/Wake",
+                  "Pacific/Wallis"
+                ],
+                "current_time": "2026-10-21 12:03:23",
+                "ntp_switch": 1,
+                "ntp_server3": "2.openwrt.pool.ntp.org",
+                "ntp_server4": "3.openwrt.pool.ntp.org"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:22.474-07:00",
+      "tool": "t830_get_mesh_role",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "role": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "role"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:22.175-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "mesh_role",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:22.219-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.219-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:22.474-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "role"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.474-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "role": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:22.829-07:00",
+      "tool": "t830_get_mesh_role",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "role": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "role"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:22.475-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 17,
+            "section": "mesh_role",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:22.523-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.523-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:22.829-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "role"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:22.829-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "role": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:23.172-07:00",
+      "tool": "t830_set_mesh_role",
+      "args": {
+        "role": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:22.830-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 18,
+            "section": "mesh_role",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:23.171-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/set_role",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:23.171-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/set_role",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "role": "0"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:23.484-07:00",
+      "tool": "t830_get_mesh_role",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "role": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "role"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:23.173-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 19,
+            "section": "mesh_role",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:23.218-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:23.219-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:03:23.483-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "role"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:23.483-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_easymesh/get_role",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "role": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:23.545-07:00",
+      "tool": "t830_get_tr069",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "cpe_password": "[REDACTED]",
+            "cpe_apn": "auto",
+            "periodic_interval": "3600",
+            "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+            "cpe_username": "cpeadmin",
+            "periodic_enable": "1",
+            "acs_password": "[REDACTED]",
+            "acs_username": "cpepsk"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:23.490-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 20,
+            "section": "tr069",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:23.545-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:23.545-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "cpe_password": "[REDACTED]",
+                "cpe_apn": "auto",
+                "periodic_interval": "3600",
+                "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+                "cpe_username": "cpeadmin",
+                "periodic_enable": "1",
+                "acs_password": "[REDACTED]",
+                "acs_username": "cpepsk"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:24.477-07:00",
+      "tool": "t830_set_tr069",
+      "args": {
+        "enable": "1",
+        "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+        "acs_username": "cpepsk",
+        "acs_password": "[REDACTED]",
+        "periodic_enable": "1",
+        "periodic_interval": "3600",
+        "cpe_username": "cpeadmin",
+        "cpe_password": "[REDACTED]",
+        "cpe_apn": "auto"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:23.546-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 21,
+            "section": "tr069",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:24.476-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_tr069/set_tr069",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:24.477-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_tr069/set_tr069",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "enable": "1",
+              "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+              "acs_username": "cpepsk",
+              "acs_password": "[REDACTED]",
+              "periodic_enable": "1",
+              "periodic_interval": "3600",
+              "cpe_username": "cpeadmin",
+              "cpe_password": "[REDACTED]",
+              "cpe_apn": "auto"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:24.523-07:00",
+      "tool": "t830_get_tr069",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "cpe_password": "[REDACTED]",
+            "cpe_apn": "auto",
+            "periodic_interval": "3600",
+            "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+            "cpe_username": "cpeadmin",
+            "periodic_enable": "1",
+            "acs_password": "[REDACTED]",
+            "acs_username": "cpepsk"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:24.478-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 22,
+            "section": "tr069",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:24.522-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:24.523-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "cpe_password": "[REDACTED]",
+                "cpe_apn": "auto",
+                "periodic_interval": "3600",
+                "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+                "cpe_username": "cpeadmin",
+                "periodic_enable": "1",
+                "acs_password": "[REDACTED]",
+                "acs_username": "cpepsk"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:03:25.322-07:00",
+      "tool": "t830_get_setup",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "wifi2g_password": "[REDACTED]",
+            "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+            "wifi5g_ssid": "上班爱我",
+            "first_login": 0,
+            "wifi5g_password": "[REDACTED]",
+            "wifi_power": "2",
+            "user_password": "[REDACTED]",
+            "lang": "en",
+            "Unity_switch": "OFF"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:03:24.524-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 23,
+            "section": "setup",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:03:24.678-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": false
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:24.678-07:00",
+            "step": "read_fallback",
+            "evidence": "observation",
+            "from": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "to": {
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "reason": "HTTP_403"
+          },
+          {
+            "at": "2026-10-21T03:03:25.320-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:03:25.321-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "wifi2g_password": "[REDACTED]",
+                "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+                "wifi5g_ssid": "上班爱我",
+                "first_login": 0,
+                "wifi5g_password": "[REDACTED]",
+                "wifi_power": "2",
+                "user_password": "[REDACTED]",
+                "lang": "en",
+                "Unity_switch": "OFF"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "tool": "t830_set_dmz",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    },
+    {
+      "tool": "t830_set_alg",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    },
+    {
+      "tool": "t830_set_dhcp",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    },
+    {
+      "tool": "t830_set_ntp",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    },
+    {
+      "tool": "t830_set_mesh_role",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    },
+    {
+      "tool": "t830_set_tr069",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "unchanged": true
+    }
+  ],
+  "error": "Unexpected token 'M', \"MCP error \"... is not valid JSON"
+}

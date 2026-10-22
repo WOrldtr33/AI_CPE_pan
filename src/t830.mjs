@@ -14,7 +14,7 @@ export function redact(value, key = '') {
   // 状态页的 SIM 字段是号码，不能和 SimStatus 一起按子串匹配。
   if (key === 'SIM') return '[REDACTED]';
   if (
-    /password|passwd|wpapsk|token|sessionid|cookie|imei|imsi|iccid|serial|mac|ssid|phone|pincode|pin_str|puk|salt|cnum|secret/i.test(
+    /password|passwd|wpapsk|token|sessionid|ubus_rpc_session|cookie|imei|imsi|iccid|serial|mac|phone|pincode|pin_str|old_pin|new_pin|puk|salt|cnum|secret|developer.?key|base64|^file$|^reply$|^numb(?:_house|_work)?$|^email$/i.test(
       key,
     )
   )
@@ -46,30 +46,29 @@ const names = [
 ];
 const good = (code) => [0, 200, '0', '200'].includes(code);
 // 只识别已知业务结果码，不能把 country_code 等配置字段当成错误码。
-function warnings(data, path = '') {
+const codeKeys = ['code', 'dataCode', '5G_code', '2.4G_code', 'Unity_code', 'Guest_code', 'Guest5G_code'];
+// 只检查明确的结果码字段；country_code 等业务编码仍是数据。resultFields 是该接口按顶层字段分别返回结果码的字段。
+const isResultCode = (key, path, resultFields) => codeKeys.includes(key) || (!path && resultFields.includes(key));
+function resultCodes(data, resultFields = [], path = '') {
+  if (!data || typeof data !== 'object') return [];
+  return Object.entries(data).flatMap(([k, v]) => {
+    const field = path ? `${path}.${k}` : k;
+    if (isResultCode(k, path, resultFields)) return [{ field, value: v }];
+    return typeof v === 'object' ? resultCodes(v, resultFields, field) : [];
+  });
+}
+function warnings(data, resultFields = [], path = '') {
   if (!data || typeof data !== 'object') {
     return [];
   }
   return Object.entries(data).flatMap(([k, v]) => {
     const field = path ? `${path}.${k}` : k;
-    // 只检查明确的结果码字段；country_code 等业务编码仍是数据。
-    if (
-      [
-        'code',
-        'dataCode',
-        '5G_code',
-        '2.4G_code',
-        'Unity_code',
-        'Guest_code',
-        'Guest5G_code',
-      ].includes(k) &&
-      !good(v)
-    )
+    if (isResultCode(k, path, resultFields) && !good(v))
       return [{ field, value: v }];
     if ((k === 'ERROR' || k === 'Warn') && v && v !== '0') {
       return [{ field, value: v }];
     }
-    return typeof v === 'object' ? warnings(v, field) : [];
+    return typeof v === 'object' ? warnings(v, resultFields, field) : [];
   });
 }
 export class T830 {
@@ -83,22 +82,33 @@ export class T830 {
       throw new Error('Invalid device URL');
     this.username = env.T830_USERNAME || 'admin';
     this.password = env.T830_PASSWORD;
+    this.authTransport = env.T830_AUTH_TRANSPORT || 'cgi';
+    if (!['cgi', 'ubus'].includes(this.authTransport)) throw new DeviceError('INVALID_AUTH_TRANSPORT');
     this.hash = env.T830_PASSWORD_HASH;
     this.salt = env.T830_SALT;
+    this.developerKey = env.T830_AUTH_MODE === 'admin' ? '' : env.T830_DEVELOPER_KEY || '';
+    if (this.developerKey && (this.developerKey.length > 4096 || !/^[A-Za-z0-9+/]+={0,2}$/.test(this.developerKey)))
+      throw new DeviceError('INVALID_DEVELOPER_KEY');
+    this.developerAuthenticated = false;
     this.cookieMode = env.T830_COOKIE_MODE || 'auto';
     if (!['auto', 'always', 'never'].includes(this.cookieMode))
       throw new Error('Invalid cookie mode');
     this.timeout = Number(env.T830_TIMEOUT_MS || 10000);
+    this.explicitTimeout = env.T830_TIMEOUT_MS !== undefined;
     if (!Number.isFinite(this.timeout) || this.timeout < 100 || this.timeout > 120000)
       throw new Error('Invalid timeout');
     this.writesEnabled = env.T830_ENABLE_WRITES === '1';
     this.writeMaxAttempts = Number(env.T830_WRITE_MAX_ATTEMPTS ?? 2);
     this.writeReadbackAttempts = Number(env.T830_WRITE_READBACK_ATTEMPTS ?? 3);
     this.writeReadbackIntervalMs = Number(env.T830_WRITE_READBACK_INTERVAL_MS ?? 300);
+    this.writeBusyWaitMs = Number(env.T830_WRITE_BUSY_WAIT_MS ?? 45000);
+    this.writeBusyPollMs = Number(env.T830_WRITE_BUSY_POLL_MS ?? 5000);
     for (const [value, min, max] of [
       [this.writeMaxAttempts, 1, 3],
       [this.writeReadbackAttempts, 1, 5],
       [this.writeReadbackIntervalMs, 0, 5000],
+      [this.writeBusyWaitMs, 0, 80000],
+      [this.writeBusyPollMs, 0, 30000],
     ]) {
       if (!Number.isInteger(value) || value < min || value > max)
         throw new Error('Invalid write verification policy');
@@ -163,6 +173,7 @@ export class T830 {
       throw new DeviceError('CROSS_ORIGIN_REQUEST_BLOCKED');
     url.searchParams.set('flag', flag);
     url.searchParams.set('t', String(Date.now()));
+    for (const [key, value] of Object.entries(options.search || {})) url.searchParams.set(key, value);
     const useCookie = options.cookie ?? this.cookieMode === 'always';
     const cookie = useCookie
       ? this.cookies
@@ -177,21 +188,37 @@ export class T830 {
       : '';
     if (options.signal?.aborted)
       throw new DeviceError('CALL_CANCELLED', { executionState: 'not_dispatched' });
-    const deadline = AbortSignal.timeout(this.timeout);
+    const deadline = AbortSignal.timeout(options.timeoutMs ?? this.timeout);
     const requestSignal = AbortSignal.any([
       deadline,
       this.shutdownController.signal,
       ...(options.signal ? [options.signal] : []),
     ]);
+    const multipart = options.multipart === true;
+    let payload, headers, method;
+    if (multipart) {
+      const encoded = String(body?.file || '');
+      const bytes = Buffer.from(encoded, 'base64');
+      if (!bytes.length || bytes.toString('base64') !== encoded)
+        throw new DeviceError('INVALID_ARGUMENTS');
+      const form = new FormData();
+      form.set('sessionid', this.token || '');
+      form.set('filename', body.filename);
+      form.set('file', new Blob([bytes], { type: 'application/octet-stream' }), 'firmware.bin');
+      method = 'POST';
+      payload = form;
+      headers = cookie ? { Cookie: cookie } : {};
+    } else {
+      method = body === undefined ? 'GET' : 'POST';
+      payload = body === undefined ? undefined : JSON.stringify(body);
+      headers = { 'Content-Type': 'application/json', ...(cookie ? { Cookie: cookie } : {}) };
+    }
     let response;
     try {
       response = await fetch(url, {
-        method: body === undefined ? 'GET' : 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(cookie ? { Cookie: cookie } : {}),
-        },
-        body: body === undefined ? undefined : JSON.stringify(body),
+        method,
+        headers,
+        body: payload,
         redirect: 'error',
         signal: requestSignal,
       });
@@ -244,6 +271,13 @@ export class T830 {
           secure: attrs.some((s) => /^secure$/i.test(s)),
         };
       });
+      if (data.sessionid) this.token = data.sessionid;
+    }
+    if (url.pathname === '/cgi-bin/luci/login/action_logout') {
+      this.token = null;
+      this.cookies = [];
+      this.loginPromise = null;
+      this.developerAuthenticated = false;
     }
     return data;
   }
@@ -257,10 +291,21 @@ export class T830 {
       return;
     }
     if (!this.loginPromise) this.loginPromise = this.performLogin();
-    await this.loginPromise;
+    const pending = this.loginPromise;
+    try { await pending; }
+    catch (error) {
+      if (this.loginPromise === pending) {
+        this.loginPromise = null;
+        this.token = null;
+        this.cookies = [];
+        this.developerAuthenticated = false;
+      }
+      throw error;
+    }
   }
   // 原始密码先按设备要求计算摘要；凭据和登录响应中的会话只保存在内存。
   async performLogin() {
+    this.developerAuthenticated = false;
     let salt = this.salt,
       password = this.hash;
     if (this.password) {
@@ -272,14 +317,62 @@ export class T830 {
     if (!password || !salt) {
       throw new DeviceError('MISSING_CREDENTIALS');
     }
-    const r = await this.request(
-      '/cgi-bin/luci/login/action_login',
-      { username: this.username, password, salt },
-      'action_login',
-    );
-    if (Number(r.code) !== 0 || !r.sessionid)
-      throw new DeviceError('LOGIN_FAILED_CHECK_CREDENTIALS', { code: r.code });
-    this.token = r.sessionid;
+    if (this.authTransport === 'ubus') {
+      if (!this.password) throw new DeviceError('UBUS_LOGIN_REQUIRES_PLAINTEXT_PASSWORD');
+      await this.loginNative(this.username, this.password);
+    } else {
+      const r = await this.request(
+        '/cgi-bin/luci/login/action_login',
+        { username: this.username, password, salt },
+        'action_login',
+      );
+      if (Number(r.code) !== 0 || !r.sessionid)
+        throw new DeviceError('LOGIN_FAILED_CHECK_CREDENTIALS', { code: r.code });
+      this.token = r.sessionid;
+    }
+    if (this.developerKey) {
+      try {
+        // 依据当前设备官方网页：先验证密钥取临时密码，再登录 superadmin。
+        // rawRpc 的原始数据仅供内存内认证使用，绝不能将临时密码放入工具结果。
+        const verified = await this.rawRpc('gen.attr', 'check_asymmetric_verify',
+          { reply: 'superpasswd', base64: this.developerKey }, this.cookieMode !== 'never');
+        if (Number(verified?.code) !== 200 || typeof verified.passwd !== 'string' || !verified.passwd)
+          throw new DeviceError('DEVELOPER_VERIFICATION_FAILED', { code: verified?.code });
+        const temporaryPassword = verified.passwd;
+        verified.passwd = undefined;
+        if (this.authTransport === 'ubus') {
+          await this.loginNative('superadmin', temporaryPassword);
+        } else {
+          const developerSalt = randomBytes(32).toString('hex');
+          const developerPassword = createHash('sha256').update(developerSalt + ':' + temporaryPassword).digest('hex');
+          const elevated = await this.request('/cgi-bin/luci/login/action_login',
+            { username: 'superadmin', password: developerPassword, salt: developerSalt }, 'action_login');
+          if (Number(elevated.code) !== 0 || !elevated.sessionid)
+            throw new DeviceError('DEVELOPER_LOGIN_FAILED', { code: elevated.code });
+          this.token = elevated.sessionid;
+        }
+        this.developerAuthenticated = true;
+      } catch (error) {
+        // 验证失败后不能留下可被下一次调用复用的普通管理员 token。
+        this.token = null;
+        this.cookies = [];
+        throw error;
+      }
+    }
+  }
+  // 标准 rpcd 认证，与 CGI 登录独立；仅显式选择 ubus 时使用，不自动降权或重试。
+  async loginNative(username, password, options = {}) {
+    const result = await this.request('/ubus/', {
+      jsonrpc: '2.0', id: ++this.nextId, method: 'call',
+      params: ['00000000000000000000000000000000', 'session', 'login', { username, password, timeout: 300 }],
+    }, 'login', { cookie: false, signal: options.signal });
+    const session = result?.result?.[1]?.ubus_rpc_session;
+    if (result?.error || result?.result?.[0] !== 0 || typeof session !== 'string' || !/^[a-zA-Z0-9_-]{1,256}$/.test(session))
+      throw new DeviceError('UBUS_LOGIN_FAILED', { rpcCode: result?.error?.code, ubusCode: result?.result?.[0] });
+    this.token = session;
+    // CGI 仍通过 LuCI 的标准会话 Cookie 认证，不更改任何 ACL。
+    const secure = this.base.protocol === 'https:';
+    this.cookies = [{ pair: `${secure ? 'sysauth_https' : 'sysauth_http'}=${session}`, path: '/', secure }];
   }
   // renewPromise 合并重叠的会话更新，避免多个登录互相使旧会话失效。
   async renew() {
@@ -300,7 +393,7 @@ export class T830 {
     return this.renewPromise;
   }
   // UBUS 参数顺序：[会话、服务对象、方法、业务参数]。本层保留原始错误。
-  async rawRpc(service, method, args = {}, cookie = false, signal) {
+  async rawRpc(service, method, args = {}, cookie = false, signal, flag = method, timeoutMs) {
     const r = await this.request(
       '/ubus/',
       {
@@ -309,8 +402,8 @@ export class T830 {
         method: 'call',
         params: [this.token, service, method, args],
       },
-      method,
-      { cookie, signal },
+      flag,
+      { cookie, signal, timeoutMs },
     );
     if (r === null || typeof r !== 'object' || Array.isArray(r))
       throw new DeviceError('UBUS_INVALID_RESPONSE', { response: r });
@@ -354,15 +447,18 @@ export class T830 {
   // 已取得队列执行权的任务；内部诊断直接调用 rawRpc，避免重复入队造成死锁。
   async runOperation(def, args = {}, queue, options = {}) {
     args = def.schema ? def.schema.parse(args) : args;
+    const nativeAuthAction = this.authTransport === 'ubus' && ['login', 'logout'].includes(def.key);
     const endpoint =
-      def.transport === 'ubus'
+      nativeAuthAction
+        ? { transport: 'ubus', service: 'session', method: def.key === 'login' ? 'login' : 'destroy' }
+        : def.transport === 'ubus'
         ? { transport: 'ubus', service: def.service, method: def.method }
         : {
             transport: 'cgi',
             path: def.path,
             httpMethod: def.kind === 'write' ? 'POST' : 'GET',
           };
-    const trace = [];
+    const trace = options.priorDiagnostics ? [...options.priorDiagnostics] : [];
     const add = (step, data) =>
       trace.push({
         at: timestamp(),
@@ -377,7 +473,7 @@ export class T830 {
               : 'observation',
         ...redact(data),
       });
-    add('queue', queue);
+    if (!options.priorDiagnostics) add('queue', queue);
     const signal = options.signal
       ? AbortSignal.any([options.signal, this.shutdownController.signal])
       : this.shutdownController.signal;
@@ -432,15 +528,43 @@ export class T830 {
       for (let attempt = 1; attempt <= 4; attempt++) {
         try {
           cancelled();
-          const data =
-            def.transport === 'ubus'
-              ? await this.rawRpc(def.service, def.method, args, cookie, signal)
-              : await this.request(def.path, readonly ? undefined : args, def.key, {
+          let data;
+          if (nativeAuthAction) {
+            if (def.key === 'login') {
+              if (!this.password || args.username !== this.username || createHash('sha256').update(args.salt + ':' + this.password).digest('hex') !== args.password)
+                throw new DeviceError('NATIVE_LOGIN_CREDENTIALS_MISMATCH', { executionState: 'not_dispatched' });
+              await this.loginNative(args.username, this.password, { signal });
+              this.developerAuthenticated = false;
+              this.loginPromise = null;
+              data = { code: 0, sessionid: this.token };
+            } else {
+              await this.rawRpc('session', 'destroy', { ubus_rpc_session: this.token }, false, signal);
+              this.token = null;
+              this.cookies = [];
+              this.loginPromise = null;
+              this.developerAuthenticated = false;
+              data = { code: 0 };
+            }
+          } else data = def.transport === 'ubus'
+              ? await this.rawRpc(def.service, def.method, args, cookie, signal, def.flag || def.method, def.timeoutMs && !this.explicitTimeout ? Math.max(this.timeout, def.timeoutMs) : undefined)
+              : await this.request(def.path, readonly ? undefined : args, def.flag || def.key, {
                   cookie,
                   signal,
+                  search: def.search,
+                  multipart: def.encoding === 'multipart',
+                  timeoutMs: def.timeoutMs && !this.explicitTimeout ? Math.max(this.timeout, def.timeoutMs) : undefined,
                 });
           cancelled();
-          const issues = warnings(data);
+          if (readonly && def.busyResult !== undefined && data?.result === def.busyResult)
+            throw new DeviceError('DEVICE_BUSY', { data, note: '设备正在应用上一次配置（如无线重启），稍后再读取' });
+          const resultFields = def.resultFields || [];
+          const found = warnings(data, resultFields);
+          const noChangeOnly = found.length > 0 && found.every(issue => def.noChangeCodes?.includes(Number(issue.value)));
+          // 按字段分别返回结果码的接口：部分字段成功、其余仅为"未变化"时，整体是已修改，不是未变化。
+          const appliedParts = noChangeOnly ? resultCodes(data, resultFields).filter(entry => good(entry.value)).map(entry => entry.field) : [];
+          const partiallyModified = appliedParts.length > 0;
+          const issues = partiallyModified ? [] : found;
+          const notModified = noChangeOnly && !partiallyModified;
           const validation = validateResponse(def, data, issues);
           add('response_validation', { endpoint, validation });
           if (validation.status === 'failed')
@@ -469,12 +593,14 @@ export class T830 {
             data: redact(data),
             ...(reading ? { reading } : {}),
             warnings: redact(issues),
+            ...(notModified ? { businessOutcome: 'not_modified' } : {}),
+            ...(partiallyModified ? { businessOutcome: 'modified', appliedParts, unchangedParts: found.map(issue => issue.field) } : {}),
             validation,
             diagnosticSummary: summarizeDiagnostics(trace, def),
             diagnostics: trace,
             note: readonly
               ? '返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。'
-              : '仅接口返回，未自动确认配置生效；不重试写操作。',
+              : '仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。',
           };
         } catch (e) {
           add('attempt', {
@@ -489,8 +615,20 @@ export class T830 {
             throw e;
           }
           cancelled();
-          if (!readonly) {
+          // 设备要求登录的写请求在调度层即被拒绝、未执行；一次性写工具仅此情况允许续期后重发一次。
+          // 有回读配置的写由工作流自行处理认证恢复。
+          const writeAuthRetry = !readonly && e.details?.loginRequired && def.auth !== false &&
+            !writeProfiles[def.key] && !renewed && this.cookieMode !== 'never';
+          if (!readonly && !writeAuthRetry) {
             throw e;
+          }
+          // 仅使用已在当前设备验证的同名只读 UBUS 入口，不尝试其他路径或写方法。
+          if (def.transport === 'cgi' && def.readFallback && ['HTTP_403', 'HTTP_404'].includes(e.message)) {
+            const fallback = { ...def, transport: 'ubus', ...def.readFallback, flag: def.readFallback.method,
+              path: undefined, readFallback: undefined };
+            add('read_fallback', { from: endpoint, to: { service: fallback.service, method: fallback.method }, reason: e.message });
+            // 仍在原队列内执行，保留原始失败轨迹；UBUS 也必须由设备检查会话权限。
+            return this.runOperation(fallback, args, queue, { ...options, priorDiagnostics: trace });
           }
           // 只有响应明确要求登录，才尝试补 Cookie 或更新会话。
           if (e.details?.loginRequired && def.auth !== false) {
@@ -598,6 +736,19 @@ export class T830 {
               object: def.service,
               function: def.method,
             });
+            if (e.details?.response?.error?.message === 'Object not found') {
+              try {
+                const listing = await this.request('/ubus/', { jsonrpc: '2.0', id: ++this.nextId, method: 'list', params: ['*'] }, 'list', { cookie, signal });
+                if (!listing?.result || typeof listing.result !== 'object' || Array.isArray(listing.result))
+                  throw new DeviceError('INVALID_SERVICE_LIST');
+                const present = Object.hasOwn(listing.result, def.service);
+                add('diagnostic', { service: 'ubus', method: 'list', purpose: 'service_presence', data: { object: def.service, present } });
+                if (!present) add('conclusion', { reason: 'service_not_registered', confirmed: true });
+              } catch (diagnosticError) {
+                cancelled();
+                add('diagnostic_failed', { purpose: 'service_presence', error: diagnosticError.message });
+              }
+            }
           }
           if (e.message === 'UBUS_ERROR_5_NO_DATA' && def.transport === 'ubus') {
             await probe('session', 'access', {
@@ -612,6 +763,22 @@ export class T830 {
                 workmode: mode?.data?.workmode,
                 confirmed: false,
               });
+              const configAccess = await probe('session', 'access', { scope: 'uci', object: 'wireless', function: 'read' }, 'wireless_config_permission');
+              if (configAccess?.access === true) {
+                try {
+                  const configuration = await this.rawRpc('uci', 'get', { config: 'wireless', type: 'wifi-iface', match: { mode: 'sta' } }, cookie, signal);
+                  if (!configuration?.values || typeof configuration.values !== 'object' || Array.isArray(configuration.values))
+                    throw new DeviceError('INVALID_WIRELESS_CONFIG');
+                  // 原始 UCI 数据可能包含上游 WiFi 密钥，只记录禁用状态，不记录配置对象。
+                  const stations = Object.values(configuration.values).filter(row => row?.mode === 'sta').map(row => ({ disabled: String(row.disabled ?? '0') === '1' }));
+                  const allDisabled = stations.length > 0 && stations.every(row => row.disabled);
+                  add('diagnostic', { service: 'uci', method: 'get', purpose: 'wireless_station_configuration', data: { stationCount: stations.length, allDisabled } });
+                  if (allDisabled) add('conclusion', { reason: 'upstream_wifi_disabled', confirmed: true });
+                } catch (diagnosticError) {
+                  cancelled();
+                  add('diagnostic_failed', { purpose: 'wireless_station_configuration', error: diagnosticError.message });
+                }
+              }
             }
           }
           throw e;

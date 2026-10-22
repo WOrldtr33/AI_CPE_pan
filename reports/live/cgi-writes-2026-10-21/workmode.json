@@ -1,0 +1,356 @@
+{
+  "at": "2026-10-21T03:12:13.893-07:00",
+  "phase": "workmode",
+  "records": [
+    {
+      "at": "2026-10-21T03:12:15.322-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:12:14.181-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:12:15.319-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:12:15.319-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:12:15.525-07:00",
+      "tool": "t830_set_workmode",
+      "args": {
+        "workmode": 4,
+        "bonding": "0",
+        "add_ccmni_to_bridge": "0",
+        "ip_passthrough": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:12:15.324-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:12:15.524-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:12:15.524-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "workmode": 4,
+              "bonding": "0",
+              "add_ccmni_to_bridge": "0",
+              "ip_passthrough": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:12:40.827-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:12:40.762-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:12:40.825-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:12:40.825-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "tool": "t830_set_workmode",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "onlineAfterSeconds": 5,
+      "unchanged": true
+    }
+  ],
+  "workmodeOnlineAfterSeconds": 5
+}

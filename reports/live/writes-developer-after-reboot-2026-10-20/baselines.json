@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-20T06:27:41.274Z",
+  "mode": "read-only-write-baselines",
+  "records": [
+    {
+      "section": "wifi_night",
+      "output": {
+        "status": "error",
+        "error": "HTTP_500",
+        "details": {
+          "http": 500,
+          "loginRequired": false,
+          "endpoint": {
+            "transport": "ubus",
+            "service": "mtk.wifi",
+            "method": "get_NigWifi_info"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_run",
+              "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 0,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "unknown",
+              "evidence": "inconclusive",
+              "message": "设备调用失败，现有证据不足以确定根因。",
+              "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-19T23:27:41.566-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 1,
+              "section": "wifi_night",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-19T23:27:41.731-07:00",
+              "step": "initialization_failed",
+              "evidence": "observation",
+              "error": "HTTP_500",
+              "details": {
+                "http": 500,
+                "loginRequired": false
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "unknown",
+          "evidence": "inconclusive",
+          "message": "设备调用失败，现有证据不足以确定根因。",
+          "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+        }
+      }
+    }
+  ]
+}

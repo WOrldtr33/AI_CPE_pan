@@ -13,6 +13,7 @@ const report = {
 try {
   for (const def of writes) {
     const profile = writeProfiles[def.key];
+    if (!profile) continue;
     let raw;
     const record = { section: def.key, readback: profile.readback, basis: profile.basis };
     try {

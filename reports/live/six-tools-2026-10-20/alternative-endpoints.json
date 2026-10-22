@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-20T07:37:05.354Z",
+  "records": [
+    {
+      "method": "get_gps",
+      "raw": {
+        "data": {
+          "number": "1",
+          "is_good": "0",
+          "gps_switch": "enable"
+        },
+        "code": -1
+      }
+    },
+    {
+      "method": "get_setup",
+      "raw": {
+        "data": {
+          "wifi2g_password": "[REDACTED]",
+          "wifi2g_ssid": "[REDACTED]",
+          "wifi5g_ssid": "[REDACTED]",
+          "first_login": 0,
+          "wifi5g_password": "[REDACTED]",
+          "wifi_power": "2",
+          "user_password": "[REDACTED]",
+          "lang": "en",
+          "Unity_switch": "OFF"
+        },
+        "code": 0
+      }
+    },
+    {
+      "method": "get_wifi_router_status",
+      "error": "UBUS_ERROR_5_NO_DATA"
+    },
+    {
+      "method": "get_wifi_router",
+      "error": "UBUS_ERROR_5_NO_DATA"
+    }
+  ]
+}

@@ -1,0 +1,784 @@
+{
+  "at": "2026-10-21T03:04:34.102-07:00",
+  "phase": "setup",
+  "records": [
+    {
+      "at": "2026-10-21T03:04:36.439-07:00",
+      "tool": "t830_get_setup",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "wifi2g_password": "[REDACTED]",
+            "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+            "wifi5g_ssid": "上班爱我",
+            "first_login": 0,
+            "wifi5g_password": "[REDACTED]",
+            "wifi_power": "2",
+            "user_password": "[REDACTED]",
+            "lang": "en",
+            "Unity_switch": "OFF"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:04:34.387-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "setup",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:04:35.691-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": false
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:35.691-07:00",
+            "step": "read_fallback",
+            "evidence": "observation",
+            "from": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "to": {
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "reason": "HTTP_403"
+          },
+          {
+            "at": "2026-10-21T03:04:36.437-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:36.438-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "wifi2g_password": "[REDACTED]",
+                "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+                "wifi5g_ssid": "上班爱我",
+                "first_login": 0,
+                "wifi5g_password": "[REDACTED]",
+                "wifi_power": "2",
+                "user_password": "[REDACTED]",
+                "lang": "en",
+                "Unity_switch": "OFF"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:04:36.593-07:00",
+      "tool": "t830_set_setup_save",
+      "args": {
+        "Unity_switch": "OFF",
+        "first_login": 0,
+        "lang": "en",
+        "wifi_power": "2",
+        "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+        "wifi5g_ssid": "上班爱我",
+        "wifi2g_password": "[REDACTED]",
+        "wifi5g_password": "[REDACTED]",
+        "wifi_ssid": "low2.4G.101pro_ZMRJ",
+        "samePwdCheck": "1",
+        "user_password": "[REDACTED]"
+      },
+      "isError": true,
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": false,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_setup/set_setup",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-21T03:04:36.443-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 2,
+              "section": "setup_save",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-21T03:04:36.592-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_setup/set_setup",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "Unity_switch": "OFF",
+                "first_login": 0,
+                "lang": "en",
+                "wifi_power": "2",
+                "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+                "wifi5g_ssid": "上班爱我",
+                "wifi2g_password": "[REDACTED]",
+                "wifi5g_password": "[REDACTED]",
+                "wifi_ssid": "low2.4G.101pro_ZMRJ",
+                "samePwdCheck": "1",
+                "user_password": "[REDACTED]"
+              },
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": false
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        }
+      }
+    },
+    {
+      "at": "2026-10-21T03:04:37.511-07:00",
+      "tool": "t830_get_setup",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "wifi2g_password": "[REDACTED]",
+            "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+            "wifi5g_ssid": "上班爱我",
+            "first_login": 0,
+            "wifi5g_password": "[REDACTED]",
+            "wifi_power": "2",
+            "user_password": "[REDACTED]",
+            "lang": "en",
+            "Unity_switch": "OFF"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:04:36.595-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "setup",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:04:36.763-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": false
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:36.763-07:00",
+            "step": "read_fallback",
+            "evidence": "observation",
+            "from": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+              "httpMethod": "GET"
+            },
+            "to": {
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "reason": "HTTP_403"
+          },
+          {
+            "at": "2026-10-21T03:04:37.511-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:37.511-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_setup"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "wifi2g_password": "[REDACTED]",
+                "wifi2g_ssid": "low2.4G.101pro_ZMRJ",
+                "wifi5g_ssid": "上班爱我",
+                "first_login": 0,
+                "wifi5g_password": "[REDACTED]",
+                "wifi_power": "2",
+                "user_password": "[REDACTED]",
+                "lang": "en",
+                "Unity_switch": "OFF"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:04:37.963-07:00",
+      "tool": "t830_get_developer_mode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "develop_mode": 1
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "develop_mode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:04:37.778-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "developer_mode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:04:37.828-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:37.828-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:04:37.963-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "develop_mode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:37.963-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "develop_mode": 1
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:04:38.102-07:00",
+      "tool": "t830_set_developer_login",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "code": 3
+        },
+        "warnings": [
+          {
+            "field": "code",
+            "value": 3
+          }
+        ],
+        "validation": {
+          "status": "skipped_business_warning",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+            "Key fields were not required because the device reported a business warning."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "device_warning",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:04:37.964-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "developer_login",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:04:38.102-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/set_develop_mode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "skipped_business_warning",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                "Key fields were not required because the device reported a business warning."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:38.102-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/set_develop_mode",
+              "httpMethod": "POST"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "device_warning",
+            "data": {
+              "code": 3
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:04:38.287-07:00",
+      "tool": "t830_get_developer_mode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "develop_mode": 1
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "develop_mode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:04:38.104-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "developer_mode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:04:38.153-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:38.153-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:04:38.287-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "develop_mode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:04:38.287-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "develop_mode": 1
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "tool": "t830_set_setup_save",
+      "outcome": "failed",
+      "writeStatus": "error",
+      "writeError": "HTTP_403",
+      "unchanged": true
+    },
+    {
+      "tool": "setup_admin_password_check",
+      "outcome": "passed",
+      "loginOriginal": {
+        "http": 200,
+        "code": 0
+      }
+    },
+    {
+      "tool": "t830_set_developer_login",
+      "outcome": "passed",
+      "writeStatus": "device_warning",
+      "deviceCode": 3,
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "at": "2026-10-20T07:44:36.806Z",
+  "mode": "real-mcp-six-tool-fix-verification",
+  "records": [
+    {
+      "tool": "t830_get_phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "status": "returned",
+      "reading": {
+        "state": "empty",
+        "count": 0,
+        "text": "本次电话本查询没有条目"
+      },
+      "warnings": [],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_phonebook_select",
+      "args": {
+        "device": "1"
+      },
+      "status": "returned",
+      "reading": {
+        "state": "empty",
+        "count": 0,
+        "text": "本次电话本查询没有条目"
+      },
+      "warnings": [],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_gps",
+      "args": {},
+      "status": "device_warning",
+      "reading": {
+        "enabled": true,
+        "satellites": 1,
+        "fix": "not_fixed",
+        "text": "GPS 已开启，但尚未定位",
+        "provesLocation": false
+      },
+      "warnings": [
+        {
+          "field": "code",
+          "value": -1
+        }
+      ],
+      "fallback": [
+        {
+          "at": "2026-10-20T00:44:37.835-07:00",
+          "step": "read_fallback",
+          "evidence": "observation",
+          "from": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+            "httpMethod": "GET"
+          },
+          "to": {
+            "service": "web_api",
+            "method": "get_gps"
+          },
+          "reason": "HTTP_403"
+        }
+      ],
+      "initialErrors": [
+        "HTTP_403"
+      ]
+    },
+    {
+      "tool": "t830_get_setup",
+      "args": {},
+      "status": "returned",
+      "warnings": [],
+      "fallback": [
+        {
+          "at": "2026-10-20T00:44:38.067-07:00",
+          "step": "read_fallback",
+          "evidence": "observation",
+          "from": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_setup/get_setup",
+            "httpMethod": "GET"
+          },
+          "to": {
+            "service": "web_api",
+            "method": "get_setup"
+          },
+          "reason": "HTTP_403"
+        }
+      ],
+      "initialErrors": [
+        "HTTP_403"
+      ]
+    },
+    {
+      "tool": "t830_get_wifi_rt",
+      "args": {},
+      "status": "error",
+      "error": "UBUS_ERROR_5_NO_DATA",
+      "failure": {
+        "retrySameRequest": false,
+        "category": "precondition_not_met",
+        "evidence": "confirmed",
+        "message": "当前上游 WiFi 客户端接口均已禁用，路由查询没有可返回的数据。",
+        "nextStep": "如需无线作为上游，先明确接入目标并授权配置；本次不自动启用接口或切换网络模式。"
+      },
+      "rootCause": "upstream_wifi_disabled"
+    },
+    {
+      "tool": "t830_get_share",
+      "args": {},
+      "status": "error",
+      "error": "RPC_ERROR_-32000",
+      "failure": {
+        "retrySameRequest": false,
+        "category": "service_unavailable",
+        "evidence": "confirmed",
+        "message": "设备当前 UBUS 服务清单中没有注册所需服务对象，无法查询该功能。",
+        "nextStep": "向厂商确认对应服务或固件支持；本次不安装软件、启动服务或升级固件。"
+      },
+      "rootCause": "service_not_registered"
+    },
+    {
+      "tool": "t830_set_net_probe",
+      "args": {
+        "type": "PING",
+        "addr": "127.0.0.1",
+        "time": "1"
+      },
+      "status": "submitted",
+      "warnings": [],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "reading": {
+        "state": "pending",
+        "text": "尚无完整结果；先启动诊断，已启动则继续轮询，不重复启动",
+        "provesInternet": false
+      },
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "reading": {
+        "state": "pending",
+        "text": "尚无完整结果；先启动诊断，已启动则继续轮询，不重复启动",
+        "provesInternet": false
+      },
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "reading": {
+        "state": "pending",
+        "text": "尚无完整结果；先启动诊断，已启动则继续轮询，不重复启动",
+        "provesInternet": false
+      },
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "reading": {
+        "state": "pending",
+        "text": "尚无完整结果；先启动诊断，已启动则继续轮询，不重复启动",
+        "provesInternet": false
+      },
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "fallback": [],
+      "initialErrors": []
+    },
+    {
+      "tool": "t830_get_ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "returned",
+      "reading": {
+        "state": "complete",
+        "text": "诊断任务已完成；是否可达需看收发和丢包结果",
+        "transmitted": 6,
+        "received": 6,
+        "lossPercent": 0,
+        "provesInternet": false
+      },
+      "warnings": [],
+      "fallback": [],
+      "initialErrors": []
+    }
+  ],
+  "writes": "Only one explicitly requested bounded loopback diagnostic; no configuration changes.",
+  "summary": {
+    "phonebook": "returned",
+    "phonebookSelect": "returned",
+    "setup": "returned",
+    "gps": {
+      "enabled": true,
+      "satellites": 1,
+      "fix": "not_fixed",
+      "text": "GPS 已开启，但尚未定位",
+      "provesLocation": false
+    },
+    "ping": {
+      "state": "complete",
+      "text": "诊断任务已完成；是否可达需看收发和丢包结果",
+      "transmitted": 6,
+      "received": 6,
+      "lossPercent": 0,
+      "provesInternet": false
+    },
+    "wireless": {
+      "retrySameRequest": false,
+      "category": "precondition_not_met",
+      "evidence": "confirmed",
+      "message": "当前上游 WiFi 客户端接口均已禁用，路由查询没有可返回的数据。",
+      "nextStep": "如需无线作为上游，先明确接入目标并授权配置；本次不自动启用接口或切换网络模式。"
+    },
+    "share": {
+      "retrySameRequest": false,
+      "category": "service_unavailable",
+      "evidence": "confirmed",
+      "message": "设备当前 UBUS 服务清单中没有注册所需服务对象，无法查询该功能。",
+      "nextStep": "向厂商确认对应服务或固件支持；本次不安装软件、启动服务或升级固件。"
+    }
+  }
+}

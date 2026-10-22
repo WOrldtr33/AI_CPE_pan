@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-20T06:30:15.698Z",
+  "endpoint": "UBUS session.login",
+  "account": "admin",
+  "http": 200,
+  "resultCode": 0,
+  "sessionCreated": true
+}

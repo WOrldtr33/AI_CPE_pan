@@ -4,7 +4,7 @@ import { createServer } from 'node:http';
 import { readFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { connectTools } from '../src/agent-mcp.mjs';
 import { verifiedReadSections, verifiedWriteTool } from '../src/agent-policy.mjs';
-import { reads } from '../src/catalog.mjs';
+import { reads, writes, toolName } from '../src/catalog.mjs';
 import { AgentStore } from '../src/agent-store.mjs';
 import { Agent } from '../src/agent-core.mjs';
 import { config } from '../src/agent-config.mjs';
@@ -43,7 +43,7 @@ async function fixture(fn, enableWrites = true) {
   let mcp;
   try {
     const env = { ...process.env, T830_BASE_URL: `http://127.0.0.1:${server.address().port}`, T830_PASSWORD: 'mock-only', T830_WRITE_READBACK_INTERVAL_MS: '0' };
-    mcp = await connectTools(verifiedReadSections, env, { enableWrites });
+    mcp = await connectTools(config({}).sections, env, { enableWrites });
     await fn({ mcp, env, calls, stats: () => ({ writes, upnp }), change: value => { upnp = value; } });
   } finally { await mcp?.close(); await new Promise(resolve => server.close(resolve)); }
 }
@@ -57,9 +57,11 @@ test('Default tools match exactly the live rows that returned', async () => {
   assert(!verifiedReadSections.includes('sim_slot')); assert(!verifiedReadSections.includes('roaming')); assert(!verifiedReadSections.includes('wifi_ad'));
 });
 
-test('All default read tools call through real MCP; only verified UPnP write is exposed', () => fixture(async ({ mcp, stats }) => {
-  assert.equal(mcp.definitions.length, 35);
-  assert.deepEqual([...mcp.writeTools], [verifiedWriteTool]);
+test('All catalog tools are exposed through MCP with writes gated by approval', () => fixture(async ({ mcp, stats }) => {
+  assert.equal(mcp.definitions.length, reads.length + writes.length + 4);
+  assert.deepEqual([...mcp.writeTools], [...writes.map(toolName), verifiedWriteTool]);
+  assert.deepEqual(config({}).sections, reads.map(def => def.key));
+  assert.deepEqual(config({ AGENT_TOOLS: '*' }).sections, config({}).sections);
   for (const section of verifiedReadSections) {
     const def = reads.find(d => d.key === section);
     const output = await mcp.call(`t830_get_${section}`, def.sample);
@@ -67,10 +69,17 @@ test('All default read tools call through real MCP; only verified UPnP write is 
   }
   assert.equal(stats().writes, 0);
   await assert.rejects(mcp.call(verifiedWriteTool, { upnp_switch: '1', expectedCurrent: '0' }), /WRITE_APPROVAL_REQUIRED/);
-  for (const name of ['t830_set_wifi_switch', 't830_set_upnp', 't830_set_dns']) {
-    assert.throws(() => mcp.validate(name, {}), /TOOL_NOT_ALLOWED/);
-    await assert.rejects(mcp.executeApprovedWrite(name, {}), /WRITE_TOOL_DISABLED/);
+  for (const def of writes) {
+    const name = toolName(def);
+    assert.deepEqual(mcp.validate(name, def.sample), def.sample);
+    await assert.rejects(mcp.call(name, def.sample), /WRITE_APPROVAL_REQUIRED/);
+    assert.throws(() => mcp.validate(name, { ...def.sample, unknownField: true }), /INVALID_TOOL_ARGUMENTS/);
   }
+  assert.equal((await mcp.call('t830_list_capabilities', {})).apis.length, reads.length + writes.length);
+  assert.equal((await mcp.call('t830_query', { section: 'version' })).status, 'returned');
+  assert.throws(() => mcp.validate('t830_query', { section: 'wps_run', args: {} }), /INVALID_TOOL_ARGUMENTS/);
+  assert.deepEqual((await mcp.call('t830_check_access', { section: 'wifi' })).data, { access: true });
+
 }));
 
 test('Approved UPnP write executes preflight and readback; stale expectedCurrent blocks submission', () => fixture(async ({ mcp, stats, change }) => {
@@ -103,7 +112,7 @@ test('Agent proposal → approval → real MCP verified write works against simu
 }));
 
 test('Read-only configuration still excludes writes at the MCP boundary', () => fixture(async ({ mcp }) => {
-  assert.equal(mcp.definitions.length, 34); assert.equal(mcp.writeTools.size, 0);
+  assert.equal(mcp.definitions.length, reads.length + 3); assert.equal(mcp.writeTools.size, 0);
   await assert.rejects(mcp.executeApprovedWrite(verifiedWriteTool, {}), /WRITE_TOOL_DISABLED/);
 }, false));
 
@@ -148,3 +157,17 @@ test('CLI requires actual /approve input before executing the proposed UPnP writ
     assert.equal(stats().writes, 1); assert.equal(stats().upnp, '1');
   } finally { clearTimeout(timer); child.kill(); await rm(directory, { recursive: true, force: true }); }
 }));
+
+test('Ordinary approved write is callable and uses the existing verification workflow', () => fixture(async ({ mcp, stats }) => {
+  const result = await mcp.executeApprovedWrite('t830_set_upnp', { upnp_switch: '1' });
+  assert.equal(result.status, 'verified_fields', result.error);
+  assert.equal(stats().writes, 1);
+}));
+
+test('Explicit read selection constrains the compatibility query too', async () => {
+  const mcp = await connectTools(['version'], process.env);
+  try {
+    assert.throws(() => mcp.validate('t830_query', { section: 'wifi' }), /INVALID_TOOL_ARGUMENTS/);
+    assert.throws(() => mcp.validate('t830_get_wifi', {}), /TOOL_NOT_ALLOWED/);
+  } finally { await mcp.close(); }
+});

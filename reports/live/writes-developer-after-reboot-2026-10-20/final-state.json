@@ -1,0 +1,282 @@
+{
+  "at": "2026-10-20T06:41:54.131Z",
+  "records": [
+    {
+      "section": "wifi_night",
+      "status": "returned",
+      "data": {
+        "closeTime": "00;00",
+        "openTime": "00;00",
+        "action": "Disable"
+      }
+    },
+    {
+      "section": "roaming",
+      "status": "returned",
+      "data": {
+        "action": "Enable",
+        "status": "neither is disable"
+      }
+    },
+    {
+      "section": "traffic",
+      "status": "returned",
+      "data": {
+        "cfgs": {
+          "enable": "0",
+          "day_limit": "0MB",
+          "month_limit": "0MB",
+          "start_day": "1"
+        },
+        "stats": {
+          "month_traffic": "149696669-Byte",
+          "day_traffic": "99669366-Byte",
+          "code": "200"
+        }
+      }
+    },
+    {
+      "section": "wifi",
+      "status": "returned",
+      "data": {
+        "5G_code": "200",
+        "2.4G_code": "200",
+        "5G": {
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "hidden": "0",
+          "state": "up",
+          "Channel": "0",
+          "authmode": "WPA2PSKWPA3PSK",
+          "wpapsk": "[REDACTED]",
+          "WirelessMode": "23",
+          "BandWidth": "3"
+        },
+        "Unity_switch": "OFF",
+        "2.4G": {
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "hidden": "0",
+          "state": "up",
+          "Channel": "0",
+          "authmode": "WPA2PSKWPA3PSK",
+          "wpapsk": "[REDACTED]",
+          "WirelessMode": "22",
+          "BandWidth": "1"
+        },
+        "Unity_code": "200",
+        "Unity": {
+          "state": "up",
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "authmode": "WPA2PSKWPA3PSK",
+          "hidden": "0",
+          "wpapsk": "[REDACTED]"
+        }
+      }
+    },
+    {
+      "section": "guest",
+      "status": "returned",
+      "data": {
+        "Guest5G": {
+          "state": "down",
+          "ssid": "[REDACTED]",
+          "on_mode": "Only",
+          "authmode": "Disable",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "wpapsk": "[REDACTED]",
+          "closetime": "NONE"
+        },
+        "Guest_code": "200",
+        "Guest5G_code": "200",
+        "Guest": {
+          "state": "down",
+          "ssid": "[REDACTED]",
+          "on_mode": "Only",
+          "authmode": "Disable",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "wpapsk": "[REDACTED]",
+          "closetime": "NONE"
+        }
+      }
+    },
+    {
+      "section": "mac_filter",
+      "status": "returned",
+      "data": {
+        "data": {
+          "enable": "1",
+          "mode": "1",
+          "macfilter_list": "[REDACTED]"
+        },
+        "code": 0
+      }
+    },
+    {
+      "section": "ip_filter",
+      "status": "returned",
+      "data": {
+        "data": {
+          "enable": "1",
+          "mode": "0",
+          "ipfilter_list": []
+        },
+        "code": 0
+      }
+    },
+    {
+      "section": "port_forward",
+      "status": "returned",
+      "data": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      }
+    },
+    {
+      "section": "port_map",
+      "status": "returned",
+      "data": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      }
+    },
+    {
+      "section": "wifi_ad",
+      "status": "returned",
+      "data": {
+        "trans_power": "2",
+        "5G": {
+          "band_width": "3",
+          "wireless_mode": "23",
+          "channel": "0"
+        },
+        "wmm_state": "1",
+        "2.4G": {
+          "band_width": "1",
+          "wireless_mode": "22",
+          "channel": "0"
+        },
+        "country_code": "ZA",
+        "isolate": "0"
+      }
+    }
+  ],
+  "dashboard": {
+    "at": "2026-10-20T06:43:29.880Z",
+    "authTransport": "ubus",
+    "http": 200,
+    "available": true,
+    "online": true,
+    "upnp": "0",
+    "uptime": 1031,
+    "queries": [
+      {
+        "name": "status",
+        "status": "returned"
+      },
+      {
+        "name": "sim_presence",
+        "status": "returned"
+      },
+      {
+        "name": "clients",
+        "status": "returned"
+      },
+      {
+        "name": "device_info",
+        "status": "returned"
+      },
+      {
+        "name": "dhcp",
+        "status": "error",
+        "error": "HTTP_403"
+      },
+      {
+        "name": "upnp",
+        "status": "returned"
+      }
+    ]
+  }
+}

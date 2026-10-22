@@ -1,0 +1,561 @@
+{
+  "at": "2026-10-20T08:34:24.059Z",
+  "ordinaryWrites": 76,
+  "realWriteCalls": 39,
+  "realWriteToolTypes": 28,
+  "counts": {
+    "changed_and_restored": 5,
+    "not_executed": 48,
+    "failed_or_rejected": 15,
+    "same_value_only": 4,
+    "acknowledged_only": 3,
+    "loopback_verified": 1
+  },
+  "pendingCleanup": [],
+  "completeLiveCoverage": false,
+  "metadata": [
+    {
+      "key": "signal_record",
+      "service": "position_sigal",
+      "method": "write_file",
+      "deviceSignature": {
+        "sigal": "string",
+        "index": "string",
+        "position": "string",
+        "time": "string",
+        "qos": "string",
+        "name": "string"
+      },
+      "catalogSampleFields": [
+        "name",
+        "position"
+      ],
+      "omittedDeviceFields": [
+        "sigal",
+        "index",
+        "qos"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "phonebook_write",
+      "service": "phone_book",
+      "method": "write_book",
+      "deviceSignature": {
+        "type": "string",
+        "index": "string",
+        "device": "string",
+        "email": "string",
+        "name": "string",
+        "numb_house": "string",
+        "numb": "string",
+        "numb_work": "string",
+        "flag": "string"
+      },
+      "catalogSampleFields": [
+        "name",
+        "type",
+        "device"
+      ],
+      "omittedDeviceFields": [
+        "email",
+        "numb_house",
+        "numb",
+        "numb_work",
+        "flag"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "reboot_schedule",
+      "service": "gen.attr",
+      "method": "set_rebootSch_cfg",
+      "deviceSignature": {
+        "schTime": "string",
+        "action": "string",
+        "schweek": "string"
+      },
+      "catalogSampleFields": [
+        "action"
+      ],
+      "omittedDeviceFields": [],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "wifi_config",
+      "service": "mtk.wifi",
+      "method": "set_wifi_cfgs",
+      "deviceSignature": {
+        "2.4G": "object",
+        "Unity": "object",
+        "5G": "object"
+      },
+      "catalogSampleFields": [
+        "2.4G",
+        "5G"
+      ],
+      "omittedDeviceFields": [
+        "Unity"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    }
+  ],
+  "rows": [
+    {
+      "tool": "t830_set_wifi_switch",
+      "currentLive": "changed_and_restored",
+      "writeCalls": 6,
+      "detail": "实际变更、回读及恢复通过"
+    },
+    {
+      "tool": "t830_set_wifi_config",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少完整可恢复原值"
+    },
+    {
+      "tool": "t830_set_guest_switch",
+      "currentLive": "changed_and_restored",
+      "writeCalls": 6,
+      "detail": "实际变更、回读及恢复通过"
+    },
+    {
+      "tool": "t830_set_guest_config",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少完整可恢复原值"
+    },
+    {
+      "tool": "t830_set_wifi_night",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "写入返回告警；原值仍匹配不能当作成功"
+    },
+    {
+      "tool": "t830_set_apn_save",
+      "currentLive": "changed_and_restored",
+      "writeCalls": 1,
+      "detail": "实际变更、回读及恢复通过"
+    },
+    {
+      "tool": "t830_set_roaming",
+      "currentLive": "same_value_only",
+      "writeCalls": 1,
+      "detail": "仅原值提交及回读，未验证实际切换功能"
+    },
+    {
+      "tool": "t830_set_upnp",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_dns",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "基线不可用：HTTP_403"
+    },
+    {
+      "tool": "t830_set_gps",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "基线不可用：原值无效"
+    },
+    {
+      "tool": "t830_set_traffic",
+      "currentLive": "same_value_only",
+      "writeCalls": 1,
+      "detail": "仅原值提交及回读，未验证实际切换功能"
+    },
+    {
+      "tool": "t830_set_setup_save",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少完整可恢复原值"
+    },
+    {
+      "tool": "t830_set_login",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_500"
+    },
+    {
+      "tool": "t830_set_logout",
+      "currentLive": "acknowledged_only",
+      "writeCalls": 1,
+      "detail": "接口确认，尚未验证完整业务效果"
+    },
+    {
+      "tool": "t830_set_password",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少完整可恢复原值"
+    },
+    {
+      "tool": "t830_set_wps_pbc",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_wps_pin",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_wifi_advanced",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "[{\"field\":\"5G.code\",\"value\":\"409\"},{\"field\":\"2.4G.code\",\"value\":\"409\"}]"
+    },
+    {
+      "tool": "t830_set_workmode",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_wifi_scan_start",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_wifi_scan_list",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_wifi_router_connect",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_wifi_router_disconnect",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mesh_role",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mesh_close",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mesh_router_name",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mesh_onboard",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mesh_router_remove",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_client_name",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_client_delete",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_firmware_upload",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少匹配硬件的有效固件及失败恢复材料"
+    },
+    {
+      "tool": "t830_set_firmware_upgrade",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少匹配硬件的有效固件及失败恢复材料"
+    },
+    {
+      "tool": "t830_set_reboot",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_factory_reset",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少已验证可恢复的配置备份和复位后重连材料"
+    },
+    {
+      "tool": "t830_set_sim_slot",
+      "currentLive": "same_value_only",
+      "writeCalls": 1,
+      "detail": "仅原值提交及回读，未验证实际切换功能"
+    },
+    {
+      "tool": "t830_set_pin_verify",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少可控测试卡及正确 PIN/PUK"
+    },
+    {
+      "tool": "t830_set_puk_unblock",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少可控测试卡及正确 PIN/PUK"
+    },
+    {
+      "tool": "t830_set_pin_enable",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少可控测试卡及正确 PIN/PUK"
+    },
+    {
+      "tool": "t830_set_pin_disable",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少可控测试卡及正确 PIN/PUK"
+    },
+    {
+      "tool": "t830_set_pin_change",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少可控测试卡及正确 PIN/PUK"
+    },
+    {
+      "tool": "t830_set_network_mode",
+      "currentLive": "same_value_only",
+      "writeCalls": 1,
+      "detail": "仅原值提交及回读，未验证实际切换功能"
+    },
+    {
+      "tool": "t830_set_apn_remove",
+      "currentLive": "changed_and_restored",
+      "writeCalls": 1,
+      "detail": "实际变更、回读及恢复通过"
+    },
+    {
+      "tool": "t830_set_band_lock",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_plmn_lock",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_plmn_unlock",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_mac_filter_mode",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_mac_filter_rule",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_ip_filter_mode",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_ip_filter_rule",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_port_forward_switch",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_port_map_switch",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "HTTP_403"
+    },
+    {
+      "tool": "t830_set_port_map_rule",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_url_filter_rule",
+      "currentLive": "changed_and_restored",
+      "writeCalls": 2,
+      "detail": "实际变更、回读及恢复通过"
+    },
+    {
+      "tool": "t830_set_dmz",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_alg",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_dhcp",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_static_ip",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_ntp",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_reboot_schedule",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "UBUS_ERROR_5_NO_DATA"
+    },
+    {
+      "tool": "t830_set_signal_start",
+      "currentLive": "acknowledged_only",
+      "writeCalls": 1,
+      "detail": "接口确认，尚未验证完整业务效果"
+    },
+    {
+      "tool": "t830_set_signal_record",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "[{\"field\":\"code\",\"value\":\"2\"}]"
+    },
+    {
+      "tool": "t830_set_signal_record_edit",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "专用测试条目创建失败，没有可安全编辑/删除的测试索引"
+    },
+    {
+      "tool": "t830_set_signal_record_delete",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "专用测试条目创建失败，没有可安全编辑/删除的测试索引"
+    },
+    {
+      "tool": "t830_set_tr069",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少完整可恢复原值"
+    },
+    {
+      "tool": "t830_set_developer_login",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_developer_verify",
+      "currentLive": "acknowledged_only",
+      "writeCalls": 1,
+      "detail": "接口确认，尚未验证完整业务效果"
+    },
+    {
+      "tool": "t830_set_net_probe",
+      "currentLive": "loopback_verified",
+      "writeCalls": 1,
+      "detail": "本机 Ping 完成，收发相等且 0% 丢包"
+    },
+    {
+      "tool": "t830_set_sms_center",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "尚未具备完整基线、业务前提或可靠恢复方案"
+    },
+    {
+      "tool": "t830_set_sms_delete",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少专用测试短信及精确删除目标"
+    },
+    {
+      "tool": "t830_set_sms_send",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "未提供授权接收号码及测试短信内容"
+    },
+    {
+      "tool": "t830_set_phonebook_write",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "[{\"field\":\"code\",\"value\":\"5\"}]"
+    },
+    {
+      "tool": "t830_set_phonebook_delete",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "专用测试条目创建失败，没有可安全编辑/删除的测试索引"
+    },
+    {
+      "tool": "t830_set_backup_check",
+      "currentLive": "failed_or_rejected",
+      "writeCalls": 1,
+      "detail": "[{\"field\":\"code\",\"value\":1}]"
+    },
+    {
+      "tool": "t830_set_backup_restore",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少有效专用备份包及恢复后的验证基线"
+    },
+    {
+      "tool": "t830_set_backup_delete",
+      "currentLive": "not_executed",
+      "writeCalls": 0,
+      "detail": "缺少有效专用备份包及恢复后的验证基线"
+    }
+  ]
+}

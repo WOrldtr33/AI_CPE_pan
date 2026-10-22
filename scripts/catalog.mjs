@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { reads, writes, toolName } from '../src/catalog.mjs';
+import { writeProfiles } from '../src/write-profiles.mjs';
 const root = new URL('../', import.meta.url);
 const sections = [
   '# T830 接口接入清单',
@@ -17,7 +18,7 @@ const sections = [
   '',
   '## 已封装写接口（默认关闭）',
   '',
-  '只在 T830_ENABLE_WRITES=1 时注册。11 项已接入写前检查、提交和回读验证；模拟测试覆盖全部，实机仅完成 UPnP 修改和恢复。sample 仅供自动测试，不是推荐配置。',
+  `只在 T830_ENABLE_WRITES=1 时注册。${writes.filter((d) => writeProfiles[d.key]).length} 项已接入写前检查、提交和回读验证；其余写工具只提交一次，不回读。sample 仅供自动测试，不是推荐配置。`,
   '',
   '| API | 分组 | MCP 工具 | 功能 | 后续回读 section |',
   '|---|---|---|---|---|',
@@ -26,33 +27,20 @@ const sections = [
       `| ${d.api} | ${d.group} | ${toolName(d)} | ${d.description} | ${d.readback} |`,
   ),
   '',
-  '## 文档中本轮未封装的接口',
-  '',
-  '不将文档出现等同于设备实际可用。以下保留范围与原因，后续按需扩展。',
-  '',
-  '| API | 名称 | 状态／原因 |',
-  '|---|---|---|',
 ];
 const md = await readFile(new URL('docs/api/API_DOC.md', root), 'utf8');
 const done = new Set([...reads, ...writes].map((d) => d.api));
-for (const m of md.matchAll(/^### (\d+)\. (.+)$/gm)) {
-  const n = Number(m[1]);
-  if (done.has(n)) continue;
-  let why = '本轮未封装；需补齐字段/枚举、变更影响及回读恢复验证';
-  if ([4, 5, 6].includes(n))
-    why = '认证基础设施：已内部实现登录；未作为业务工具暴露登录凭据或退出会话';
-  if ((n >= 45 && n <= 48) || n >= 130)
-    why = '固件升级、重启、恢复或任意命令/文件操作：不纳入基础批量测试';
-  if (n >= 51 && n <= 57)
-    why = 'SIM 选择或 PIN/PUK 操作：需实际 SIM 场景，避免消耗验证次数';
-  if (n >= 117 && n <= 127)
-    why = '短信/电话本：不纳入当前网络诊断基础范围；本地存储读取可后续独立评估';
-  if (n === 110 || n === 111) why = '开发者认证/提权：不封装';
-  if (n === 100 || n === 115 || n === 26 || n === 27)
-    why = '主动诊断/扫描任务：需独立任务生命周期与目标约束，暂不当作无副作用查询';
-  if (n === 116) why = '需要对应 Ping/Traceroute 任务上下文，随任务接口后续接入';
-  if (n === 129) why = '日志导出：需确认生成文件的行为及日志敏感字段';
-  sections.push(`| ${n} | ${m[2].trim()} | ${why} |`);
+const missing = [...md.matchAll(/^### (\d+)\. (.+)$/gm)].filter((m) => !done.has(Number(m[1])));
+if (missing.length) {
+  sections.push(
+    '## 文档中尚未封装的接口',
+    '',
+    '| API | 名称 |',
+    '|---|---|',
+    ...missing.map((m) => `| ${m[1]} | ${m[2].trim()} |`),
+  );
+} else {
+  sections.push('## 文档覆盖', '', 'API_DOC.md 中的编号接口都已注册。写工具默认不注册。`file exec` 只接受文档中的 tar 检查和 sysupgrade 恢复参数。');
 }
 sections.push(
   '',

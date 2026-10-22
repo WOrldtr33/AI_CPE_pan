@@ -94,6 +94,25 @@ test('Write tool only creates a durable proposal; explicit approval executes exa
   assert.equal(g.writes.length, 1);
 }));
 
+test('Approved writes use real sensitive values while disk keeps them redacted', () => fixture(async ({ store, directory, reopen }) => {
+  const wifiArgs = { '5G': { ssid: '我爱上班', wpapsk: 'new-wifi-secret' } };
+  const wifi = { mcp: { validate: () => {} } };
+  const f = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, wifiArgs)] } }, answer('等待确认')], wifi);
+  const result = await f.agent.turn('修改 5G');
+  const saved = await readFile(join(directory, 'tasks', `${result.taskId}.json`), 'utf8');
+  assert(!saved.includes('new-wifi-secret'));
+  await f.agent.approve(result.proposals[0].id);
+  assert.deepEqual(f.writes[0].args, wifiArgs);
+  const g = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, wifiArgs)] } }, answer('等待确认')], wifi);
+  const pending = await g.agent.turn('再改一次');
+  const restarted = reopen(), h = makeAgent(restarted, [], wifi);
+  await assert.rejects(h.agent.approve(pending.proposals[0].id), /PROPOSAL_ARGS_UNAVAILABLE/);
+  assert.equal(h.writes.length, 0);
+  const copied = makeAgent(restarted, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, { '5G': { ssid: '[REDACTED]' } })] } }, answer('参数错误')], wifi);
+  const rejected = await copied.agent.turn('照读到的值写回');
+  assert.equal(rejected.proposals.length, 0);
+}));
+
 test('Cancelled proposals and invalid args never reach the write executor', () => fixture(async ({ store }) => {
   const f = makeAgent(store, proposalResponses());
   const result = await f.agent.turn('开启 UPnP'); store.cancel(result.taskId);
@@ -187,4 +206,40 @@ test('Multiple different write requests in one model response create only one pr
 test('Malformed persisted conversation roles are rejected before model requests', () => fixture(async ({ store }) => {
   store.saveSession({ summary: '', messages: [{ role: 'tool', content: '{}' }] });
   assert.throws(() => makeAgent(store, []), /INVALID_SESSION_STATE/);
+}));
+
+test('Submitted actions complete once without claiming field verification', () => fixture(async ({ store }) => {
+  const name = 't830_set_reboot';
+  const f = makeAgent(store, [], { mcp: {
+    writeTools: new Set([name]),
+    executeApprovedWrite: async () => ({ status: 'submitted', data: { code: 0 } }),
+  } });
+  const task = store.createTask('reboot');
+  const proposal = store.propose(task, name, {});
+  task.status = 'awaiting_approval'; store.saveTask(task);
+  const output = await f.agent.approve(proposal.id);
+  assert.equal(output.result.status, 'submitted');
+  assert.equal(store.task(task.id).status, 'completed');
+  assert.equal(store.task(task.id).proposals[0].status, 'submitted');
+  await assert.rejects(f.agent.approve(proposal.id), /NOT_PENDING/);
+}));
+
+test('Non-UPnP recovery reads the matching section and never repeats the action', () => fixture(async ({ store }) => {
+  const task = store.createTask('DNS');
+  task.status = 'interrupted';
+  task.writeDispatch = { name: 't830_set_dns', args: { rebind_protection: '1' } };
+  store.saveTask(task);
+  const calls = [];
+  const f = makeAgent(store, [], { mcp: { call: async name => {
+    calls.push(name); return { status: 'returned', data: { data: '1' } };
+  } } });
+  const result = await f.agent.resume(task.id);
+  assert.deepEqual(calls, ['t830_get_dns']);
+  assert.equal(result.result.comparison.allMatched, true);
+  assert.equal(f.writes.length, 0);
+  const action = store.createTask('send SMS');
+  action.status = 'interrupted'; action.writeDispatch = { name: 't830_set_sms_send', args: {} };
+  store.saveTask(action);
+  await assert.rejects(f.agent.resume(action.id), /RECOVERY_NO_READBACK/);
+  assert.deepEqual(calls, ['t830_get_dns']);
 }));

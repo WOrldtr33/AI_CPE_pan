@@ -1,0 +1,1296 @@
+{
+  "at": "2026-10-20T09:54:51.005Z",
+  "mode": "change-readback-restore",
+  "management": "wired-route-verified",
+  "records": [
+    {
+      "at": "2026-10-20T09:54:52.298Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "160",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-86 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "152",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-86 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:51.274-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:52.296-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:52.296-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "160",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-86 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "152",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:52.360Z",
+      "key": "band_lock",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "Band": {
+            "supp_list": {
+              "4G": {
+                "B46": "46790-54539",
+                "B38": "37750-38249",
+                "B20": "6150-6449",
+                "B42": "41590-43589",
+                "B1": "0-599",
+                "B40": "38650-39649",
+                "B5": "2400-2649",
+                "B28": "9210-9659",
+                "B8": "3450-3799",
+                "B7": "2750-3449",
+                "B43": "43590-45589",
+                "B32": "9920-10359",
+                "B41": "39650-41589",
+                "B3": "1200-1949"
+              },
+              "3G": {
+                "B5": "4357-4458",
+                "B1": "10562-10838",
+                "B8": "2937-3088"
+              },
+              "5G": {
+                "n76": "285400-286400",
+                "n20": "158200-164200",
+                "n40": "460000-480000",
+                "n38": "514000-524000",
+                "n28": "151600-160600",
+                "n8": "185000-192000",
+                "n77": "620000-680000",
+                "n1": "422000-434000",
+                "n41": "499200-537999",
+                "n3": "361000-376000",
+                "n5": "173800-178800",
+                "n75": "286400-303400",
+                "n7": "524000-538000",
+                "n78": "620000-653333"
+              }
+            }
+          },
+          "Pci": {
+            "supp_list": {
+              "4G": "0-503",
+              "3G": "0-511",
+              "5G": "0-1007"
+            }
+          },
+          "multi_band": {
+            "4G": [],
+            "3G": [],
+            "state": {
+              "state_4G": "FULL",
+              "state_5G": "FULL",
+              "state_3G": "FULL"
+            },
+            "5G": []
+          },
+          "args": {
+            "band": "n41",
+            "type": "NR",
+            "arfcn": "504990",
+            "pci": "850",
+            "state": "FULL"
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "Band"
+              ],
+              "expected": "object"
+            },
+            {
+              "path": [
+                "Pci"
+              ],
+              "expected": "object"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:52.301-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "band_lock",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:52.359-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_cellLock_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "Band"
+                  ],
+                  "expected": "object"
+                },
+                {
+                  "path": [
+                    "Pci"
+                  ],
+                  "expected": "object"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:52.359-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_cellLock_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "Band": {
+                "supp_list": {
+                  "4G": {
+                    "B46": "46790-54539",
+                    "B38": "37750-38249",
+                    "B20": "6150-6449",
+                    "B42": "41590-43589",
+                    "B1": "0-599",
+                    "B40": "38650-39649",
+                    "B5": "2400-2649",
+                    "B28": "9210-9659",
+                    "B8": "3450-3799",
+                    "B7": "2750-3449",
+                    "B43": "43590-45589",
+                    "B32": "9920-10359",
+                    "B41": "39650-41589",
+                    "B3": "1200-1949"
+                  },
+                  "3G": {
+                    "B5": "4357-4458",
+                    "B1": "10562-10838",
+                    "B8": "2937-3088"
+                  },
+                  "5G": {
+                    "n76": "285400-286400",
+                    "n20": "158200-164200",
+                    "n40": "460000-480000",
+                    "n38": "514000-524000",
+                    "n28": "151600-160600",
+                    "n8": "185000-192000",
+                    "n77": "620000-680000",
+                    "n1": "422000-434000",
+                    "n41": "499200-537999",
+                    "n3": "361000-376000",
+                    "n5": "173800-178800",
+                    "n75": "286400-303400",
+                    "n7": "524000-538000",
+                    "n78": "620000-653333"
+                  }
+                }
+              },
+              "Pci": {
+                "supp_list": {
+                  "4G": "0-503",
+                  "3G": "0-511",
+                  "5G": "0-1007"
+                }
+              },
+              "multi_band": {
+                "4G": [],
+                "3G": [],
+                "state": {
+                  "state_4G": "FULL",
+                  "state_5G": "FULL",
+                  "state_3G": "FULL"
+                },
+                "5G": []
+              },
+              "args": {
+                "band": "n41",
+                "type": "NR",
+                "arfcn": "504990",
+                "pci": "850",
+                "state": "FULL"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:52.686Z",
+      "key": "band_lock",
+      "args": {
+        "type": "NR",
+        "state": "FULL",
+        "band": "n41",
+        "arfcn": "504990",
+        "pci": "850",
+        "multi_band": {
+          "list_3G": [],
+          "list_4G": [],
+          "list_5G": []
+        }
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:52.363-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "band_lock",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:52.685-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "set_cellFreq_lock"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:52.685-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "set_cellFreq_lock"
+            },
+            "params": {
+              "type": "NR",
+              "state": "FULL",
+              "band": "n41",
+              "arfcn": "504990",
+              "pci": "850",
+              "multi_band": {
+                "list_3G": [],
+                "list_4G": [],
+                "list_5G": []
+              }
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "200"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:52.748Z",
+      "key": "band_lock",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "Band": {
+            "supp_list": {
+              "4G": {
+                "B46": "46790-54539",
+                "B38": "37750-38249",
+                "B20": "6150-6449",
+                "B42": "41590-43589",
+                "B1": "0-599",
+                "B40": "38650-39649",
+                "B5": "2400-2649",
+                "B28": "9210-9659",
+                "B8": "3450-3799",
+                "B7": "2750-3449",
+                "B43": "43590-45589",
+                "B32": "9920-10359",
+                "B41": "39650-41589",
+                "B3": "1200-1949"
+              },
+              "3G": {
+                "B5": "4357-4458",
+                "B1": "10562-10838",
+                "B8": "2937-3088"
+              },
+              "5G": {
+                "n76": "285400-286400",
+                "n20": "158200-164200",
+                "n40": "460000-480000",
+                "n38": "514000-524000",
+                "n28": "151600-160600",
+                "n8": "185000-192000",
+                "n77": "620000-680000",
+                "n1": "422000-434000",
+                "n41": "499200-537999",
+                "n3": "361000-376000",
+                "n5": "173800-178800",
+                "n75": "286400-303400",
+                "n7": "524000-538000",
+                "n78": "620000-653333"
+              }
+            }
+          },
+          "Pci": {
+            "supp_list": {
+              "4G": "0-503",
+              "3G": "0-511",
+              "5G": "0-1007"
+            }
+          },
+          "multi_band": {
+            "4G": [],
+            "3G": [],
+            "state": {
+              "state_4G": "FULL",
+              "state_5G": "FULL",
+              "state_3G": "FULL"
+            },
+            "5G": []
+          },
+          "args": {
+            "band": "n41",
+            "type": "NR",
+            "arfcn": "504990",
+            "pci": "850",
+            "state": "FULL"
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "Band"
+              ],
+              "expected": "object"
+            },
+            {
+              "path": [
+                "Pci"
+              ],
+              "expected": "object"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:52.689-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "band_lock",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:52.747-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_cellLock_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "Band"
+                  ],
+                  "expected": "object"
+                },
+                {
+                  "path": [
+                    "Pci"
+                  ],
+                  "expected": "object"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:52.747-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_cellLock_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "Band": {
+                "supp_list": {
+                  "4G": {
+                    "B46": "46790-54539",
+                    "B38": "37750-38249",
+                    "B20": "6150-6449",
+                    "B42": "41590-43589",
+                    "B1": "0-599",
+                    "B40": "38650-39649",
+                    "B5": "2400-2649",
+                    "B28": "9210-9659",
+                    "B8": "3450-3799",
+                    "B7": "2750-3449",
+                    "B43": "43590-45589",
+                    "B32": "9920-10359",
+                    "B41": "39650-41589",
+                    "B3": "1200-1949"
+                  },
+                  "3G": {
+                    "B5": "4357-4458",
+                    "B1": "10562-10838",
+                    "B8": "2937-3088"
+                  },
+                  "5G": {
+                    "n76": "285400-286400",
+                    "n20": "158200-164200",
+                    "n40": "460000-480000",
+                    "n38": "514000-524000",
+                    "n28": "151600-160600",
+                    "n8": "185000-192000",
+                    "n77": "620000-680000",
+                    "n1": "422000-434000",
+                    "n41": "499200-537999",
+                    "n3": "361000-376000",
+                    "n5": "173800-178800",
+                    "n75": "286400-303400",
+                    "n7": "524000-538000",
+                    "n78": "620000-653333"
+                  }
+                }
+              },
+              "Pci": {
+                "supp_list": {
+                  "4G": "0-503",
+                  "3G": "0-511",
+                  "5G": "0-1007"
+                }
+              },
+              "multi_band": {
+                "4G": [],
+                "3G": [],
+                "state": {
+                  "state_4G": "FULL",
+                  "state_5G": "FULL",
+                  "state_3G": "FULL"
+                },
+                "5G": []
+              },
+              "args": {
+                "band": "n41",
+                "type": "NR",
+                "arfcn": "504990",
+                "pci": "850",
+                "state": "FULL"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:53.184Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "46001",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "",
+            "SignalValue": "  ",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "0",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "",
+            "stclockstatus": "0",
+            "wanstat": "false,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "false,ccmni",
+          "uplink": "not_connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": null,
+          "operator": "46001",
+          "radio": null,
+          "text": "上联未连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:52.751-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:53.182-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:53.182-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "46001",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "",
+                "SignalValue": "  ",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "0",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "",
+                "stclockstatus": "0",
+                "wanstat": "false,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:58.726Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "425",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-80 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "688",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-80 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:58.189-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:58.725-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:58.725-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "425",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-80 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "688",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T09:54:59.925Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-80 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "440",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-80 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T02:54:58.729-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T02:54:59.923-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T02:54:59.924-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-80 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "440",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "key": "band_lock",
+      "mode": "resubmit-current",
+      "original": {
+        "args": {
+          "band": "n41",
+          "type": "NR",
+          "arfcn": "504990",
+          "pci": "850",
+          "state": "FULL"
+        },
+        "multi_band": {
+          "3G": [],
+          "4G": [],
+          "5G": []
+        }
+      },
+      "submission": "submitted",
+      "code": "200",
+      "unchanged": true,
+      "uplink": "connected"
+    }
+  ],
+  "startUplink": "connected",
+  "finalUplink": "connected"
+}

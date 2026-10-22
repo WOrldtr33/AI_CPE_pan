@@ -1,0 +1,210 @@
+{
+  "writeRequests": 14,
+  "uniqueTools": 11,
+  "passedCases": 7,
+  "failedCases": 7,
+  "passedToolTypes": [
+    "guest_switch",
+    "net_probe",
+    "roaming",
+    "traffic",
+    "wifi_switch"
+  ],
+  "failedToolTypes": [
+    "ip_filter_mode",
+    "mac_filter_mode",
+    "port_forward_switch",
+    "port_map_switch",
+    "wifi_advanced",
+    "wifi_night"
+  ],
+  "allComparedConfigurationFieldsPreserved": true,
+  "comparisons": [
+    {
+      "section": "wifi_night",
+      "before": {
+        "action": "Disable",
+        "openTime": "00;00",
+        "closeTime": "00;00"
+      },
+      "after": {
+        "action": "Disable",
+        "openTime": "00;00",
+        "closeTime": "00;00"
+      },
+      "matched": true
+    },
+    {
+      "section": "roaming",
+      "before": {
+        "action": "Enable"
+      },
+      "after": {
+        "action": "Enable"
+      },
+      "matched": true
+    },
+    {
+      "section": "traffic",
+      "before": {
+        "enable": "0",
+        "start_day": "1",
+        "day_limit": 0,
+        "month_limit": 0
+      },
+      "after": {
+        "enable": "0",
+        "start_day": "1",
+        "day_limit": 0,
+        "month_limit": 0
+      },
+      "matched": true
+    },
+    {
+      "section": "wifi",
+      "before": {
+        "2.4G": "up",
+        "5G": "up"
+      },
+      "after": {
+        "2.4G": "up",
+        "5G": "up"
+      },
+      "matched": true
+    },
+    {
+      "section": "guest",
+      "before": {
+        "Guest": "down",
+        "Guest5G": "down"
+      },
+      "after": {
+        "Guest": "down",
+        "Guest5G": "down"
+      },
+      "matched": true
+    },
+    {
+      "section": "mac_filter",
+      "before": {
+        "mode": "1",
+        "enable": "1"
+      },
+      "after": {
+        "mode": "1",
+        "enable": "1"
+      },
+      "matched": true
+    },
+    {
+      "section": "ip_filter",
+      "before": {
+        "mode": "0",
+        "enable": "1"
+      },
+      "after": {
+        "mode": "0",
+        "enable": "1"
+      },
+      "matched": true
+    },
+    {
+      "section": "port_forward",
+      "before": {
+        "switch": 1
+      },
+      "after": {
+        "switch": 1
+      },
+      "matched": true
+    },
+    {
+      "section": "port_map",
+      "before": {
+        "switch": 1
+      },
+      "after": {
+        "switch": 1
+      },
+      "matched": true
+    },
+    {
+      "section": "wifi_advanced",
+      "before": {
+        "country_code": "ZA",
+        "trans_power": "2",
+        "isolate": "0",
+        "wmm_state": "1",
+        "5G": {
+          "wireless_mode": "23",
+          "band_width": "3",
+          "channel": "0"
+        },
+        "2.4G": {
+          "wireless_mode": "22",
+          "band_width": "1",
+          "channel": "0"
+        }
+      },
+      "after": {
+        "country_code": "ZA",
+        "trans_power": "2",
+        "isolate": "0",
+        "wmm_state": "1",
+        "5G": {
+          "wireless_mode": "23",
+          "band_width": "3",
+          "channel": "0"
+        },
+        "2.4G": {
+          "wireless_mode": "22",
+          "band_width": "1",
+          "channel": "0"
+        }
+      },
+      "matched": true
+    }
+  ],
+  "loopbackPing": {
+    "transmitted": 6,
+    "received": 6,
+    "lossPercent": 0.0,
+    "complete": true
+  },
+  "dashboard": {
+    "at": "2026-10-20T06:43:29.880Z",
+    "authTransport": "ubus",
+    "http": 200,
+    "available": true,
+    "online": true,
+    "upnp": "0",
+    "uptime": 1031,
+    "queries": [
+      {
+        "name": "status",
+        "status": "returned"
+      },
+      {
+        "name": "sim_presence",
+        "status": "returned"
+      },
+      {
+        "name": "clients",
+        "status": "returned"
+      },
+      {
+        "name": "device_info",
+        "status": "returned"
+      },
+      {
+        "name": "dhcp",
+        "status": "error",
+        "error": "HTTP_403"
+      },
+      {
+        "name": "upnp",
+        "status": "returned"
+      }
+    ]
+  }
+}

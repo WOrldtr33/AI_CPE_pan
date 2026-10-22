@@ -1,0 +1,3995 @@
+{
+  "at": "2026-10-20T09:23:30.830Z",
+  "baselines": {
+    "wifi": {
+      "status": "returned",
+      "data": {
+        "5G_code": "200",
+        "2.4G_code": "200",
+        "5G": {
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "hidden": "0",
+          "state": "up",
+          "Channel": "0",
+          "authmode": "WPA2PSKWPA3PSK",
+          "wpapsk": "[REDACTED]",
+          "WirelessMode": "23",
+          "BandWidth": "3"
+        },
+        "Unity_switch": "OFF",
+        "2.4G": {
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "hidden": "0",
+          "state": "up",
+          "Channel": "0",
+          "authmode": "WPA2PSKWPA3PSK",
+          "wpapsk": "[REDACTED]",
+          "WirelessMode": "22",
+          "BandWidth": "1"
+        },
+        "Unity_code": "200",
+        "Unity": {
+          "state": "up",
+          "ssid": "[REDACTED]",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "authmode": "WPA2PSKWPA3PSK",
+          "hidden": "0",
+          "wpapsk": "[REDACTED]"
+        }
+      },
+      "warnings": []
+    },
+    "guest": {
+      "status": "returned",
+      "data": {
+        "Guest5G": {
+          "state": "down",
+          "ssid": "[REDACTED]",
+          "on_mode": "Only",
+          "authmode": "Disable",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "wpapsk": "[REDACTED]",
+          "closetime": "NONE"
+        },
+        "Guest_code": "200",
+        "Guest5G_code": "200",
+        "Guest": {
+          "state": "down",
+          "ssid": "[REDACTED]",
+          "on_mode": "Only",
+          "authmode": "Disable",
+          "AuthModeList": [
+            "Disable",
+            "OPEN",
+            "Enhanced Open",
+            "SHARED",
+            "WEPAUTO",
+            "WPA2",
+            "WPA3",
+            "WPA3-192-bit",
+            "WPA2PSK",
+            "WPA3PSK",
+            "WPAPSKWPA2PSK",
+            "WPA2PSKWPA3PSK",
+            "WPA1WPA2",
+            "IEEE8021X"
+          ],
+          "wpapsk": "[REDACTED]",
+          "closetime": "NONE"
+        }
+      },
+      "warnings": []
+    },
+    "wps": {
+      "status": "returned",
+      "data": {
+        "guest": {
+          "5G": {
+            "WPS_info": {
+              "WscResult": "0",
+              "WscStatus": "Not used"
+            },
+            "ssid": "[REDACTED]",
+            "restrict": "NONE"
+          },
+          "2.4G": {
+            "WPS_info": {
+              "WscResult": "0",
+              "WscStatus": "Not used"
+            },
+            "ssid": "[REDACTED]",
+            "restrict": "NONE"
+          }
+        },
+        "host": {
+          "5G": {
+            "WPS_info": {
+              "DRIVER_RSP": "YES",
+              "WscResult": "0",
+              "WscStatus": "Idle"
+            },
+            "ssid": "[REDACTED]",
+            "restrict": "NONE;NONE"
+          },
+          "2.4G": {
+            "WPS_info": {
+              "DRIVER_RSP": "YES",
+              "WscResult": "0",
+              "WscStatus": "Idle"
+            },
+            "ssid": "[REDACTED]",
+            "restrict": "NONE;NONE"
+          }
+        }
+      },
+      "warnings": []
+    },
+    "wifi_ad": {
+      "status": "returned",
+      "data": {
+        "bwList_5G": {
+          "0": "20MHz",
+          "1": "40MHz",
+          "2": "80MHz",
+          "3": "160Mhz"
+        },
+        "countryList": {
+          "ID(Indonesia)": {
+            "CountryCode": "ID",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "KE(Kenya)": {
+            "CountryCode": "KE",
+            "CountryRegionABand": 6,
+            "CountryRegion": 1
+          },
+          "BO(Bolivia)": {
+            "CountryCode": "BO",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "IT(Italy)": {
+            "CountryCode": "IT",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "HR(Croatia)": {
+            "CountryCode": "HR",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "CN(China)": {
+            "CountryCode": "CN",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "CR(Costa Rica)": {
+            "CountryCode": "CR",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "FR(France)": {
+            "CountryCode": "FR",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "EC(Ecuador)": {
+            "CountryCode": "EC",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "YE(Yemem)": {
+            "CountryCode": "YE",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "TN(Tunisia)": {
+            "CountryCode": "TN",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "MY(MALAYSIA)": {
+            "CountryCode": "MY",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "NZ(New Zealand)": {
+            "CountryCode": "NZ",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "LI(Liechtenstein)": {
+            "CountryCode": "LI",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "IN(India)": {
+            "CountryCode": "IN",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "UA(Ukraine)": {
+            "CountryCode": "UA",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "PK(Pakistan)": {
+            "CountryCode": "PK",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "NO(Norway)": {
+            "CountryCode": "NO",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "BG(Bulgaria)": {
+            "CountryCode": "BG",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "PA(Panama)": {
+            "CountryCode": "PA",
+            "CountryRegionABand": 0,
+            "CountryRegion": 0
+          },
+          "SK(Slovakia)": {
+            "CountryCode": "SK",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "LV(Latvia)": {
+            "CountryCode": "LV",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "HN(Honduras)": {
+            "CountryCode": "HN",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "OTH(Default)": {
+            "CountryCode": "OTH",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "QA(Qatar)": {
+            "CountryCode": "QA",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "KR(Korea Republic of)": {
+            "CountryCode": "KR",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "VN(Viet Nam)": {
+            "CountryCode": "VN",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "VE(Venezuela)": {
+            "CountryCode": "VE",
+            "CountryRegionABand": 5,
+            "CountryRegion": 1
+          },
+          "MC(Monaco)": {
+            "CountryCode": "MC",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "UY(Uruguay)": {
+            "CountryCode": "UY",
+            "CountryRegionABand": 5,
+            "CountryRegion": 1
+          },
+          "BR(Brazil)": {
+            "CountryCode": "BR",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "CZ(Czech Republic)": {
+            "CountryCode": "CZ",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "HK(HongKong)": {
+            "CountryCode": "HK",
+            "CountryRegionABand": 7,
+            "CountryRegion": 1
+          },
+          "GB(United Kingdom)": {
+            "CountryCode": "GB",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "TW(Taiwan,China)": {
+            "CountryCode": "TW",
+            "CountryRegionABand": 13,
+            "CountryRegion": 0
+          },
+          "SE(Sweden)": {
+            "CountryCode": "SE",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "JO(Jordan)": {
+            "CountryCode": "JO",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "TR(Turkey)": {
+            "CountryCode": "TR",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "IQ(Iraq)": {
+            "CountryCode": "IQ",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "LT(Lithuania)": {
+            "CountryCode": "LT",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "LB(Lebanon)": {
+            "CountryCode": "LB",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "EE(Estonia)": {
+            "CountryCode": "EE",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "AE(United Arab Emirates)": {
+            "CountryCode": "AE",
+            "CountryRegionABand": 7,
+            "CountryRegion": 1
+          },
+          "FI(Finland)": {
+            "CountryCode": "FI",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "DK(Denmark)": {
+            "CountryCode": "DK",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "EG(Egypt)": {
+            "CountryCode": "EG",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "CH(Switzerland)": {
+            "CountryCode": "CH",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "DE(Germany)": {
+            "CountryCode": "DE",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "BY(Belarus)": {
+            "CountryCode": "BY",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "ZA(South Africa)": {
+            "CountryCode": "ZA",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "GT(Guatemala)": {
+            "CountryCode": "GT",
+            "CountryRegionABand": 0,
+            "CountryRegion": 0
+          },
+          "SG(Singapore)": {
+            "CountryCode": "SG",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "TT(Trinidad and Tobago)": {
+            "CountryCode": "TT",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "RO(Romania)": {
+            "CountryCode": "RO",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "IE(Ireland)": {
+            "CountryCode": "IE",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "RU(Russia Federation)": {
+            "CountryCode": "RU",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "CL(Chile)": {
+            "CountryCode": "CL",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "PR(Puerto Rico)": {
+            "CountryCode": "PR",
+            "CountryRegionABand": 0,
+            "CountryRegion": 0
+          },
+          "PT(Portugal)": {
+            "CountryCode": "PT",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "PL(Poland)": {
+            "CountryCode": "PL",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "LU(Luxembourg)": {
+            "CountryCode": "LU",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "MA(Morocco)": {
+            "CountryCode": "MA",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "BE(Belgium)": {
+            "CountryCode": "BE",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "PH(Philippines)": {
+            "CountryCode": "PH",
+            "CountryRegionABand": 7,
+            "CountryRegion": 1
+          },
+          "MX(Mexico)": {
+            "CountryCode": "MX",
+            "CountryRegionABand": 0,
+            "CountryRegion": 0
+          },
+          "HU(Hungary)": {
+            "CountryCode": "HU",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "KP(Korea Democratic)": {
+            "CountryCode": "KP",
+            "CountryRegionABand": 5,
+            "CountryRegion": 1
+          },
+          "GE(Georgia)": {
+            "CountryCode": "GE",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "GR(Greece)": {
+            "CountryCode": "GR",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "DO(Dominican Republic)": {
+            "CountryCode": "DO",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "AT(AUSTRIA)": {
+            "CountryCode": "AT",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "PE(Peru)": {
+            "CountryCode": "PE",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "SW(Sweden)": {
+            "CountryCode": "SW",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "NL(Netherlands)": {
+            "CountryCode": "NL",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "IR(IRan)": {
+            "CountryCode": "IR",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "AM(Armenia)": {
+            "CountryCode": "AM",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "CO(Colombia)": {
+            "CountryCode": "CO",
+            "CountryRegionABand": 0,
+            "CountryRegion": 0
+          },
+          "BH(Bahrain)": {
+            "CountryCode": "BH",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "UZ(Uzbekistan)": {
+            "CountryCode": "UZ",
+            "CountryRegionABand": 1,
+            "CountryRegion": 0
+          },
+          "ZW(Zimbabwe)": {
+            "CountryCode": "ZW",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "MO(Macau)": "[REDACTED]",
+          "SV(EL Salvador)": {
+            "CountryCode": "SV",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "SA(Saudi Arabia)": {
+            "CountryCode": "SA",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "JP(Japan)": {
+            "CountryCode": "JP",
+            "CountryRegionABand": 9,
+            "CountryRegion": 1
+          },
+          "BN(Brunei Darussalam)": {
+            "CountryCode": "BN",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "MK(Macedonia)": "[REDACTED]",
+          "BZ(Belize)": {
+            "CountryCode": "BZ",
+            "CountryRegionABand": 4,
+            "CountryRegion": 1
+          },
+          "AU(Australia)": {
+            "CountryCode": "AU",
+            "CountryRegionABand": 14,
+            "CountryRegion": 1
+          },
+          "SY(Syrian Arab Republic)": {
+            "CountryCode": "SY",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "IS(Iceland)": {
+            "CountryCode": "IS",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "SI(Slovekia)": {
+            "CountryCode": "SI",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "OM(OMAN)": {
+            "CountryCode": "OM",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "AZ(Azerbaijan)": {
+            "CountryCode": "AZ",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "IL(Israel)": {
+            "CountryCode": "IL",
+            "CountryRegionABand": 0,
+            "CountryRegion": 1
+          },
+          "CA(Canada)": {
+            "CountryCode": "CA",
+            "CountryRegionABand": 14,
+            "CountryRegion": 0
+          },
+          "CY(Cyprus)": {
+            "CountryCode": "CY",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "TH(Thailand)": {
+            "CountryCode": "TH",
+            "CountryRegionABand": 13,
+            "CountryRegion": 1
+          },
+          "KW(Kuwait)": {
+            "CountryCode": "KW",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          },
+          "US(United States)": {
+            "CountryCode": "US",
+            "CountryRegionABand": 13,
+            "CountryRegion": 0
+          },
+          "AR(Argentina)": {
+            "CountryCode": "AR",
+            "CountryRegionABand": 2,
+            "CountryRegion": 1
+          },
+          "ES(Spain)": {
+            "CountryCode": "ES",
+            "CountryRegionABand": 1,
+            "CountryRegion": 1
+          }
+        },
+        "channelList_5G": {
+          "0": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_0"
+          },
+          "1": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              }
+            },
+            "depict": "CountryRegionABand_1"
+          },
+          "2": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              }
+            },
+            "depict": "CountryRegionABand_2"
+          },
+          "3": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_3"
+          },
+          "4": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_4"
+          },
+          "5": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_5"
+          },
+          "6": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              }
+            },
+            "depict": "CountryRegionABand_6"
+          },
+          "7": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_7"
+          },
+          "8": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              }
+            },
+            "depict": "CountryRegionABand_8"
+          },
+          "9": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_9"
+          },
+          "10": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_10"
+          },
+          "11": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_11"
+          },
+          "12": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              }
+            },
+            "depict": "CountryRegionABand_12"
+          },
+          "13": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_13"
+          },
+          "14": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_14"
+          },
+          "15": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              },
+              "26": {
+                "text": "Channel 169 (5.845 GHz)",
+                "channel": 169
+              },
+              "27": {
+                "text": "Channel 173 (5.865 GHz)",
+                "channel": 173
+              }
+            },
+            "depict": "CountryRegionABand_15"
+          },
+          "16": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_16"
+          },
+          "17": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_17"
+          },
+          "18": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              }
+            },
+            "depict": "CountryRegionABand_18"
+          },
+          "19": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_19"
+          },
+          "20": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_20"
+          },
+          "21": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_21"
+          },
+          "22": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              }
+            },
+            "depict": "CountryRegionABand_22"
+          },
+          "23": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              }
+            },
+            "depict": "CountryRegionABand_23"
+          },
+          "24": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              }
+            },
+            "depict": "CountryRegionABand_24"
+          },
+          "25": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              },
+              "26": {
+                "text": "Channel 169 (5.845 GHz)",
+                "channel": 169
+              },
+              "27": {
+                "text": "Channel 173 (5.865 GHz)",
+                "channel": 173
+              },
+              "28": {
+                "text": "Channel 177 (5.885 GHz)",
+                "channel": 177
+              }
+            },
+            "depict": "CountryRegionABand_25"
+          },
+          "26": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "20": {
+                "text": "Channel 144 (5.720 GHz)",
+                "channel": 144
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              },
+              "26": {
+                "text": "Channel 169 (5.845 GHz)",
+                "channel": 169
+              },
+              "27": {
+                "text": "Channel 173 (5.865 GHz)",
+                "channel": 173
+              },
+              "28": {
+                "text": "Channel 177 (5.885 GHz)",
+                "channel": 177
+              }
+            },
+            "depict": "CountryRegionABand_26"
+          },
+          "30": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_30"
+          },
+          "31": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_31"
+          },
+          "32": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              }
+            },
+            "depict": "CountryRegionABand_32"
+          },
+          "33": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              }
+            },
+            "depict": "CountryRegionABand_33"
+          },
+          "34": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_34"
+          },
+          "35": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              }
+            },
+            "depict": "CountryRegionABand_35"
+          },
+          "36": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "9": {
+                "text": "Channel 100 (5.500 GHz)",
+                "channel": 100
+              },
+              "10": {
+                "text": "Channel 104 (5.520 GHz)",
+                "channel": 104
+              },
+              "11": {
+                "text": "Channel 108 (5.540 GHz)",
+                "channel": 108
+              },
+              "12": {
+                "text": "Channel 112 (5.560 GHz)",
+                "channel": 112
+              },
+              "13": {
+                "text": "Channel 116 (5.580 GHz)",
+                "channel": 116
+              },
+              "14": {
+                "text": "Channel 120 (5.600 GHz)",
+                "channel": 120
+              },
+              "15": {
+                "text": "Channel 124 (5.620 GHz)",
+                "channel": 124
+              },
+              "16": {
+                "text": "Channel 128 (5.640 GHz)",
+                "channel": 128
+              },
+              "17": {
+                "text": "Channel 132 (5.660 GHz)",
+                "channel": 132
+              },
+              "18": {
+                "text": "Channel 136 (5.680 GHz)",
+                "channel": 136
+              },
+              "19": {
+                "text": "Channel 140 (5.700 GHz)",
+                "channel": 140
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              }
+            },
+            "depict": "CountryRegionABand_36"
+          },
+          "37": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  36 (5.180 GHz)",
+                "channel": 36
+              },
+              "2": {
+                "text": "Channel  40 (5.200 GHz)",
+                "channel": 40
+              },
+              "3": {
+                "text": "Channel  44 (5.220 GHz)",
+                "channel": 44
+              },
+              "4": {
+                "text": "Channel  48 (5.240 GHz)",
+                "channel": 48
+              },
+              "5": {
+                "text": "Channel  52 (5.260 GHz)",
+                "channel": 52
+              },
+              "6": {
+                "text": "Channel  56 (5.280 GHz)",
+                "channel": 56
+              },
+              "7": {
+                "text": "Channel  60 (5.300 GHz)",
+                "channel": 60
+              },
+              "8": {
+                "text": "Channel  64 (5.320 GHz)",
+                "channel": 64
+              },
+              "21": {
+                "text": "Channel 149 (5.745 GHz)",
+                "channel": 149
+              },
+              "22": {
+                "text": "Channel 153 (5.765 GHz)",
+                "channel": 153
+              },
+              "23": {
+                "text": "Channel 157 (5.785 GHz)",
+                "channel": 157
+              },
+              "24": {
+                "text": "Channel 161 (5.805 GHz)",
+                "channel": 161
+              },
+              "25": {
+                "text": "Channel 165 (5.825 GHz)",
+                "channel": 165
+              },
+              "27": {
+                "text": "Channel 173 (5.865 GHz)",
+                "channel": 173
+              }
+            },
+            "depict": "CountryRegionABand_37"
+          }
+        },
+        "idc_BeLimit": {
+          "unsafeList_2G": [],
+          "unsafeList_5G": []
+        },
+        "transPowerList": {
+          "0": "Low",
+          "1": "Norm",
+          "2": "High"
+        },
+        "page_info": {
+          "trans_power": "2",
+          "5G": {
+            "band_width": "3",
+            "wireless_mode": "23",
+            "channel": "0"
+          },
+          "wmm_state": "1",
+          "2.4G": {
+            "band_width": "1",
+            "wireless_mode": "22",
+            "channel": "0"
+          },
+          "country_code": "ZA",
+          "isolate": "0"
+        },
+        "wirModeList_2G": {
+          "0": "B/G mixed",
+          "1": "B only",
+          "4": "G only",
+          "9": "B/G/GN mode",
+          "16": "HE_2G mode",
+          "22": "BE_24G mode"
+        },
+        "channelList_2G": {
+          "0": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              }
+            },
+            "depict": "CountryRegion_0"
+          },
+          "1": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              }
+            },
+            "depict": "CountryRegion_1"
+          },
+          "2": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              }
+            },
+            "depict": "CountryRegion_2"
+          },
+          "3": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              }
+            },
+            "depict": "CountryRegion_3"
+          },
+          "4": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "14": {
+                "text": "Channel 14 (2.477 GHz)",
+                "channel": 14
+              }
+            },
+            "depict": "CountryRegion_4"
+          },
+          "5": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              },
+              "14": {
+                "text": "Channel 14 (2.477 GHz)",
+                "channel": 14
+              }
+            },
+            "depict": "CountryRegion_5"
+          },
+          "6": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              }
+            },
+            "depict": "CountryRegion_6"
+          },
+          "7": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              }
+            },
+            "depict": "CountryRegion_7"
+          },
+          "31": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              },
+              "14": {
+                "text": "Channel 14 (2.477 GHz)",
+                "channel": 14
+              }
+            },
+            "depict": "CountryRegion_31"
+          },
+          "32": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              }
+            },
+            "depict": "CountryRegion_32"
+          },
+          "33": {
+            "list": {
+              "0": {
+                "text": "Channel 0 (Auto )",
+                "channel": 0
+              },
+              "1": {
+                "text": "Channel  1 (2.412 GHz)",
+                "channel": 1
+              },
+              "2": {
+                "text": "Channel  2 (2.417 GHz)",
+                "channel": 2
+              },
+              "3": {
+                "text": "Channel  3 (2.422 GHz)",
+                "channel": 3
+              },
+              "4": {
+                "text": "Channel  4 (2.427 GHz)",
+                "channel": 4
+              },
+              "5": {
+                "text": "Channel  5 (2.432 GHz)",
+                "channel": 5
+              },
+              "6": {
+                "text": "Channel  6 (2.437 GHz)",
+                "channel": 6
+              },
+              "7": {
+                "text": "Channel  7 (2.442 GHz)",
+                "channel": 7
+              },
+              "8": {
+                "text": "Channel  8 (2.447 GHz)",
+                "channel": 8
+              },
+              "9": {
+                "text": "Channel  9 (2.452 GHz)",
+                "channel": 9
+              },
+              "10": {
+                "text": "Channel 10 (2.457 GHz)",
+                "channel": 10
+              },
+              "11": {
+                "text": "Channel 11 (2.462 GHz)",
+                "channel": 11
+              },
+              "12": {
+                "text": "Channel 12 (2.467 GHz)",
+                "channel": 12
+              },
+              "13": {
+                "text": "Channel 13 (2.472 GHz)",
+                "channel": 13
+              },
+              "14": {
+                "text": "Channel 14 (2.477 GHz)",
+                "channel": 14
+              }
+            },
+            "depict": "CountryRegion_33"
+          }
+        },
+        "wirModeList_5G": {
+          "0": "Not support",
+          "2": "A only",
+          "8": "A/N in 5 band",
+          "14": "A/AC/AN mixed",
+          "15": "AC/AN mixed",
+          "17": "HE_5G mode",
+          "23": "BE_5G mode"
+        },
+        "bwList_2G": {
+          "0": "20MHz",
+          "1": "40MHz"
+        }
+      },
+      "warnings": []
+    },
+    "wifi_night": {
+      "status": "returned",
+      "data": {
+        "closeTime": "00;00",
+        "openTime": "00;00",
+        "action": "Disable"
+      },
+      "warnings": []
+    },
+    "reboot_schedule": {
+      "status": "returned",
+      "data": {
+        "schTime": "00;00",
+        "action": "Disable",
+        "code": "200"
+      },
+      "warnings": []
+    },
+    "traffic": {
+      "status": "returned",
+      "data": {
+        "cfgs": {
+          "enable": "0",
+          "day_limit": "0MB",
+          "month_limit": "0MB",
+          "start_day": "1"
+        },
+        "stats": {
+          "month_traffic": "163453072-Byte",
+          "day_traffic": "113425769-Byte",
+          "code": "200"
+        }
+      },
+      "warnings": []
+    },
+    "roaming": {
+      "status": "returned",
+      "data": {
+        "action": "Enable",
+        "status": "neither is disable"
+      },
+      "warnings": []
+    },
+    "sms_center": {
+      "status": "returned",
+      "data": {
+        "code": "0",
+        "addr": "8613010888500",
+        "time": "30",
+        "status": "0"
+      },
+      "warnings": []
+    },
+    "clients": {
+      "status": "returned",
+      "data": {
+        "data": {
+          "offline_count": 0,
+          "rai1_list": [],
+          "ra0_count": 0,
+          "ra1_list": [],
+          "rai0_list": [],
+          "ra1_count": 0,
+          "rai0_count": 0,
+          "rai1_count": 0,
+          "offline_list": [],
+          "brlan_list": [
+            {
+              "mac": "[REDACTED]",
+              "name": "LAPTOP-T7TD7JV4",
+              "OnlineTime": 53,
+              "forbid": "off",
+              "ip": "192.168.0.220"
+            }
+          ],
+          "brlan_count": 1,
+          "ra0_list": []
+        },
+        "code": "200"
+      },
+      "warnings": []
+    },
+    "network_mode": {
+      "status": "returned",
+      "data": {
+        "ratPrefer": "4,128,4,2,1",
+        "ratMode": "21",
+        "code": "200",
+        "modeList": {
+          "0": "GSM only",
+          "1": "UMTS only",
+          "2": "GSM + UMTS",
+          "3": "LTE only",
+          "4": "GSM + LTE",
+          "5": "UMTS + LTE",
+          "6": "GSM + UMTS + LTE",
+          "7": "C2K only",
+          "8": "GSM + C2K",
+          "9": "UMTS + C2K",
+          "10": "GSM + UMTS + C2K",
+          "11": "LTE + C2K",
+          "12": "GSM + LTE + C2K",
+          "13": "UMTS + LTE+ C2K",
+          "14": "GSM + UMTS + LTE + C2K",
+          "15": "NR",
+          "16": "GSM + NR",
+          "17": "UMTS + NR",
+          "18": "GSM + UMTS + NR",
+          "19": "LTE + NR",
+          "20": "GSM + LTE + NR",
+          "21": "UMTS + LTE +NR",
+          "22": "GSM + UMTS + LTE + NR",
+          "23": "NR + C2K",
+          "24": "GSM + NR + C2K",
+          "25": "UMTS + NR +C2K",
+          "26": "GSM + UMTS + NR + C2K",
+          "27": "LTE + NR + C2K",
+          "28": "GSM + LTE + NR + C2K",
+          "29": "UMTS + LTE + NR + C2K",
+          "30": "GSM + UMTS + LTE + NR + C2K"
+        },
+        "currAct": "11"
+      },
+      "warnings": []
+    },
+    "band_lock": {
+      "status": "returned",
+      "data": {
+        "Band": {
+          "supp_list": {
+            "4G": {
+              "B46": "46790-54539",
+              "B38": "37750-38249",
+              "B20": "6150-6449",
+              "B42": "41590-43589",
+              "B1": "0-599",
+              "B40": "38650-39649",
+              "B5": "2400-2649",
+              "B28": "9210-9659",
+              "B8": "3450-3799",
+              "B7": "2750-3449",
+              "B43": "43590-45589",
+              "B32": "9920-10359",
+              "B41": "39650-41589",
+              "B3": "1200-1949"
+            },
+            "3G": {
+              "B5": "4357-4458",
+              "B1": "10562-10838",
+              "B8": "2937-3088"
+            },
+            "5G": {
+              "n76": "285400-286400",
+              "n20": "158200-164200",
+              "n40": "460000-480000",
+              "n38": "514000-524000",
+              "n28": "151600-160600",
+              "n8": "185000-192000",
+              "n77": "620000-680000",
+              "n1": "422000-434000",
+              "n41": "499200-537999",
+              "n3": "361000-376000",
+              "n5": "173800-178800",
+              "n75": "286400-303400",
+              "n7": "524000-538000",
+              "n78": "620000-653333"
+            }
+          }
+        },
+        "Pci": {
+          "supp_list": {
+            "4G": "0-503",
+            "3G": "0-511",
+            "5G": "0-1007"
+          }
+        },
+        "multi_band": {
+          "4G": [],
+          "3G": [],
+          "state": {
+            "state_4G": "FULL",
+            "state_5G": "FULL",
+            "state_3G": "FULL"
+          },
+          "5G": []
+        },
+        "args": {
+          "band": "n41",
+          "type": "NR",
+          "arfcn": "504990",
+          "pci": "850",
+          "state": "FULL"
+        }
+      },
+      "warnings": []
+    },
+    "sim_slot": {
+      "status": "returned",
+      "data": {
+        "sim_type": "1"
+      },
+      "warnings": []
+    },
+    "sim": {
+      "status": "returned",
+      "data": {
+        "sim": {
+          "status": "READY",
+          "remain": {
+            "pin2": "3",
+            "puk1": "[REDACTED]",
+            "puk2": "[REDACTED]",
+            "pin1": "3"
+          },
+          "lock": "0"
+        }
+      },
+      "reading": {
+        "field": "sim.status",
+        "value": "READY",
+        "state": "ready",
+        "pinLock": "disabled",
+        "pinAttempts": "3",
+        "text": "SIM 可用，PIN 锁关闭",
+        "provesUplink": false,
+        "provesSimSlot": false
+      },
+      "warnings": []
+    },
+    "status": {
+      "status": "returned",
+      "data": {
+        "data": {
+          "long_eons": "ChinaUnicom",
+          "DLrate": "164",
+          "WifiType": "rai0,ra0",
+          "SIM": "[REDACTED]",
+          "IMEI": "[REDACTED]",
+          "MSI": "460018428538398",
+          "wifimode": "100",
+          "NR_or_LTE": "5G",
+          "SignalValue": "-88 dBm",
+          "ICCID": "[REDACTED]",
+          "SimStatus": "21",
+          "ULrate": "344",
+          "stcpinlock": "0",
+          "stcdatactrl": "1",
+          "open": "1",
+          "SignalName": "5G",
+          "stclockstatus": "0",
+          "wanstat": "true,ccmni"
+        },
+        "dataCode": "200"
+      },
+      "reading": {
+        "wanstat": "true,ccmni",
+        "uplink": "connected",
+        "simStatus": "21",
+        "pin": "not_indicated",
+        "signal": "-88 dBm",
+        "operator": "ChinaUnicom",
+        "radio": "5G",
+        "text": "上联已连接",
+        "provesSimSlot": false
+      },
+      "warnings": []
+    },
+    "time": {
+      "status": "returned",
+      "data": {
+        "result": 1792488215
+      },
+      "warnings": []
+    }
+  }
+}

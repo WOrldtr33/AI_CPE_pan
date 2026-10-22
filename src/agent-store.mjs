@@ -9,6 +9,8 @@ const validId = id => typeof id === 'string' && /^[a-f0-9-]{36}$/.test(id);
 export class AgentStore {
   constructor(directory, sanitize = value => value) {
     Object.assign(this, { directory, sanitize });
+    // 落盘的提案参数已脱敏，只能展示；执行必须使用本进程内存里的原始参数。
+    this.pendingArgs = new Map();
     mkdirSync(join(directory, 'tasks'), { recursive: true });
     this.lockPath = join(directory, 'lock.json');
     this.lockId = randomUUID();
@@ -93,17 +95,21 @@ export class AgentStore {
     }
   }
   propose(task, name, args) {
-    const existing = task.proposals.find(p => p.name === name && JSON.stringify(p.args) === JSON.stringify(args) && p.status === 'pending');
+    const existing = task.proposals.find(p => p.name === name && JSON.stringify(this.pendingArgs.get(p.id)) === JSON.stringify(args) && p.status === 'pending');
     if (existing) return existing;
     if (task.proposals.length) throw new Error('ONE_WRITE_PER_TASK：一次任务只允许一个写提案，请先处理现有提案。');
     const proposal = { id: randomUUID(), name, args, status: 'pending', createdAt: timestamp() };
+    this.pendingArgs.set(proposal.id, structuredClone(args));
     task.proposals.push(proposal); this.saveTask(task); return proposal;
   }
   proposal(id) {
     if (!validId(id)) throw new Error('INVALID_PROPOSAL_ID');
     for (const task of this.tasks()) {
       const proposal = task.proposals.find(p => p.id === id);
-      if (proposal) return { task, proposal };
+      if (!proposal) continue;
+      const args = this.pendingArgs.get(id);
+      if (args) proposal.args = structuredClone(args);
+      return { task, proposal };
     }
     throw new Error('PROPOSAL_NOT_FOUND');
   }

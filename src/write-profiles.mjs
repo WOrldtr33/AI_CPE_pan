@@ -28,10 +28,34 @@ function trafficBytes(value) {
 }
 const configFields = (args, bands) =>
   bands.flatMap((band) =>
-    Object.entries(args[band]).map(([name, expected]) =>
+    Object.entries(args[band] || {}).map(([name, expected]) =>
       field(`${band}.${name}`, [band, name], expected),
     ),
   );
+// 设备接口要求双频整体提交：以提交前回读的原始值补齐未修改字段，凭据不经过模型。
+// disabledPsk 为 undefined 时不加密频段省略 wpapsk，否则提交该值。
+const mergeBands = (bands, keys, disabledPsk) => (raw, args) => {
+  const missing = [];
+  const merged = Object.fromEntries(
+    bands.map((band) => {
+      const current = raw?.[band] || {};
+      const next = Object.fromEntries(
+        keys.filter((key) => scalar(current[key]) !== undefined).map((key) => [key, scalar(current[key])]),
+      );
+      Object.assign(next, args[band]);
+      for (const key of keys)
+        if (key !== 'wpapsk' && next[key] === undefined) missing.push(`${band}.${key}`);
+      if (next.authmode === 'Disable') {
+        if (disabledPsk === undefined) delete next.wpapsk;
+        else next.wpapsk = disabledPsk;
+      } else if (args[band]?.wpapsk === undefined && (!next.wpapsk || masked(next.wpapsk))) {
+        missing.push(`${band}.wpapsk`);
+      }
+      return [band, next];
+    }),
+  );
+  return { args: merged, missing };
+};
 export const writeProfiles = {
   wifi_switch: {
     readback: 'wifi',
@@ -44,6 +68,7 @@ export const writeProfiles = {
     retryUnchanged: false,
     basis: 'API11/实机双频对象',
     fields: (args) => configFields(args, ['2.4G', '5G']),
+    merge: mergeBands(['2.4G', '5G'], ['hidden', 'ssid', 'state', 'authmode', 'wpapsk']),
   },
   guest_switch: {
     readback: 'guest',
@@ -56,6 +81,7 @@ export const writeProfiles = {
     retryUnchanged: false,
     basis: 'API14/实机访客对象',
     fields: (args) => configFields(args, ['Guest', 'Guest5G']),
+    merge: mergeBands(['Guest', 'Guest5G'], ['state', 'ssid', 'authmode', 'on_mode', 'wpapsk'], ''),
   },
   wifi_night: {
     readback: 'wifi_night',
@@ -103,6 +129,8 @@ export const writeProfiles = {
     fields: (args) => [
       field('gps_switch', ['data', 'gps_switch'], args.gps_switch, gpsState),
     ],
+    // 设备网页对 code=-1 仍读取 gps_switch，只把定位数据视为未就绪。
+    allowWarning: (warning) => warning.field === 'code' && Number(warning.value) === -1,
   },
   traffic: {
     readback: 'traffic',

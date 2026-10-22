@@ -1,0 +1,393 @@
+{
+  "ordinaryWrites": 76,
+  "required": [
+    "--apply",
+    "T830_PASSWORD"
+  ],
+  "optional": [
+    "T830_DEVELOPER_KEY"
+  ],
+  "reboot": "append --reboot to execute once after recoverable writes",
+  "tools": [
+    {
+      "tool": "t830_set_wifi_switch",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_config",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_guest_switch",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_guest_config",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_night",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_apn_save",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_roaming",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_upnp",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_dns",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_gps",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_traffic",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_setup_save",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_login",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_logout",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_password",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wps_pbc",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wps_pin",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_advanced",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_workmode",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_scan_start",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_scan_list",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_router_connect",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_wifi_router_disconnect",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mesh_role",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mesh_close",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mesh_router_name",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mesh_onboard",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mesh_router_remove",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_client_name",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_client_delete",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_firmware_upload",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_firmware_upgrade",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_reboot",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_factory_reset",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_sim_slot",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_pin_verify",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_puk_unblock",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_pin_enable",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_pin_disable",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_pin_change",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_network_mode",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_apn_remove",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_band_lock",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_plmn_lock",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_plmn_unlock",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mac_filter_mode",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_mac_filter_rule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_ip_filter_mode",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_ip_filter_rule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_port_forward_switch",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_port_map_switch",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_port_map_rule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_url_filter_rule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_dmz",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_alg",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_dhcp",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_static_ip",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_ntp",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_reboot_schedule",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_signal_start",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_signal_record",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_signal_record_edit",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_signal_record_delete",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_tr069",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_developer_login",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_developer_verify",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_net_probe",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_sms_center",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_sms_delete",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_sms_send",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_phonebook_write",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_phonebook_delete",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_backup_check",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_backup_restore",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    },
+    {
+      "tool": "t830_set_backup_delete",
+      "live": "pending",
+      "reason": "需要完整基线、有效测试数据和恢复条件"
+    }
+  ]
+}

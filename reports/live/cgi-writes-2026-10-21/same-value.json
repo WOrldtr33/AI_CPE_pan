@@ -1,0 +1,4102 @@
+{
+  "at": "2026-10-21T02:36:28.258-07:00",
+  "mode": "same-value-submit-and-readback",
+  "records": [
+    {
+      "at": "2026-10-21T02:36:29.998-07:00",
+      "tool": "t830_get_upnp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "upnp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "pf_rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:28.891-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "upnp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:29.995-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "upnp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "pf_rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:29.995-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:30.446-07:00",
+      "tool": "t830_set_upnp",
+      "args": {
+        "upnp_switch": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "verified_fields",
+        "section": "upnp",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "upnp_switch"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "acknowledged",
+        "writeAttempts": 1,
+        "original": {
+          "upnp_switch": "0"
+        },
+        "expected": {
+          "upnp_switch": "0"
+        },
+        "observed": {
+          "upnp_switch": "0"
+        },
+        "alreadyMatchedBeforeWrite": true,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.001-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.056-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.057-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.057-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.153-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.153-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "submitted",
+              "data": {
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "submitted",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.154-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.351-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.351-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                    "httpMethod": "POST"
+                  },
+                  "params": {
+                    "upnp_switch": "0"
+                  },
+                  "withCookie": true,
+                  "outcome": "submitted",
+                  "data": {
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": {
+                  "pf_rules": [],
+                  "upnp_switch": "0"
+                },
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data",
+                      "upnp_switch"
+                    ],
+                    "expected": "scalar"
+                  },
+                  {
+                    "path": [
+                      "data",
+                      "pf_rules"
+                    ],
+                    "expected": "array"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.352-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 2,
+                  "section": "upnp",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.445-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data",
+                          "upnp_switch"
+                        ],
+                        "expected": "scalar"
+                      },
+                      {
+                        "path": [
+                          "data",
+                          "pf_rules"
+                        ],
+                        "expected": "array"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.445-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_upnp"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "data": {
+                      "pf_rules": [],
+                      "upnp_switch": "0"
+                    },
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:30.057-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "upnp_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.154-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "upnp_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.351-07:00",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "submitted"
+          },
+          {
+            "at": "2026-10-21T02:36:30.445-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "upnp_switch": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "upnp_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.445-07:00",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:30.539-07:00",
+      "tool": "t830_get_upnp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "upnp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "pf_rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:30.447-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "upnp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:30.539-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "upnp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "pf_rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.539-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_upnp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "pf_rules": [],
+                "upnp_switch": "0"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:30.694-07:00",
+      "tool": "t830_get_dns",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": "0",
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:30.541-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "dns",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:30.580-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.580-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T02:36:30.694-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:30.694-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": "0",
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:32.315-07:00",
+      "tool": "t830_set_dns",
+      "args": {
+        "rebind_protection": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "verified_fields",
+        "section": "dns",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "rebind_protection"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "acknowledged",
+        "writeAttempts": 1,
+        "original": {
+          "rebind_protection": "0"
+        },
+        "expected": {
+          "rebind_protection": "0"
+        },
+        "observed": {
+          "rebind_protection": "0"
+        },
+        "alreadyMatchedBeforeWrite": true,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": "0",
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data"
+                    ],
+                    "expected": "scalar"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": [
+                  "login_required_retry_with_cookie"
+                ]
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.696-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 5,
+                  "section": "dns",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.735-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.735-07:00",
+                  "step": "retry_reason",
+                  "evidence": "observation",
+                  "reason": "login_required_retry_with_cookie"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.851-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data"
+                        ],
+                        "expected": "scalar"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.851-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 2,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": true,
+                  "outcome": "returned",
+                  "data": {
+                    "data": "0",
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": "0",
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data"
+                    ],
+                    "expected": "scalar"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": [
+                  "login_required_retry_with_cookie"
+                ]
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:30.851-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 5,
+                  "section": "dns",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:30.896-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:30.896-07:00",
+                  "step": "retry_reason",
+                  "evidence": "observation",
+                  "reason": "login_required_retry_with_cookie"
+                },
+                {
+                  "at": "2026-10-21T02:36:31.007-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data"
+                        ],
+                        "expected": "scalar"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:31.007-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 2,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": true,
+                  "outcome": "returned",
+                  "data": {
+                    "data": "0",
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "submitted",
+              "data": {
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "submitted",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:31.008-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 5,
+                  "section": "dns",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.140-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/set_dns",
+                    "httpMethod": "POST"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.140-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/set_dns",
+                    "httpMethod": "POST"
+                  },
+                  "params": {
+                    "rebind_protection": "0"
+                  },
+                  "withCookie": true,
+                  "outcome": "submitted",
+                  "data": {
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "data": "0",
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "key_fields",
+                "basis": "saved_real_device_response",
+                "checkedFields": [
+                  {
+                    "path": [
+                      "data"
+                    ],
+                    "expected": "scalar"
+                  }
+                ],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": [
+                  "login_required_retry_with_cookie"
+                ]
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:32.141-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 5,
+                  "section": "dns",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.185-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.185-07:00",
+                  "step": "retry_reason",
+                  "evidence": "observation",
+                  "reason": "login_required_retry_with_cookie"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.314-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "key_fields",
+                    "basis": "saved_real_device_response",
+                    "checkedFields": [
+                      {
+                        "path": [
+                          "data"
+                        ],
+                        "expected": "scalar"
+                      }
+                    ],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.314-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 2,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": true,
+                  "outcome": "returned",
+                  "data": {
+                    "data": "0",
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:30.851-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "rebind_protection": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "rebind_protection"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:31.008-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "rebind_protection": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "rebind_protection"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.141-07:00",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "submitted"
+          },
+          {
+            "at": "2026-10-21T02:36:32.314-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "rebind_protection": "0"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "rebind_protection"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.314-07:00",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:32.485-07:00",
+      "tool": "t830_get_dns",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": "0",
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:32.317-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "dns",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:32.361-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.361-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T02:36:32.485-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.485-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": "0",
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:32.578-07:00",
+      "tool": "t830_get_gps",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "data": {
+            "number": "0",
+            "is_good": "0",
+            "gps_switch": "enable"
+          },
+          "code": -1
+        },
+        "reading": {
+          "enabled": true,
+          "satellites": 0,
+          "fix": "not_fixed",
+          "text": "GPS 已开启，但尚未定位",
+          "provesLocation": false
+        },
+        "warnings": [
+          {
+            "field": "code",
+            "value": -1
+          }
+        ],
+        "validation": {
+          "status": "skipped_business_warning",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+            "Key fields were not required because the device reported a business warning."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "device_warning",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:32.487-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "gps",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:32.527-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.527-07:00",
+            "step": "read_fallback",
+            "evidence": "observation",
+            "from": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+              "httpMethod": "GET"
+            },
+            "to": {
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "reason": "HTTP_403"
+          },
+          {
+            "at": "2026-10-21T02:36:32.578-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "validation": {
+              "status": "skipped_business_warning",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                "Key fields were not required because the device reported a business warning."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.578-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "data": {
+                "number": "0",
+                "is_good": "0",
+                "gps_switch": "enable"
+              },
+              "code": -1
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.029-07:00",
+      "tool": "t830_set_gps",
+      "args": {
+        "gps_switch": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "verified_fields",
+        "section": "gps",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "gps_switch"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "acknowledged",
+        "writeAttempts": 1,
+        "original": {
+          "gps_switch": "1"
+        },
+        "expected": {
+          "gps_switch": "1"
+        },
+        "observed": {
+          "gps_switch": "1"
+        },
+        "alreadyMatchedBeforeWrite": true,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "device_warning",
+              "data": {
+                "data": {
+                  "number": "0",
+                  "is_good": "0",
+                  "gps_switch": "enable"
+                },
+                "code": -1
+              },
+              "reading": {
+                "enabled": true,
+                "satellites": 0,
+                "fix": "not_fixed",
+                "text": "GPS 已开启，但尚未定位",
+                "provesLocation": false
+              },
+              "warnings": [
+                {
+                  "field": "code",
+                  "value": -1
+                }
+              ],
+              "validation": {
+                "status": "skipped_business_warning",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                  "Key fields were not required because the device reported a business warning."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "device_warning",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:32.580-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 8,
+                  "section": "gps",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.618-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.618-07:00",
+                  "step": "read_fallback",
+                  "evidence": "observation",
+                  "from": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "to": {
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "reason": "HTTP_403"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.671-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "validation": {
+                    "status": "skipped_business_warning",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                      "Key fields were not required because the device reported a business warning."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.671-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "device_warning",
+                  "data": {
+                    "data": {
+                      "number": "0",
+                      "is_good": "0",
+                      "gps_switch": "enable"
+                    },
+                    "code": -1
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "device_warning",
+              "data": {
+                "data": {
+                  "number": "0",
+                  "is_good": "0",
+                  "gps_switch": "enable"
+                },
+                "code": -1
+              },
+              "reading": {
+                "enabled": true,
+                "satellites": 0,
+                "fix": "not_fixed",
+                "text": "GPS 已开启，但尚未定位",
+                "provesLocation": false
+              },
+              "warnings": [
+                {
+                  "field": "code",
+                  "value": -1
+                }
+              ],
+              "validation": {
+                "status": "skipped_business_warning",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                  "Key fields were not required because the device reported a business warning."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "device_warning",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:32.671-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 8,
+                  "section": "gps",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.709-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.709-07:00",
+                  "step": "read_fallback",
+                  "evidence": "observation",
+                  "from": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "to": {
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "reason": "HTTP_403"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.764-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "validation": {
+                    "status": "skipped_business_warning",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                      "Key fields were not required because the device reported a business warning."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.764-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "device_warning",
+                  "data": {
+                    "data": {
+                      "number": "0",
+                      "is_good": "0",
+                      "gps_switch": "enable"
+                    },
+                    "code": -1
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "submitted",
+              "data": {
+                "code": 0
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "submitted",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_applicable",
+                  "note": "UBUS session/access does not check CGI path authorization."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:32.764-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 8,
+                  "section": "gps",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.920-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/set_gps",
+                    "httpMethod": "POST"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.920-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/set_gps",
+                    "httpMethod": "POST"
+                  },
+                  "params": {
+                    "gps_switch": "1"
+                  },
+                  "withCookie": true,
+                  "outcome": "submitted",
+                  "data": {
+                    "code": 0
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "device_warning",
+              "data": {
+                "data": {
+                  "number": "0",
+                  "is_good": "0",
+                  "gps_switch": "enable"
+                },
+                "code": -1
+              },
+              "reading": {
+                "enabled": true,
+                "satellites": 0,
+                "fix": "not_fixed",
+                "text": "GPS 已开启，但尚未定位",
+                "provesLocation": false
+              },
+              "warnings": [
+                {
+                  "field": "code",
+                  "value": -1
+                }
+              ],
+              "validation": {
+                "status": "skipped_business_warning",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                  "Key fields were not required because the device reported a business warning."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "device_warning",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 2,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-21T02:36:32.920-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 8,
+                  "section": "gps",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-21T02:36:32.971-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "error": "HTTP_403",
+                  "details": {
+                    "http": 403,
+                    "loginRequired": true
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:32.971-07:00",
+                  "step": "read_fallback",
+                  "evidence": "observation",
+                  "from": {
+                    "transport": "cgi",
+                    "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                    "httpMethod": "GET"
+                  },
+                  "to": {
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "reason": "HTTP_403"
+                },
+                {
+                  "at": "2026-10-21T02:36:33.028-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "validation": {
+                    "status": "skipped_business_warning",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                      "Key fields were not required because the device reported a business warning."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-21T02:36:33.028-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "web_api",
+                    "method": "get_gps"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "device_warning",
+                  "data": {
+                    "data": {
+                      "number": "0",
+                      "is_good": "0",
+                      "gps_switch": "enable"
+                    },
+                    "code": -1
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:32.671-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "gps_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "gps_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.764-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "gps_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "gps_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:32.920-07:00",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "submitted"
+          },
+          {
+            "at": "2026-10-21T02:36:33.028-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "gps_switch": "1"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "gps_switch"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.028-07:00",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.137-07:00",
+      "tool": "t830_get_gps",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "data": {
+            "number": "0",
+            "is_good": "0",
+            "gps_switch": "enable"
+          },
+          "code": -1
+        },
+        "reading": {
+          "enabled": true,
+          "satellites": 0,
+          "fix": "not_fixed",
+          "text": "GPS 已开启，但尚未定位",
+          "provesLocation": false
+        },
+        "warnings": [
+          {
+            "field": "code",
+            "value": -1
+          }
+        ],
+        "validation": {
+          "status": "skipped_business_warning",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+            "Key fields were not required because the device reported a business warning."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "device_warning",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.031-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "gps",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:33.078-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.078-07:00",
+            "step": "read_fallback",
+            "evidence": "observation",
+            "from": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+              "httpMethod": "GET"
+            },
+            "to": {
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "reason": "HTTP_403"
+          },
+          {
+            "at": "2026-10-21T02:36:33.137-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "validation": {
+              "status": "skipped_business_warning",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                "Key fields were not required because the device reported a business warning."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.137-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_gps"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "device_warning",
+            "data": {
+              "data": {
+                "number": "0",
+                "is_good": "0",
+                "gps_switch": "enable"
+              },
+              "code": -1
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.199-07:00",
+      "tool": "t830_get_mac_filter",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "1",
+            "macfilter_list": "[REDACTED]"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "mode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.138-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "mac_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:33.199-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "mode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.199-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "1",
+                "macfilter_list": "[REDACTED]"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.513-07:00",
+      "tool": "t830_set_mac_filter_mode",
+      "args": {
+        "mode": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.201-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "mac_filter_mode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:33.513-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter_mode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.513-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter_mode",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "mode": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.561-07:00",
+      "tool": "t830_get_mac_filter",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "1",
+            "macfilter_list": "[REDACTED]"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "mode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.515-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "mac_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:33.561-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "mode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.561-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "1",
+                "macfilter_list": "[REDACTED]"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:33.623-07:00",
+      "tool": "t830_get_ip_filter",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "0",
+            "ipfilter_list": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "ipfilter_list"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.563-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "ip_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:33.623-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "ipfilter_list"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:33.623-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "0",
+                "ipfilter_list": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:36.175-07:00",
+      "tool": "t830_set_ip_filter_mode",
+      "args": {
+        "mode": "0"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:33.625-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "ip_filter_mode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:36.176-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter_mode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:36.176-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter_mode",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "mode": "0"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:36.223-07:00",
+      "tool": "t830_get_ip_filter",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "0",
+            "ipfilter_list": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "ipfilter_list"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:36.177-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "ip_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:36.223-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "ipfilter_list"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:36.223-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "0",
+                "ipfilter_list": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:36.269-07:00",
+      "tool": "t830_get_port_forward",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:36.224-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "port_forward",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:36.269-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:36.269-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:39.942-07:00",
+      "tool": "t830_set_port_forward_switch",
+      "args": {
+        "switch": 1
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:36.271-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 17,
+            "section": "port_forward_switch",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:39.942-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward_switch",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:39.942-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward_switch",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "switch": 1
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:40.003-07:00",
+      "tool": "t830_get_port_forward",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:39.944-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 18,
+            "section": "port_forward",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:40.003-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:40.003-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:40.063-07:00",
+      "tool": "t830_get_port_map",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:40.005-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 19,
+            "section": "port_map",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:40.064-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:40.064-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:43.307-07:00",
+      "tool": "t830_set_port_map_switch",
+      "args": {
+        "switch": 1
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:40.065-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 20,
+            "section": "port_map_switch",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:43.307-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap_switch",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:43.307-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap_switch",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "switch": 1
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T02:36:43.353-07:00",
+      "tool": "t830_get_port_map",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T02:36:43.308-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 21,
+            "section": "port_map",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T02:36:43.354-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T02:36:43.354-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "tool": "t830_set_upnp",
+      "args": {
+        "upnp_switch": "0"
+      },
+      "before": {
+        "data": {
+          "pf_rules": [],
+          "upnp_switch": "0"
+        },
+        "code": 0
+      },
+      "writeStatus": "verified_fields",
+      "after": {
+        "data": {
+          "pf_rules": [],
+          "upnp_switch": "0"
+        },
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_dns",
+      "args": {
+        "rebind_protection": "0"
+      },
+      "before": {
+        "data": "0",
+        "code": 0
+      },
+      "writeStatus": "verified_fields",
+      "after": {
+        "data": "0",
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_gps",
+      "args": {
+        "gps_switch": "1"
+      },
+      "before": {
+        "data": {
+          "number": "0",
+          "is_good": "0",
+          "gps_switch": "enable"
+        },
+        "code": -1
+      },
+      "writeStatus": "verified_fields",
+      "after": {
+        "data": {
+          "number": "0",
+          "is_good": "0",
+          "gps_switch": "enable"
+        },
+        "code": -1
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_mac_filter_mode",
+      "args": {
+        "mode": "1"
+      },
+      "before": {
+        "data": {
+          "enable": "1",
+          "mode": "1",
+          "macfilter_list": "[REDACTED]"
+        },
+        "code": 0
+      },
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "after": {
+        "data": {
+          "enable": "1",
+          "mode": "1",
+          "macfilter_list": "[REDACTED]"
+        },
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_ip_filter_mode",
+      "args": {
+        "mode": "0"
+      },
+      "before": {
+        "data": {
+          "enable": "1",
+          "mode": "0",
+          "ipfilter_list": []
+        },
+        "code": 0
+      },
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "after": {
+        "data": {
+          "enable": "1",
+          "mode": "0",
+          "ipfilter_list": []
+        },
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_port_forward_switch",
+      "args": {
+        "switch": 1
+      },
+      "before": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      },
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "after": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    },
+    {
+      "tool": "t830_set_port_map_switch",
+      "args": {
+        "switch": 1
+      },
+      "before": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      },
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "after": {
+        "data": {
+          "switch": 1,
+          "rules": []
+        },
+        "code": 0
+      },
+      "unchanged": true,
+      "outcome": "passed"
+    }
+  ]
+}

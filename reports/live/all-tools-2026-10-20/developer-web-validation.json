@@ -1,0 +1,51 @@
+{
+  "at": "2026-10-20T04:00:21.558Z",
+  "dashboard": {
+    "http": 200,
+    "available": true,
+    "online": false,
+    "upnp": "0",
+    "queries": [
+      {
+        "name": "status",
+        "status": "returned"
+      },
+      {
+        "name": "sim_presence",
+        "status": "returned"
+      },
+      {
+        "name": "clients",
+        "status": "returned"
+      },
+      {
+        "name": "device_info",
+        "status": "returned"
+      },
+      {
+        "name": "dhcp",
+        "status": "returned"
+      },
+      {
+        "name": "upnp",
+        "status": "returned"
+      }
+    ]
+  },
+  "chat": {
+    "http": 200,
+    "status": "answered",
+    "calls": 1,
+    "taskId": "e3149a29-82e5-46b6-8655-374063459cfa",
+    "tools": [
+      {
+        "name": "t830_query",
+        "args": {
+          "section": "wifi_ad",
+          "args": {}
+        },
+        "status": "returned"
+      }
+    ]
+  }
+}

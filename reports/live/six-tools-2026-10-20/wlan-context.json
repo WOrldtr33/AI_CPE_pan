@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-20T07:40:21.000Z",
+  "records": [
+    {
+      "action": "wireless-status",
+      "error": "RPC_ERROR_-32002"
+    }
+  ],
+  "configReadAllowed": true,
+  "stationConfig": [
+    {
+      "section": "apcli0",
+      "mode": "sta",
+      "disabled": "1",
+      "network": "lan"
+    },
+    {
+      "section": "apclii0",
+      "mode": "sta",
+      "disabled": "1",
+      "network": "lan"
+    }
+  ]
+}

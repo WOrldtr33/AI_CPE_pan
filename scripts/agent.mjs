@@ -23,7 +23,7 @@ try {
   if (args.length && !(args.length === 1 && args[0] === '--check-api') && !(args.length === 2 && args[0] === '--once')) throw new Error('INVALID_CLI_ARGUMENTS：使用 --help 查看参数。');
   const settings = config();
   const apiKey = readApiKey();
-  clean = sanitizer([apiKey, process.env.T830_PASSWORD, process.env.T830_PASSWORD_HASH, process.env.T830_SALT]);
+  clean = sanitizer([apiKey, process.env.T830_PASSWORD, process.env.T830_PASSWORD_HASH, process.env.T830_SALT, process.env.T830_DEVELOPER_KEY]);
   const log = createLog(join(root, '.agent-logs'), clean);
   const api = new ModelApi({ apiKey, ...settings, onEvent: log.event });
   let models = [];
@@ -96,7 +96,7 @@ try {
     });
     if (args[0] === '--once') await run(args[1]);
     else {
-      console.log(`T830 Agent｜${settings.enableWrites ? '查询 + UPnP 待确认写入' : '只读'}｜${settings.model}｜思考 ${settings.thinking}\n输入 /help 查看命令。日志：${log.path}`);
+      console.log(`T830 Agent｜${settings.enableWrites ? '全部查询 + 待确认写入' : '只读'}｜${settings.model}｜思考 ${settings.thinking}\n输入 /help 查看命令。日志：${log.path}`);
       const unfinished = store.tasks().filter(t => ['interrupted', 'awaiting_approval'].includes(t.status));
       if (unfinished.length) console.log(`有 ${unfinished.length} 个待处理任务，使用 /tasks 查看；不会自动重放操作。`);
       if (!process.env.T830_PASSWORD && !process.env.T830_PASSWORD_HASH) console.log('提示：未配置 T830 管理凭据，设备查询将报告缺少凭据；可用 scripts/start-agent.ps1 启动。');
@@ -114,7 +114,7 @@ try {
             else if (input === '/help') console.log(`${commands}\nCtrl+C：取消当前问题；空闲时退出。`);
             else if (input === '/tools') console.log(mcp.definitions.map(t => `${t.function.name}：${t.function.description}`).join('\n'));
             else if (input === '/models') console.log(models.join('\n'));
-            else if (input === '/status') console.log(JSON.stringify({ ...settings, mode: settings.enableWrites ? 'reads-and-approved-upnp' : 'read-only', messages: agent.messages.length, summaryChars: agent.summary.length, memories: store.memories().length, state: store.directory }, null, 2));
+            else if (input === '/status') console.log(JSON.stringify({ ...settings, mode: settings.enableWrites ? 'reads-and-approved-writes' : 'read-only', messages: agent.messages.length, summaryChars: agent.summary.length, memories: store.memories().length, state: store.directory }, null, 2));
             else if (input === '/summary') console.log(agent.summary || '尚未生成历史摘要。');
             else if (input === '/media') await action(async signal => ({ answer: JSON.stringify(await mediaCall('media_status', {}, signal), null, 2) }));
             else if (input === '/voice on' || input === '/voice off') { voice = input.endsWith('on'); console.log(`自动播报：${voice ? '开启' : '关闭'}。`); }

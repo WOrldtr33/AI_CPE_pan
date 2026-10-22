@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-20T03:05:29.228Z",
+  "flow": "vendor-ui: verify supplied key, then login superadmin",
+  "credentialsPersisted": false,
+  "verificationCode": "200",
+  "loginCode": 0,
+  "permissionChecks": [
+    {
+      "service": "mtk.wifi",
+      "method": "get_AdvancPage_info",
+      "access": true
+    },
+    {
+      "service": "mtk.cell",
+      "method": "get_simcard_index",
+      "access": true
+    },
+    {
+      "service": "sms_app",
+      "method": "all_sms",
+      "access": true
+    }
+  ]
+}

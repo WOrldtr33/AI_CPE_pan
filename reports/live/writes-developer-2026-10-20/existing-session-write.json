@@ -1,0 +1,2078 @@
+{
+  "at": "2026-10-20T06:24:38.624Z",
+  "mode": "live-existing-developer-session-upnp-change-and-restore",
+  "records": [
+    {
+      "at": "2026-10-20T06:24:40.822Z",
+      "action": "snapshot",
+      "body": {
+        "refresh": true
+      },
+      "http": 200,
+      "output": {
+        "observedAt": 1792477480817,
+        "available": true,
+        "online": true,
+        "rates": {
+          "down": 0,
+          "up": null,
+          "rawDown": 0,
+          "rawUp": 60,
+          "unit": null
+        },
+        "clients": 1,
+        "quality": {
+          "level": 4,
+          "label": "-78 dBm",
+          "basis": "设备状态页上报的信号强度，不是吞吐测速"
+        },
+        "cellular": {
+          "slot": "present",
+          "slotText": "SIM 在槽且设备前端允许继续使用",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "signal": "-78 dBm",
+          "pin": "not_indicated"
+        },
+        "ips": {
+          "lan": "192.168.0.1",
+          "wan": "APN1: 10.7.25.88",
+          "ipv6": "APN1: 2408:8459:3030:5e34:18e0:27ea:89c4:b3b1",
+          "gateway": "192.168.0.1",
+          "dns": "APN1: 120.80.80.80/221.5.88.88"
+        },
+        "device": {
+          "model": "the101pro",
+          "firmware": "RA_M5_v9.10.debug",
+          "hardware": "V2.0",
+          "uptimeSeconds": 990
+        },
+        "upnp": "0",
+        "queries": [
+          {
+            "name": "status",
+            "status": "returned"
+          },
+          {
+            "name": "sim_presence",
+            "status": "returned"
+          },
+          {
+            "name": "clients",
+            "status": "returned"
+          },
+          {
+            "name": "device_info",
+            "status": "returned"
+          },
+          {
+            "name": "dhcp",
+            "status": "returned"
+          },
+          {
+            "name": "upnp",
+            "status": "returned"
+          }
+        ],
+        "suggestions": [
+          {
+            "id": "status",
+            "text": "查看网络状态"
+          },
+          {
+            "id": "clients",
+            "text": "有哪些设备在线"
+          },
+          {
+            "id": "diagnose",
+            "text": "帮我排查网络"
+          },
+          {
+            "id": "device_info",
+            "text": "查看设备信息"
+          },
+          {
+            "id": "wifi",
+            "text": "查看无线网络"
+          },
+          {
+            "id": "version",
+            "text": "查看固件版本"
+          },
+          {
+            "id": "first_setup",
+            "text": "查看初始化状态"
+          },
+          {
+            "id": "setup",
+            "text": "查看初始化配置"
+          },
+          {
+            "id": "country",
+            "text": "查看国家编码"
+          },
+          {
+            "id": "guest",
+            "text": "查看访客 WiFi 配置"
+          },
+          {
+            "id": "wps",
+            "text": "查看WPS 配置"
+          },
+          {
+            "id": "wifi_ad",
+            "text": "查看高级 WiFi 配置"
+          },
+          {
+            "id": "wifi_night",
+            "text": "查看夜间 WiFi 设置"
+          },
+          {
+            "id": "workmode",
+            "text": "查看设备工作模式"
+          },
+          {
+            "id": "wifi_rt",
+            "text": "查看上游 WLAN 路由状态"
+          },
+          {
+            "id": "mesh_status",
+            "text": "查看Mesh 开关"
+          },
+          {
+            "id": "mesh_role",
+            "text": "查看Mesh 角色"
+          },
+          {
+            "id": "mesh_routers",
+            "text": "查看Mesh 节点"
+          },
+          {
+            "id": "device",
+            "text": "查看蜂窝设备信息"
+          },
+          {
+            "id": "sim_presence",
+            "text": "查看SIM 在槽状态。reading.state：present=21 在槽可用，absent=0 未插入，unavailable=3 或 4 暂时不可用，abnormal=其他。不代表上联已连接"
+          },
+          {
+            "id": "sim_slot",
+            "text": "查看SIM 插槽配置"
+          },
+          {
+            "id": "sim",
+            "text": "查看SIM 信息"
+          },
+          {
+            "id": "network_mode",
+            "text": "查看蜂窝网络模式"
+          },
+          {
+            "id": "apn",
+            "text": "查看APN 配置，不验证拨号"
+          },
+          {
+            "id": "cells",
+            "text": "查看小区列表"
+          },
+          {
+            "id": "band_lock",
+            "text": "查看频段锁定配置"
+          },
+          {
+            "id": "roaming",
+            "text": "查看漫游配置"
+          },
+          {
+            "id": "mac_filter",
+            "text": "查看MAC 过滤配置"
+          },
+          {
+            "id": "ip_filter",
+            "text": "查看IP 过滤配置"
+          },
+          {
+            "id": "port_forward",
+            "text": "查看端口转发配置"
+          },
+          {
+            "id": "port_map",
+            "text": "查看端口映射配置"
+          },
+          {
+            "id": "url_filter",
+            "text": "查看URL 过滤配置"
+          },
+          {
+            "id": "upnp",
+            "text": "查看UPnP配置"
+          },
+          {
+            "id": "dmz",
+            "text": "查看DMZ配置"
+          },
+          {
+            "id": "alg",
+            "text": "查看ALG配置"
+          },
+          {
+            "id": "dns",
+            "text": "查看DNS 保护配置"
+          },
+          {
+            "id": "dhcp",
+            "text": "查看地址分配"
+          },
+          {
+            "id": "static_ip",
+            "text": "查看静态 IP 配置"
+          },
+          {
+            "id": "ntp",
+            "text": "查看NTP 配置，不验证同步"
+          },
+          {
+            "id": "time",
+            "text": "查看设备时间"
+          },
+          {
+            "id": "reboot_schedule",
+            "text": "查看定时重启配置"
+          },
+          {
+            "id": "signal_records",
+            "text": "查看已保存信号记录"
+          },
+          {
+            "id": "tr069",
+            "text": "查看TR069 配置，不验证远端连接"
+          },
+          {
+            "id": "gps",
+            "text": "查看GPS 开关"
+          },
+          {
+            "id": "developer_mode",
+            "text": "查看开发者模式状态，不提权"
+          },
+          {
+            "id": "traffic",
+            "text": "查看流量统计配置"
+          },
+          {
+            "id": "diagnose",
+            "text": "查看诊断信息"
+          },
+          {
+            "id": "share",
+            "text": "查看101 Share 状态"
+          },
+          {
+            "id": "login_status",
+            "text": "查看登录状态"
+          },
+          {
+            "id": "sms_all",
+            "text": "查看全部短信。同编号批量里的电话本用 phonebook，短信中心用 sms_center"
+          },
+          {
+            "id": "sms_center",
+            "text": "查看短信中心号码"
+          },
+          {
+            "id": "sms_report",
+            "text": "查看短信发送状态报告"
+          },
+          {
+            "id": "sms_unread",
+            "text": "查看未读短信数"
+          },
+          {
+            "id": "log_url",
+            "text": "查看日志下载地址"
+          }
+        ],
+        "bootId": "69a1ddf8-dd09-41fb-95db-50521a2fcb87",
+        "historySince": 1792476816664,
+        "writeEnabled": true
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:40.889Z",
+      "action": "prepare",
+      "body": {
+        "value": "1",
+        "expected": "0"
+      },
+      "http": 200,
+      "output": {
+        "status": "awaiting_confirmation",
+        "id": "e17b9293-99bb-4efc-b1c8-0cc6f72a815e",
+        "taskId": "8a21f996-e6a5-4a0c-a6f0-13f0ddeb01e1",
+        "before": "0",
+        "after": "1"
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:42.593Z",
+      "action": "confirm",
+      "body": {
+        "id": "e17b9293-99bb-4efc-b1c8-0cc6f72a815e",
+        "confirmed": true
+      },
+      "http": 200,
+      "output": {
+        "status": "verified",
+        "id": "e17b9293-99bb-4efc-b1c8-0cc6f72a815e",
+        "before": "0",
+        "after": "1",
+        "result": {
+          "status": "verified_field",
+          "section": "upnp",
+          "verification": {
+            "state": "applied",
+            "fields": [
+              "upnp_switch"
+            ],
+            "unknownFields": []
+          },
+          "submissionOutcome": "acknowledged",
+          "writeAttempts": 1,
+          "original": {
+            "upnp_switch": "0"
+          },
+          "expected": {
+            "upnp_switch": "1"
+          },
+          "observed": {
+            "upnp_switch": "1"
+          },
+          "alreadyMatchedBeforeWrite": false,
+          "steps": [
+            {
+              "phase": "baseline",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "0"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:41.206-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 794,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:41.299-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:41.299-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "0"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            },
+            {
+              "phase": "before_write",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "0"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:41.300-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 794,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:41.394-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:41.394-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "0"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            },
+            {
+              "phase": "write",
+              "attempt": 1,
+              "output": {
+                "status": "submitted",
+                "data": {
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "basic",
+                  "basis": "generic_object_check",
+                  "checkedFields": [],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "submitted",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_applicable",
+                    "note": "UBUS session/access does not check CGI path authorization."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:41.394-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 794,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:42.471-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "cgi",
+                      "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                      "httpMethod": "POST"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "basic",
+                      "basis": "generic_object_check",
+                      "checkedFields": [],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:42.471-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "cgi",
+                      "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                      "httpMethod": "POST"
+                    },
+                    "params": {
+                      "upnp_switch": "1"
+                    },
+                    "withCookie": "[REDACTED]",
+                    "outcome": "submitted",
+                    "data": {
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+              }
+            },
+            {
+              "phase": "verification",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "1"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:42.471-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 794,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:42.582-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:42.582-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "1"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "at": "2026-10-19T23:24:41.300-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "baseline",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "0"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [],
+                "different": [
+                  "upnp_switch"
+                ],
+                "unknown": [],
+                "allMatched": false
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:41.394-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "before_write",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "0"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [],
+                "different": [
+                  "upnp_switch"
+                ],
+                "unknown": [],
+                "allMatched": false
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:42.471-07:00",
+              "step": "write_attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "outcome": "submitted"
+            },
+            {
+              "at": "2026-10-19T23:24:42.582-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "verification",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "1"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [
+                  "upnp_switch"
+                ],
+                "different": [],
+                "unknown": [],
+                "allMatched": true
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:42.582-07:00",
+              "step": "verification_result",
+              "evidence": "observation",
+              "attempt": 1,
+              "state": "applied"
+            }
+          ],
+          "automaticRollback": false,
+          "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。",
+          "field": "data.upnp_switch",
+          "value": "1",
+          "observedAt": "2026-10-19T23:24:42.584-07:00"
+        },
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:44.391Z",
+      "action": "snapshot",
+      "body": {
+        "refresh": true
+      },
+      "http": 200,
+      "output": {
+        "observedAt": 1792477484390,
+        "available": true,
+        "online": true,
+        "rates": {
+          "down": 0,
+          "up": null,
+          "rawDown": 0,
+          "rawUp": 60,
+          "unit": null
+        },
+        "clients": 1,
+        "quality": {
+          "level": 4,
+          "label": "-78 dBm",
+          "basis": "设备状态页上报的信号强度，不是吞吐测速"
+        },
+        "cellular": {
+          "slot": "present",
+          "slotText": "SIM 在槽且设备前端允许继续使用",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "signal": "-78 dBm",
+          "pin": "not_indicated"
+        },
+        "ips": {
+          "lan": "192.168.0.1",
+          "wan": "APN1: 10.7.25.88",
+          "ipv6": "APN1: 2408:8459:3030:5e34:18e0:27ea:89c4:b3b1",
+          "gateway": "192.168.0.1",
+          "dns": "APN1: 120.80.80.80/221.5.88.88"
+        },
+        "device": {
+          "model": "the101pro",
+          "firmware": "RA_M5_v9.10.debug",
+          "hardware": "V2.0",
+          "uptimeSeconds": 993
+        },
+        "upnp": "1",
+        "queries": [
+          {
+            "name": "status",
+            "status": "returned"
+          },
+          {
+            "name": "sim_presence",
+            "status": "returned"
+          },
+          {
+            "name": "clients",
+            "status": "returned"
+          },
+          {
+            "name": "device_info",
+            "status": "returned"
+          },
+          {
+            "name": "dhcp",
+            "status": "returned"
+          },
+          {
+            "name": "upnp",
+            "status": "returned"
+          }
+        ],
+        "suggestions": [
+          {
+            "id": "status",
+            "text": "查看网络状态"
+          },
+          {
+            "id": "clients",
+            "text": "有哪些设备在线"
+          },
+          {
+            "id": "diagnose",
+            "text": "帮我排查网络"
+          },
+          {
+            "id": "device_info",
+            "text": "查看设备信息"
+          },
+          {
+            "id": "wifi",
+            "text": "查看无线网络"
+          },
+          {
+            "id": "version",
+            "text": "查看固件版本"
+          },
+          {
+            "id": "first_setup",
+            "text": "查看初始化状态"
+          },
+          {
+            "id": "setup",
+            "text": "查看初始化配置"
+          },
+          {
+            "id": "country",
+            "text": "查看国家编码"
+          },
+          {
+            "id": "guest",
+            "text": "查看访客 WiFi 配置"
+          },
+          {
+            "id": "wps",
+            "text": "查看WPS 配置"
+          },
+          {
+            "id": "wifi_ad",
+            "text": "查看高级 WiFi 配置"
+          },
+          {
+            "id": "wifi_night",
+            "text": "查看夜间 WiFi 设置"
+          },
+          {
+            "id": "workmode",
+            "text": "查看设备工作模式"
+          },
+          {
+            "id": "wifi_rt",
+            "text": "查看上游 WLAN 路由状态"
+          },
+          {
+            "id": "mesh_status",
+            "text": "查看Mesh 开关"
+          },
+          {
+            "id": "mesh_role",
+            "text": "查看Mesh 角色"
+          },
+          {
+            "id": "mesh_routers",
+            "text": "查看Mesh 节点"
+          },
+          {
+            "id": "device",
+            "text": "查看蜂窝设备信息"
+          },
+          {
+            "id": "sim_presence",
+            "text": "查看SIM 在槽状态。reading.state：present=21 在槽可用，absent=0 未插入，unavailable=3 或 4 暂时不可用，abnormal=其他。不代表上联已连接"
+          },
+          {
+            "id": "sim_slot",
+            "text": "查看SIM 插槽配置"
+          },
+          {
+            "id": "sim",
+            "text": "查看SIM 信息"
+          },
+          {
+            "id": "network_mode",
+            "text": "查看蜂窝网络模式"
+          },
+          {
+            "id": "apn",
+            "text": "查看APN 配置，不验证拨号"
+          },
+          {
+            "id": "cells",
+            "text": "查看小区列表"
+          },
+          {
+            "id": "band_lock",
+            "text": "查看频段锁定配置"
+          },
+          {
+            "id": "roaming",
+            "text": "查看漫游配置"
+          },
+          {
+            "id": "mac_filter",
+            "text": "查看MAC 过滤配置"
+          },
+          {
+            "id": "ip_filter",
+            "text": "查看IP 过滤配置"
+          },
+          {
+            "id": "port_forward",
+            "text": "查看端口转发配置"
+          },
+          {
+            "id": "port_map",
+            "text": "查看端口映射配置"
+          },
+          {
+            "id": "url_filter",
+            "text": "查看URL 过滤配置"
+          },
+          {
+            "id": "upnp",
+            "text": "查看UPnP配置"
+          },
+          {
+            "id": "dmz",
+            "text": "查看DMZ配置"
+          },
+          {
+            "id": "alg",
+            "text": "查看ALG配置"
+          },
+          {
+            "id": "dns",
+            "text": "查看DNS 保护配置"
+          },
+          {
+            "id": "dhcp",
+            "text": "查看地址分配"
+          },
+          {
+            "id": "static_ip",
+            "text": "查看静态 IP 配置"
+          },
+          {
+            "id": "ntp",
+            "text": "查看NTP 配置，不验证同步"
+          },
+          {
+            "id": "time",
+            "text": "查看设备时间"
+          },
+          {
+            "id": "reboot_schedule",
+            "text": "查看定时重启配置"
+          },
+          {
+            "id": "signal_records",
+            "text": "查看已保存信号记录"
+          },
+          {
+            "id": "tr069",
+            "text": "查看TR069 配置，不验证远端连接"
+          },
+          {
+            "id": "gps",
+            "text": "查看GPS 开关"
+          },
+          {
+            "id": "developer_mode",
+            "text": "查看开发者模式状态，不提权"
+          },
+          {
+            "id": "traffic",
+            "text": "查看流量统计配置"
+          },
+          {
+            "id": "diagnose",
+            "text": "查看诊断信息"
+          },
+          {
+            "id": "share",
+            "text": "查看101 Share 状态"
+          },
+          {
+            "id": "login_status",
+            "text": "查看登录状态"
+          },
+          {
+            "id": "sms_all",
+            "text": "查看全部短信。同编号批量里的电话本用 phonebook，短信中心用 sms_center"
+          },
+          {
+            "id": "sms_center",
+            "text": "查看短信中心号码"
+          },
+          {
+            "id": "sms_report",
+            "text": "查看短信发送状态报告"
+          },
+          {
+            "id": "sms_unread",
+            "text": "查看未读短信数"
+          },
+          {
+            "id": "log_url",
+            "text": "查看日志下载地址"
+          }
+        ],
+        "bootId": "69a1ddf8-dd09-41fb-95db-50521a2fcb87",
+        "historySince": 1792476816664,
+        "writeEnabled": true
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:44.462Z",
+      "action": "prepare",
+      "body": {
+        "value": "0",
+        "expected": "1"
+      },
+      "http": 200,
+      "output": {
+        "status": "awaiting_confirmation",
+        "id": "dbf06dff-1b17-44f3-a474-94195a9b1d66",
+        "taskId": "46ca3260-d56e-4de5-931a-ff5b5f178a34",
+        "before": "1",
+        "after": "0"
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:45.274Z",
+      "action": "confirm",
+      "body": {
+        "id": "dbf06dff-1b17-44f3-a474-94195a9b1d66",
+        "confirmed": true
+      },
+      "http": 200,
+      "output": {
+        "status": "verified",
+        "id": "dbf06dff-1b17-44f3-a474-94195a9b1d66",
+        "before": "1",
+        "after": "0",
+        "result": {
+          "status": "verified_field",
+          "section": "upnp",
+          "verification": {
+            "state": "applied",
+            "fields": [
+              "upnp_switch"
+            ],
+            "unknownFields": []
+          },
+          "submissionOutcome": "acknowledged",
+          "writeAttempts": 1,
+          "original": {
+            "upnp_switch": "1"
+          },
+          "expected": {
+            "upnp_switch": "0"
+          },
+          "observed": {
+            "upnp_switch": "0"
+          },
+          "alreadyMatchedBeforeWrite": false,
+          "steps": [
+            {
+              "phase": "baseline",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "1"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:44.765-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 802,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:44.857-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:44.858-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "1"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            },
+            {
+              "phase": "before_write",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "1"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:44.858-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 802,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:44.951-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:44.951-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "1"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            },
+            {
+              "phase": "write",
+              "attempt": 1,
+              "output": {
+                "status": "submitted",
+                "data": {
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "basic",
+                  "basis": "generic_object_check",
+                  "checkedFields": [],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "submitted",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_applicable",
+                    "note": "UBUS session/access does not check CGI path authorization."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:44.951-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 802,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:45.169-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "cgi",
+                      "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                      "httpMethod": "POST"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "basic",
+                      "basis": "generic_object_check",
+                      "checkedFields": [],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:45.170-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "cgi",
+                      "path": "/cgi-bin/luci/admin/jt_nat/set_upnp",
+                      "httpMethod": "POST"
+                    },
+                    "params": {
+                      "upnp_switch": "0"
+                    },
+                    "withCookie": "[REDACTED]",
+                    "outcome": "submitted",
+                    "data": {
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+              }
+            },
+            {
+              "phase": "verification",
+              "poll": 1,
+              "output": {
+                "status": "returned",
+                "data": {
+                  "data": {
+                    "pf_rules": [],
+                    "upnp_switch": "0"
+                  },
+                  "code": 0
+                },
+                "warnings": [],
+                "validation": {
+                  "status": "passed",
+                  "coverage": "key_fields",
+                  "basis": "saved_real_device_response",
+                  "checkedFields": [
+                    {
+                      "path": [
+                        "data",
+                        "upnp_switch"
+                      ],
+                      "expected": "scalar"
+                    },
+                    {
+                      "path": [
+                        "data",
+                        "pf_rules"
+                      ],
+                      "expected": "array"
+                    }
+                  ],
+                  "issues": [],
+                  "limitations": [
+                    "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                  ]
+                },
+                "diagnosticSummary": {
+                  "outcome": "returned",
+                  "rootCause": "not_applicable",
+                  "permissionCheck": {
+                    "status": "not_run",
+                    "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                  },
+                  "confirmedFindings": [],
+                  "hypotheses": [],
+                  "attempts": 1,
+                  "retries": []
+                },
+                "diagnostics": [
+                  {
+                    "at": "2026-10-19T23:24:45.170-07:00",
+                    "step": "queue",
+                    "evidence": "observation",
+                    "operationId": 802,
+                    "section": "upnp",
+                    "maxPending": 16,
+                    "waitTimeoutMs": 30000,
+                    "waitMs": 0,
+                    "policy": "fifo_per_device_instance",
+                    "state": "started"
+                  },
+                  {
+                    "at": "2026-10-19T23:24:45.262-07:00",
+                    "step": "response_validation",
+                    "evidence": "observation",
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "validation": {
+                      "status": "passed",
+                      "coverage": "key_fields",
+                      "basis": "saved_real_device_response",
+                      "checkedFields": [
+                        {
+                          "path": [
+                            "data",
+                            "upnp_switch"
+                          ],
+                          "expected": "scalar"
+                        },
+                        {
+                          "path": [
+                            "data",
+                            "pf_rules"
+                          ],
+                          "expected": "array"
+                        }
+                      ],
+                      "issues": [],
+                      "limitations": [
+                        "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                      ]
+                    }
+                  },
+                  {
+                    "at": "2026-10-19T23:24:45.262-07:00",
+                    "step": "attempt",
+                    "evidence": "observation",
+                    "attempt": 1,
+                    "endpoint": {
+                      "transport": "ubus",
+                      "service": "web_api",
+                      "method": "get_upnp"
+                    },
+                    "params": {},
+                    "withCookie": "[REDACTED]",
+                    "outcome": "returned",
+                    "data": {
+                      "data": {
+                        "pf_rules": [],
+                        "upnp_switch": "0"
+                      },
+                      "code": 0
+                    }
+                  }
+                ],
+                "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+              }
+            }
+          ],
+          "diagnostics": [
+            {
+              "at": "2026-10-19T23:24:44.858-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "baseline",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "1"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [],
+                "different": [
+                  "upnp_switch"
+                ],
+                "unknown": [],
+                "allMatched": false
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:44.951-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "before_write",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "1"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [],
+                "different": [
+                  "upnp_switch"
+                ],
+                "unknown": [],
+                "allMatched": false
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:45.170-07:00",
+              "step": "write_attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "outcome": "submitted"
+            },
+            {
+              "at": "2026-10-19T23:24:45.262-07:00",
+              "step": "readback",
+              "evidence": "observation",
+              "phase": "verification",
+              "poll": 1,
+              "values": {
+                "upnp_switch": "0"
+              },
+              "unavailable": [],
+              "comparison": {
+                "matching": [
+                  "upnp_switch"
+                ],
+                "different": [],
+                "unknown": [],
+                "allMatched": true
+              }
+            },
+            {
+              "at": "2026-10-19T23:24:45.262-07:00",
+              "step": "verification_result",
+              "evidence": "observation",
+              "attempt": 1,
+              "state": "applied"
+            }
+          ],
+          "automaticRollback": false,
+          "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。",
+          "field": "data.upnp_switch",
+          "value": "0",
+          "observedAt": "2026-10-19T23:24:45.263-07:00"
+        },
+        "canUndo": true
+      }
+    },
+    {
+      "at": "2026-10-20T06:24:47.704Z",
+      "action": "snapshot",
+      "body": {
+        "refresh": true
+      },
+      "http": 200,
+      "output": {
+        "observedAt": 1792477487701,
+        "available": true,
+        "online": true,
+        "rates": {
+          "down": 0,
+          "up": 0,
+          "rawDown": 0,
+          "rawUp": 0,
+          "unit": null
+        },
+        "clients": 1,
+        "quality": {
+          "level": 4,
+          "label": "-79 dBm",
+          "basis": "设备状态页上报的信号强度，不是吞吐测速"
+        },
+        "cellular": {
+          "slot": "present",
+          "slotText": "SIM 在槽且设备前端允许继续使用",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "signal": "-79 dBm",
+          "pin": "not_indicated"
+        },
+        "ips": {
+          "lan": "192.168.0.1",
+          "wan": "APN1: 10.7.25.88",
+          "ipv6": "APN1: 2408:8459:3030:5e34:18e0:27ea:89c4:b3b1",
+          "gateway": "192.168.0.1",
+          "dns": "APN1: 120.80.80.80/221.5.88.88"
+        },
+        "device": {
+          "model": "the101pro",
+          "firmware": "RA_M5_v9.10.debug",
+          "hardware": "V2.0",
+          "uptimeSeconds": 996
+        },
+        "upnp": "0",
+        "queries": [
+          {
+            "name": "status",
+            "status": "returned"
+          },
+          {
+            "name": "sim_presence",
+            "status": "returned"
+          },
+          {
+            "name": "clients",
+            "status": "returned"
+          },
+          {
+            "name": "device_info",
+            "status": "returned"
+          },
+          {
+            "name": "dhcp",
+            "status": "returned"
+          },
+          {
+            "name": "upnp",
+            "status": "returned"
+          }
+        ],
+        "suggestions": [
+          {
+            "id": "status",
+            "text": "查看网络状态"
+          },
+          {
+            "id": "clients",
+            "text": "有哪些设备在线"
+          },
+          {
+            "id": "diagnose",
+            "text": "帮我排查网络"
+          },
+          {
+            "id": "device_info",
+            "text": "查看设备信息"
+          },
+          {
+            "id": "wifi",
+            "text": "查看无线网络"
+          },
+          {
+            "id": "version",
+            "text": "查看固件版本"
+          },
+          {
+            "id": "first_setup",
+            "text": "查看初始化状态"
+          },
+          {
+            "id": "setup",
+            "text": "查看初始化配置"
+          },
+          {
+            "id": "country",
+            "text": "查看国家编码"
+          },
+          {
+            "id": "guest",
+            "text": "查看访客 WiFi 配置"
+          },
+          {
+            "id": "wps",
+            "text": "查看WPS 配置"
+          },
+          {
+            "id": "wifi_ad",
+            "text": "查看高级 WiFi 配置"
+          },
+          {
+            "id": "wifi_night",
+            "text": "查看夜间 WiFi 设置"
+          },
+          {
+            "id": "workmode",
+            "text": "查看设备工作模式"
+          },
+          {
+            "id": "wifi_rt",
+            "text": "查看上游 WLAN 路由状态"
+          },
+          {
+            "id": "mesh_status",
+            "text": "查看Mesh 开关"
+          },
+          {
+            "id": "mesh_role",
+            "text": "查看Mesh 角色"
+          },
+          {
+            "id": "mesh_routers",
+            "text": "查看Mesh 节点"
+          },
+          {
+            "id": "device",
+            "text": "查看蜂窝设备信息"
+          },
+          {
+            "id": "sim_presence",
+            "text": "查看SIM 在槽状态。reading.state：present=21 在槽可用，absent=0 未插入，unavailable=3 或 4 暂时不可用，abnormal=其他。不代表上联已连接"
+          },
+          {
+            "id": "sim_slot",
+            "text": "查看SIM 插槽配置"
+          },
+          {
+            "id": "sim",
+            "text": "查看SIM 信息"
+          },
+          {
+            "id": "network_mode",
+            "text": "查看蜂窝网络模式"
+          },
+          {
+            "id": "apn",
+            "text": "查看APN 配置，不验证拨号"
+          },
+          {
+            "id": "cells",
+            "text": "查看小区列表"
+          },
+          {
+            "id": "band_lock",
+            "text": "查看频段锁定配置"
+          },
+          {
+            "id": "roaming",
+            "text": "查看漫游配置"
+          },
+          {
+            "id": "mac_filter",
+            "text": "查看MAC 过滤配置"
+          },
+          {
+            "id": "ip_filter",
+            "text": "查看IP 过滤配置"
+          },
+          {
+            "id": "port_forward",
+            "text": "查看端口转发配置"
+          },
+          {
+            "id": "port_map",
+            "text": "查看端口映射配置"
+          },
+          {
+            "id": "url_filter",
+            "text": "查看URL 过滤配置"
+          },
+          {
+            "id": "upnp",
+            "text": "查看UPnP配置"
+          },
+          {
+            "id": "dmz",
+            "text": "查看DMZ配置"
+          },
+          {
+            "id": "alg",
+            "text": "查看ALG配置"
+          },
+          {
+            "id": "dns",
+            "text": "查看DNS 保护配置"
+          },
+          {
+            "id": "dhcp",
+            "text": "查看地址分配"
+          },
+          {
+            "id": "static_ip",
+            "text": "查看静态 IP 配置"
+          },
+          {
+            "id": "ntp",
+            "text": "查看NTP 配置，不验证同步"
+          },
+          {
+            "id": "time",
+            "text": "查看设备时间"
+          },
+          {
+            "id": "reboot_schedule",
+            "text": "查看定时重启配置"
+          },
+          {
+            "id": "signal_records",
+            "text": "查看已保存信号记录"
+          },
+          {
+            "id": "tr069",
+            "text": "查看TR069 配置，不验证远端连接"
+          },
+          {
+            "id": "gps",
+            "text": "查看GPS 开关"
+          },
+          {
+            "id": "developer_mode",
+            "text": "查看开发者模式状态，不提权"
+          },
+          {
+            "id": "traffic",
+            "text": "查看流量统计配置"
+          },
+          {
+            "id": "diagnose",
+            "text": "查看诊断信息"
+          },
+          {
+            "id": "share",
+            "text": "查看101 Share 状态"
+          },
+          {
+            "id": "login_status",
+            "text": "查看登录状态"
+          },
+          {
+            "id": "sms_all",
+            "text": "查看全部短信。同编号批量里的电话本用 phonebook，短信中心用 sms_center"
+          },
+          {
+            "id": "sms_center",
+            "text": "查看短信中心号码"
+          },
+          {
+            "id": "sms_report",
+            "text": "查看短信发送状态报告"
+          },
+          {
+            "id": "sms_unread",
+            "text": "查看未读短信数"
+          },
+          {
+            "id": "log_url",
+            "text": "查看日志下载地址"
+          }
+        ],
+        "bootId": "69a1ddf8-dd09-41fb-95db-50521a2fcb87",
+        "historySince": 1792476816664,
+        "writeEnabled": true
+      }
+    }
+  ],
+  "restored": true,
+  "verified": true,
+  "original": "0",
+  "target": "1",
+  "proposalId": "e17b9293-99bb-4efc-b1c8-0cc6f72a815e"
+}

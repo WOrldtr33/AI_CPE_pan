@@ -87,13 +87,17 @@ $env:T830_COOKIE_MODE = "auto"
 
 `scripts/check-access.mjs` 保留你的手工实验脚本；可继续用于逐项排查。`node scripts/catalog.mjs` 重新生成分类文档。
 
-设备工具层不负责模型调度。2026-10-12 新增下述命令行 Agent；RK 部署、网页逆向诊断、打流任务、自动配置恢复或固件升级仍未实现。未封装接口及原因全部列于 docs/api/API_CATALOG.md。
+设备工具层不负责模型调度。2026-10-12 新增下述命令行 Agent。文档中的接口已注册为 MCP 工具；写工具默认关闭，固件、重启、恢复和备份不会进入 Agent 的默认工具名单。分类见 docs/api/API_CATALOG.md。
 
 ## DeepSeek 命令行 Agent（2026-10-12）
 
 新运行日志、设备诊断和测试报告的时间统一使用 `America/Los_Angeles`，时间戳包含 `-07:00`（夏令时）或 `-08:00`（标准时间），自动切换；Agent 日志另记录 timeZone 字段，文件名也使用洛杉矶时间。历史 UTC 记录保留原样，`Z` 表示 UTC。耗时 ms 仍表示实际经过的毫秒数，与时区无关。
 
-命令行输入中文问题 → DeepSeek 选择工具 → 本地 MCP Client 调用当前 Server → 设备结果回传模型 → 输出中文回答。默认开放实机冒烟测试正常返回的 31 项独立只读工具，以及唯一完成实机写入/回读/恢复验证的 `t830_set_upnp_verified`。写工具先生成提案，必须在命令行确认后才执行；其他 10 项写接口不向 Agent 开放，兼容查询入口也不开放。设置 `AGENT_ENABLE_WRITES=0` 可恢复纯只读模式。默认使用 `deepseek-flash`，关闭思考。
+命令行输入中文问题 → DeepSeek 选择工具 → 本地 MCP Client 调用当前 Server → 设备结果回传模型 → 输出中文回答。默认开放接口目录中的全部 58 项查询、76 项写工具，以及 `t830_query`、`t830_check_access`、`t830_list_capabilities` 和 `t830_set_upnp_verified`。CLI 与网页共用这一范围。写工具先生成提案，必须确认后才执行；每个任务仍只允许一个写提案，批量修改需分别发起任务。设置 `AGENT_ENABLE_WRITES=0` 可恢复纯只读模式。`AGENT_TOOLS=*`（或不设置）开放全部查询；逗号分隔 section 可缩小查询范围，开启写操作时还会补入对应回读工具。媒体工具继续由 `AGENT_ENABLE_MEDIA` 控制。
+
+工具数量超过 128 时，模型请求通过 `t830_query(section,args)` 提供全部查询，各独立查询仍可通过 MCP Client 调用；全部写工具仍单独提供给模型。参数由目录 schema 校验，兼容查询也受查询范围和参数校验约束。11 项已有验证流程的普通写工具会回读，其余写工具返回 `submitted` 只代表已提交，不能视为生效。中断恢复按原写工具对应的查询回读，绝不重发；无回读接口的操作提示人工核实。
+
+默认使用 `deepseek-flash`，关闭思考。
 
 ```powershell
 # 1. 本地隐藏输入并加密保存/更新 Key（本机已保存，不必重复）
@@ -131,7 +135,7 @@ Key 使用 Windows DPAPI 保存到被忽略的 `credentials-agent.json`，绑定
 
 在模型请求或工具调用前后记录任务进度；崩溃后将运行中的任务标为 interrupted，等待 `/resume`，不会启动后自行执行。已经持久化为写提交中、响应未知或执行中断的 UPnP 任务，恢复仅查询当前 UPnP，并报告是否符合目标，不重发写请求，也不宣称变化一定由前次写入造成。对设备 URL/账号的隔离不能识别同地址下替换过的物理设备，执行前仍需核对目标设备。
 
-默认每个问题最多 6 轮模型调用、8 个工具请求、180 秒；单次模型请求 60 秒，输出上限 2048 Token。每轮仅明确的 429/部分 5xx 最多重试一次，网络异常不自动重发，因此包含重试时 HTTP 尝试次数可能超过轮数。累计 usage 达 30000 Token 后停止继续调用；这是收到服务端 usage 后的停止阈值，单次响应可能越过阈值，不是精确费用封顶。上下文最多 60000 字符，达到 75% 时按完整轮次摘录摘要，默认保留最近两个完整轮次及当前请求；摘要不超过预算的 30%（最多 12000 字符）。当前单轮内容过大、摘要后仍超限时才提示 `/clear`。相同工具和参数在单个问题内复用结果，避免反复请求设备。
+默认每个问题最多 6 轮模型调用、8 个工具请求、180 秒；单次模型请求 60 秒，输出上限 2048 Token。每轮仅明确的 429/部分 5xx 最多重试一次，网络异常不自动重发，因此包含重试时 HTTP 尝试次数可能超过轮数。累计 usage 达 200000 Token 后停止继续调用（启用全部读写和媒体工具时，每次调用重发的工具目录约 2.5 万 Token）；这是收到服务端 usage 后的停止阈值，单次响应可能越过阈值，不是精确费用封顶。上下文最多 60000 字符，达到 75% 时按完整轮次摘录摘要，默认保留最近两个完整轮次及当前请求；摘要不超过预算的 30%（最多 12000 字符）。当前单轮内容过大、摘要后仍超限时才提示 `/clear`。相同工具和参数在单个问题内复用结果，避免反复请求设备。
 
 本地 `.agent-logs/*.jsonl` 保存模型名、耗时、usage、工具参数、设备结果/诊断与退出原因，按字段与已知凭据脱敏；默认不记录用户问题、模型答复全文和 reasoning_content。工具结果发送给云端模型时省略详细 diagnostics，保留业务状态、数据、校验与诊断摘要。脱敏字段（例如 SSID）在答复中只能解释为隐藏，不能得到原值。
 
@@ -162,3 +166,48 @@ node --test test/queue.test.mjs 可单独运行 13 项边界测试。详情见 [
 关闭会拒绝等待及新任务，允许活动任务收尾，默认期限 5 秒（T830_SHUTDOWN_GRACE_MS 可调整）。期限到达后停止本地等待，远端是否执行仍可能未知。支持 stdin EOF 与正常交付的 SIGINT/SIGTERM，不包含掉电或操作系统强制终止后的恢复。
 
 node --test test/workflow-shutdown.test.mjs 可运行本轮 13 项模拟测试。详情见 [WORKFLOW_SHUTDOWN_TEST_RESULTS.md](testing/WORKFLOW_SHUTDOWN_TEST_RESULTS.md)。
+
+## 开发者会话（可选）
+
+当前设备官方网页的授权流程为：普通管理员登录 → `gen.attr/check_asymmetric_verify` 验证开发者密钥 → 用返回的临时密码按 SHA256(salt:密码) 登录 `superadmin`。仅提交验证工具不会使现有 MCP 会话自动成为开发者会话。
+
+项目支持进程环境 `T830_DEVELOPER_KEY`。推荐使用隐藏输入，不将密钥写入 `.env`、源码或报告：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/start-agent.ps1 --web
+```
+
+启动后先输入正常设备管理密码，再选择是否输入第二个密码（设备开发者密钥）：第二项直接回车使用普通 admin 模式；两项都提供且通过设备验证后，使用权限更高的 developer / superadmin 会话。若已通过环境变量提供凭据，脚本复用该值并跳过对应输入。两个凭据都不填仍可跳过设备连接。保留 `--developer --web` 用法，此时第二项不能为空。
+
+会话续期会重新完成授权流程；密钥验证或开发者登录失败会停止调用，不退回普通管理员身份继续执行。密钥及派生临时密码不传给对话模型、不写入报告。停止服务后需重新提供交互输入的密钥。写工具仍受 `AGENT_ENABLE_WRITES` 和逐次确认约束；权限允许不代表功能验证通过。固件未提供的对象或无数据也不能靠开发者权限补齐。
+
+## CGI 登录故障时的标准 UBUS 认证
+
+2026-10-20 写接口修复后，显式选择 `T830_AUTH_TRANSPORT=ubus` 时，独立 `t830_set_login`/`t830_set_logout` 也使用标准 `session.login`/`session.destroy`。登录工具仍收取盐化摘要，但必须与进程环境中同账号的原始密码匹配，才会发送该密码；不匹配在本地拒绝。设备拒绝销毁会话时返回真实错误，不假装已注销。CGI 模式维持原端点。
+
+信号记录保存需提交 `signal_start` 返回的 `index/name/sigal/time/qos`，并填写 `position`；测量默认超时提高到 20 秒，显式 `T830_TIMEOUT_MS` 优先。电话本写入需完整 `numb/numb_house/numb_work/email/flag`，`type` 为 0–3，新增 `flag=0`、编辑 `flag=1` 且带 `index`，不会发送短信。重启计划提交完整 `action/schweek/schTime`，时间格式为 `HH;mm`，禁用时星期可为空。
+
+厂商文档中的夜间 WiFi、重启计划和高级 WiFi 业务码 409 表示未变化，返回中标记 `businessOutcome=not_modified`；有回读的工作流仍必须确认目标字段，才给出 `submissionOutcome=not_modified`，不会把它说成已发生配置变更。
+
+2026-10-20 实机发现 CGI 登录返回 HTTP 500，指向固件 `login.lua:176` 的 last_stamp 算术异常。重启后同样存在，但使用相同管理员凭据的标准 rpcd `session.login` 可成功认证，再验证开发者密钥并以 `superadmin` 登录。此流程验证已有账号凭据，不修改 ACL，也不自动回退到其他身份。[标准接口文档](https://openwrt.org/docs/guide-developer/ubus/session)。
+
+2026-10-21 复现了触发条件：设备重启后若在开机约 62 秒时就有一次成功的 CGI 登录，之后所有 CGI 登录都返回 500，直到下次重启。**重启后至少等 5 分钟再让任何客户端（网页服务、MCP、浏览器）登录**。正常时，默认 `cgi` 模式加开发者认证下 CGI 读写均可用，见 [CGI 写工具复测](testing/CGI_WRITES_2026-10-21.md)。**CGI 写工具必须使用默认 `cgi` 模式**；`ubus` 模式只在 CGI 登录返回 500 时临时使用，此时 CGI 工具仍会 403。
+
+项目新增可选 `T830_AUTH_TRANSPORT=ubus`，默认仍为 `cgi`。标准认证需要原始密码，不能使用 `T830_PASSWORD_HASH`/`T830_SALT` 代替；仅发送到配置的设备同源地址。该模式用于当前固件可用的 UBUS 工具，**不能保证定制 CGI 接口兼容**：本次原生会话在 DHCP 读取及 4 个 CGI 写入口上仍返回 HTTP 403，不能算作已修复。
+
+```powershell
+$env:T830_AUTH_TRANSPORT='ubus'
+powershell -ExecutionPolicy Bypass -File scripts/start-agent.ps1 --developer --web
+```
+
+当前网页服务已使用该模式重新加载，基本设备查询恢复。写工具的用户确认规则保持不变；真实写测试与剩余限制见 [重启后写测试](testing/WRITE_AFTER_REBOOT_2026-10-20.md)。
+
+## 诊断结果、电话本与兼容查询
+
+网络诊断需要先由用户确认 `t830_set_net_probe` 提案，再轮询 `t830_get_ping_result({addr:"read_ping"})`。设备 code=1 对应 `reading.state=pending`，表示尚未取得完整结果；不要重复启动任务。code=0 对应 complete，收发和丢包率见 reading；本机 127.0.0.1 测试不证明外网可达。
+
+全部电话本或按名称搜索使用 `t830_get_phonebook({device:"1",type:"ALL",name?})`。类别/名称筛选用 `t830_get_phonebook_select`，省略 type/name 时自动补空字符串；type 仅接受空或 0/1/2/3，不能混用 ALL。成功码 0 且 data 为空字符串时，reading.state=empty，表示本次无条目，不伪造联系人。
+
+初始化与 GPS 查询保留文档中的 CGI 主入口；仅当该路径返回 403/404 时，使用已在当前固件实测的同名 `web_api/get_setup`、`web_api/get_gps` 只读兼容入口。原始 CGI 错误留在 diagnostics；不改设备 ACL、不回退写方法。GPS 的 enabled 与 fix 分开，开启不等于定位成功。
+
+上游 WiFi 无数据时仅经授权读取 STA 禁用状态，诊断不记录 SSID 或密钥；均禁用则 failure.category=precondition_not_met。101 Share 对象不存在时核对当前 UBUS 服务清单，缺少服务则标记 service_unavailable；不自动启用网络、安装软件或升级固件。实机结论见 [六项工具修复](testing/SIX_TOOLS_FIX_2026-10-20.md)。

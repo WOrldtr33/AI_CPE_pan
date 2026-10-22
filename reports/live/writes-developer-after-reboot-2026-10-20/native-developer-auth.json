@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-20T06:30:59.117Z",
+  "mode": "standard-rpcd-auth-probe",
+  "stages": [
+    {
+      "stage": "session.login",
+      "username": "admin",
+      "http": 200,
+      "resultCode": 0,
+      "sessionCreated": true
+    },
+    {
+      "stage": "developer-key-verification",
+      "code": "200",
+      "hasPassword": true
+    },
+    {
+      "stage": "session.login",
+      "username": "superadmin",
+      "http": 200,
+      "resultCode": 0,
+      "sessionCreated": true
+    }
+  ],
+  "permission": {
+    "object": "mtk.wifi",
+    "method": "get_NigWifi_info",
+    "access": true
+  },
+  "baseline": {
+    "section": "wifi_night",
+    "data": {
+      "closeTime": "00;00",
+      "openTime": "00;00",
+      "action": "Disable"
+    }
+  }
+}

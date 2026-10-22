@@ -20,6 +20,7 @@ export async function executeWriteWorkflow(
   const profile = writeProfiles[def.key];
   if (!profile) throw error('UNSUPPORTED_VERIFIED_WRITE');
   const fields = profile.fields(args);
+  if (!fields.length) throw error('WRITE_NO_FIELDS');
   if (fields.some((field) => field.normalize(field.expected) === undefined))
     throw error('WRITE_VALUE_NOT_COMPARABLE');
   const steps = [],
@@ -30,6 +31,7 @@ export async function executeWriteWorkflow(
   let phase = 'baseline',
     original,
     latest,
+    latestRaw,
     writeAttempts = 0,
     renewed = false;
   const add = (step, detail) =>
@@ -72,6 +74,7 @@ export async function executeWriteWorkflow(
         throw error('WORKFLOW_READ_WARNING', { warnings: invalidWarnings });
       const snapshot = takeSnapshot(profile, fields, raw, args);
       latest = snapshot;
+      latestRaw = raw;
       add('readback', {
         phase,
         poll,
@@ -87,6 +90,7 @@ export async function executeWriteWorkflow(
   };
   const pollResult = async () => {
     let last, comparisons;
+    const busyDeadline = Date.now() + device.writeBusyWaitMs;
     for (let poll = 1; poll <= device.writeReadbackAttempts; poll++) {
       if (poll > 1) await pause();
       try {
@@ -94,6 +98,18 @@ export async function executeWriteWorkflow(
         comparisons = compareSnapshot(fields, last);
       } catch (e) {
         if (['CALL_CANCELLED', 'SERVER_SHUTDOWN'].includes(e.message)) throw e;
+        // 应用配置期间（如无线重启）回读返回忙：按厂商网页节奏等待，不计入回读次数。
+        if (e.message === 'DEVICE_BUSY' && Date.now() < busyDeadline) {
+          add('device_busy_wait', { poll, waitMs: device.writeBusyPollMs });
+          try {
+            await delay(device.writeBusyPollMs, undefined, { signal });
+          } catch {
+            checkCancel();
+          }
+          checkCancel();
+          poll--;
+          continue;
+        }
         if (poll === device.writeReadbackAttempts)
           return { state: 'unknown', error: e.message };
         continue;
@@ -215,16 +231,26 @@ export async function executeWriteWorkflow(
         original: original.values,
         observed: before.values,
       });
+    let submission = args;
+    if (profile.merge) {
+      const { args: merged, missing } = profile.merge(latestRaw, args);
+      if (missing.length) throw error('WRITE_BASELINE_INCOMPLETE', { fields: missing });
+      const checked = def.submitSchema ? def.submitSchema.safeParse(merged) : { success: true, data: merged };
+      if (!checked.success)
+        throw error('WRITE_MERGED_ARGS_INVALID', { issues: checked.error.issues.map(({ path, message }) => ({ path, message })) });
+      submission = checked.data;
+      add('merge_baseline', { submittedFields: Object.keys(args), filledFromReadback: true });
+    }
     for (let attempt = 1; attempt <= device.writeMaxAttempts; attempt++) {
       checkCancel();
       phase = 'write';
       writeAttempts++;
       let failure, submitted;
       try {
-        submitted = await device.runOperation(def, args, queue, options);
+        submitted = await device.runOperation(def, submission, queue, options);
         steps.push({ phase, attempt, output: submitted });
         add('write_attempt', { attempt, outcome: submitted.status });
-        if (submitted.status !== 'submitted')
+        if (submitted.status !== 'submitted' && submitted.businessOutcome !== 'not_modified')
           failure = error('WORKFLOW_WRITE_WARNING', { warnings: submitted.warnings });
       } catch (e) {
         failure = e;
@@ -244,7 +270,7 @@ export async function executeWriteWorkflow(
       if (verification.state === 'applied')
         return finish(
           verification,
-          failure ? 'error_but_state_confirmed' : 'acknowledged',
+          failure ? 'error_but_state_confirmed' : submitted?.businessOutcome === 'not_modified' ? 'not_modified' : 'acknowledged',
         );
       if (verification.state === 'unknown')
         throw error('WRITE_RESULT_UNKNOWN', {

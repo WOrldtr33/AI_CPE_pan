@@ -1,0 +1,1035 @@
+{
+  "at": "2026-10-20T08:18:27.708Z",
+  "ordinaryWriteTools": 76,
+  "mockRegression": {
+    "tests": 119,
+    "passed": 119,
+    "failed": 0
+  },
+  "newMatrix": {
+    "checks": 336,
+    "tools": 76,
+    "oneShotTools": 65
+  },
+  "currentLive": {
+    "tool": "t830_set_upnp_verified",
+    "compatibilityToolExcludedFromOrdinaryCount": true,
+    "changeVerified": true,
+    "restored": true,
+    "conflictRejected": true,
+    "cancelVerified": true,
+    "confirmRequests": 2
+  },
+  "completeLiveCoverage": false,
+  "rows": [
+    {
+      "tool": "t830_set_wifi_switch",
+      "description": "WiFi 开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_config",
+      "description": "双频 WiFi 配置（仅所列加密模式）",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_guest_switch",
+      "description": "访客 WiFi 开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_guest_config",
+      "description": "访客 WiFi 配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_night",
+      "description": "夜间 WiFi 计划",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_apn_save",
+      "description": "保存 APN，不验证拨号",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_roaming",
+      "description": "漫游开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_upnp",
+      "description": "UPnP 开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_dns",
+      "description": "DNS 重绑定保护",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_gps",
+      "description": "GPS 开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_traffic",
+      "description": "流量限额",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": "existing_write_workflow_regression",
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_setup_save",
+      "description": "提交初始化设置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_login",
+      "description": "使用已计算的 SHA256(salt:密码) 登录",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_logout",
+      "description": "退出当前登录会话",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_password",
+      "description": "修改登录密码",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_wps_pbc",
+      "description": "配置 PBC WPS",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wps_pin",
+      "description": "配置 PIN WPS",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_advanced",
+      "description": "提交高级 WiFi 配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_workmode",
+      "description": "修改工作模式",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_scan_start",
+      "description": "第一次扫描上游 WiFi",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_scan_list",
+      "description": "第二次读取上游 WiFi 扫描列表",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_router_connect",
+      "description": "连接上游 WiFi",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_wifi_router_disconnect",
+      "description": "断开上游 WiFi",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mesh_role",
+      "description": "修改 Mesh 角色",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mesh_close",
+      "description": "关闭 Mesh",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mesh_router_name",
+      "description": "修改 Mesh 路由名称",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mesh_onboard",
+      "description": "发起组网",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mesh_router_remove",
+      "description": "删除 Mesh 路由",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "需要先创建专用测试条目并精确定位，不删除既有业务数据；独立进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_client_name",
+      "description": "修改接入设备名称",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_client_delete",
+      "description": "删除接入设备",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "需要先创建专用测试条目并精确定位，不删除既有业务数据；独立进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_firmware_upload",
+      "description": "上传固件。sessionid 由当前会话注入，不作为参数",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少匹配硬件的有效固件、校验值及刷机失败后的恢复材料"
+    },
+    {
+      "tool": "t830_set_firmware_upgrade",
+      "description": "执行固件升级",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少匹配硬件的有效固件、校验值及刷机失败后的恢复材料"
+    },
+    {
+      "tool": "t830_set_reboot",
+      "description": "重启设备",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "已准备 --reboot 实机入口；本轮未通过 MCP 触发重启"
+    },
+    {
+      "tool": "t830_set_factory_reset",
+      "description": "恢复出厂设置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少已验证可恢复的配置备份与复位后重连/初始化材料"
+    },
+    {
+      "tool": "t830_set_sim_slot",
+      "description": "修改 SIM 选择",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_pin_verify",
+      "description": "提交 PIN 验证",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少可控测试卡及正确 PIN/PUK；不能用样例号码消耗真实卡重试次数"
+    },
+    {
+      "tool": "t830_set_puk_unblock",
+      "description": "提交 PUK 解锁",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少可控测试卡及正确 PIN/PUK；不能用样例号码消耗真实卡重试次数"
+    },
+    {
+      "tool": "t830_set_pin_enable",
+      "description": "开启 PIN 锁",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少可控测试卡及正确 PIN/PUK；不能用样例号码消耗真实卡重试次数"
+    },
+    {
+      "tool": "t830_set_pin_disable",
+      "description": "关闭 PIN 锁",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少可控测试卡及正确 PIN/PUK；不能用样例号码消耗真实卡重试次数"
+    },
+    {
+      "tool": "t830_set_pin_change",
+      "description": "修改 PIN",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少可控测试卡及正确 PIN/PUK；不能用样例号码消耗真实卡重试次数"
+    },
+    {
+      "tool": "t830_set_network_mode",
+      "description": "设置网络类型",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_apn_remove",
+      "description": "移除 APN",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "需要先创建专用测试条目并精确定位，不删除既有业务数据；独立进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_band_lock",
+      "description": "频段锁定",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_plmn_lock",
+      "description": "PLMN 锁定",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_plmn_unlock",
+      "description": "PLMN 解锁",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mac_filter_mode",
+      "description": "修改 MAC 过滤模式",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_mac_filter_rule",
+      "description": "创建、修改或删除 MAC 过滤规则",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_ip_filter_mode",
+      "description": "修改 IP 过滤模式",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_ip_filter_rule",
+      "description": "创建、修改或删除 IP 过滤规则",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_port_forward_switch",
+      "description": "修改端口转发开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "description": "添加或删除端口转发规则",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_port_map_switch",
+      "description": "修改端口映射开关",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_port_map_rule",
+      "description": "添加或删除端口映射规则",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_url_filter_rule",
+      "description": "添加或删除 URL 过滤规则",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_dmz",
+      "description": "设置 DMZ",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_alg",
+      "description": "设置 ALG",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_dhcp",
+      "description": "配置 DHCP",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_static_ip",
+      "description": "新增或删除静态 IP",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_ntp",
+      "description": "提交 NTP 配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_reboot_schedule",
+      "description": "提交定时重启配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_signal_start",
+      "description": "启动信号测试",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_signal_record",
+      "description": "记录信号测试",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_signal_record_edit",
+      "description": "修改信号测试记录",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_signal_record_delete",
+      "description": "删除信号测试记录",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "需要先创建专用测试条目并精确定位，不删除既有业务数据；独立进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_tr069",
+      "description": "提交 TR069 配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少完整可恢复原值；独立 MCP 测试进程尚无设备凭据"
+    },
+    {
+      "tool": "t830_set_developer_login",
+      "description": "登录开发者模式。文档未列出请求字段",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_developer_verify",
+      "description": "提交开发者随机码验证",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_net_probe",
+      "description": "启动 Ping 或 Traceroute",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_sms_center",
+      "description": "修改短信中心号码。文档未列出字段，提交 addr",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_sms_delete",
+      "description": "删除短信",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少专用测试短信及可验证的删除目标"
+    },
+    {
+      "tool": "t830_set_sms_send",
+      "description": "发送短信",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "未提供授权接收号码及测试短信内容"
+    },
+    {
+      "tool": "t830_set_phonebook_write",
+      "description": "添加或编辑电话本",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "网页登录会话有效，但网页确定性确认入口仅支持 UPnP 兼容工具；独立测试进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_phonebook_delete",
+      "description": "删除电话本条目",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "需要先创建专用测试条目并精确定位，不删除既有业务数据；独立进程无设备凭据"
+    },
+    {
+      "tool": "t830_set_backup_check",
+      "description": "检查备份包",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少专用备份包、完整性证据及恢复后的验证基线"
+    },
+    {
+      "tool": "t830_set_backup_restore",
+      "description": "从备份恢复配置",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少专用备份包、完整性证据及恢复后的验证基线"
+    },
+    {
+      "tool": "t830_set_backup_delete",
+      "description": "删除备份文件",
+      "mockCallback": "passed",
+      "invalidArguments": true,
+      "faultHandling": [
+        "ok",
+        "warning",
+        "denied",
+        "lost"
+      ],
+      "currentLive": "not_independently_executed",
+      "reason": "缺少专用备份包、完整性证据及恢复后的验证基线"
+    }
+  ]
+}

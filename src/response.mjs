@@ -271,12 +271,84 @@ export function simInfoReading(data) {
     provesSimSlot: false,
   };
 }
+export function gpsReading(data) {
+  const gps = data?.data || {};
+  const value = String(gps.gps_switch ?? '');
+  const enabled = ['enable', '1'].includes(value) ? true : ['disable', '0'].includes(value) ? false : null;
+  const satellites = /^\d+$/.test(String(gps.number ?? '')) ? Number(gps.number) : null;
+  const fix = String(gps.is_good ?? '') === '1' ? 'fixed' : String(gps.is_good ?? '') === '0' ? 'not_fixed' : 'unknown';
+  return { enabled, satellites, fix, text: enabled === false ? 'GPS 已关闭' : enabled === true
+    ? fix === 'fixed' ? 'GPS 已开启，设备报告已定位' : fix === 'not_fixed' ? 'GPS 已开启，但尚未定位' : 'GPS 已开启，定位状态未知'
+    : 'GPS 开关状态未知', provesLocation: enabled === true && fix === 'fixed' };
+}
+export function pingReading(data) {
+  const code = String(data?.code ?? '');
+  const output = typeof data?.data === 'string' ? data.data : '';
+  const stats = output.match(/(\d+) packets transmitted, (\d+) packets received, ([\d.]+)% packet loss/);
+  return { state: code === '0' ? 'complete' : code === '1' ? 'pending' : 'unknown',
+    text: code === '0' ? '诊断任务已完成；是否可达需看收发和丢包结果' : code === '1' ? '尚无完整结果；先启动诊断，已启动则继续轮询，不重复启动' : '诊断状态未知',
+    ...(stats ? { transmitted: Number(stats[1]), received: Number(stats[2]), lossPercent: Number(stats[3]) } : {}),
+    provesInternet: false };
+}
+export function phonebookReading(data) {
+  if (String(data?.code ?? '') !== '0') return { state: 'unknown', text: '电话本返回业务告警，不能当作空列表' };
+  const rows = data?.data;
+  const count = rows === '' || rows === null ? 0 : rows && typeof rows === 'object' ? Object.keys(rows).length : null;
+  return { state: count === 0 ? 'empty' : count === null ? 'unknown' : 'entries', count,
+    text: count === 0 ? '本次电话本查询没有条目' : count === null ? '电话本条目结构未知' : `本次返回 ${count} 个电话本条目` };
+}
 export function deviceReading(key, data) {
+  if (key === 'gps') return gpsReading(data);
+  if (key === 'ping_result') return pingReading(data);
+  if (['phonebook', 'phonebook_select'].includes(key)) return phonebookReading(data);
   if (key === 'sim_presence') return simPresenceReading(data);
   if (key === 'status') return statusReading(data);
   if (key === 'device') return cellularDeviceReading(data);
   if (key === 'sim') return simInfoReading(data);
   return undefined;
+}
+// 分类只解释已观测证据，保留原始错误码；不把权限拒绝伪装成成功。
+function describeFailure(trace, def, error, confirmed, permission) {
+  const base = { retrySameRequest: false };
+  if (confirmed.some(f => f.reason === 'upstream_wifi_disabled')) return {
+    ...base, category: 'precondition_not_met', evidence: 'confirmed',
+    message: '当前上游 WiFi 客户端接口均已禁用，路由查询没有可返回的数据。',
+    nextStep: '如需无线作为上游，先明确接入目标并授权配置；本次不自动启用接口或切换网络模式。',
+  };
+  if (confirmed.some(f => f.reason === 'service_not_registered')) return {
+    ...base, category: 'service_unavailable', evidence: 'confirmed',
+    message: '设备当前 UBUS 服务清单中没有注册所需服务对象，无法查询该功能。',
+    nextStep: '向厂商确认对应服务或固件支持；本次不安装软件、启动服务或升级固件。',
+  };
+  if (confirmed.some(f => f.reason === 'target_permission_denied')) return {
+    ...base, category: 'permission_denied', evidence: 'confirmed',
+    message: '当前设备账号无权调用此接口；对照查询可用，反复登录不能增加接口权限。',
+    nextStep: '由设备管理员或厂商核对当前账号的固件接口授权；授权后再复测。',
+  };
+  if (['RPC_ERROR_-32002', 'UBUS_ERROR_6_PERMISSION_DENIED'].includes(error)) return {
+    ...base, category: 'access_rejected', evidence: 'observation',
+    message: '设备拒绝访问；尚缺少有效的对照权限证据，不能确定是接口授权还是会话问题。',
+    nextStep: '检查会话及账号授权；不要通过反复调用目标接口或修改配置来排查。',
+  };
+  if (error === 'UBUS_ERROR_5_NO_DATA') return {
+    ...base, category: 'no_data', evidence: 'observation',
+    message: permission === true ? '接口权限允许，但设备本次未提供业务数据。' : '设备本次未提供业务数据，尚不能确定原因。',
+    nextStep: def.key === 'wifi_rt' ? '核对上游 WLAN 功能是否已配置；当前工作模式仅供参考，不自动切换模式或断网。' : '检查该功能的前置条件后再查询。',
+  };
+  const last = trace.filter(t => t.step === 'attempt').at(-1);
+  if (error === 'RPC_ERROR_-32000' && last?.details?.response?.error?.message === 'Object not found') return {
+    ...base, category: 'object_not_found', evidence: 'observation',
+    message: '设备报告目标 UBUS 对象不存在，不能据此断言账号密码错误或仅是权限不足。',
+    nextStep: '由设备管理员或厂商检查当前固件是否提供该服务；不自动安装、启动服务或升级固件。',
+  };
+  if (error === 'HTTP_403') return {
+    ...base, category: 'http_forbidden', evidence: 'observation',
+    message: trace.some(t => t.reason === 'login_required_renew_session')
+      ? '携带 Cookie 并更新登录会话后，设备仍拒绝此路径。'
+      : '设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。',
+    nextStep: '核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。',
+  };
+  return { ...base, category: 'unknown', evidence: 'inconclusive', message: '设备调用失败，现有证据不足以确定根因。', nextStep: '保留原始错误与诊断轨迹，核对接口和设备前置条件。' };
 }
 // 摘要从轨迹提取事实与假设；access=false 单独不能解释 Object not found。
 export function summarizeDiagnostics(trace, def, error) {
@@ -323,6 +395,7 @@ export function summarizeDiagnostics(trace, def, error) {
     retries: trace.filter((t) => t.step === 'retry_reason').map((t) => t.reason),
     ...(error
       ? {
+          failure: describeFailure(trace, def, error, confirmed, last?.data?.access),
           remainingUnknowns: confirmed.length
             ? []
             : ['Failure root cause has not been established.'],

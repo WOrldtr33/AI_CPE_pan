@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-20T08:45:50.348Z",
+  "probes": [
+    {
+      "bearer": false,
+      "http": 403,
+      "loginRequired": "yes"
+    },
+    {
+      "bearer": true,
+      "http": 403,
+      "loginRequired": "yes"
+    }
+  ],
+  "files": [
+    {
+      "path": "/usr/lib/lua/luci/controller/login.lua",
+      "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+    },
+    {
+      "path": "/usr/lib/lua/luci/dispatcher.lua",
+      "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+    },
+    {
+      "path": "/usr/lib/lua/luci/controller/jt_system.lua",
+      "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+    },
+    {
+      "path": "/usr/lib/lua/luci/controller/jt_lan.lua",
+      "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+    }
+  ]
+}

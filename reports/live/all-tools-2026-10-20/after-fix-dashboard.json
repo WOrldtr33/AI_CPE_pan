@@ -1,0 +1,32 @@
+{
+  "httpStatus": 200,
+  "available": true,
+  "online": true,
+  "upnp": "0",
+  "queries": [
+    {
+      "name": "status",
+      "status": "returned"
+    },
+    {
+      "name": "sim_presence",
+      "status": "returned"
+    },
+    {
+      "name": "clients",
+      "status": "returned"
+    },
+    {
+      "name": "device_info",
+      "status": "returned"
+    },
+    {
+      "name": "dhcp",
+      "status": "returned"
+    },
+    {
+      "name": "upnp",
+      "status": "returned"
+    }
+  ]
+}

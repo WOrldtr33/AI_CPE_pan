@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-17T06:48:06.699Z",
+  "at": "2026-10-21T10:39:56.533Z",
   "mode": "mock-only",
   "realDeviceModified": false,
-  "readCount": 48,
-  "writeCount": 11,
+  "readCount": 58,
+  "writeCount": 76,
   "records": [
     {
       "api": 1,
@@ -390,6 +390,86 @@
       "endpointAndArgumentsVerified": true
     },
     {
+      "api": 4,
+      "key": "login_status",
+      "kind": "read",
+      "tool": "t830_get_login_status",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 116,
+      "key": "ping_result",
+      "kind": "read",
+      "tool": "t830_get_ping_result",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 117,
+      "key": "sms_all",
+      "kind": "read",
+      "tool": "t830_get_sms_all",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 117,
+      "key": "sms_center",
+      "kind": "read",
+      "tool": "t830_get_sms_center",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 118,
+      "key": "sms_thread",
+      "kind": "read",
+      "tool": "t830_get_sms_thread",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 122,
+      "key": "sms_report",
+      "kind": "read",
+      "tool": "t830_get_sms_report",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 123,
+      "key": "sms_unread",
+      "kind": "read",
+      "tool": "t830_get_sms_unread",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 124,
+      "key": "phonebook",
+      "kind": "read",
+      "tool": "t830_get_phonebook",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 125,
+      "key": "phonebook_select",
+      "kind": "read",
+      "tool": "t830_get_phonebook_select",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 129,
+      "key": "log_url",
+      "kind": "read",
+      "tool": "t830_get_log_url",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
       "api": 10,
       "key": "wifi_switch",
       "kind": "write",
@@ -474,6 +554,526 @@
       "key": "traffic",
       "kind": "write",
       "tool": "t830_set_traffic",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 3,
+      "key": "setup_save",
+      "kind": "write",
+      "tool": "t830_set_setup_save",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 5,
+      "key": "login",
+      "kind": "write",
+      "tool": "t830_set_login",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 6,
+      "key": "logout",
+      "kind": "write",
+      "tool": "t830_set_logout",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 7,
+      "key": "password",
+      "kind": "write",
+      "tool": "t830_set_password",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 17,
+      "key": "wps_pbc",
+      "kind": "write",
+      "tool": "t830_set_wps_pbc",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 18,
+      "key": "wps_pin",
+      "kind": "write",
+      "tool": "t830_set_wps_pin",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 20,
+      "key": "wifi_advanced",
+      "kind": "write",
+      "tool": "t830_set_wifi_advanced",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 24,
+      "key": "workmode",
+      "kind": "write",
+      "tool": "t830_set_workmode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 26,
+      "key": "wifi_scan_start",
+      "kind": "write",
+      "tool": "t830_set_wifi_scan_start",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 27,
+      "key": "wifi_scan_list",
+      "kind": "write",
+      "tool": "t830_set_wifi_scan_list",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 28,
+      "key": "wifi_router_connect",
+      "kind": "write",
+      "tool": "t830_set_wifi_router_connect",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 29,
+      "key": "wifi_router_disconnect",
+      "kind": "write",
+      "tool": "t830_set_wifi_router_disconnect",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 32,
+      "key": "mesh_role",
+      "kind": "write",
+      "tool": "t830_set_mesh_role",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 33,
+      "key": "mesh_close",
+      "kind": "write",
+      "tool": "t830_set_mesh_close",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 35,
+      "key": "mesh_router_name",
+      "kind": "write",
+      "tool": "t830_set_mesh_router_name",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 36,
+      "key": "mesh_onboard",
+      "kind": "write",
+      "tool": "t830_set_mesh_onboard",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 37,
+      "key": "mesh_router_remove",
+      "kind": "write",
+      "tool": "t830_set_mesh_router_remove",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 39,
+      "key": "client_name",
+      "kind": "write",
+      "tool": "t830_set_client_name",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 40,
+      "key": "client_delete",
+      "kind": "write",
+      "tool": "t830_set_client_delete",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 45,
+      "key": "firmware_upload",
+      "kind": "write",
+      "tool": "t830_set_firmware_upload",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 46,
+      "key": "firmware_upgrade",
+      "kind": "write",
+      "tool": "t830_set_firmware_upgrade",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 47,
+      "key": "reboot",
+      "kind": "write",
+      "tool": "t830_set_reboot",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 48,
+      "key": "factory_reset",
+      "kind": "write",
+      "tool": "t830_set_factory_reset",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 51,
+      "key": "sim_slot",
+      "kind": "write",
+      "tool": "t830_set_sim_slot",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 53,
+      "key": "pin_verify",
+      "kind": "write",
+      "tool": "t830_set_pin_verify",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 54,
+      "key": "puk_unblock",
+      "kind": "write",
+      "tool": "t830_set_puk_unblock",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 55,
+      "key": "pin_enable",
+      "kind": "write",
+      "tool": "t830_set_pin_enable",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 56,
+      "key": "pin_disable",
+      "kind": "write",
+      "tool": "t830_set_pin_disable",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 57,
+      "key": "pin_change",
+      "kind": "write",
+      "tool": "t830_set_pin_change",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 59,
+      "key": "network_mode",
+      "kind": "write",
+      "tool": "t830_set_network_mode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 62,
+      "key": "apn_remove",
+      "kind": "write",
+      "tool": "t830_set_apn_remove",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 64,
+      "key": "band_lock",
+      "kind": "write",
+      "tool": "t830_set_band_lock",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 65,
+      "key": "plmn_lock",
+      "kind": "write",
+      "tool": "t830_set_plmn_lock",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 66,
+      "key": "plmn_unlock",
+      "kind": "write",
+      "tool": "t830_set_plmn_unlock",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 70,
+      "key": "mac_filter_mode",
+      "kind": "write",
+      "tool": "t830_set_mac_filter_mode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 71,
+      "key": "mac_filter_rule",
+      "kind": "write",
+      "tool": "t830_set_mac_filter_rule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 73,
+      "key": "ip_filter_mode",
+      "kind": "write",
+      "tool": "t830_set_ip_filter_mode",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 74,
+      "key": "ip_filter_rule",
+      "kind": "write",
+      "tool": "t830_set_ip_filter_rule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 76,
+      "key": "port_forward_switch",
+      "kind": "write",
+      "tool": "t830_set_port_forward_switch",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 77,
+      "key": "port_forward_rule",
+      "kind": "write",
+      "tool": "t830_set_port_forward_rule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 79,
+      "key": "port_map_switch",
+      "kind": "write",
+      "tool": "t830_set_port_map_switch",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 80,
+      "key": "port_map_rule",
+      "kind": "write",
+      "tool": "t830_set_port_map_rule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 82,
+      "key": "url_filter_rule",
+      "kind": "write",
+      "tool": "t830_set_url_filter_rule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 86,
+      "key": "dmz",
+      "kind": "write",
+      "tool": "t830_set_dmz",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 88,
+      "key": "alg",
+      "kind": "write",
+      "tool": "t830_set_alg",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 92,
+      "key": "dhcp",
+      "kind": "write",
+      "tool": "t830_set_dhcp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 93,
+      "key": "static_ip",
+      "kind": "write",
+      "tool": "t830_set_static_ip",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 96,
+      "key": "ntp",
+      "kind": "write",
+      "tool": "t830_set_ntp",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 99,
+      "key": "reboot_schedule",
+      "kind": "write",
+      "tool": "t830_set_reboot_schedule",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 100,
+      "key": "signal_start",
+      "kind": "write",
+      "tool": "t830_set_signal_start",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 102,
+      "key": "signal_record",
+      "kind": "write",
+      "tool": "t830_set_signal_record",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 103,
+      "key": "signal_record_edit",
+      "kind": "write",
+      "tool": "t830_set_signal_record_edit",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 104,
+      "key": "signal_record_delete",
+      "kind": "write",
+      "tool": "t830_set_signal_record_delete",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 106,
+      "key": "tr069",
+      "kind": "write",
+      "tool": "t830_set_tr069",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 110,
+      "key": "developer_login",
+      "kind": "write",
+      "tool": "t830_set_developer_login",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 111,
+      "key": "developer_verify",
+      "kind": "write",
+      "tool": "t830_set_developer_verify",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 115,
+      "key": "net_probe",
+      "kind": "write",
+      "tool": "t830_set_net_probe",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 119,
+      "key": "sms_center",
+      "kind": "write",
+      "tool": "t830_set_sms_center",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 120,
+      "key": "sms_delete",
+      "kind": "write",
+      "tool": "t830_set_sms_delete",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 121,
+      "key": "sms_send",
+      "kind": "write",
+      "tool": "t830_set_sms_send",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 126,
+      "key": "phonebook_write",
+      "kind": "write",
+      "tool": "t830_set_phonebook_write",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 127,
+      "key": "phonebook_delete",
+      "kind": "write",
+      "tool": "t830_set_phonebook_delete",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 130,
+      "key": "backup_check",
+      "kind": "write",
+      "tool": "t830_set_backup_check",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 131,
+      "key": "backup_restore",
+      "kind": "write",
+      "tool": "t830_set_backup_restore",
+      "status": "passed_mock",
+      "endpointAndArgumentsVerified": true
+    },
+    {
+      "api": 132,
+      "key": "backup_delete",
+      "kind": "write",
+      "tool": "t830_set_backup_delete",
       "status": "passed_mock",
       "endpointAndArgumentsVerified": true
     }

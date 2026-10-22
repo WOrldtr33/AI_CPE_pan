@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-20T06:23:00Z",
+  "stage": "fresh-session administrator login before developer authorization",
+  "endpoint": "/cgi-bin/luci/login/action_login",
+  "http": 500,
+  "observedException": "/usr/lib/lua/luci/controller/login.lua:176: attempt to perform arithmetic on local 'last_stamp' (a string value)",
+  "freshSessionReadTargetsDispatched": 0,
+  "configurationWritesViaFreshSession": 0,
+  "publicLoginStatus": {
+    "http": 200,
+    "code": 0,
+    "fail_cnt": 0,
+    "wait_sec": 0
+  },
+  "publicVersionEndpoint": {
+    "http": 200,
+    "version": "RA_M5_v9.10.debug"
+  },
+  "existingDeveloperSessionStillUsable": true,
+  "firmwareOrDeviceRestartPerformed": false
+}

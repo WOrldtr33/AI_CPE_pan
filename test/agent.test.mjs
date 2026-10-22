@@ -95,9 +95,10 @@ test('Cancellation, context and usage limits leave recoverable history', async (
 
 test('Secrets are removed from logs, strings, device data and AI field names', () => {
   const clean = sanitizer(['private-key']);
-  const value = clean({ api_key: 'anything', Authorization: 'Bearer xyz', password: 'pw', content: 'private-key sk-example123', data: { ssid: 'wifi', reasoning_content: 'hidden' } });
+  const value = clean({ api_key: 'anything', Authorization: 'Bearer xyz', password: 'pw', content: 'private-key sk-example123', data: { ssid: 'wifi', wpapsk: 'key', reasoning_content: 'hidden' } });
   assert(!JSON.stringify(value).includes('private-key'));
-  assert.equal(value.Authorization, '[REDACTED]'); assert.equal(value.data.ssid, '[REDACTED]');
+  assert.equal(value.Authorization, '[REDACTED]'); assert.equal(value.data.wpapsk, '[REDACTED]');
+  assert.equal(value.data.ssid, 'wifi');
   assert.equal(value.content, '[REDACTED] [REDACTED]');
   const usage = clean({ tokens: 42, usage: { total_tokens: 42, prompt_tokens: 30, completion_tokens: 12 }, token: 'secret' });
   assert.equal(usage.tokens, 42); assert.equal(usage.usage.total_tokens, 42); assert.equal(usage.token, '[REDACTED]');
@@ -139,7 +140,7 @@ test('HTTP model simulator → Agent → real MCP stdio → simulated T830 → f
     if (req.url === '/chat/completions') {
       const payload = JSON.parse(body); modelCalls++;
       assert.equal(payload.thinking.type, 'disabled');
-      assert(payload.tools.every(t => t.function.name.startsWith('t830_get_')));
+      assert(payload.tools.every(t => !t.function.name.startsWith('t830_set_')));
       if (modelCalls === 1) res.end(JSON.stringify({ choices: [{ message: { role: 'assistant', content: null, tool_calls: [request()] }, finish_reason: 'tool_calls' }], usage: { total_tokens: 25 } }));
       else {
         const result = JSON.parse(payload.messages.at(-1).content);
@@ -189,4 +190,36 @@ test('CLI piped interaction handles commands, model switch, clear and a mocked a
   assert(!output.includes('mock-only'));
   assert.match(output, /已保存记忆/);
   await rm(stateDir, { recursive: true, force: true });
+});
+
+test('Large tool catalogs preserve all writes and expose every read via query within the API limit', async () => {
+  const { reads, writes, toolName } = await import('../src/catalog.mjs');
+  const tools = [...reads, ...writes].map(def => ({ type: 'function', function: { name: toolName(def) } }));
+  tools.push({ type: 'function', function: { name: 't830_query', parameters: { properties: { section: { enum: reads.map(def => def.key) } } } } });
+  let payload;
+  const api = new ModelApi({ apiKey: 'mock', baseUrl: 'http://local', fetchImpl: async (_, request) => {
+    payload = JSON.parse(request.body);
+    return Response.json({ choices: [{ message: { role: 'assistant', content: 'ok' }, finish_reason: 'stop' }] });
+  } });
+  await api.complete([], tools, settings);
+  assert(payload.tools.length <= 128);
+  assert.deepEqual(payload.tools.filter(t => t.function.name.startsWith('t830_set_')).map(t => t.function.name), writes.map(toolName));
+  assert.deepEqual(payload.tools.find(t => t.function.name === 't830_query').function.parameters.properties.section.enum, reads.map(def => def.key));
+});
+
+test('Large advanced WiFi option catalogs preserve current configuration without exhausting model context', async () => {
+  const options = Array.from({ length: 1500 }, (_, index) => ({ channel: index, label: 'mock channel option' }));
+  const raw = { status: 'returned', data: { page_info: { country_code: 'CN', trans_power: '2', '5G': { channel: 'auto' } }, channelList_5G: options, countryList: { CN: 'China' } } };
+  const f = fixture([{ message: { role: 'assistant', tool_calls: [request()] } }, messages => {
+    const output = JSON.parse(messages.at(-1).content);
+    assert.deepEqual(output.data.page_info, raw.data.page_info);
+    assert.deepEqual(output.data.countryList, raw.data.countryList);
+    assert.deepEqual(output.data.channelList_5G, { omitted: true, entries: 1500 });
+    assert.deepEqual(output.contextOmissions.paths, ['data.channelList_5G']);
+    assert(JSON.stringify(messages).length < 20000);
+    return answer('高级配置查询成功');
+  }], async () => raw, { contextChars: 20000 });
+  const result = await f.agent.turn('查询高级 WiFi 配置');
+  assert.equal(result.answer, '高级配置查询成功');
+  assert.equal(raw.data.channelList_5G.length, 1500);
 });

@@ -1,0 +1,258 @@
+{
+  "at": "2026-10-20T02:47:14.580Z",
+  "headers": "same-origin Cookie, Bearer session, Origin, Referer; vendor flag",
+  "records": [
+    {
+      "section": "setup",
+      "http": 403,
+      "flag": "get_setup",
+      "loginRequired": null
+    },
+    {
+      "section": "wifi_ad",
+      "http": 200,
+      "flag": "get_AdvancPage_info",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "wifi_night",
+      "http": 200,
+      "flag": "get_NigWifi_info",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "wifi_rt",
+      "http": 200,
+      "flag": "get_wifi_router",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "result"
+      ],
+      "resultCode": 5,
+      "loginRequired": null,
+      "permission": true
+    },
+    {
+      "section": "sim_slot",
+      "http": 200,
+      "flag": "get_simcard_index",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "roaming",
+      "http": 200,
+      "flag": "get_roaming_info",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "static_ip",
+      "http": 200,
+      "flag": "get_static_ip",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "ntp",
+      "http": 200,
+      "flag": "get_ntp",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "reboot_schedule",
+      "http": 200,
+      "flag": "get_rebootSch_info",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "signal_records",
+      "http": 200,
+      "flag": "read_file",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "tr069",
+      "http": 200,
+      "flag": "get_tr069",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "gps",
+      "http": 403,
+      "flag": "get_gps",
+      "loginRequired": "yes"
+    },
+    {
+      "section": "diagnose",
+      "http": 403,
+      "flag": "get_diagnose_info",
+      "loginRequired": "yes"
+    },
+    {
+      "section": "share",
+      "http": 200,
+      "flag": "get_101share_status",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32000,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "ping_result",
+      "http": 200,
+      "flag": "start",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "sms_all",
+      "http": 200,
+      "flag": "all_sms",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "sms_center",
+      "http": 200,
+      "flag": "get_addr",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "sms_thread",
+      "http": 200,
+      "flag": "addr_sms",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "sms_report",
+      "http": 200,
+      "flag": "status_report",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "phonebook",
+      "http": 200,
+      "flag": "read_book",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    },
+    {
+      "section": "phonebook_select",
+      "http": 200,
+      "flag": "select_book",
+      "shape": [
+        "jsonrpc",
+        "id",
+        "error"
+      ],
+      "rpcError": -32002,
+      "loginRequired": null,
+      "permission": false
+    }
+  ]
+}

@@ -1,0 +1,3490 @@
+{
+  "at": "2026-10-20T07:36:17.818Z",
+  "records": [
+    {
+      "method": "read_book",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "code": "0",
+      "dataType": "string",
+      "isNull": false,
+      "isEmptyString": true,
+      "isArray": false,
+      "entries": 0
+    },
+    {
+      "method": "select_book",
+      "args": {
+        "device": "1",
+        "type": "",
+        "name": ""
+      },
+      "code": "0",
+      "dataType": "string",
+      "isNull": false,
+      "isEmptyString": true,
+      "isArray": false,
+      "entries": 0
+    },
+    {
+      "action": "ubus-list",
+      "parameterShape": 1,
+      "keys": [
+        "jsonrpc",
+        "id",
+        "result"
+      ],
+      "result": {
+        "cell.traffic": {
+          "get_traffic_cfg": {},
+          "set_traffic_cfg": {
+            "enable": "string",
+            "day_limit": "string",
+            "month_limit": "string",
+            "start_day": "string"
+          }
+        },
+        "dhcp": {
+          "ipv4leases": {},
+          "ipv6leases": {}
+        },
+        "dnsmasq": {
+          "metrics": {},
+          "set_connmark_allowlist": {
+            "mark": "number",
+            "mask": "number",
+            "patterns": "array"
+          }
+        },
+        "dnsmasq.dns": {},
+        "file": {
+          "read": {
+            "path": "string",
+            "base64": "boolean",
+            "ubus_rpc_session": "string"
+          },
+          "write": {
+            "path": "string",
+            "data": "string",
+            "append": "boolean",
+            "mode": "number",
+            "base64": "boolean",
+            "ubus_rpc_session": "string"
+          },
+          "list": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "stat": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "md5": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "remove": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "exec": {
+            "command": "string",
+            "params": "array",
+            "env": "object",
+            "ubus_rpc_session": "string"
+          }
+        },
+        "gen.attr": {
+          "get_rebootSch_info": {},
+          "get_audioPlay_info": {},
+          "check_asymmetric_verify": {
+            "base64": "string",
+            "reply": "string"
+          },
+          "set_audioPlay_cfg": {
+            "boot_ring": "string",
+            "volume": "string"
+          },
+          "stop_playAudio": {},
+          "get_audioPlay_state": {},
+          "set_screDet_cfg": {
+            "timeout": "string"
+          },
+          "check_appendAudioList_update": {},
+          "start_playAudio": {
+            "Object": "string",
+            "Type": "string"
+          },
+          "set_rebootSch_cfg": {
+            "schTime": "string",
+            "action": "string",
+            "schweek": "string"
+          },
+          "get_screDet_cfg": {}
+        },
+        "hostapd": {
+          "config_add": {
+            "iface": "string",
+            "config": "string"
+          },
+          "config_remove": {
+            "iface": "string"
+          }
+        },
+        "hostapd.ra0": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.ra1": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.ra2": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai0": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai1": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai2": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hotplug.atcmd": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.block": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.datacall": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.dhcp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.ieee80211": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.iface": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.neigh": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.net": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.nic_monitor": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.ntp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.openvpn": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.phb": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.regnet": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.signal": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.sim": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.tftp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hw.qos": {
+          "del_object_cfg": {
+            "object": "string"
+          },
+          "get_propose_list": {},
+          "get_object_cfg": {
+            "object": "string"
+          },
+          "set_gamePriority_cfg": {
+            "cfg": "object",
+            "game_idx": "string"
+          },
+          "set_object_cfg": {
+            "D_qos": "object",
+            "type": "string",
+            "object": "string",
+            "U_qos": "object"
+          },
+          "get_gamePriority_cfg": {
+            "local_ip": "string"
+          }
+        },
+        "iwinfo": {
+          "devices": {},
+          "info": {
+            "device": "string"
+          },
+          "scan": {
+            "device": "string"
+          },
+          "assoclist": {
+            "device": "string",
+            "mac": "string"
+          },
+          "freqlist": {
+            "device": "string"
+          },
+          "txpowerlist": {
+            "device": "string"
+          },
+          "countrylist": {
+            "device": "string"
+          },
+          "survey": {
+            "device": "string"
+          },
+          "phyname": {
+            "section": "string"
+          }
+        },
+        "jytl_api": {
+          "apn_active": {
+            "apn1": "string",
+            "apn3": "string",
+            "apn4": "string",
+            "apn2": "string"
+          },
+          "firewall_set": {
+            "onoff": "string"
+          },
+          "database_apn": {},
+          "manual_apn_start": {},
+          "devinfo_set": {
+            "nickname": "string",
+            "analyze_ECI": "string"
+          },
+          "delete_usp_controller": {
+            "EndpointID": "string"
+          },
+          "ussd_send": {
+            "ussd": "string"
+          },
+          "apn_add": {
+            "auth_pref": "string",
+            "config_file": "string",
+            "apn_name": "string",
+            "user_password": "string",
+            "user_name": "string",
+            "ip_version": "string"
+          },
+          "modi_usp_controller": {
+            "Protocol": "string",
+            "Enable": "string",
+            "ResponseTopic": "string",
+            "Host": "string",
+            "Port": "string",
+            "Name": "string",
+            "Topic": "string",
+            "Password": "string",
+            "Destination": "string",
+            "EndpointID": "string",
+            "Username": "string"
+          },
+          "apn_R_remove": {
+            "config_file": "string"
+          },
+          "ue_get": {},
+          "apn_R_save": {
+            "auth_pref": "string",
+            "config_file": "string",
+            "apn_name": "string",
+            "user_password": "string",
+            "user_name": "string",
+            "ip_version": "string"
+          },
+          "add_usp_controller": {
+            "Protocol": "string",
+            "Enable": "string",
+            "ResponseTopic": "string",
+            "Host": "string",
+            "Port": "string",
+            "Name": "string",
+            "Topic": "string",
+            "Password": "string",
+            "Destination": "string",
+            "EndpointID": "string",
+            "Username": "string"
+          },
+          "ue_modify": {
+            "mac": "string",
+            "name": "string",
+            "forbid": "string"
+          },
+          "up_progress": {},
+          "apn_deact_one": {
+            "config_file": "string"
+          },
+          "ue_delete": {
+            "mac": "string"
+          },
+          "simple_get": {
+            "simCard": "string"
+          },
+          "dismanual": {
+            "config_file": "string"
+          },
+          "apn_delete": {
+            "config_file": "string"
+          },
+          "up_get": {},
+          "get_status_info": {},
+          "apn_get": {},
+          "devinfo_get": {},
+          "set_usp_config": {
+            "controllers": "string"
+          },
+          "apn_act_one": {
+            "config_file": "string"
+          },
+          "simple_set": {
+            "simCard": "string"
+          },
+          "up_set": {
+            "auto": "string",
+            "manual": "string"
+          },
+          "firewall_get": {},
+          "apn_R_get": {},
+          "apn_modify": {
+            "manual": "string"
+          }
+        },
+        "log": {
+          "read": {
+            "lines": "number",
+            "stream": "boolean",
+            "oneshot": "boolean"
+          },
+          "write": {
+            "event": "string"
+          }
+        },
+        "luci": {
+          "getVersion": {},
+          "getInitList": {
+            "name": "string"
+          },
+          "setInitAction": {
+            "name": "string",
+            "action": "string"
+          },
+          "getLocaltime": {},
+          "setLocaltime": {
+            "localtime": "number"
+          },
+          "getTimezones": {},
+          "getLEDs": {},
+          "getUSBDevices": {},
+          "getConntrackHelpers": {},
+          "getFeatures": {},
+          "getSwconfigFeatures": {
+            "switch": "string"
+          },
+          "getSwconfigPortState": {
+            "switch": "string"
+          },
+          "setPassword": {
+            "username": "string",
+            "password": "string"
+          },
+          "getBlockDevices": {},
+          "setBlockDetect": {},
+          "getMountPoints": {},
+          "getRealtimeStats": {
+            "mode": "string",
+            "device": "string"
+          },
+          "getConntrackList": {},
+          "getProcessList": {},
+          "getBuiltinEthernetPorts": {},
+          "getLogFileUrl": {
+            "key": "string"
+          },
+          "active_MapImg": {
+            "path": "string"
+          }
+        },
+        "luci-rpc": {
+          "getNetworkDevices": {},
+          "getWirelessDevices": {},
+          "getHostHints": {},
+          "getDUIDHints": {},
+          "getBoardJSON": {},
+          "getDHCPLeases": {
+            "family": "number"
+          }
+        },
+        "luci.pbr": {
+          "getGateways": {
+            "name": "string"
+          },
+          "getInitList": {
+            "name": "string"
+          },
+          "getInitStatus": {
+            "name": "string"
+          },
+          "getInterfaces": {
+            "name": "string"
+          },
+          "getPlatformSupport": {
+            "name": "string"
+          },
+          "setInitAction": {
+            "name": "string",
+            "action": "string"
+          }
+        },
+        "luci.upnp": {
+          "get_status": {},
+          "delete_rule": {
+            "token": "string"
+          }
+        },
+        "mtk.cell": {
+          "set_change_pin": {
+            "new_pin": "string",
+            "app_type": "string",
+            "old_pin": "string",
+            "slot_idx": "string",
+            "pin_idx": "string"
+          },
+          "get_sim_info": {},
+          "get_cellList_info": {},
+          "get_netWay_info": {},
+          "get_simcard_index": {},
+          "get_roaming_info": {},
+          "set_sim_current_slot": {
+            "slot": "string"
+          },
+          "set_simcard_index": {
+            "sim_type": "string"
+          },
+          "set_roaming_cfg": {
+            "action": "string"
+          },
+          "set_plmn_unlock": {},
+          "set_verify_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_plmn_lock": {
+            "plmn_array": "object"
+          },
+          "get_cellReg_info": {},
+          "set_enable_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_unblock_pin": {
+            "pin_str": "string",
+            "app_type": "string",
+            "slot_idx": "string",
+            "pin_idx": "string",
+            "puk_str": "string"
+          },
+          "set_cellFreq_lock": {
+            "state": "string",
+            "type": "string",
+            "arfcn": "string",
+            "multi_band": "object",
+            "pci": "string",
+            "pref": "string",
+            "band": "string"
+          },
+          "get_device_info": {},
+          "set_disable_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_netWay_cfg": {
+            "ratMode": "string"
+          },
+          "get_cellLock_info": {},
+          "get_sim_current_slot": {}
+        },
+        "mtk.wifi": {
+          "set_guest_wifi": {
+            "name": "string",
+            "action": "string"
+          },
+          "set_NigWifi_cfg": {
+            "closeTime": "string",
+            "action": "string",
+            "openTime": "string"
+          },
+          "get_guestPage_info": {},
+          "get_APP_WlanInfo": {},
+          "set_wifi_switch": {
+            "name": "string",
+            "action": "string"
+          },
+          "set_NigLed_cfg": {
+            "closeTime": "string",
+            "action": "string",
+            "openTime": "string"
+          },
+          "check_NigLed_Towrok": {},
+          "get_WPSRun_info": {
+            "name": "string",
+            "obj": "string"
+          },
+          "rebuil_guest_clotime": {
+            "offset": "string"
+          },
+          "set_guest_cfgs": {
+            "Guest": "object",
+            "Guest5G": "object"
+          },
+          "get_NigWifi_info": {},
+          "set_WPS_pin": {
+            "pincode": "string",
+            "name": "string",
+            "obj": "string"
+          },
+          "probe_user_wifiCfgs": {},
+          "set_WPS_pbc": {
+            "name": "string",
+            "obj": "string"
+          },
+          "host_wifi_pull": {
+            "action": "string"
+          },
+          "check_guest_close": {},
+          "get_ssidPage_info": {},
+          "reload_iface_legacy": {},
+          "get_Band_profile": {
+            "band": "string"
+          },
+          "read_WscStatus_info": {},
+          "set_wifi_cfgs": {
+            "2.4G": "object",
+            "Unity": "object",
+            "5G": "object"
+          },
+          "get_WPSPage_info": {},
+          "set_APP_WlanCfgs": {
+            "trans_power": "string",
+            "Gene_Unity": "object",
+            "Gene_2.4G": "object",
+            "Gene_5G": "object",
+            "Adva_5G": "object",
+            "Adva_2.4G": "object"
+          },
+          "set_Advanc_cfgs": {
+            "trans_power": "string",
+            "5G": "object",
+            "wmm_state": "string",
+            "2.4G": "object",
+            "country_code": "string",
+            "isolate": "string"
+          },
+          "get_NigLed_info": {},
+          "get_devs_status": {},
+          "get_AdvancPage_info": {}
+        },
+        "net.info": {
+          "get_mgmt_stats": {
+            "repeak": "boolean",
+            "format": "string"
+          },
+          "get_mac_rate": {
+            "object": "string",
+            "detail": "boolean"
+          },
+          "get_ip_list": {},
+          "get_batch_rate": {
+            "detail": "boolean",
+            "type": "string"
+          },
+          "get_iface_rate": {
+            "name": "string"
+          }
+        },
+        "netApp": {
+          "start": {
+            "NetworkInterface": "string",
+            "type": "string",
+            "time": "string",
+            "jump": "string",
+            "ipfamily": "string",
+            "addr": "string"
+          }
+        },
+        "network": {
+          "restart": {},
+          "reload": {},
+          "add_host_route": {
+            "target": "string",
+            "v6": "boolean",
+            "interface": "string",
+            "exclude": "boolean"
+          },
+          "get_proto_handlers": {},
+          "add_dynamic": {
+            "name": "string"
+          },
+          "netns_updown": {
+            "jail": "string",
+            "start": "boolean"
+          }
+        },
+        "network.device": {
+          "status": {
+            "name": "string"
+          },
+          "set_alias": {
+            "alias": "array",
+            "device": "string"
+          },
+          "set_state": {
+            "name": "string",
+            "defer": "boolean",
+            "auth_status": "boolean",
+            "auth_vlans": "array"
+          },
+          "stp_init": {}
+        },
+        "network.interface": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.guest": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.lan": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.loopback": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.pdp1": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.thread": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.wan6": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.rrdns": {
+          "lookup": {
+            "addrs": "array",
+            "timeout": "number",
+            "server": "string",
+            "port": "unknown",
+            "limit": "number"
+          }
+        },
+        "network.wireless": {
+          "up": {},
+          "down": {},
+          "reconf": {},
+          "status": {},
+          "notify": {},
+          "get_validate": {}
+        },
+        "phone_book": {
+          "read_book": {
+            "device": "string",
+            "type": "string"
+          },
+          "write_book": {
+            "type": "string",
+            "index": "string",
+            "device": "string",
+            "email": "string",
+            "name": "string",
+            "numb_house": "string",
+            "numb": "string",
+            "numb_work": "string",
+            "flag": "string"
+          },
+          "select_book": {
+            "name": "string",
+            "device": "string"
+          },
+          "delet_book": {
+            "index": "string",
+            "device": "string"
+          }
+        },
+        "position_sigal": {
+          "modify_file": {
+            "name": "string",
+            "index": "string",
+            "position": "string"
+          },
+          "delet_file": {
+            "index": "string"
+          },
+          "write_file": {
+            "sigal": "string",
+            "index": "string",
+            "position": "string",
+            "time": "string",
+            "qos": "string",
+            "name": "string"
+          },
+          "start": {},
+          "read_file": {}
+        },
+        "ql-netd": {
+          "datacall": {
+            "id": "number",
+            "data": "string",
+            "len": "number"
+          }
+        },
+        "ql-netd.unsol": {},
+        "rc": {
+          "list": {
+            "name": "string",
+            "skip_running_check": "boolean"
+          },
+          "init": {
+            "name": "string",
+            "action": "string"
+          }
+        },
+        "ril": {
+          "ril_request": {
+            "id": "number",
+            "data": "string",
+            "len": "number"
+          }
+        },
+        "ril.unsol.nw.cscon": {},
+        "ril.unsol.nw.data": {},
+        "ril.unsol.nw.ecell": {},
+        "ril.unsol.nw.enwrejac": {},
+        "ril.unsol.nw.ltethroughput": {},
+        "ril.unsol.nw.nitz": {},
+        "ril.unsol.nw.nrthroughput": {},
+        "ril.unsol.nw.signal": {},
+        "ril.unsol.nw.voice": {},
+        "ril.unsol.sim.phb": {},
+        "ril.unsol.sim.signal": {},
+        "ril.unsol.sms.pdu": {},
+        "ril.unsol.sms.report": {},
+        "ril.unsol.sms.ussd": {},
+        "service": {
+          "set": {
+            "name": "string",
+            "script": "string",
+            "instances": "object",
+            "triggers": "array",
+            "validate": "array",
+            "autostart": "boolean",
+            "data": "object"
+          },
+          "add": {
+            "name": "string",
+            "script": "string",
+            "instances": "object",
+            "triggers": "array",
+            "validate": "array",
+            "autostart": "boolean",
+            "data": "object"
+          },
+          "list": {
+            "name": "string",
+            "verbose": "boolean"
+          },
+          "delete": {
+            "name": "string",
+            "instance": "string"
+          },
+          "signal": {
+            "name": "string",
+            "instance": "string",
+            "signal": "number"
+          },
+          "update_start": {
+            "name": "string"
+          },
+          "update_complete": {
+            "name": "string"
+          },
+          "event": {
+            "type": "string",
+            "data": "object"
+          },
+          "validate": {
+            "package": "string",
+            "type": "string",
+            "service": "string"
+          },
+          "get_data": {
+            "name": "string",
+            "instance": "string",
+            "type": "string"
+          },
+          "state": {
+            "spawn": "boolean",
+            "name": "string"
+          },
+          "watchdog": {
+            "mode": "number",
+            "timeout": "number",
+            "name": "string",
+            "instance": "string"
+          }
+        },
+        "session": {
+          "create": {
+            "timeout": "number"
+          },
+          "list": {
+            "ubus_rpc_session": "string"
+          },
+          "grant": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "objects": "array"
+          },
+          "revoke": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "objects": "array"
+          },
+          "access": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "object": "string",
+            "function": "string"
+          },
+          "set": {
+            "ubus_rpc_session": "string",
+            "values": "object"
+          },
+          "get": {
+            "ubus_rpc_session": "string",
+            "keys": "array"
+          },
+          "unset": {
+            "ubus_rpc_session": "string",
+            "keys": "array"
+          },
+          "destroy": {
+            "ubus_rpc_session": "string"
+          },
+          "login": {
+            "username": "string",
+            "password": "string",
+            "timeout": "number"
+          }
+        },
+        "sms_app": {
+          "status_report": {},
+          "delet_pdu": {
+            "content": "string"
+          },
+          "pdu_store": {
+            "content": "string",
+            "format": "string"
+          },
+          "set_addr": {
+            "status": "string",
+            "addr": "string",
+            "time": "string"
+          },
+          "all_sms": {},
+          "read_unread": {},
+          "send_msg": {
+            "format": "string",
+            "content": "string",
+            "addr": "string"
+          },
+          "get_addr": {},
+          "addr_sms": {
+            "addr": "string"
+          },
+          "send_encode": {
+            "format": "string",
+            "content": "string",
+            "addr": "string"
+          }
+        },
+        "submonitor_sim_0": {},
+        "submonitor_sim_1": {},
+        "system": {
+          "board": {},
+          "info": {},
+          "reboot": {},
+          "watchdog": {
+            "frequency": "number",
+            "timeout": "number",
+            "magicclose": "boolean",
+            "stop": "boolean"
+          },
+          "signal": {
+            "pid": "number",
+            "signum": "number"
+          },
+          "validate_firmware_image": {
+            "path": "string"
+          },
+          "sysupgrade": {
+            "path": "string",
+            "force": "boolean",
+            "backup": "string",
+            "prefix": "string",
+            "command": "string",
+            "options": "object"
+          }
+        },
+        "tr069": {
+          "notify": {},
+          "inform": {
+            "event": "string"
+          },
+          "command": {
+            "name": "string"
+          }
+        },
+        "uci": {
+          "configs": {},
+          "get": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "type": "string",
+            "match": "object",
+            "ubus_rpc_session": "string"
+          },
+          "state": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "type": "string",
+            "match": "object",
+            "ubus_rpc_session": "string"
+          },
+          "add": {
+            "config": "string",
+            "type": "string",
+            "name": "string",
+            "values": "object",
+            "ubus_rpc_session": "string"
+          },
+          "set": {
+            "config": "string",
+            "section": "string",
+            "type": "string",
+            "match": "object",
+            "values": "object",
+            "ubus_rpc_session": "string"
+          },
+          "delete": {
+            "config": "string",
+            "section": "string",
+            "type": "string",
+            "match": "object",
+            "option": "string",
+            "options": "array",
+            "ubus_rpc_session": "string"
+          },
+          "rename": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "name": "string",
+            "ubus_rpc_session": "string"
+          },
+          "order": {
+            "config": "string",
+            "sections": "array",
+            "ubus_rpc_session": "string"
+          },
+          "changes": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "revert": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "commit": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "apply": {
+            "rollback": "boolean",
+            "timeout": "number",
+            "ubus_rpc_session": "string"
+          },
+          "confirm": {
+            "ubus_rpc_session": "string"
+          },
+          "rollback": {
+            "ubus_rpc_session": "string"
+          },
+          "reload_config": {}
+        },
+        "vpn.cli": {
+          "get_conn_state": {},
+          "get_para_cfg": {},
+          "set_para_cfg": {
+            "username": "string",
+            "proto": "string",
+            "Enable": "string",
+            "password": "string",
+            "server": "string"
+          }
+        },
+        "web_api": {
+          "get_role": {},
+          "get_wifi_router_status": {},
+          "get_appfilter": {},
+          "get_wifi_router": {},
+          "get_topology": {},
+          "get_setup": {},
+          "get_wan_status": {},
+          "get_connect_status": {},
+          "get_upnp": {},
+          "get_ntp": {},
+          "get_ipfamily": {},
+          "set_sample": {
+            "enable": "string"
+          },
+          "set_security_log": {
+            "message": "string",
+            "level": "string"
+          },
+          "set_start_adbd": {
+            "enable": "string",
+            "passwd": "string"
+          },
+          "get_wan": {},
+          "get_fh": {},
+          "get_cells_whitelist": {},
+          "get_all_scancells": {},
+          "get_lang": {},
+          "get_easymesh_switch": {},
+          "get_tr069_deviceinfo": {},
+          "get_dhcp": {},
+          "get_ipfilter": {},
+          "get_urlfilter": {},
+          "get_parental_ctrl": {},
+          "get_gps": {},
+          "get_usp_config": {},
+          "get_sample": {},
+          "get_tr069": {},
+          "set_gps_enable": {},
+          "get_alg": {},
+          "get_static_ip": {},
+          "get_routers": {
+            "al_mac": "string"
+          },
+          "get_clients": {
+            "al_mac": "string"
+          },
+          "get_macfilter": {},
+          "set_urlfilter": {
+            "macs": "string",
+            "operate": "string",
+            "url": "string",
+            "name": "string",
+            "url_new": "string"
+          },
+          "get_portforward": {},
+          "get_ipv6": {},
+          "get_portmap": {},
+          "set_develop_mode": {
+            "enable": "string",
+            "username": "string",
+            "passwd": "string"
+          },
+          "get_workmode": {},
+          "get_lan6": {},
+          "get_login": {},
+          "get_status_info": {},
+          "get_router": {},
+          "get_sim_status": {},
+          "get_dmz": {},
+          "set_scancells_du": {},
+          "get_bh": {},
+          "get_stclock_info": {},
+          "get_wan6": {},
+          "get_develop_mode": {}
+        },
+        "wpa_supplicant": {
+          "config_add": {
+            "driver": "string",
+            "iface": "string",
+            "bridge": "string",
+            "hostapd_ctrl": "string",
+            "ctrl": "string",
+            "config": "string"
+          },
+          "config_remove": {
+            "iface": "string"
+          }
+        },
+        "wpa_supplicant.apcli0": {
+          "reload": {},
+          "get_features": {},
+          "wps_start": {},
+          "wps_cancel": {}
+        },
+        "wpa_supplicant.apclii0": {
+          "reload": {},
+          "get_features": {},
+          "wps_start": {},
+          "wps_cancel": {}
+        }
+      }
+    },
+    {
+      "action": "ubus-list",
+      "parameterShape": 2,
+      "keys": [
+        "jsonrpc",
+        "id",
+        "result"
+      ],
+      "result": {
+        "cell.traffic": {
+          "get_traffic_cfg": {},
+          "set_traffic_cfg": {
+            "enable": "string",
+            "day_limit": "string",
+            "month_limit": "string",
+            "start_day": "string"
+          }
+        },
+        "dhcp": {
+          "ipv4leases": {},
+          "ipv6leases": {}
+        },
+        "dnsmasq": {
+          "metrics": {},
+          "set_connmark_allowlist": {
+            "mark": "number",
+            "mask": "number",
+            "patterns": "array"
+          }
+        },
+        "dnsmasq.dns": {},
+        "file": {
+          "read": {
+            "path": "string",
+            "base64": "boolean",
+            "ubus_rpc_session": "string"
+          },
+          "write": {
+            "path": "string",
+            "data": "string",
+            "append": "boolean",
+            "mode": "number",
+            "base64": "boolean",
+            "ubus_rpc_session": "string"
+          },
+          "list": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "stat": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "md5": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "remove": {
+            "path": "string",
+            "ubus_rpc_session": "string"
+          },
+          "exec": {
+            "command": "string",
+            "params": "array",
+            "env": "object",
+            "ubus_rpc_session": "string"
+          }
+        },
+        "gen.attr": {
+          "get_rebootSch_info": {},
+          "get_audioPlay_info": {},
+          "check_asymmetric_verify": {
+            "base64": "string",
+            "reply": "string"
+          },
+          "set_audioPlay_cfg": {
+            "boot_ring": "string",
+            "volume": "string"
+          },
+          "stop_playAudio": {},
+          "get_audioPlay_state": {},
+          "set_screDet_cfg": {
+            "timeout": "string"
+          },
+          "check_appendAudioList_update": {},
+          "start_playAudio": {
+            "Object": "string",
+            "Type": "string"
+          },
+          "set_rebootSch_cfg": {
+            "schTime": "string",
+            "action": "string",
+            "schweek": "string"
+          },
+          "get_screDet_cfg": {}
+        },
+        "hostapd": {
+          "config_add": {
+            "iface": "string",
+            "config": "string"
+          },
+          "config_remove": {
+            "iface": "string"
+          }
+        },
+        "hostapd.ra0": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.ra1": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.ra2": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai0": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai1": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hostapd.rai2": {
+          "reload": {},
+          "get_clients": {},
+          "get_status": {},
+          "del_client": {
+            "addr": "string",
+            "reason": "number",
+            "deauth": "boolean",
+            "ban_time": "number"
+          },
+          "update_airtime": {
+            "sta": "string",
+            "weight": "number"
+          },
+          "list_bans": {},
+          "wps_start": {},
+          "wps_status": {},
+          "wps_cancel": {},
+          "update_beacon": {},
+          "get_features": {},
+          "switch_chan": {
+            "freq": "number",
+            "bcn_count": "number",
+            "center_freq1": "number",
+            "center_freq2": "number",
+            "bandwidth": "number",
+            "sec_channel_offset": "number",
+            "ht": "boolean",
+            "vht": "boolean",
+            "he": "boolean",
+            "block_tx": "boolean",
+            "force": "boolean"
+          },
+          "set_vendor_elements": {
+            "vendor_elements": "string"
+          },
+          "notify_response": {
+            "notify_response": "number"
+          },
+          "bss_mgmt_enable": {
+            "neighbor_report": "boolean",
+            "beacon_report": "boolean",
+            "link_measurement": "boolean",
+            "bss_transition": "boolean"
+          },
+          "rrm_nr_get_own": {},
+          "rrm_nr_list": {},
+          "rrm_nr_set": {
+            "list": "array"
+          },
+          "rrm_beacon_req": {
+            "addr": "string",
+            "mode": "number",
+            "op_class": "number",
+            "channel": "number",
+            "duration": "number",
+            "bssid": "string",
+            "ssid": "string"
+          },
+          "link_measurement_req": {
+            "addr": "string",
+            "tx-power-used": "number",
+            "tx-power-max": "number"
+          },
+          "bss_transition_request": {
+            "addr": "string",
+            "disassociation_imminent": "boolean",
+            "disassociation_timer": "number",
+            "validity_period": "number",
+            "neighbors": "array",
+            "abridged": "boolean",
+            "dialog_token": "number",
+            "mbo_reason": "number",
+            "cell_pref": "number",
+            "reassoc_delay": "number"
+          }
+        },
+        "hotplug.atcmd": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.block": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.datacall": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.dhcp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.ieee80211": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.iface": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.neigh": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.net": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.nic_monitor": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.ntp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.openvpn": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.phb": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.regnet": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.signal": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.sim": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hotplug.tftp": {
+          "call": {
+            "env": "array"
+          }
+        },
+        "hw.qos": {
+          "del_object_cfg": {
+            "object": "string"
+          },
+          "get_propose_list": {},
+          "get_object_cfg": {
+            "object": "string"
+          },
+          "set_gamePriority_cfg": {
+            "cfg": "object",
+            "game_idx": "string"
+          },
+          "set_object_cfg": {
+            "D_qos": "object",
+            "type": "string",
+            "object": "string",
+            "U_qos": "object"
+          },
+          "get_gamePriority_cfg": {
+            "local_ip": "string"
+          }
+        },
+        "iwinfo": {
+          "devices": {},
+          "info": {
+            "device": "string"
+          },
+          "scan": {
+            "device": "string"
+          },
+          "assoclist": {
+            "device": "string",
+            "mac": "string"
+          },
+          "freqlist": {
+            "device": "string"
+          },
+          "txpowerlist": {
+            "device": "string"
+          },
+          "countrylist": {
+            "device": "string"
+          },
+          "survey": {
+            "device": "string"
+          },
+          "phyname": {
+            "section": "string"
+          }
+        },
+        "jytl_api": {
+          "apn_active": {
+            "apn1": "string",
+            "apn3": "string",
+            "apn4": "string",
+            "apn2": "string"
+          },
+          "firewall_set": {
+            "onoff": "string"
+          },
+          "database_apn": {},
+          "manual_apn_start": {},
+          "devinfo_set": {
+            "nickname": "string",
+            "analyze_ECI": "string"
+          },
+          "delete_usp_controller": {
+            "EndpointID": "string"
+          },
+          "ussd_send": {
+            "ussd": "string"
+          },
+          "apn_add": {
+            "auth_pref": "string",
+            "config_file": "string",
+            "apn_name": "string",
+            "user_password": "string",
+            "user_name": "string",
+            "ip_version": "string"
+          },
+          "modi_usp_controller": {
+            "Protocol": "string",
+            "Enable": "string",
+            "ResponseTopic": "string",
+            "Host": "string",
+            "Port": "string",
+            "Name": "string",
+            "Topic": "string",
+            "Password": "string",
+            "Destination": "string",
+            "EndpointID": "string",
+            "Username": "string"
+          },
+          "apn_R_remove": {
+            "config_file": "string"
+          },
+          "ue_get": {},
+          "apn_R_save": {
+            "auth_pref": "string",
+            "config_file": "string",
+            "apn_name": "string",
+            "user_password": "string",
+            "user_name": "string",
+            "ip_version": "string"
+          },
+          "add_usp_controller": {
+            "Protocol": "string",
+            "Enable": "string",
+            "ResponseTopic": "string",
+            "Host": "string",
+            "Port": "string",
+            "Name": "string",
+            "Topic": "string",
+            "Password": "string",
+            "Destination": "string",
+            "EndpointID": "string",
+            "Username": "string"
+          },
+          "ue_modify": {
+            "mac": "string",
+            "name": "string",
+            "forbid": "string"
+          },
+          "up_progress": {},
+          "apn_deact_one": {
+            "config_file": "string"
+          },
+          "ue_delete": {
+            "mac": "string"
+          },
+          "simple_get": {
+            "simCard": "string"
+          },
+          "dismanual": {
+            "config_file": "string"
+          },
+          "apn_delete": {
+            "config_file": "string"
+          },
+          "up_get": {},
+          "get_status_info": {},
+          "apn_get": {},
+          "devinfo_get": {},
+          "set_usp_config": {
+            "controllers": "string"
+          },
+          "apn_act_one": {
+            "config_file": "string"
+          },
+          "simple_set": {
+            "simCard": "string"
+          },
+          "up_set": {
+            "auto": "string",
+            "manual": "string"
+          },
+          "firewall_get": {},
+          "apn_R_get": {},
+          "apn_modify": {
+            "manual": "string"
+          }
+        },
+        "log": {
+          "read": {
+            "lines": "number",
+            "stream": "boolean",
+            "oneshot": "boolean"
+          },
+          "write": {
+            "event": "string"
+          }
+        },
+        "luci": {
+          "getVersion": {},
+          "getInitList": {
+            "name": "string"
+          },
+          "setInitAction": {
+            "name": "string",
+            "action": "string"
+          },
+          "getLocaltime": {},
+          "setLocaltime": {
+            "localtime": "number"
+          },
+          "getTimezones": {},
+          "getLEDs": {},
+          "getUSBDevices": {},
+          "getConntrackHelpers": {},
+          "getFeatures": {},
+          "getSwconfigFeatures": {
+            "switch": "string"
+          },
+          "getSwconfigPortState": {
+            "switch": "string"
+          },
+          "setPassword": {
+            "username": "string",
+            "password": "string"
+          },
+          "getBlockDevices": {},
+          "setBlockDetect": {},
+          "getMountPoints": {},
+          "getRealtimeStats": {
+            "mode": "string",
+            "device": "string"
+          },
+          "getConntrackList": {},
+          "getProcessList": {},
+          "getBuiltinEthernetPorts": {},
+          "getLogFileUrl": {
+            "key": "string"
+          },
+          "active_MapImg": {
+            "path": "string"
+          }
+        },
+        "luci-rpc": {
+          "getNetworkDevices": {},
+          "getWirelessDevices": {},
+          "getHostHints": {},
+          "getDUIDHints": {},
+          "getBoardJSON": {},
+          "getDHCPLeases": {
+            "family": "number"
+          }
+        },
+        "luci.pbr": {
+          "getGateways": {
+            "name": "string"
+          },
+          "getInitList": {
+            "name": "string"
+          },
+          "getInitStatus": {
+            "name": "string"
+          },
+          "getInterfaces": {
+            "name": "string"
+          },
+          "getPlatformSupport": {
+            "name": "string"
+          },
+          "setInitAction": {
+            "name": "string",
+            "action": "string"
+          }
+        },
+        "luci.upnp": {
+          "get_status": {},
+          "delete_rule": {
+            "token": "string"
+          }
+        },
+        "mtk.cell": {
+          "set_change_pin": {
+            "new_pin": "string",
+            "app_type": "string",
+            "old_pin": "string",
+            "slot_idx": "string",
+            "pin_idx": "string"
+          },
+          "get_sim_info": {},
+          "get_cellList_info": {},
+          "get_netWay_info": {},
+          "get_simcard_index": {},
+          "get_roaming_info": {},
+          "set_sim_current_slot": {
+            "slot": "string"
+          },
+          "set_simcard_index": {
+            "sim_type": "string"
+          },
+          "set_roaming_cfg": {
+            "action": "string"
+          },
+          "set_plmn_unlock": {},
+          "set_verify_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_plmn_lock": {
+            "plmn_array": "object"
+          },
+          "get_cellReg_info": {},
+          "set_enable_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_unblock_pin": {
+            "pin_str": "string",
+            "app_type": "string",
+            "slot_idx": "string",
+            "pin_idx": "string",
+            "puk_str": "string"
+          },
+          "set_cellFreq_lock": {
+            "state": "string",
+            "type": "string",
+            "arfcn": "string",
+            "multi_band": "object",
+            "pci": "string",
+            "pref": "string",
+            "band": "string"
+          },
+          "get_device_info": {},
+          "set_disable_pin": {
+            "pin_str": "string",
+            "slot_idx": "string",
+            "app_type": "string",
+            "pin_idx": "string"
+          },
+          "set_netWay_cfg": {
+            "ratMode": "string"
+          },
+          "get_cellLock_info": {},
+          "get_sim_current_slot": {}
+        },
+        "mtk.wifi": {
+          "set_guest_wifi": {
+            "name": "string",
+            "action": "string"
+          },
+          "set_NigWifi_cfg": {
+            "closeTime": "string",
+            "action": "string",
+            "openTime": "string"
+          },
+          "get_guestPage_info": {},
+          "get_APP_WlanInfo": {},
+          "set_wifi_switch": {
+            "name": "string",
+            "action": "string"
+          },
+          "set_NigLed_cfg": {
+            "closeTime": "string",
+            "action": "string",
+            "openTime": "string"
+          },
+          "check_NigLed_Towrok": {},
+          "get_WPSRun_info": {
+            "name": "string",
+            "obj": "string"
+          },
+          "rebuil_guest_clotime": {
+            "offset": "string"
+          },
+          "set_guest_cfgs": {
+            "Guest": "object",
+            "Guest5G": "object"
+          },
+          "get_NigWifi_info": {},
+          "set_WPS_pin": {
+            "pincode": "string",
+            "name": "string",
+            "obj": "string"
+          },
+          "probe_user_wifiCfgs": {},
+          "set_WPS_pbc": {
+            "name": "string",
+            "obj": "string"
+          },
+          "host_wifi_pull": {
+            "action": "string"
+          },
+          "check_guest_close": {},
+          "get_ssidPage_info": {},
+          "reload_iface_legacy": {},
+          "get_Band_profile": {
+            "band": "string"
+          },
+          "read_WscStatus_info": {},
+          "set_wifi_cfgs": {
+            "2.4G": "object",
+            "Unity": "object",
+            "5G": "object"
+          },
+          "get_WPSPage_info": {},
+          "set_APP_WlanCfgs": {
+            "trans_power": "string",
+            "Gene_Unity": "object",
+            "Gene_2.4G": "object",
+            "Gene_5G": "object",
+            "Adva_5G": "object",
+            "Adva_2.4G": "object"
+          },
+          "set_Advanc_cfgs": {
+            "trans_power": "string",
+            "5G": "object",
+            "wmm_state": "string",
+            "2.4G": "object",
+            "country_code": "string",
+            "isolate": "string"
+          },
+          "get_NigLed_info": {},
+          "get_devs_status": {},
+          "get_AdvancPage_info": {}
+        },
+        "net.info": {
+          "get_mgmt_stats": {
+            "repeak": "boolean",
+            "format": "string"
+          },
+          "get_mac_rate": {
+            "object": "string",
+            "detail": "boolean"
+          },
+          "get_ip_list": {},
+          "get_batch_rate": {
+            "detail": "boolean",
+            "type": "string"
+          },
+          "get_iface_rate": {
+            "name": "string"
+          }
+        },
+        "netApp": {
+          "start": {
+            "NetworkInterface": "string",
+            "type": "string",
+            "time": "string",
+            "jump": "string",
+            "ipfamily": "string",
+            "addr": "string"
+          }
+        },
+        "network": {
+          "restart": {},
+          "reload": {},
+          "add_host_route": {
+            "target": "string",
+            "v6": "boolean",
+            "interface": "string",
+            "exclude": "boolean"
+          },
+          "get_proto_handlers": {},
+          "add_dynamic": {
+            "name": "string"
+          },
+          "netns_updown": {
+            "jail": "string",
+            "start": "boolean"
+          }
+        },
+        "network.device": {
+          "status": {
+            "name": "string"
+          },
+          "set_alias": {
+            "alias": "array",
+            "device": "string"
+          },
+          "set_state": {
+            "name": "string",
+            "defer": "boolean",
+            "auth_status": "boolean",
+            "auth_vlans": "array"
+          },
+          "stp_init": {}
+        },
+        "network.interface": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.guest": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.lan": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.loopback": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.pdp1": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.thread": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.interface.wan6": {
+          "up": {},
+          "down": {},
+          "renew": {},
+          "status": {},
+          "prepare": {},
+          "dump": {},
+          "add_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "remove_device": {
+            "name": "string",
+            "link-ext": "boolean",
+            "vlan": "array"
+          },
+          "notify_proto": {},
+          "remove": {},
+          "set_data": {}
+        },
+        "network.rrdns": {
+          "lookup": {
+            "addrs": "array",
+            "timeout": "number",
+            "server": "string",
+            "port": "unknown",
+            "limit": "number"
+          }
+        },
+        "network.wireless": {
+          "up": {},
+          "down": {},
+          "reconf": {},
+          "status": {},
+          "notify": {},
+          "get_validate": {}
+        },
+        "phone_book": {
+          "read_book": {
+            "device": "string",
+            "type": "string"
+          },
+          "write_book": {
+            "type": "string",
+            "index": "string",
+            "device": "string",
+            "email": "string",
+            "name": "string",
+            "numb_house": "string",
+            "numb": "string",
+            "numb_work": "string",
+            "flag": "string"
+          },
+          "select_book": {
+            "name": "string",
+            "device": "string"
+          },
+          "delet_book": {
+            "index": "string",
+            "device": "string"
+          }
+        },
+        "position_sigal": {
+          "modify_file": {
+            "name": "string",
+            "index": "string",
+            "position": "string"
+          },
+          "delet_file": {
+            "index": "string"
+          },
+          "write_file": {
+            "sigal": "string",
+            "index": "string",
+            "position": "string",
+            "time": "string",
+            "qos": "string",
+            "name": "string"
+          },
+          "start": {},
+          "read_file": {}
+        },
+        "ql-netd": {
+          "datacall": {
+            "id": "number",
+            "data": "string",
+            "len": "number"
+          }
+        },
+        "ql-netd.unsol": {},
+        "rc": {
+          "list": {
+            "name": "string",
+            "skip_running_check": "boolean"
+          },
+          "init": {
+            "name": "string",
+            "action": "string"
+          }
+        },
+        "ril": {
+          "ril_request": {
+            "id": "number",
+            "data": "string",
+            "len": "number"
+          }
+        },
+        "ril.unsol.nw.cscon": {},
+        "ril.unsol.nw.data": {},
+        "ril.unsol.nw.ecell": {},
+        "ril.unsol.nw.enwrejac": {},
+        "ril.unsol.nw.ltethroughput": {},
+        "ril.unsol.nw.nitz": {},
+        "ril.unsol.nw.nrthroughput": {},
+        "ril.unsol.nw.signal": {},
+        "ril.unsol.nw.voice": {},
+        "ril.unsol.sim.phb": {},
+        "ril.unsol.sim.signal": {},
+        "ril.unsol.sms.pdu": {},
+        "ril.unsol.sms.report": {},
+        "ril.unsol.sms.ussd": {},
+        "service": {
+          "set": {
+            "name": "string",
+            "script": "string",
+            "instances": "object",
+            "triggers": "array",
+            "validate": "array",
+            "autostart": "boolean",
+            "data": "object"
+          },
+          "add": {
+            "name": "string",
+            "script": "string",
+            "instances": "object",
+            "triggers": "array",
+            "validate": "array",
+            "autostart": "boolean",
+            "data": "object"
+          },
+          "list": {
+            "name": "string",
+            "verbose": "boolean"
+          },
+          "delete": {
+            "name": "string",
+            "instance": "string"
+          },
+          "signal": {
+            "name": "string",
+            "instance": "string",
+            "signal": "number"
+          },
+          "update_start": {
+            "name": "string"
+          },
+          "update_complete": {
+            "name": "string"
+          },
+          "event": {
+            "type": "string",
+            "data": "object"
+          },
+          "validate": {
+            "package": "string",
+            "type": "string",
+            "service": "string"
+          },
+          "get_data": {
+            "name": "string",
+            "instance": "string",
+            "type": "string"
+          },
+          "state": {
+            "spawn": "boolean",
+            "name": "string"
+          },
+          "watchdog": {
+            "mode": "number",
+            "timeout": "number",
+            "name": "string",
+            "instance": "string"
+          }
+        },
+        "session": {
+          "create": {
+            "timeout": "number"
+          },
+          "list": {
+            "ubus_rpc_session": "string"
+          },
+          "grant": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "objects": "array"
+          },
+          "revoke": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "objects": "array"
+          },
+          "access": {
+            "ubus_rpc_session": "string",
+            "scope": "string",
+            "object": "string",
+            "function": "string"
+          },
+          "set": {
+            "ubus_rpc_session": "string",
+            "values": "object"
+          },
+          "get": {
+            "ubus_rpc_session": "string",
+            "keys": "array"
+          },
+          "unset": {
+            "ubus_rpc_session": "string",
+            "keys": "array"
+          },
+          "destroy": {
+            "ubus_rpc_session": "string"
+          },
+          "login": {
+            "username": "string",
+            "password": "string",
+            "timeout": "number"
+          }
+        },
+        "sms_app": {
+          "status_report": {},
+          "delet_pdu": {
+            "content": "string"
+          },
+          "pdu_store": {
+            "content": "string",
+            "format": "string"
+          },
+          "set_addr": {
+            "status": "string",
+            "addr": "string",
+            "time": "string"
+          },
+          "all_sms": {},
+          "read_unread": {},
+          "send_msg": {
+            "format": "string",
+            "content": "string",
+            "addr": "string"
+          },
+          "get_addr": {},
+          "addr_sms": {
+            "addr": "string"
+          },
+          "send_encode": {
+            "format": "string",
+            "content": "string",
+            "addr": "string"
+          }
+        },
+        "submonitor_sim_0": {},
+        "submonitor_sim_1": {},
+        "system": {
+          "board": {},
+          "info": {},
+          "reboot": {},
+          "watchdog": {
+            "frequency": "number",
+            "timeout": "number",
+            "magicclose": "boolean",
+            "stop": "boolean"
+          },
+          "signal": {
+            "pid": "number",
+            "signum": "number"
+          },
+          "validate_firmware_image": {
+            "path": "string"
+          },
+          "sysupgrade": {
+            "path": "string",
+            "force": "boolean",
+            "backup": "string",
+            "prefix": "string",
+            "command": "string",
+            "options": "object"
+          }
+        },
+        "tr069": {
+          "notify": {},
+          "inform": {
+            "event": "string"
+          },
+          "command": {
+            "name": "string"
+          }
+        },
+        "uci": {
+          "configs": {},
+          "get": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "type": "string",
+            "match": "object",
+            "ubus_rpc_session": "string"
+          },
+          "state": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "type": "string",
+            "match": "object",
+            "ubus_rpc_session": "string"
+          },
+          "add": {
+            "config": "string",
+            "type": "string",
+            "name": "string",
+            "values": "object",
+            "ubus_rpc_session": "string"
+          },
+          "set": {
+            "config": "string",
+            "section": "string",
+            "type": "string",
+            "match": "object",
+            "values": "object",
+            "ubus_rpc_session": "string"
+          },
+          "delete": {
+            "config": "string",
+            "section": "string",
+            "type": "string",
+            "match": "object",
+            "option": "string",
+            "options": "array",
+            "ubus_rpc_session": "string"
+          },
+          "rename": {
+            "config": "string",
+            "section": "string",
+            "option": "string",
+            "name": "string",
+            "ubus_rpc_session": "string"
+          },
+          "order": {
+            "config": "string",
+            "sections": "array",
+            "ubus_rpc_session": "string"
+          },
+          "changes": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "revert": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "commit": {
+            "config": "string",
+            "ubus_rpc_session": "string"
+          },
+          "apply": {
+            "rollback": "boolean",
+            "timeout": "number",
+            "ubus_rpc_session": "string"
+          },
+          "confirm": {
+            "ubus_rpc_session": "string"
+          },
+          "rollback": {
+            "ubus_rpc_session": "string"
+          },
+          "reload_config": {}
+        },
+        "vpn.cli": {
+          "get_conn_state": {},
+          "get_para_cfg": {},
+          "set_para_cfg": {
+            "username": "string",
+            "proto": "string",
+            "Enable": "string",
+            "password": "string",
+            "server": "string"
+          }
+        },
+        "web_api": {
+          "get_role": {},
+          "get_wifi_router_status": {},
+          "get_appfilter": {},
+          "get_wifi_router": {},
+          "get_topology": {},
+          "get_setup": {},
+          "get_wan_status": {},
+          "get_connect_status": {},
+          "get_upnp": {},
+          "get_ntp": {},
+          "get_ipfamily": {},
+          "set_sample": {
+            "enable": "string"
+          },
+          "set_security_log": {
+            "message": "string",
+            "level": "string"
+          },
+          "set_start_adbd": {
+            "enable": "string",
+            "passwd": "string"
+          },
+          "get_wan": {},
+          "get_fh": {},
+          "get_cells_whitelist": {},
+          "get_all_scancells": {},
+          "get_lang": {},
+          "get_easymesh_switch": {},
+          "get_tr069_deviceinfo": {},
+          "get_dhcp": {},
+          "get_ipfilter": {},
+          "get_urlfilter": {},
+          "get_parental_ctrl": {},
+          "get_gps": {},
+          "get_usp_config": {},
+          "get_sample": {},
+          "get_tr069": {},
+          "set_gps_enable": {},
+          "get_alg": {},
+          "get_static_ip": {},
+          "get_routers": {
+            "al_mac": "string"
+          },
+          "get_clients": {
+            "al_mac": "string"
+          },
+          "get_macfilter": {},
+          "set_urlfilter": {
+            "macs": "string",
+            "operate": "string",
+            "url": "string",
+            "name": "string",
+            "url_new": "string"
+          },
+          "get_portforward": {},
+          "get_ipv6": {},
+          "get_portmap": {},
+          "set_develop_mode": {
+            "enable": "string",
+            "username": "string",
+            "passwd": "string"
+          },
+          "get_workmode": {},
+          "get_lan6": {},
+          "get_login": {},
+          "get_status_info": {},
+          "get_router": {},
+          "get_sim_status": {},
+          "get_dmz": {},
+          "set_scancells_du": {},
+          "get_bh": {},
+          "get_stclock_info": {},
+          "get_wan6": {},
+          "get_develop_mode": {}
+        },
+        "wpa_supplicant": {
+          "config_add": {
+            "driver": "string",
+            "iface": "string",
+            "bridge": "string",
+            "hostapd_ctrl": "string",
+            "ctrl": "string",
+            "config": "string"
+          },
+          "config_remove": {
+            "iface": "string"
+          }
+        },
+        "wpa_supplicant.apcli0": {
+          "reload": {},
+          "get_features": {},
+          "wps_start": {},
+          "wps_cancel": {}
+        },
+        "wpa_supplicant.apclii0": {
+          "reload": {},
+          "get_features": {},
+          "wps_start": {},
+          "wps_cancel": {}
+        }
+      }
+    },
+    {
+      "action": "ubus-list-cli",
+      "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-08T10:27:28.128Z",
+  "at": "2026-10-21T02:36:53.263-07:00",
   "mode": "live-upnp-change-and-restore",
   "records": [
     {
-      "at": "2026-10-08T10:27:28.857Z",
+      "at": "2026-10-21T02:36:54.587-07:00",
       "tool": "t830_get_upnp",
       "args": {},
       "output": {
@@ -55,7 +55,7 @@
         },
         "diagnostics": [
           {
-            "at": "2026-10-08T10:27:28.493Z",
+            "at": "2026-10-21T02:36:53.529-07:00",
             "step": "queue",
             "evidence": "observation",
             "operationId": 1,
@@ -67,7 +67,7 @@
             "state": "started"
           },
           {
-            "at": "2026-10-08T10:27:28.855Z",
+            "at": "2026-10-21T02:36:54.584-07:00",
             "step": "response_validation",
             "evidence": "observation",
             "endpoint": {
@@ -102,7 +102,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:28.855Z",
+            "at": "2026-10-21T02:36:54.584-07:00",
             "step": "attempt",
             "evidence": "observation",
             "attempt": 1,
@@ -123,12 +123,12 @@
             }
           }
         ],
-        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
       },
       "isError": false
     },
     {
-      "at": "2026-10-08T10:27:29.524Z",
+      "at": "2026-10-21T02:36:55.643-07:00",
       "tool": "t830_set_upnp_verified",
       "args": {
         "upnp_switch": "1",
@@ -209,7 +209,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:28.859Z",
+                  "at": "2026-10-21T02:36:54.589-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 2,
@@ -221,7 +221,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:28.963Z",
+                  "at": "2026-10-21T02:36:54.647-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -256,7 +256,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:28.963Z",
+                  "at": "2026-10-21T02:36:54.647-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -277,7 +277,7 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           },
           {
@@ -332,7 +332,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:28.963Z",
+                  "at": "2026-10-21T02:36:54.647-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 2,
@@ -344,7 +344,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:29.072Z",
+                  "at": "2026-10-21T02:36:54.740-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -379,7 +379,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:29.072Z",
+                  "at": "2026-10-21T02:36:54.740-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -400,7 +400,7 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           },
           {
@@ -436,7 +436,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:29.072Z",
+                  "at": "2026-10-21T02:36:54.740-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 2,
@@ -448,7 +448,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:29.430Z",
+                  "at": "2026-10-21T02:36:55.549-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -468,7 +468,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:29.430Z",
+                  "at": "2026-10-21T02:36:55.549-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -542,7 +542,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:29.430Z",
+                  "at": "2026-10-21T02:36:55.549-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 2,
@@ -554,7 +554,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:29.523Z",
+                  "at": "2026-10-21T02:36:55.642-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -589,7 +589,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:29.523Z",
+                  "at": "2026-10-21T02:36:55.642-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -610,13 +610,13 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           }
         ],
         "diagnostics": [
           {
-            "at": "2026-10-08T10:27:28.963Z",
+            "at": "2026-10-21T02:36:54.647-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "baseline",
@@ -635,7 +635,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:29.072Z",
+            "at": "2026-10-21T02:36:54.740-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "before_write",
@@ -654,14 +654,14 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:29.430Z",
+            "at": "2026-10-21T02:36:55.549-07:00",
             "step": "write_attempt",
             "evidence": "observation",
             "attempt": 1,
             "outcome": "submitted"
           },
           {
-            "at": "2026-10-08T10:27:29.523Z",
+            "at": "2026-10-21T02:36:55.642-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "verification",
@@ -680,7 +680,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:29.523Z",
+            "at": "2026-10-21T02:36:55.642-07:00",
             "step": "verification_result",
             "evidence": "observation",
             "attempt": 1,
@@ -695,7 +695,7 @@
       "isError": false
     },
     {
-      "at": "2026-10-08T10:27:29.631Z",
+      "at": "2026-10-21T02:36:55.768-07:00",
       "tool": "t830_get_upnp",
       "args": {},
       "output": {
@@ -747,7 +747,7 @@
         },
         "diagnostics": [
           {
-            "at": "2026-10-08T10:27:29.525Z",
+            "at": "2026-10-21T02:36:55.644-07:00",
             "step": "queue",
             "evidence": "observation",
             "operationId": 3,
@@ -759,7 +759,7 @@
             "state": "started"
           },
           {
-            "at": "2026-10-08T10:27:29.631Z",
+            "at": "2026-10-21T02:36:55.768-07:00",
             "step": "response_validation",
             "evidence": "observation",
             "endpoint": {
@@ -794,7 +794,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:29.631Z",
+            "at": "2026-10-21T02:36:55.768-07:00",
             "step": "attempt",
             "evidence": "observation",
             "attempt": 1,
@@ -815,12 +815,12 @@
             }
           }
         ],
-        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
       },
       "isError": false
     },
     {
-      "at": "2026-10-08T10:27:30.223Z",
+      "at": "2026-10-21T02:36:56.251-07:00",
       "tool": "t830_set_upnp_verified",
       "args": {
         "upnp_switch": "0",
@@ -901,7 +901,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:29.633Z",
+                  "at": "2026-10-21T02:36:55.770-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 4,
@@ -913,7 +913,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:29.740Z",
+                  "at": "2026-10-21T02:36:55.861-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -948,7 +948,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:29.740Z",
+                  "at": "2026-10-21T02:36:55.861-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -969,7 +969,7 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           },
           {
@@ -1024,7 +1024,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:29.740Z",
+                  "at": "2026-10-21T02:36:55.861-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 4,
@@ -1036,7 +1036,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:29.851Z",
+                  "at": "2026-10-21T02:36:55.953-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -1071,7 +1071,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:29.851Z",
+                  "at": "2026-10-21T02:36:55.954-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -1092,7 +1092,7 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           },
           {
@@ -1128,7 +1128,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:29.851Z",
+                  "at": "2026-10-21T02:36:55.954-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 4,
@@ -1140,7 +1140,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:30.114Z",
+                  "at": "2026-10-21T02:36:56.155-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -1160,7 +1160,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:30.114Z",
+                  "at": "2026-10-21T02:36:56.155-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -1234,7 +1234,7 @@
               },
               "diagnostics": [
                 {
-                  "at": "2026-10-08T10:27:30.114Z",
+                  "at": "2026-10-21T02:36:56.155-07:00",
                   "step": "queue",
                   "evidence": "observation",
                   "operationId": 4,
@@ -1246,7 +1246,7 @@
                   "state": "started"
                 },
                 {
-                  "at": "2026-10-08T10:27:30.222Z",
+                  "at": "2026-10-21T02:36:56.250-07:00",
                   "step": "response_validation",
                   "evidence": "observation",
                   "endpoint": {
@@ -1281,7 +1281,7 @@
                   }
                 },
                 {
-                  "at": "2026-10-08T10:27:30.222Z",
+                  "at": "2026-10-21T02:36:56.250-07:00",
                   "step": "attempt",
                   "evidence": "observation",
                   "attempt": 1,
@@ -1302,13 +1302,13 @@
                   }
                 }
               ],
-              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
             }
           }
         ],
         "diagnostics": [
           {
-            "at": "2026-10-08T10:27:29.740Z",
+            "at": "2026-10-21T02:36:55.861-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "baseline",
@@ -1327,7 +1327,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:29.851Z",
+            "at": "2026-10-21T02:36:55.954-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "before_write",
@@ -1346,14 +1346,14 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:30.114Z",
+            "at": "2026-10-21T02:36:56.155-07:00",
             "step": "write_attempt",
             "evidence": "observation",
             "attempt": 1,
             "outcome": "submitted"
           },
           {
-            "at": "2026-10-08T10:27:30.222Z",
+            "at": "2026-10-21T02:36:56.250-07:00",
             "step": "readback",
             "evidence": "observation",
             "phase": "verification",
@@ -1372,7 +1372,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:30.222Z",
+            "at": "2026-10-21T02:36:56.250-07:00",
             "step": "verification_result",
             "evidence": "observation",
             "attempt": 1,
@@ -1387,7 +1387,7 @@
       "isError": false
     },
     {
-      "at": "2026-10-08T10:27:30.332Z",
+      "at": "2026-10-21T02:36:56.312-07:00",
       "tool": "t830_get_upnp",
       "args": {},
       "output": {
@@ -1439,7 +1439,7 @@
         },
         "diagnostics": [
           {
-            "at": "2026-10-08T10:27:30.224Z",
+            "at": "2026-10-21T02:36:56.253-07:00",
             "step": "queue",
             "evidence": "observation",
             "operationId": 5,
@@ -1451,7 +1451,7 @@
             "state": "started"
           },
           {
-            "at": "2026-10-08T10:27:30.332Z",
+            "at": "2026-10-21T02:36:56.311-07:00",
             "step": "response_validation",
             "evidence": "observation",
             "endpoint": {
@@ -1486,7 +1486,7 @@
             }
           },
           {
-            "at": "2026-10-08T10:27:30.332Z",
+            "at": "2026-10-21T02:36:56.311-07:00",
             "step": "attempt",
             "evidence": "observation",
             "attempt": 1,
@@ -1507,7 +1507,7 @@
             }
           }
         ],
-        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。"
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
       },
       "isError": false
     }

@@ -1,7 +1,7 @@
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { fileURLToPath } from 'node:url';
-import { reads, toolName } from './catalog.mjs';
+import { reads, writes, toolName } from './catalog.mjs';
 import { z } from 'zod';
 import { createHash } from 'node:crypto';
 import { verifiedWriteTool } from './agent-policy.mjs';
@@ -16,7 +16,7 @@ export function deviceEnvironment(env = process.env, enableWrites = false, enabl
 }
 
 export async function connectTools(sections, env = process.env, { enableWrites = false, enableMedia = false } = {}) {
-  const selected = [...new Set([...sections, ...(enableWrites ? ['upnp'] : [])])].map(key => {
+  const selected = [...new Set([...sections, ...(enableWrites ? writes.map(def => def.readback).filter(key => reads.some(def => def.key === key)) : [])])].map(key => {
     const def = reads.find(d => d.key === key);
     if (!def) throw new Error(`UNKNOWN_READ_TOOL_${key}`);
     return def;
@@ -43,13 +43,40 @@ export async function connectTools(sections, env = process.env, { enableWrites =
       definitions.push({ type: 'function', function: { name: tool.name, description: tool.description, parameters: tool.inputSchema } });
     }
     const writeTools = new Set();
-    if (enableWrites) {
-      const name = verifiedWriteTool;
+    const addTool = (name, schema, write = false) => {
       const tool = tools.find(t => t.name === name);
-      if (!tool) throw new Error('UNAVAILABLE_VERIFIED_UPNP_WRITE');
-      validators.set(name, z.object({ upnp_switch: z.enum(['0', '1']), expectedCurrent: z.enum(['0', '1']) }).strict());
-      writeTools.add(name);
-      definitions.push({ type: 'function', function: { name, description: `${tool.description}。仅生成待用户确认的 UPnP 写提案，先调用 t830_get_upnp 读取 expectedCurrent。`, parameters: tool.inputSchema } });
+      if (!tool) throw new Error(`UNAVAILABLE_TOOL_${name}`);
+      validators.set(name, schema);
+      if (write) writeTools.add(name);
+      definitions.push({ type: 'function', function: { name, description: tool.description + (write ? '。仅生成待用户确认的写提案，确认后执行。' : ''), parameters: tool.inputSchema } });
+    };
+    // 兼容查询仍受 AGENT_TOOLS 限制，不能通过 section 绕过查询范围。
+    if (selected.length) {
+      addTool('t830_query', z.object({ section: z.enum(selected.map(def => def.key)), args: z.record(z.unknown()).optional() }).strict()
+        .superRefine((value, ctx) => {
+          if (!selected.find(def => def.key === value.section).schema.safeParse(value.args || {}).success)
+            ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'Invalid section arguments' });
+        }));
+      const query = definitions.find(tool => tool.function.name === 't830_query').function;
+      query.description += '。根据 section 选择查询；args 参数和使用条件见对应分支。';
+      query.parameters = {
+        type: 'object', properties: { section: { type: 'string', enum: selected.map(def => def.key) }, args: { type: 'object' } },
+        required: ['section'], additionalProperties: false,
+        oneOf: selected.map(def => ({
+          properties: {
+            section: { const: def.key, description: tools.find(tool => tool.name === toolName(def)).description },
+            args: tools.find(tool => tool.name === toolName(def)).inputSchema,
+          },
+          ...(Object.keys(def.schema.shape || {}).length || def.key === 'wps_run' ? { required: ['args'] } : {}),
+        })),
+      };
+      const access = selected.filter(def => def.transport === 'ubus');
+      if (access.length) addTool('t830_check_access', z.object({ section: z.enum(access.map(def => def.key)) }).strict());
+    }
+    if (selected.length) addTool('t830_list_capabilities', z.object({}).strict());
+    if (enableWrites) {
+      for (const def of writes) addTool(toolName(def), def.schema, true);
+      addTool(verifiedWriteTool, z.object({ upnp_switch: z.enum(['0', '1']), expectedCurrent: z.enum(['0', '1']) }).strict(), true);
     }
     const validate = (name, args) => {
       if (!validators.has(name)) throw new Error('TOOL_NOT_ALLOWED');

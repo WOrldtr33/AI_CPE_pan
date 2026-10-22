@@ -31,12 +31,12 @@
 | Agent 主流程 | `src/agent-core.mjs` | 模型与工具循环、任务、提案批准和恢复 |
 | 模型请求 | `src/agent-api.mjs` | API 请求、流转协议、超时及有限重试 |
 | 工具接入 | `src/agent-mcp.mjs` | MCP 子进程、工具描述、参数与执行白名单 |
-| 工具开放范围 | `src/agent-policy.mjs` | 31 项已验证读工具、UPnP 写工具 |
+| 工具开放范围 | `src/agent-policy.mjs` | 实机验证记录；实际开放范围来自接口目录（58 查询、76 写工具） |
 | 上下文 | `src/agent-context.mjs` | 历史摘录摘要、近期完整问答的保存 |
 | 状态与记忆 | `src/agent-store.mjs` | 会话、显式记忆、任务、提案与进程锁 |
 | 配置与日志 | `src/agent-config.mjs`、`src/agent-log.mjs` | 配置、Key 读取、脱敏和结构化日志 |
 | MCP 入口 | `src/server.mjs` | 工具注册、MCP 请求及关闭处理 |
-| 接口目录 | `src/catalog.mjs` | 48 项读条目与 11 项写条目的描述、参数和映射 |
+| 接口目录 | `src/catalog.mjs` | 文档接口的读条目与写条目；写条目默认不注册 |
 | 设备访问 | `src/t830.mjs` | 登录、Cookie、UBUS/CGI 请求及已验证恢复规则 |
 | 响应解释 | `src/response.mjs` | 关键字段校验、业务告警与错误诊断摘要 |
 | 写入验证 | `src/write-profiles.mjs`、`src/write-workflow.mjs` | 基线检查、字段比较、提交与回读 |

@@ -1,0 +1,3124 @@
+{
+  "at": "2026-10-20T06:32:53.913Z",
+  "mode": "read-only-write-baselines",
+  "records": [
+    {
+      "section": "wifi_night",
+      "output": {
+        "status": "returned",
+        "data": {
+          "closeTime": "00;00",
+          "openTime": "00;00",
+          "action": "Disable"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:54.202-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "wifi_night",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.082-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_NigWifi_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.082-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_NigWifi_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "closeTime": "00;00",
+              "openTime": "00;00",
+              "action": "Disable"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "roaming",
+      "output": {
+        "status": "returned",
+        "data": {
+          "action": "Enable",
+          "status": "neither is disable"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.087-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "roaming",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.190-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_roaming_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.190-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.cell",
+              "method": "get_roaming_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "action": "Enable",
+              "status": "neither is disable"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "traffic",
+      "output": {
+        "status": "returned",
+        "data": {
+          "cfgs": {
+            "enable": "0",
+            "day_limit": "0",
+            "month_limit": "0",
+            "start_day": "1"
+          },
+          "stats": {
+            "month_traffic": "149608951-Byte",
+            "day_traffic": "99581648-Byte",
+            "code": "200"
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "cfgs"
+              ],
+              "expected": "object"
+            },
+            {
+              "path": [
+                "stats"
+              ],
+              "expected": "object"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.193-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "traffic",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.411-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "cell.traffic",
+              "method": "get_traffic_cfg"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "cfgs"
+                  ],
+                  "expected": "object"
+                },
+                {
+                  "path": [
+                    "stats"
+                  ],
+                  "expected": "object"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.412-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "cell.traffic",
+              "method": "get_traffic_cfg"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "cfgs": {
+                "enable": "0",
+                "day_limit": "0",
+                "month_limit": "0",
+                "start_day": "1"
+              },
+              "stats": {
+                "month_traffic": "149608951-Byte",
+                "day_traffic": "99581648-Byte",
+                "code": "200"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "apn",
+      "output": {
+        "status": "returned",
+        "data": {
+          "manual": {
+            "count": "1",
+            "apn_list": [
+              {
+                "auth_pref": "none",
+                "ip_version": "IPv4v6",
+                "apn_name": "rain",
+                "user_password": "[REDACTED]",
+                "user_name": "",
+                "config_file": "APN1"
+              }
+            ]
+          },
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "manual",
+                "apn_list"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.414-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "apn",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.517-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "apn_R_get"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "manual",
+                    "apn_list"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.517-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "apn_R_get"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "manual": {
+                "count": "1",
+                "apn_list": [
+                  {
+                    "auth_pref": "none",
+                    "ip_version": "IPv4v6",
+                    "apn_name": "rain",
+                    "user_password": "[REDACTED]",
+                    "user_name": "",
+                    "config_file": "APN1"
+                  }
+                ]
+              },
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "mac_filter",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "1",
+            "macfilter_list": "[REDACTED]"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "mode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.520-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "mac_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.581-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "mode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.581-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_macfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "1",
+                "macfilter_list": "[REDACTED]"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "ip_filter",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "mode": "0",
+            "ipfilter_list": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "enable"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "ipfilter_list"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.583-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "ip_filter",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.644-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "enable"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "ipfilter_list"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.644-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ipfilter"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "mode": "0",
+                "ipfilter_list": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "port_forward",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.646-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "port_forward",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.707-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.707-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portforward"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "port_map",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "switch": 1,
+            "rules": []
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "rules"
+              ],
+              "expected": "array"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.710-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "port_map",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.769-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "rules"
+                  ],
+                  "expected": "array"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.769-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_portmap"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "switch": 1,
+                "rules": []
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "dmz",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "dmz_switch": 0,
+            "lan_ip": ""
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dmz_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "lan_ip"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.773-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "dmz",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.836-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dmz_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "lan_ip"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.836-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_dmz"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "dmz_switch": 0,
+                "lan_ip": ""
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "alg",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable_snmp": 0,
+            "enable_sip": 0,
+            "enable_gre": 0,
+            "enable_pptp": 0,
+            "enable_tftp": 0,
+            "alg_switch": 1,
+            "enable_ftp": 1,
+            "enable_h323": 0
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "alg_switch"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.839-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "alg",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.896-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "alg_switch"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.896-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_alg"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable_snmp": 0,
+                "enable_sip": 0,
+                "enable_gre": 0,
+                "enable_pptp": 0,
+                "enable_tftp": 0,
+                "alg_switch": 1,
+                "enable_ftp": 1,
+                "enable_h323": 0
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "ntp",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "zonename": "Africa/Johannesburg",
+            "ntp_server2": "1.openwrt.pool.ntp.org",
+            "ntp_server1": "0.openwrt.pool.ntp.org",
+            "timezone": "SAST-2",
+            "timezone_list": [
+              "UTC",
+              "Africa/Abidjan",
+              "Africa/Accra",
+              "Africa/Addis Ababa",
+              "Africa/Algiers",
+              "Africa/Asmara",
+              "Africa/Bamako",
+              "Africa/Bangui",
+              "Africa/Banjul",
+              "Africa/Bissau",
+              "Africa/Blantyre",
+              "Africa/Brazzaville",
+              "Africa/Bujumbura",
+              "Africa/Cairo",
+              "Africa/Casablanca",
+              "Africa/Ceuta",
+              "Africa/Conakry",
+              "Africa/Dakar",
+              "Africa/Dar es Salaam",
+              "Africa/Djibouti",
+              "Africa/Douala",
+              "Africa/El Aaiun",
+              "Africa/Freetown",
+              "Africa/Gaborone",
+              "Africa/Harare",
+              "Africa/Johannesburg",
+              "Africa/Juba",
+              "Africa/Kampala",
+              "Africa/Khartoum",
+              "Africa/Kigali",
+              "Africa/Kinshasa",
+              "Africa/Lagos",
+              "Africa/Libreville",
+              "Africa/Lome",
+              "Africa/Luanda",
+              "Africa/Lubumbashi",
+              "Africa/Lusaka",
+              "Africa/Malabo",
+              "Africa/Maputo",
+              "Africa/Maseru",
+              "Africa/Mbabane",
+              "Africa/Mogadishu",
+              "Africa/Monrovia",
+              "Africa/Nairobi",
+              "Africa/Ndjamena",
+              "Africa/Niamey",
+              "Africa/Nouakchott",
+              "Africa/Ouagadougou",
+              "Africa/Porto-Novo",
+              "Africa/Sao Tome",
+              "Africa/Tripoli",
+              "Africa/Tunis",
+              "Africa/Windhoek",
+              "America/Adak",
+              "America/Anchorage",
+              "America/Anguilla",
+              "America/Antigua",
+              "America/Araguaina",
+              "America/Argentina/Buenos Aires",
+              "America/Argentina/Catamarca",
+              "America/Argentina/Cordoba",
+              "America/Argentina/Jujuy",
+              "America/Argentina/La Rioja",
+              "America/Argentina/Mendoza",
+              "America/Argentina/Rio Gallegos",
+              "America/Argentina/Salta",
+              "America/Argentina/San Juan",
+              "America/Argentina/San Luis",
+              "America/Argentina/Tucuman",
+              "America/Argentina/Ushuaia",
+              "America/Aruba",
+              "America/Asuncion",
+              "America/Atikokan",
+              "America/Bahia",
+              "America/Bahia Banderas",
+              "America/Barbados",
+              "America/Belem",
+              "America/Belize",
+              "America/Blanc-Sablon",
+              "America/Boa Vista",
+              "America/Bogota",
+              "America/Boise",
+              "America/Cambridge Bay",
+              "America/Campo Grande",
+              "America/Cancun",
+              "America/Caracas",
+              "America/Cayenne",
+              "America/Cayman",
+              "America/Chicago",
+              "America/Chihuahua",
+              "America/Costa Rica",
+              "America/Creston",
+              "America/Cuiaba",
+              "America/Curacao",
+              "America/Danmarkshavn",
+              "America/Dawson",
+              "America/Dawson Creek",
+              "America/Denver",
+              "America/Detroit",
+              "America/Dominica",
+              "America/Edmonton",
+              "America/Eirunepe",
+              "America/El Salvador",
+              "America/Fort Nelson",
+              "America/Fortaleza",
+              "America/Glace Bay",
+              "America/Goose Bay",
+              "America/Grand Turk",
+              "America/Grenada",
+              "America/Guadeloupe",
+              "America/Guatemala",
+              "America/Guayaquil",
+              "America/Guyana",
+              "America/Halifax",
+              "America/Havana",
+              "America/Hermosillo",
+              "America/Indiana/Indianapolis",
+              "America/Indiana/Knox",
+              "America/Indiana/Marengo",
+              "America/Indiana/Petersburg",
+              "America/Indiana/Tell City",
+              "America/Indiana/Vevay",
+              "America/Indiana/Vincennes",
+              "America/Indiana/Winamac",
+              "America/Inuvik",
+              "America/Iqaluit",
+              "America/Jamaica",
+              "America/Juneau",
+              "America/Kentucky/Louisville",
+              "America/Kentucky/Monticello",
+              "America/Kralendijk",
+              "America/La Paz",
+              "America/Lima",
+              "America/Los Angeles",
+              "America/Lower Princes",
+              "America/Maceio",
+              "America/Managua",
+              "America/Manaus",
+              "America/Marigot",
+              "America/Martinique",
+              "America/Matamoros",
+              "America/Mazatlan",
+              "America/Menominee",
+              "America/Merida",
+              "America/Metlakatla",
+              "America/Mexico City",
+              "America/Miquelon",
+              "America/Moncton",
+              "America/Monterrey",
+              "America/Montevideo",
+              "America/Montserrat",
+              "America/Nassau",
+              "America/New York",
+              "America/Nipigon",
+              "America/Nome",
+              "America/Noronha",
+              "America/North Dakota/Beulah",
+              "America/North Dakota/Center",
+              "America/North Dakota/New Salem",
+              "America/Nuuk",
+              "America/Ojinaga",
+              "America/Panama",
+              "America/Pangnirtung",
+              "America/Paramaribo",
+              "America/Phoenix",
+              "America/Port of Spain",
+              "America/Port-au-Prince",
+              "America/Porto Velho",
+              "America/Puerto Rico",
+              "America/Punta Arenas",
+              "America/Rainy River",
+              "America/Rankin Inlet",
+              "America/Recife",
+              "America/Regina",
+              "America/Resolute",
+              "America/Rio Branco",
+              "America/Santarem",
+              "America/Santiago",
+              "America/Santo Domingo",
+              "America/Sao Paulo",
+              "America/Scoresbysund",
+              "America/Sitka",
+              "America/St Barthelemy",
+              "America/St Johns",
+              "America/St Kitts",
+              "America/St Lucia",
+              "America/St Thomas",
+              "America/St Vincent",
+              "America/Swift Current",
+              "America/Tegucigalpa",
+              "America/Thule",
+              "America/Thunder Bay",
+              "America/Tijuana",
+              "America/Toronto",
+              "America/Tortola",
+              "America/Vancouver",
+              "America/Whitehorse",
+              "America/Winnipeg",
+              "America/Yakutat",
+              "America/Yellowknife",
+              "Antarctica/Casey",
+              "Antarctica/Davis",
+              "Antarctica/DumontDUrville",
+              "Antarctica/Macquarie",
+              "Antarctica/Mawson",
+              "Antarctica/McMurdo",
+              "Antarctica/Palmer",
+              "Antarctica/Rothera",
+              "Antarctica/Syowa",
+              "Antarctica/Troll",
+              "Antarctica/Vostok",
+              "Arctic/Longyearbyen",
+              "Asia/Aden",
+              "Asia/Almaty",
+              "Asia/Amman",
+              "Asia/Anadyr",
+              "Asia/Aqtau",
+              "Asia/Aqtobe",
+              "Asia/Ashgabat",
+              "Asia/Atyrau",
+              "Asia/Baghdad",
+              "Asia/Bahrain",
+              "Asia/Baku",
+              "Asia/Bangkok",
+              "Asia/Barnaul",
+              "Asia/Beirut",
+              "Asia/Bishkek",
+              "Asia/Brunei",
+              "Asia/Chita",
+              "Asia/Choibalsan",
+              "Asia/Colombo",
+              "Asia/Damascus",
+              "Asia/Dhaka",
+              "Asia/Dili",
+              "Asia/Dubai",
+              "Asia/Dushanbe",
+              "Asia/Famagusta",
+              "Asia/Gaza",
+              "Asia/Hebron",
+              "Asia/Ho Chi Minh",
+              "Asia/Hong Kong",
+              "Asia/Hovd",
+              "Asia/Irkutsk",
+              "Asia/Jakarta",
+              "Asia/Jayapura",
+              "Asia/Jerusalem",
+              "Asia/Kabul",
+              "Asia/Kamchatka",
+              "Asia/Karachi",
+              "Asia/Kathmandu",
+              "Asia/Khandyga",
+              "Asia/Kolkata",
+              "Asia/Krasnoyarsk",
+              "Asia/Kuala Lumpur",
+              "Asia/Kuching",
+              "Asia/Kuwait",
+              "Asia/Macau",
+              "Asia/Magadan",
+              "Asia/Makassar",
+              "Asia/Manila",
+              "Asia/Muscat",
+              "Asia/Nicosia",
+              "Asia/Novokuznetsk",
+              "Asia/Novosibirsk",
+              "Asia/Omsk",
+              "Asia/Oral",
+              "Asia/Phnom Penh",
+              "Asia/Pontianak",
+              "Asia/Pyongyang",
+              "Asia/Qatar",
+              "Asia/Qostanay",
+              "Asia/Qyzylorda",
+              "Asia/Riyadh",
+              "Asia/Sakhalin",
+              "Asia/Samarkand",
+              "Asia/Seoul",
+              "Asia/Shanghai",
+              "Asia/Singapore",
+              "Asia/Srednekolymsk",
+              "Asia/Taipei",
+              "Asia/Tashkent",
+              "Asia/Tbilisi",
+              "Asia/Tehran",
+              "Asia/Thimphu",
+              "Asia/Tokyo",
+              "Asia/Tomsk",
+              "Asia/Ulaanbaatar",
+              "Asia/Urumqi",
+              "Asia/Ust-Nera",
+              "Asia/Vientiane",
+              "Asia/Vladivostok",
+              "Asia/Yakutsk",
+              "Asia/Yangon",
+              "Asia/Yekaterinburg",
+              "Asia/Yerevan",
+              "Atlantic/Azores",
+              "Atlantic/Bermuda",
+              "Atlantic/Canary",
+              "Atlantic/Cape Verde",
+              "Atlantic/Faroe",
+              "Atlantic/Madeira",
+              "Atlantic/Reykjavik",
+              "Atlantic/South Georgia",
+              "Atlantic/St Helena",
+              "Atlantic/Stanley",
+              "Australia/Adelaide",
+              "Australia/Brisbane",
+              "Australia/Broken Hill",
+              "Australia/Darwin",
+              "Australia/Eucla",
+              "Australia/Hobart",
+              "Australia/Lindeman",
+              "Australia/Lord Howe",
+              "Australia/Melbourne",
+              "Australia/Perth",
+              "Australia/Sydney",
+              "Etc/GMT",
+              "Etc/GMT+1",
+              "Etc/GMT+10",
+              "Etc/GMT+11",
+              "Etc/GMT+12",
+              "Etc/GMT+2",
+              "Etc/GMT+3",
+              "Etc/GMT+4",
+              "Etc/GMT+5",
+              "Etc/GMT+6",
+              "Etc/GMT+7",
+              "Etc/GMT+8",
+              "Etc/GMT+9",
+              "Etc/GMT-1",
+              "Etc/GMT-10",
+              "Etc/GMT-11",
+              "Etc/GMT-12",
+              "Etc/GMT-13",
+              "Etc/GMT-14",
+              "Etc/GMT-2",
+              "Etc/GMT-3",
+              "Etc/GMT-4",
+              "Etc/GMT-5",
+              "Etc/GMT-6",
+              "Etc/GMT-7",
+              "Etc/GMT-8",
+              "Etc/GMT-9",
+              "Europe/Amsterdam",
+              "Europe/Andorra",
+              "Europe/Astrakhan",
+              "Europe/Athens",
+              "Europe/Belgrade",
+              "Europe/Berlin",
+              "Europe/Bratislava",
+              "Europe/Brussels",
+              "Europe/Bucharest",
+              "Europe/Budapest",
+              "Europe/Busingen",
+              "Europe/Chisinau",
+              "Europe/Copenhagen",
+              "Europe/Dublin",
+              "Europe/Gibraltar",
+              "Europe/Guernsey",
+              "Europe/Helsinki",
+              "Europe/Isle of Man",
+              "Europe/Istanbul",
+              "Europe/Jersey",
+              "Europe/Kaliningrad",
+              "Europe/Kirov",
+              "Europe/Kyiv",
+              "Europe/Lisbon",
+              "Europe/Ljubljana",
+              "Europe/London",
+              "Europe/Luxembourg",
+              "Europe/Madrid",
+              "Europe/Malta",
+              "Europe/Mariehamn",
+              "Europe/Minsk",
+              "Europe/Monaco",
+              "Europe/Moscow",
+              "Europe/Oslo",
+              "Europe/Paris",
+              "Europe/Podgorica",
+              "Europe/Prague",
+              "Europe/Riga",
+              "Europe/Rome",
+              "Europe/Samara",
+              "Europe/San Marino",
+              "Europe/Sarajevo",
+              "Europe/Saratov",
+              "Europe/Simferopol",
+              "Europe/Skopje",
+              "Europe/Sofia",
+              "Europe/Stockholm",
+              "Europe/Tallinn",
+              "Europe/Tirane",
+              "Europe/Ulyanovsk",
+              "Europe/Vaduz",
+              "Europe/Vatican",
+              "Europe/Vienna",
+              "Europe/Vilnius",
+              "Europe/Volgograd",
+              "Europe/Warsaw",
+              "Europe/Zagreb",
+              "Europe/Zurich",
+              "Indian/Antananarivo",
+              "Indian/Chagos",
+              "Indian/Christmas",
+              "Indian/Cocos",
+              "Indian/Comoro",
+              "Indian/Kerguelen",
+              "Indian/Mahe",
+              "Indian/Maldives",
+              "Indian/Mauritius",
+              "Indian/Mayotte",
+              "Indian/Reunion",
+              "Pacific/Apia",
+              "Pacific/Auckland",
+              "Pacific/Bougainville",
+              "Pacific/Chatham",
+              "Pacific/Chuuk",
+              "Pacific/Easter",
+              "Pacific/Efate",
+              "Pacific/Fakaofo",
+              "Pacific/Fiji",
+              "Pacific/Funafuti",
+              "Pacific/Galapagos",
+              "Pacific/Gambier",
+              "Pacific/Guadalcanal",
+              "Pacific/Guam",
+              "Pacific/Honolulu",
+              "Pacific/Kanton",
+              "Pacific/Kiritimati",
+              "Pacific/Kosrae",
+              "Pacific/Kwajalein",
+              "Pacific/Majuro",
+              "Pacific/Marquesas",
+              "Pacific/Midway",
+              "Pacific/Nauru",
+              "Pacific/Niue",
+              "Pacific/Norfolk",
+              "Pacific/Noumea",
+              "Pacific/Pago Pago",
+              "Pacific/Palau",
+              "Pacific/Pitcairn",
+              "Pacific/Pohnpei",
+              "Pacific/Port Moresby",
+              "Pacific/Rarotonga",
+              "Pacific/Saipan",
+              "Pacific/Tahiti",
+              "Pacific/Tarawa",
+              "Pacific/Tongatapu",
+              "Pacific/Wake",
+              "Pacific/Wallis"
+            ],
+            "current_time": "2026-10-20 08:32:55",
+            "ntp_switch": 1,
+            "ntp_server3": "2.openwrt.pool.ntp.org",
+            "ntp_server4": "3.openwrt.pool.ntp.org"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.898-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "ntp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:55.946-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:55.946-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_ntp"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "zonename": "Africa/Johannesburg",
+                "ntp_server2": "1.openwrt.pool.ntp.org",
+                "ntp_server1": "0.openwrt.pool.ntp.org",
+                "timezone": "SAST-2",
+                "timezone_list": [
+                  "UTC",
+                  "Africa/Abidjan",
+                  "Africa/Accra",
+                  "Africa/Addis Ababa",
+                  "Africa/Algiers",
+                  "Africa/Asmara",
+                  "Africa/Bamako",
+                  "Africa/Bangui",
+                  "Africa/Banjul",
+                  "Africa/Bissau",
+                  "Africa/Blantyre",
+                  "Africa/Brazzaville",
+                  "Africa/Bujumbura",
+                  "Africa/Cairo",
+                  "Africa/Casablanca",
+                  "Africa/Ceuta",
+                  "Africa/Conakry",
+                  "Africa/Dakar",
+                  "Africa/Dar es Salaam",
+                  "Africa/Djibouti",
+                  "Africa/Douala",
+                  "Africa/El Aaiun",
+                  "Africa/Freetown",
+                  "Africa/Gaborone",
+                  "Africa/Harare",
+                  "Africa/Johannesburg",
+                  "Africa/Juba",
+                  "Africa/Kampala",
+                  "Africa/Khartoum",
+                  "Africa/Kigali",
+                  "Africa/Kinshasa",
+                  "Africa/Lagos",
+                  "Africa/Libreville",
+                  "Africa/Lome",
+                  "Africa/Luanda",
+                  "Africa/Lubumbashi",
+                  "Africa/Lusaka",
+                  "Africa/Malabo",
+                  "Africa/Maputo",
+                  "Africa/Maseru",
+                  "Africa/Mbabane",
+                  "Africa/Mogadishu",
+                  "Africa/Monrovia",
+                  "Africa/Nairobi",
+                  "Africa/Ndjamena",
+                  "Africa/Niamey",
+                  "Africa/Nouakchott",
+                  "Africa/Ouagadougou",
+                  "Africa/Porto-Novo",
+                  "Africa/Sao Tome",
+                  "Africa/Tripoli",
+                  "Africa/Tunis",
+                  "Africa/Windhoek",
+                  "America/Adak",
+                  "America/Anchorage",
+                  "America/Anguilla",
+                  "America/Antigua",
+                  "America/Araguaina",
+                  "America/Argentina/Buenos Aires",
+                  "America/Argentina/Catamarca",
+                  "America/Argentina/Cordoba",
+                  "America/Argentina/Jujuy",
+                  "America/Argentina/La Rioja",
+                  "America/Argentina/Mendoza",
+                  "America/Argentina/Rio Gallegos",
+                  "America/Argentina/Salta",
+                  "America/Argentina/San Juan",
+                  "America/Argentina/San Luis",
+                  "America/Argentina/Tucuman",
+                  "America/Argentina/Ushuaia",
+                  "America/Aruba",
+                  "America/Asuncion",
+                  "America/Atikokan",
+                  "America/Bahia",
+                  "America/Bahia Banderas",
+                  "America/Barbados",
+                  "America/Belem",
+                  "America/Belize",
+                  "America/Blanc-Sablon",
+                  "America/Boa Vista",
+                  "America/Bogota",
+                  "America/Boise",
+                  "America/Cambridge Bay",
+                  "America/Campo Grande",
+                  "America/Cancun",
+                  "America/Caracas",
+                  "America/Cayenne",
+                  "America/Cayman",
+                  "America/Chicago",
+                  "America/Chihuahua",
+                  "America/Costa Rica",
+                  "America/Creston",
+                  "America/Cuiaba",
+                  "America/Curacao",
+                  "America/Danmarkshavn",
+                  "America/Dawson",
+                  "America/Dawson Creek",
+                  "America/Denver",
+                  "America/Detroit",
+                  "America/Dominica",
+                  "America/Edmonton",
+                  "America/Eirunepe",
+                  "America/El Salvador",
+                  "America/Fort Nelson",
+                  "America/Fortaleza",
+                  "America/Glace Bay",
+                  "America/Goose Bay",
+                  "America/Grand Turk",
+                  "America/Grenada",
+                  "America/Guadeloupe",
+                  "America/Guatemala",
+                  "America/Guayaquil",
+                  "America/Guyana",
+                  "America/Halifax",
+                  "America/Havana",
+                  "America/Hermosillo",
+                  "America/Indiana/Indianapolis",
+                  "America/Indiana/Knox",
+                  "America/Indiana/Marengo",
+                  "America/Indiana/Petersburg",
+                  "America/Indiana/Tell City",
+                  "America/Indiana/Vevay",
+                  "America/Indiana/Vincennes",
+                  "America/Indiana/Winamac",
+                  "America/Inuvik",
+                  "America/Iqaluit",
+                  "America/Jamaica",
+                  "America/Juneau",
+                  "America/Kentucky/Louisville",
+                  "America/Kentucky/Monticello",
+                  "America/Kralendijk",
+                  "America/La Paz",
+                  "America/Lima",
+                  "America/Los Angeles",
+                  "America/Lower Princes",
+                  "America/Maceio",
+                  "America/Managua",
+                  "America/Manaus",
+                  "America/Marigot",
+                  "America/Martinique",
+                  "America/Matamoros",
+                  "America/Mazatlan",
+                  "America/Menominee",
+                  "America/Merida",
+                  "America/Metlakatla",
+                  "America/Mexico City",
+                  "America/Miquelon",
+                  "America/Moncton",
+                  "America/Monterrey",
+                  "America/Montevideo",
+                  "America/Montserrat",
+                  "America/Nassau",
+                  "America/New York",
+                  "America/Nipigon",
+                  "America/Nome",
+                  "America/Noronha",
+                  "America/North Dakota/Beulah",
+                  "America/North Dakota/Center",
+                  "America/North Dakota/New Salem",
+                  "America/Nuuk",
+                  "America/Ojinaga",
+                  "America/Panama",
+                  "America/Pangnirtung",
+                  "America/Paramaribo",
+                  "America/Phoenix",
+                  "America/Port of Spain",
+                  "America/Port-au-Prince",
+                  "America/Porto Velho",
+                  "America/Puerto Rico",
+                  "America/Punta Arenas",
+                  "America/Rainy River",
+                  "America/Rankin Inlet",
+                  "America/Recife",
+                  "America/Regina",
+                  "America/Resolute",
+                  "America/Rio Branco",
+                  "America/Santarem",
+                  "America/Santiago",
+                  "America/Santo Domingo",
+                  "America/Sao Paulo",
+                  "America/Scoresbysund",
+                  "America/Sitka",
+                  "America/St Barthelemy",
+                  "America/St Johns",
+                  "America/St Kitts",
+                  "America/St Lucia",
+                  "America/St Thomas",
+                  "America/St Vincent",
+                  "America/Swift Current",
+                  "America/Tegucigalpa",
+                  "America/Thule",
+                  "America/Thunder Bay",
+                  "America/Tijuana",
+                  "America/Toronto",
+                  "America/Tortola",
+                  "America/Vancouver",
+                  "America/Whitehorse",
+                  "America/Winnipeg",
+                  "America/Yakutat",
+                  "America/Yellowknife",
+                  "Antarctica/Casey",
+                  "Antarctica/Davis",
+                  "Antarctica/DumontDUrville",
+                  "Antarctica/Macquarie",
+                  "Antarctica/Mawson",
+                  "Antarctica/McMurdo",
+                  "Antarctica/Palmer",
+                  "Antarctica/Rothera",
+                  "Antarctica/Syowa",
+                  "Antarctica/Troll",
+                  "Antarctica/Vostok",
+                  "Arctic/Longyearbyen",
+                  "Asia/Aden",
+                  "Asia/Almaty",
+                  "Asia/Amman",
+                  "Asia/Anadyr",
+                  "Asia/Aqtau",
+                  "Asia/Aqtobe",
+                  "Asia/Ashgabat",
+                  "Asia/Atyrau",
+                  "Asia/Baghdad",
+                  "Asia/Bahrain",
+                  "Asia/Baku",
+                  "Asia/Bangkok",
+                  "Asia/Barnaul",
+                  "Asia/Beirut",
+                  "Asia/Bishkek",
+                  "Asia/Brunei",
+                  "Asia/Chita",
+                  "Asia/Choibalsan",
+                  "Asia/Colombo",
+                  "Asia/Damascus",
+                  "Asia/Dhaka",
+                  "Asia/Dili",
+                  "Asia/Dubai",
+                  "Asia/Dushanbe",
+                  "Asia/Famagusta",
+                  "Asia/Gaza",
+                  "Asia/Hebron",
+                  "Asia/Ho Chi Minh",
+                  "Asia/Hong Kong",
+                  "Asia/Hovd",
+                  "Asia/Irkutsk",
+                  "Asia/Jakarta",
+                  "Asia/Jayapura",
+                  "Asia/Jerusalem",
+                  "Asia/Kabul",
+                  "Asia/Kamchatka",
+                  "Asia/Karachi",
+                  "Asia/Kathmandu",
+                  "Asia/Khandyga",
+                  "Asia/Kolkata",
+                  "Asia/Krasnoyarsk",
+                  "Asia/Kuala Lumpur",
+                  "Asia/Kuching",
+                  "Asia/Kuwait",
+                  "Asia/Macau",
+                  "Asia/Magadan",
+                  "Asia/Makassar",
+                  "Asia/Manila",
+                  "Asia/Muscat",
+                  "Asia/Nicosia",
+                  "Asia/Novokuznetsk",
+                  "Asia/Novosibirsk",
+                  "Asia/Omsk",
+                  "Asia/Oral",
+                  "Asia/Phnom Penh",
+                  "Asia/Pontianak",
+                  "Asia/Pyongyang",
+                  "Asia/Qatar",
+                  "Asia/Qostanay",
+                  "Asia/Qyzylorda",
+                  "Asia/Riyadh",
+                  "Asia/Sakhalin",
+                  "Asia/Samarkand",
+                  "Asia/Seoul",
+                  "Asia/Shanghai",
+                  "Asia/Singapore",
+                  "Asia/Srednekolymsk",
+                  "Asia/Taipei",
+                  "Asia/Tashkent",
+                  "Asia/Tbilisi",
+                  "Asia/Tehran",
+                  "Asia/Thimphu",
+                  "Asia/Tokyo",
+                  "Asia/Tomsk",
+                  "Asia/Ulaanbaatar",
+                  "Asia/Urumqi",
+                  "Asia/Ust-Nera",
+                  "Asia/Vientiane",
+                  "Asia/Vladivostok",
+                  "Asia/Yakutsk",
+                  "Asia/Yangon",
+                  "Asia/Yekaterinburg",
+                  "Asia/Yerevan",
+                  "Atlantic/Azores",
+                  "Atlantic/Bermuda",
+                  "Atlantic/Canary",
+                  "Atlantic/Cape Verde",
+                  "Atlantic/Faroe",
+                  "Atlantic/Madeira",
+                  "Atlantic/Reykjavik",
+                  "Atlantic/South Georgia",
+                  "Atlantic/St Helena",
+                  "Atlantic/Stanley",
+                  "Australia/Adelaide",
+                  "Australia/Brisbane",
+                  "Australia/Broken Hill",
+                  "Australia/Darwin",
+                  "Australia/Eucla",
+                  "Australia/Hobart",
+                  "Australia/Lindeman",
+                  "Australia/Lord Howe",
+                  "Australia/Melbourne",
+                  "Australia/Perth",
+                  "Australia/Sydney",
+                  "Etc/GMT",
+                  "Etc/GMT+1",
+                  "Etc/GMT+10",
+                  "Etc/GMT+11",
+                  "Etc/GMT+12",
+                  "Etc/GMT+2",
+                  "Etc/GMT+3",
+                  "Etc/GMT+4",
+                  "Etc/GMT+5",
+                  "Etc/GMT+6",
+                  "Etc/GMT+7",
+                  "Etc/GMT+8",
+                  "Etc/GMT+9",
+                  "Etc/GMT-1",
+                  "Etc/GMT-10",
+                  "Etc/GMT-11",
+                  "Etc/GMT-12",
+                  "Etc/GMT-13",
+                  "Etc/GMT-14",
+                  "Etc/GMT-2",
+                  "Etc/GMT-3",
+                  "Etc/GMT-4",
+                  "Etc/GMT-5",
+                  "Etc/GMT-6",
+                  "Etc/GMT-7",
+                  "Etc/GMT-8",
+                  "Etc/GMT-9",
+                  "Europe/Amsterdam",
+                  "Europe/Andorra",
+                  "Europe/Astrakhan",
+                  "Europe/Athens",
+                  "Europe/Belgrade",
+                  "Europe/Berlin",
+                  "Europe/Bratislava",
+                  "Europe/Brussels",
+                  "Europe/Bucharest",
+                  "Europe/Budapest",
+                  "Europe/Busingen",
+                  "Europe/Chisinau",
+                  "Europe/Copenhagen",
+                  "Europe/Dublin",
+                  "Europe/Gibraltar",
+                  "Europe/Guernsey",
+                  "Europe/Helsinki",
+                  "Europe/Isle of Man",
+                  "Europe/Istanbul",
+                  "Europe/Jersey",
+                  "Europe/Kaliningrad",
+                  "Europe/Kirov",
+                  "Europe/Kyiv",
+                  "Europe/Lisbon",
+                  "Europe/Ljubljana",
+                  "Europe/London",
+                  "Europe/Luxembourg",
+                  "Europe/Madrid",
+                  "Europe/Malta",
+                  "Europe/Mariehamn",
+                  "Europe/Minsk",
+                  "Europe/Monaco",
+                  "Europe/Moscow",
+                  "Europe/Oslo",
+                  "Europe/Paris",
+                  "Europe/Podgorica",
+                  "Europe/Prague",
+                  "Europe/Riga",
+                  "Europe/Rome",
+                  "Europe/Samara",
+                  "Europe/San Marino",
+                  "Europe/Sarajevo",
+                  "Europe/Saratov",
+                  "Europe/Simferopol",
+                  "Europe/Skopje",
+                  "Europe/Sofia",
+                  "Europe/Stockholm",
+                  "Europe/Tallinn",
+                  "Europe/Tirane",
+                  "Europe/Ulyanovsk",
+                  "Europe/Vaduz",
+                  "Europe/Vatican",
+                  "Europe/Vienna",
+                  "Europe/Vilnius",
+                  "Europe/Volgograd",
+                  "Europe/Warsaw",
+                  "Europe/Zagreb",
+                  "Europe/Zurich",
+                  "Indian/Antananarivo",
+                  "Indian/Chagos",
+                  "Indian/Christmas",
+                  "Indian/Cocos",
+                  "Indian/Comoro",
+                  "Indian/Kerguelen",
+                  "Indian/Mahe",
+                  "Indian/Maldives",
+                  "Indian/Mauritius",
+                  "Indian/Mayotte",
+                  "Indian/Reunion",
+                  "Pacific/Apia",
+                  "Pacific/Auckland",
+                  "Pacific/Bougainville",
+                  "Pacific/Chatham",
+                  "Pacific/Chuuk",
+                  "Pacific/Easter",
+                  "Pacific/Efate",
+                  "Pacific/Fakaofo",
+                  "Pacific/Fiji",
+                  "Pacific/Funafuti",
+                  "Pacific/Galapagos",
+                  "Pacific/Gambier",
+                  "Pacific/Guadalcanal",
+                  "Pacific/Guam",
+                  "Pacific/Honolulu",
+                  "Pacific/Kanton",
+                  "Pacific/Kiritimati",
+                  "Pacific/Kosrae",
+                  "Pacific/Kwajalein",
+                  "Pacific/Majuro",
+                  "Pacific/Marquesas",
+                  "Pacific/Midway",
+                  "Pacific/Nauru",
+                  "Pacific/Niue",
+                  "Pacific/Norfolk",
+                  "Pacific/Noumea",
+                  "Pacific/Pago Pago",
+                  "Pacific/Palau",
+                  "Pacific/Pitcairn",
+                  "Pacific/Pohnpei",
+                  "Pacific/Port Moresby",
+                  "Pacific/Rarotonga",
+                  "Pacific/Saipan",
+                  "Pacific/Tahiti",
+                  "Pacific/Tarawa",
+                  "Pacific/Tongatapu",
+                  "Pacific/Wake",
+                  "Pacific/Wallis"
+                ],
+                "current_time": "2026-10-20 08:32:55",
+                "ntp_switch": 1,
+                "ntp_server3": "2.openwrt.pool.ntp.org",
+                "ntp_server4": "3.openwrt.pool.ntp.org"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "reboot_schedule",
+      "output": {
+        "status": "returned",
+        "data": {
+          "schTime": "00;00",
+          "action": "Disable",
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:55.950-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "reboot_schedule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:56.007-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:56.007-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "schTime": "00;00",
+              "action": "Disable",
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "tr069",
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "enable": "1",
+            "cpe_password": "[REDACTED]",
+            "cpe_apn": "auto",
+            "periodic_interval": "3600",
+            "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+            "cpe_username": "cpeadmin",
+            "periodic_enable": "1",
+            "acs_password": "[REDACTED]",
+            "acs_username": "cpepsk"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:56.010-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "tr069",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:56.070-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:56.070-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_tr069"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "enable": "1",
+                "cpe_password": "[REDACTED]",
+                "cpe_apn": "auto",
+                "periodic_interval": "3600",
+                "acs_url": "https://device.rain.network:7548/tr069/ServiceHandle",
+                "cpe_username": "cpeadmin",
+                "periodic_enable": "1",
+                "acs_password": "[REDACTED]",
+                "acs_username": "cpepsk"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "gps",
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-19T23:32:56.072-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 14,
+              "section": "gps",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-19T23:32:56.123-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-19T23:32:56.123-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-19T23:32:56.180-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-19T23:32:56.814-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-19T23:32:56.865-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_gps/get_gps",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        }
+      }
+    },
+    {
+      "section": "wifi",
+      "output": {
+        "status": "returned",
+        "data": {
+          "5G_code": "200",
+          "2.4G_code": "200",
+          "5G": {
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "hidden": "0",
+            "state": "up",
+            "Channel": "0",
+            "authmode": "WPA2PSKWPA3PSK",
+            "wpapsk": "[REDACTED]",
+            "WirelessMode": "23",
+            "BandWidth": "3"
+          },
+          "Unity_switch": "OFF",
+          "2.4G": {
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "hidden": "0",
+            "state": "up",
+            "Channel": "0",
+            "authmode": "WPA2PSKWPA3PSK",
+            "wpapsk": "[REDACTED]",
+            "WirelessMode": "22",
+            "BandWidth": "1"
+          },
+          "Unity_code": "200",
+          "Unity": {
+            "state": "up",
+            "ssid": "[REDACTED]",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "authmode": "WPA2PSKWPA3PSK",
+            "hidden": "0",
+            "wpapsk": "[REDACTED]"
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "5G",
+                "ssid"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "5G",
+                "state"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "5G",
+                "Channel"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "5G",
+                "BandWidth"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "2.4G",
+                "ssid"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "2.4G",
+                "state"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "2.4G",
+                "Channel"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "2.4G",
+                "BandWidth"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:56.869-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "wifi",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:57.118-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_ssidPage_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "5G",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "Channel"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "5G",
+                    "BandWidth"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "Channel"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "2.4G",
+                    "BandWidth"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:57.118-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_ssidPage_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "5G_code": "200",
+              "2.4G_code": "200",
+              "5G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "23",
+                "BandWidth": "3"
+              },
+              "Unity_switch": "OFF",
+              "2.4G": {
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "hidden": "0",
+                "state": "up",
+                "Channel": "0",
+                "authmode": "WPA2PSKWPA3PSK",
+                "wpapsk": "[REDACTED]",
+                "WirelessMode": "22",
+                "BandWidth": "1"
+              },
+              "Unity_code": "200",
+              "Unity": {
+                "state": "up",
+                "ssid": "[REDACTED]",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "authmode": "WPA2PSKWPA3PSK",
+                "hidden": "0",
+                "wpapsk": "[REDACTED]"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "section": "guest",
+      "output": {
+        "status": "returned",
+        "data": {
+          "Guest5G": {
+            "state": "down",
+            "ssid": "[REDACTED]",
+            "on_mode": "Only",
+            "authmode": "Disable",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "wpapsk": "[REDACTED]",
+            "closetime": "NONE"
+          },
+          "Guest_code": "200",
+          "Guest5G_code": "200",
+          "Guest": {
+            "state": "down",
+            "ssid": "[REDACTED]",
+            "on_mode": "Only",
+            "authmode": "Disable",
+            "AuthModeList": [
+              "Disable",
+              "OPEN",
+              "Enhanced Open",
+              "SHARED",
+              "WEPAUTO",
+              "WPA2",
+              "WPA3",
+              "WPA3-192-bit",
+              "WPA2PSK",
+              "WPA3PSK",
+              "WPAPSKWPA2PSK",
+              "WPA2PSKWPA3PSK",
+              "WPA1WPA2",
+              "IEEE8021X"
+            ],
+            "wpapsk": "[REDACTED]",
+            "closetime": "NONE"
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "Guest",
+                "ssid"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "Guest",
+                "state"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "Guest",
+                "on_mode"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "Guest5G",
+                "ssid"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "Guest5G",
+                "state"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "Guest5G",
+                "on_mode"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-19T23:32:57.120-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "guest",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-19T23:32:57.369-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_guestPage_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "Guest",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "Guest",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "Guest",
+                    "on_mode"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "Guest5G",
+                    "ssid"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "Guest5G",
+                    "state"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "Guest5G",
+                    "on_mode"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-19T23:32:57.369-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_guestPage_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "Guest5G": {
+                "state": "down",
+                "ssid": "[REDACTED]",
+                "on_mode": "Only",
+                "authmode": "Disable",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "wpapsk": "[REDACTED]",
+                "closetime": "NONE"
+              },
+              "Guest_code": "200",
+              "Guest5G_code": "200",
+              "Guest": {
+                "state": "down",
+                "ssid": "[REDACTED]",
+                "on_mode": "Only",
+                "authmode": "Disable",
+                "AuthModeList": [
+                  "Disable",
+                  "OPEN",
+                  "Enhanced Open",
+                  "SHARED",
+                  "WEPAUTO",
+                  "WPA2",
+                  "WPA3",
+                  "WPA3-192-bit",
+                  "WPA2PSK",
+                  "WPA3PSK",
+                  "WPAPSKWPA2PSK",
+                  "WPA2PSKWPA3PSK",
+                  "WPA1WPA2",
+                  "IEEE8021X"
+                ],
+                "wpapsk": "[REDACTED]",
+                "closetime": "NONE"
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ]
+}

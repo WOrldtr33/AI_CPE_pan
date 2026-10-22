@@ -1,0 +1,3007 @@
+{
+  "at": "2026-10-20T08:52:11.237Z",
+  "records": [
+    {
+      "key": "signal_records",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": ""
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:11.485-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "signal_records",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:12.174-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:12.174-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": ""
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "signal_start",
+      "args": {},
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0",
+          "index": "3",
+          "name": "fl416112",
+          "local": "房间1",
+          "time": "1792486343",
+          "sigal": "-82 dBm",
+          "qos": "3"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:12.178-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "signal_start",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:22.974-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "start"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:22.974-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "start"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0",
+              "index": "3",
+              "name": "fl416112",
+              "local": "房间1",
+              "time": "1792486343",
+              "sigal": "-82 dBm",
+              "qos": "3"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "signal_record",
+      "args": {
+        "index": "3",
+        "name": "fl416112",
+        "sigal": "-82 dBm",
+        "time": "1792486343",
+        "qos": "3",
+        "position": "codex-write-fix"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:22.981-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "signal_record",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.039-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "write_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.039-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "write_file"
+            },
+            "params": {
+              "index": "3",
+              "name": "fl416112",
+              "position": "codex-write-fix",
+              "sigal": "-82 dBm",
+              "time": "1792486343",
+              "qos": "3"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "signal_records",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "count": "1",
+          "data": {
+            "data1": {
+              "index": "3",
+              "name": "fl416112",
+              "local": "codex-write-fix",
+              "time": "1792486343",
+              "sigal": "-82 dBm",
+              "qos": "3"
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.042-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "signal_records",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.101-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.101-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "count": "1",
+              "data": {
+                "data1": {
+                  "index": "3",
+                  "name": "fl416112",
+                  "local": "codex-write-fix",
+                  "time": "1792486343",
+                  "sigal": "-82 dBm",
+                  "qos": "3"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "signal_record_edit",
+      "args": {
+        "index": "3",
+        "name": "fl416112",
+        "position": "codex-write-fix-edited"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.104-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "signal_record_edit",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.164-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "modify_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.164-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "modify_file"
+            },
+            "params": {
+              "index": "3",
+              "name": "fl416112",
+              "position": "codex-write-fix-edited"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "signal_records",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "count": "1",
+          "data": {
+            "data1": {
+              "index": "3",
+              "name": "fl416112",
+              "local": "codex-write-fix-edited",
+              "time": "1792486343",
+              "sigal": "-82 dBm",
+              "qos": "3"
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.167-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "signal_records",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.226-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.226-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "count": "1",
+              "data": {
+                "data1": {
+                  "index": "3",
+                  "name": "fl416112",
+                  "local": "codex-write-fix-edited",
+                  "time": "1792486343",
+                  "sigal": "-82 dBm",
+                  "qos": "3"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "signal_records",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "count": "1",
+          "data": {
+            "data1": {
+              "index": "3",
+              "name": "fl416112",
+              "local": "codex-write-fix-edited",
+              "time": "1792486343",
+              "sigal": "-82 dBm",
+              "qos": "3"
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.229-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "signal_records",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.289-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.289-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "count": "1",
+              "data": {
+                "data1": {
+                  "index": "3",
+                  "name": "fl416112",
+                  "local": "codex-write-fix-edited",
+                  "time": "1792486343",
+                  "sigal": "-82 dBm",
+                  "qos": "3"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "signal_record_delete",
+      "args": {
+        "index": "3"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.291-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "signal_record_delete",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.337-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "delet_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.337-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "delet_file"
+            },
+            "params": {
+              "index": "3"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "signal_records",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": ""
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.341-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "signal_records",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.400-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.400-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "position_sigal",
+              "method": "read_file"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": ""
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": ""
+        },
+        "reading": {
+          "state": "empty",
+          "count": 0,
+          "text": "本次电话本查询没有条目"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.404-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "phonebook",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.463-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.463-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "params": {
+              "device": "1",
+              "type": "ALL"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": ""
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "phonebook_write",
+      "args": {
+        "name": "codex-fix-1792486343466",
+        "device": "1",
+        "type": "0",
+        "numb": "[REDACTED]",
+        "numb_house": "[REDACTED]",
+        "numb_work": "[REDACTED]",
+        "email": "[REDACTED]",
+        "flag": "0"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.469-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "phonebook_write",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.526-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "write_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.526-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "write_book"
+            },
+            "params": {
+              "name": "codex-fix-1792486343466",
+              "type": "0",
+              "device": "1",
+              "numb": "[REDACTED]",
+              "numb_house": "[REDACTED]",
+              "numb_work": "[REDACTED]",
+              "email": "[REDACTED]",
+              "flag": "0"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": {
+            "data1": {
+              "type": "0",
+              "deve": "1",
+              "name": "codex-fix-1792486343466",
+              "numb": "[REDACTED]",
+              "index": "3",
+              "email": "[REDACTED]",
+              "numb_house": "[REDACTED]",
+              "numb_work": "[REDACTED]"
+            }
+          }
+        },
+        "reading": {
+          "state": "entries",
+          "count": 1,
+          "text": "本次返回 1 个电话本条目"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.528-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "phonebook",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.576-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.576-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "params": {
+              "device": "1",
+              "type": "ALL"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": {
+                "data1": {
+                  "type": "0",
+                  "deve": "1",
+                  "name": "codex-fix-1792486343466",
+                  "numb": "[REDACTED]",
+                  "index": "3",
+                  "email": "[REDACTED]",
+                  "numb_house": "[REDACTED]",
+                  "numb_work": "[REDACTED]"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "phonebook_write",
+      "args": {
+        "name": "codex-fix-1792486343466",
+        "device": "1",
+        "type": "1",
+        "numb": "[REDACTED]",
+        "numb_house": "[REDACTED]",
+        "numb_work": "[REDACTED]",
+        "email": "[REDACTED]",
+        "flag": "1",
+        "index": "3"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.580-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "phonebook_write",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.639-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "write_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.639-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "write_book"
+            },
+            "params": {
+              "name": "codex-fix-1792486343466",
+              "type": "1",
+              "device": "1",
+              "index": "3",
+              "numb": "[REDACTED]",
+              "numb_house": "[REDACTED]",
+              "numb_work": "[REDACTED]",
+              "email": "[REDACTED]",
+              "flag": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": {
+            "data1": {
+              "type": "1",
+              "deve": "1",
+              "name": "codex-fix-1792486343466",
+              "numb": "[REDACTED]",
+              "index": "4",
+              "email": "[REDACTED]",
+              "numb_house": "[REDACTED]",
+              "numb_work": "[REDACTED]"
+            }
+          }
+        },
+        "reading": {
+          "state": "entries",
+          "count": 1,
+          "text": "本次返回 1 个电话本条目"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.642-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "phonebook",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.687-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.687-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "params": {
+              "device": "1",
+              "type": "ALL"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": {
+                "data1": {
+                  "type": "1",
+                  "deve": "1",
+                  "name": "codex-fix-1792486343466",
+                  "numb": "[REDACTED]",
+                  "index": "4",
+                  "email": "[REDACTED]",
+                  "numb_house": "[REDACTED]",
+                  "numb_work": "[REDACTED]"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": {
+            "data1": {
+              "type": "1",
+              "deve": "1",
+              "name": "codex-fix-1792486343466",
+              "numb": "[REDACTED]",
+              "index": "4",
+              "email": "[REDACTED]",
+              "numb_house": "[REDACTED]",
+              "numb_work": "[REDACTED]"
+            }
+          }
+        },
+        "reading": {
+          "state": "entries",
+          "count": 1,
+          "text": "本次返回 1 个电话本条目"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.690-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "phonebook",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.751-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.751-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "params": {
+              "device": "1",
+              "type": "ALL"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": {
+                "data1": {
+                  "type": "1",
+                  "deve": "1",
+                  "name": "codex-fix-1792486343466",
+                  "numb": "[REDACTED]",
+                  "index": "4",
+                  "email": "[REDACTED]",
+                  "numb_house": "[REDACTED]",
+                  "numb_work": "[REDACTED]"
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "phonebook_delete",
+      "args": {
+        "device": "1",
+        "index": "4"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": "0",
+          "ok": "4",
+          "fail": ""
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.756-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "phonebook_delete",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.813-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "delet_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.813-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "delet_book"
+            },
+            "params": {
+              "device": "1",
+              "index": "4"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": "0",
+              "ok": "4",
+              "fail": ""
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "code": "0",
+          "data": ""
+        },
+        "reading": {
+          "state": "empty",
+          "count": 0,
+          "text": "本次电话本查询没有条目"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.816-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 17,
+            "section": "phonebook",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.879-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.879-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "phone_book",
+              "method": "read_book"
+            },
+            "params": {
+              "device": "1",
+              "type": "ALL"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "code": "0",
+              "data": ""
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "reboot_schedule",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "schTime": "00;00",
+          "action": "Disable",
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.884-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 18,
+            "section": "reboot_schedule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:23.942-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:23.942-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "schTime": "00;00",
+              "action": "Disable",
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "reboot_schedule",
+      "args": {
+        "action": "Disable",
+        "schweek": "",
+        "schTime": "00;00"
+      },
+      "write": true,
+      "output": {
+        "status": "device_warning",
+        "data": {
+          "code": "409"
+        },
+        "warnings": [
+          {
+            "field": "code",
+            "value": "409"
+          }
+        ],
+        "businessOutcome": "not_modified",
+        "validation": {
+          "status": "skipped_business_warning",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+            "Key fields were not required because the device reported a business warning."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "device_warning",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:23.946-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 19,
+            "section": "reboot_schedule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:24.005-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "set_rebootSch_cfg"
+            },
+            "validation": {
+              "status": "skipped_business_warning",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                "Key fields were not required because the device reported a business warning."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:24.005-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "set_rebootSch_cfg"
+            },
+            "params": {
+              "action": "Disable",
+              "schweek": "",
+              "schTime": "00;00"
+            },
+            "withCookie": true,
+            "outcome": "device_warning",
+            "data": {
+              "code": "409"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "reboot_schedule",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "schTime": "00;00",
+          "action": "Disable",
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:24.008-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 20,
+            "section": "reboot_schedule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:24.067-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:24.067-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "gen.attr",
+              "method": "get_rebootSch_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "schTime": "00;00",
+              "action": "Disable",
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "wifi_night",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "closeTime": "00;00",
+          "openTime": "00;00",
+          "action": "Disable"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:24.070-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 21,
+            "section": "wifi_night",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:24.302-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_NigWifi_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:24.302-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_NigWifi_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "closeTime": "00;00",
+              "openTime": "00;00",
+              "action": "Disable"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "key": "wifi_night",
+      "args": {
+        "action": "Disable",
+        "openTime": "00;00",
+        "closeTime": "00;00"
+      },
+      "write": true,
+      "output": {
+        "status": "verified_fields",
+        "section": "wifi_night",
+        "verification": {
+          "state": "applied",
+          "fields": [
+            "action",
+            "openTime",
+            "closeTime"
+          ],
+          "unknownFields": []
+        },
+        "submissionOutcome": "not_modified",
+        "writeAttempts": 1,
+        "original": {
+          "action": "Disable",
+          "openTime": "00;00",
+          "closeTime": "00;00"
+        },
+        "expected": {
+          "action": "Disable",
+          "openTime": "00;00",
+          "closeTime": "00;00"
+        },
+        "observed": {
+          "action": "Disable",
+          "openTime": "00;00",
+          "closeTime": "00;00"
+        },
+        "alreadyMatchedBeforeWrite": true,
+        "steps": [
+          {
+            "phase": "baseline",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "closeTime": "00;00",
+                "openTime": "00;00",
+                "action": "Disable"
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-20T01:52:24.306-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 22,
+                  "section": "wifi_night",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-20T01:52:24.521-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-20T01:52:24.521-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "closeTime": "00;00",
+                    "openTime": "00;00",
+                    "action": "Disable"
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "before_write",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "closeTime": "00;00",
+                "openTime": "00;00",
+                "action": "Disable"
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-20T01:52:24.521-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 22,
+                  "section": "wifi_night",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-20T01:52:24.739-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-20T01:52:24.739-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "closeTime": "00;00",
+                    "openTime": "00;00",
+                    "action": "Disable"
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          },
+          {
+            "phase": "write",
+            "attempt": 1,
+            "output": {
+              "status": "device_warning",
+              "data": {
+                "code": "409"
+              },
+              "warnings": [
+                {
+                  "field": "code",
+                  "value": "409"
+                }
+              ],
+              "businessOutcome": "not_modified",
+              "validation": {
+                "status": "skipped_business_warning",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                  "Key fields were not required because the device reported a business warning."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "device_warning",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-20T01:52:24.740-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 22,
+                  "section": "wifi_night",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-20T01:52:24.943-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "set_NigWifi_cfg"
+                  },
+                  "validation": {
+                    "status": "skipped_business_warning",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+                      "Key fields were not required because the device reported a business warning."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-20T01:52:24.943-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "set_NigWifi_cfg"
+                  },
+                  "params": {
+                    "action": "Disable",
+                    "openTime": "00;00",
+                    "closeTime": "00;00"
+                  },
+                  "withCookie": true,
+                  "outcome": "device_warning",
+                  "data": {
+                    "code": "409"
+                  }
+                }
+              ],
+              "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+            }
+          },
+          {
+            "phase": "verification",
+            "poll": 1,
+            "output": {
+              "status": "returned",
+              "data": {
+                "closeTime": "00;00",
+                "openTime": "00;00",
+                "action": "Disable"
+              },
+              "warnings": [],
+              "validation": {
+                "status": "passed",
+                "coverage": "basic",
+                "basis": "generic_object_check",
+                "checkedFields": [],
+                "issues": [],
+                "limitations": [
+                  "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                ]
+              },
+              "diagnosticSummary": {
+                "outcome": "returned",
+                "rootCause": "not_applicable",
+                "permissionCheck": {
+                  "status": "not_run",
+                  "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+                },
+                "confirmedFindings": [],
+                "hypotheses": [],
+                "attempts": 1,
+                "retries": []
+              },
+              "diagnostics": [
+                {
+                  "at": "2026-10-20T01:52:24.944-07:00",
+                  "step": "queue",
+                  "evidence": "observation",
+                  "operationId": 22,
+                  "section": "wifi_night",
+                  "maxPending": 16,
+                  "waitTimeoutMs": 30000,
+                  "waitMs": 0,
+                  "policy": "fifo_per_device_instance",
+                  "state": "started"
+                },
+                {
+                  "at": "2026-10-20T01:52:25.210-07:00",
+                  "step": "response_validation",
+                  "evidence": "observation",
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "validation": {
+                    "status": "passed",
+                    "coverage": "basic",
+                    "basis": "generic_object_check",
+                    "checkedFields": [],
+                    "issues": [],
+                    "limitations": [
+                      "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+                    ]
+                  }
+                },
+                {
+                  "at": "2026-10-20T01:52:25.210-07:00",
+                  "step": "attempt",
+                  "evidence": "observation",
+                  "attempt": 1,
+                  "endpoint": {
+                    "transport": "ubus",
+                    "service": "mtk.wifi",
+                    "method": "get_NigWifi_info"
+                  },
+                  "params": {},
+                  "withCookie": false,
+                  "outcome": "returned",
+                  "data": {
+                    "closeTime": "00;00",
+                    "openTime": "00;00",
+                    "action": "Disable"
+                  }
+                }
+              ],
+              "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+            }
+          }
+        ],
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:24.521-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "baseline",
+            "poll": 1,
+            "values": {
+              "action": "Disable",
+              "openTime": "00;00",
+              "closeTime": "00;00"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "action",
+                "openTime",
+                "closeTime"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:24.739-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "before_write",
+            "poll": 1,
+            "values": {
+              "action": "Disable",
+              "openTime": "00;00",
+              "closeTime": "00;00"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "action",
+                "openTime",
+                "closeTime"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:24.944-07:00",
+            "step": "write_attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "outcome": "device_warning"
+          },
+          {
+            "at": "2026-10-20T01:52:25.210-07:00",
+            "step": "readback",
+            "evidence": "observation",
+            "phase": "verification",
+            "poll": 1,
+            "values": {
+              "action": "Disable",
+              "openTime": "00;00",
+              "closeTime": "00;00"
+            },
+            "unavailable": [],
+            "comparison": {
+              "matching": [
+                "action",
+                "openTime",
+                "closeTime"
+              ],
+              "different": [],
+              "unknown": [],
+              "allMatched": true
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:25.210-07:00",
+            "step": "verification_result",
+            "evidence": "observation",
+            "attempt": 1,
+            "state": "applied"
+          }
+        ],
+        "automaticRollback": false,
+        "note": "仅确认目标配置字段在回读时符合期望，不代表联网或配置持续不变。"
+      }
+    },
+    {
+      "key": "login",
+      "args": {
+        "username": "admin",
+        "salt": "[REDACTED]",
+        "password": "[REDACTED]"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0,
+          "sessionid": "[REDACTED]"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:25.216-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 23,
+            "section": "login",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:25.229-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "login"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:25.229-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "session",
+              "method": "login"
+            },
+            "params": {
+              "username": "admin",
+              "password": "[REDACTED]",
+              "salt": "[REDACTED]"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0,
+              "sessionid": "[REDACTED]"
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "key": "logout",
+      "args": {},
+      "write": true,
+      "output": {
+        "status": "error",
+        "error": "RPC_ERROR_-32002",
+        "details": {
+          "response": {
+            "jsonrpc": "2.0",
+            "id": 30,
+            "error": {
+              "code": -32002,
+              "message": "Access denied"
+            }
+          },
+          "endpoint": {
+            "transport": "ubus",
+            "service": "session",
+            "method": "destroy"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "access_rejected",
+              "evidence": "observation",
+              "message": "设备拒绝访问；尚缺少有效的对照权限证据，不能确定是接口授权还是会话问题。",
+              "nextStep": "检查会话及账号授权；不要通过反复调用目标接口或修改配置来排查。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T01:52:25.232-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 24,
+              "section": "logout",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T01:52:25.289-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "ubus",
+                "service": "session",
+                "method": "destroy"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "RPC_ERROR_-32002",
+              "details": {
+                "response": {
+                  "jsonrpc": "2.0",
+                  "id": 30,
+                  "error": {
+                    "code": -32002,
+                    "message": "Access denied"
+                  }
+                }
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "access_rejected",
+          "evidence": "observation",
+          "message": "设备拒绝访问；尚缺少有效的对照权限证据，不能确定是接口授权还是会话问题。",
+          "nextStep": "检查会话及账号授权；不要通过反复调用目标接口或修改配置来排查。"
+        }
+      }
+    },
+    {
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-82 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "0",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-82 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:52:25.293-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 25,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:52:26.446-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:52:26.446-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-82 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "0",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "key": "signal_record",
+      "created": true,
+      "edited": true,
+      "restored": true
+    },
+    {
+      "key": "phonebook_write",
+      "created": true,
+      "edited": true,
+      "restored": true
+    },
+    {
+      "key": "reboot_schedule",
+      "status": "device_warning",
+      "businessOutcome": "not_modified",
+      "unchanged": true
+    },
+    {
+      "key": "wifi_night",
+      "status": "verified_fields",
+      "submissionOutcome": "not_modified"
+    },
+    {
+      "key": "native_login_logout",
+      "login": "submitted",
+      "logout": "error"
+    }
+  ],
+  "pendingCleanup": [],
+  "finalOnline": true
+}

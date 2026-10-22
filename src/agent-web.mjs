@@ -6,11 +6,29 @@ import { Agent } from './agent-core.mjs';
 import { AgentStore } from './agent-store.mjs';
 import { createLog, sanitizer } from './agent-log.mjs';
 import { Dashboard } from './dashboard.mjs';
+import { writes, toolName } from './catalog.mjs';
+
+const fieldLabels = { ssid: '名称', wpapsk: '密码', authmode: '加密方式', hidden: '隐藏', state: '开关' };
+// 网页确认卡片需要看到即将写入的值；仅凭据类字段隐藏。
+export function describeProposal(proposal) {
+  const args = proposal.args || {};
+  if (proposal.name === 't830_set_upnp_verified')
+    return `UPnP：${args.expectedCurrent === '1' ? '开启' : '关闭'} → ${args.upnp_switch === '1' ? '开启' : '关闭'}`;
+  const def = writes.find(d => toolName(d) === proposal.name);
+  const title = def ? def.description.split(/[（。(]/)[0].trim() : proposal.name;
+  const parts = [];
+  const walk = (value, path) => {
+    if (value && typeof value === 'object' && !Array.isArray(value)) for (const [k, v] of Object.entries(value)) walk(v, [...path, k]);
+    else parts.push(`${path.map(k => fieldLabels[k] || k).join(' ')}：${/wpapsk|password|passwd|secret|key|pin|puk/i.test(path.at(-1) || '') ? '（已隐藏）' : String(value)}`);
+  };
+  walk(args, []);
+  return `${title}：${parts.join('，') || '无参数'}`;
+}
 
 // 网页和 CLI 使用同一个 Agent 实现、工具白名单及持久化目录。
 export async function attachWebAgent(service, env = process.env, dependencies = {}) {
   const settings = config(env), key = dependencies.api ? undefined : readApiKey(env);
-  const clean = sanitizer([key, env.T830_PASSWORD, env.T830_PASSWORD_HASH, env.T830_SALT]);
+  const clean = sanitizer([key, env.T830_PASSWORD, env.T830_PASSWORD_HASH, env.T830_SALT, env.T830_DEVELOPER_KEY]);
   const log = dependencies.log || createLog(join(root, '.agent-logs'), clean);
   const api = dependencies.api || new ModelApi({ ...settings, apiKey: key, onEvent: log.event });
   const mcp = dependencies.mcp || await connectTools(settings.sections, env, { enableWrites: settings.enableWrites, enableMedia: true });
@@ -40,7 +58,8 @@ export async function attachWebAgent(service, env = process.env, dependencies = 
           } else throw new Error('MEDIA_VIDEO_UPLOAD_DISABLED');
         }
         const result = await agent.turn(input, signal);
-        return clean({ status: 'answered', ...result });
+        const proposals = (result.proposals || []).map(p => ({ id: p.id, name: p.name, summary: clean(describeProposal(p)) }));
+        return { ...clean({ status: 'answered', ...result, proposals: [] }), proposals };
       } catch (error) {
         return { status: 'error', error: clean(signal.aborted ? 'CALL_CANCELLED' : error.message) };
       } finally { active = undefined; progress = undefined; resolveSettled(); }

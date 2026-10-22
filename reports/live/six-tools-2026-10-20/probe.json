@@ -1,0 +1,325 @@
+{
+  "at": "2026-10-20T07:34:32.228Z",
+  "records": [
+    {
+      "section": "gps",
+      "error": "HTTP_403",
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "not_applicable",
+          "note": "UBUS session/access does not check CGI path authorization."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [],
+        "attempts": 3,
+        "retries": [
+          "login_required_retry_with_cookie",
+          "login_required_renew_session"
+        ],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "first_setup",
+      "args": {},
+      "status": "returned",
+      "warnings": [],
+      "data": {
+        "first_setup": "0",
+        "code": 0
+      }
+    },
+    {
+      "section": "setup",
+      "error": "HTTP_403",
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "not_applicable",
+          "note": "UBUS session/access does not check CGI path authorization."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "workmode",
+      "args": {},
+      "status": "returned",
+      "warnings": [],
+      "data": {
+        "data": {
+          "bonding": "0",
+          "add_ccmni_to_bridge": "0",
+          "ip_passthrough": "1",
+          "if_index": "",
+          "data_switch": "1",
+          "gateway": "",
+          "workmode": 4
+        },
+        "code": 0
+      }
+    },
+    {
+      "section": "wifi_rt",
+      "error": "UBUS_ERROR_5_NO_DATA",
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "completed",
+          "access": true,
+          "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [
+          {
+            "reason": "router_data_depends_on_mode_and_upstream_connection",
+            "evidence": "hypothesis",
+            "workmode": 4
+          }
+        ],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "no_data",
+          "evidence": "observation",
+          "message": "接口权限允许，但设备本次未提供业务数据。",
+          "nextStep": "核对上游 WLAN 功能是否已配置；当前工作模式仅供参考，不自动切换模式或断网。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "share",
+      "error": "RPC_ERROR_-32000",
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "completed",
+          "access": false,
+          "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "object_not_found",
+          "evidence": "observation",
+          "message": "设备报告目标 UBUS 对象不存在，不能据此断言账号密码错误或仅是权限不足。",
+          "nextStep": "由设备管理员或厂商检查当前固件是否提供该服务；不自动安装、启动服务或升级固件。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "phonebook",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "status": "returned",
+      "warnings": [],
+      "data": {
+        "keys": [
+          "code",
+          "data"
+        ],
+        "code": "0",
+        "hasData": false
+      }
+    },
+    {
+      "section": "phonebook_select",
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "5"
+        }
+      ],
+      "data": {
+        "keys": [
+          "code"
+        ],
+        "code": "5",
+        "hasData": false
+      }
+    },
+    {
+      "section": "phonebook_select",
+      "args": {
+        "device": "1",
+        "type": "",
+        "name": ""
+      },
+      "status": "returned",
+      "warnings": [],
+      "data": {
+        "keys": [
+          "code",
+          "data"
+        ],
+        "code": "0",
+        "hasData": false
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "data": {
+        "code": "1",
+        "data": ""
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "data": {
+        "code": "1",
+        "data": "PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.275 ms\n64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.194 ms\n"
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "data": {
+        "code": "1",
+        "data": "PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.275 ms\n64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.194 ms\n64 bytes from 127.0.0.1: seq=2 ttl=64 time=0.165 ms\n"
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "data": {
+        "code": "1",
+        "data": "PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.275 ms\n64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.194 ms\n64 bytes from 127.0.0.1: seq=2 ttl=64 time=0.165 ms\n64 bytes from 127.0.0.1: seq=3 ttl=64 time=0.470 ms\n"
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "device_warning",
+      "warnings": [
+        {
+          "field": "code",
+          "value": "1"
+        }
+      ],
+      "data": {
+        "code": "1",
+        "data": "PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.275 ms\n64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.194 ms\n64 bytes from 127.0.0.1: seq=2 ttl=64 time=0.165 ms\n64 bytes from 127.0.0.1: seq=3 ttl=64 time=0.470 ms\n64 bytes from 127.0.0.1: seq=4 ttl=64 time=0.220 ms\n"
+      }
+    },
+    {
+      "section": "ping_result",
+      "args": {
+        "addr": "read_ping"
+      },
+      "status": "returned",
+      "warnings": [],
+      "data": {
+        "code": "0",
+        "data": "PING 127.0.0.1 (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: seq=0 ttl=64 time=0.275 ms\n64 bytes from 127.0.0.1: seq=1 ttl=64 time=0.194 ms\n64 bytes from 127.0.0.1: seq=2 ttl=64 time=0.165 ms\n64 bytes from 127.0.0.1: seq=3 ttl=64 time=0.470 ms\n64 bytes from 127.0.0.1: seq=4 ttl=64 time=0.220 ms\n64 bytes from 127.0.0.1: seq=5 ttl=64 time=0.169 ms\n\n--- 127.0.0.1 ping statistics ---\n6 packets transmitted, 6 packets received, 0% packet loss\nround-trip min/avg/max = 0.165/0.248/0.470 ms\nComplete\n"
+      }
+    }
+  ],
+  "policy": "Only one bounded loopback Ping is started; no configuration changes or service starts.",
+  "developerAuthenticated": true,
+  "pingStart": {
+    "status": "submitted",
+    "data": {
+      "code": "0"
+    },
+    "warnings": []
+  },
+  "ubusObjects": [],
+  "controllerReadAccess": true,
+  "jt_gps": {
+    "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+  },
+  "jt_setup": {
+    "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+  },
+  "jt_workmode": {
+    "error": "UBUS_ERROR_6_PERMISSION_DENIED"
+  }
+}

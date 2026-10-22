@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-20T06:38:48.016Z",
+  "mode": "read-only-native-session-cookie-compatibility",
+  "records": [
+    {
+      "cookieName": "sysauth_http",
+      "error": "HTTP_403"
+    },
+    {
+      "cookieName": "sysauth",
+      "error": "HTTP_403"
+    }
+  ]
+}

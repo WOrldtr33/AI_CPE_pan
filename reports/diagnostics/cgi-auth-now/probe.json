@@ -1,0 +1,801 @@
+{
+  "at": "2026-10-20T09:18:08.400Z",
+  "cases": [
+    {
+      "name": "cgi-admin",
+      "login": "HTTP_500",
+      "details": {
+        "http": 500,
+        "loginRequired": false
+      }
+    },
+    {
+      "name": "cgi-developer",
+      "login": "HTTP_500",
+      "details": {
+        "http": 500,
+        "loginRequired": false
+      }
+    },
+    {
+      "name": "ubus-admin",
+      "login": "ok",
+      "developer": false,
+      "dns": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:08.706-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 1,
+              "section": "dns",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:08.748-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:08.748-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:08.789-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:08.801-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:08.842-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "dhcp": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:08.843-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 2,
+              "section": "dhcp",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:08.881-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:08.881-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:08.921-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:08.932-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:08.978-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "gps": {
+        "status": "device_warning",
+        "warnings": [
+          {
+            "field": "code",
+            "value": -1
+          }
+        ],
+        "data": {
+          "data": {
+            "number": "0",
+            "is_good": "0",
+            "gps_switch": "enable"
+          },
+          "code": -1
+        }
+      },
+      "developer_mode": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:09.065-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 4,
+              "section": "developer_mode",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:09.104-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:09.105-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:09.146-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:09.161-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:09.201-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "upnp": {
+        "status": "returned",
+        "warnings": [],
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        }
+      }
+    },
+    {
+      "name": "ubus-developer",
+      "login": "ok",
+      "developer": true,
+      "dns": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:09.867-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 1,
+              "section": "dns",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:09.906-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:09.906-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:09.948-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:10.491-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:10.547-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_dns/get_dns",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "dhcp": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:10.547-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 2,
+              "section": "dhcp",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:10.594-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:10.594-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:10.642-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:11.188-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:11.236-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "gps": {
+        "status": "device_warning",
+        "warnings": [
+          {
+            "field": "code",
+            "value": -1
+          }
+        ],
+        "data": {
+          "data": {
+            "number": "0",
+            "is_good": "0",
+            "gps_switch": "enable"
+          },
+          "code": -1
+        }
+      },
+      "developer_mode": {
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+            "httpMethod": "GET"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 3,
+            "retries": [
+              "login_required_retry_with_cookie",
+              "login_required_renew_session"
+            ],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "携带 Cookie 并更新登录会话后，设备仍拒绝此路径。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T02:18:11.348-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 4,
+              "section": "developer_mode",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T02:18:11.387-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": false,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:11.387-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_retry_with_cookie"
+            },
+            {
+              "at": "2026-10-20T02:18:11.426-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 2,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            },
+            {
+              "at": "2026-10-20T02:18:12.093-07:00",
+              "step": "retry_reason",
+              "evidence": "observation",
+              "reason": "login_required_renew_session"
+            },
+            {
+              "at": "2026-10-20T02:18:12.165-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 3,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_system/get_develop_mode",
+                "httpMethod": "GET"
+              },
+              "params": {},
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        }
+      },
+      "upnp": {
+        "status": "returned",
+        "warnings": [],
+        "data": {
+          "data": {
+            "pf_rules": [],
+            "upnp_switch": "0"
+          },
+          "code": 0
+        }
+      }
+    }
+  ]
+}

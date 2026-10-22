@@ -28,6 +28,7 @@ async function result(fn) {
       status: 'error',
       error: e.name === 'ZodError' ? 'INVALID_ARGUMENTS' : e.message,
       details: e.details,
+      ...(e.details?.diagnosticSummary?.failure ? { failure: e.details.diagnosticSummary.failure } : {}),
     });
     return {
       isError: true,

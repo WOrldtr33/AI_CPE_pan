@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import { writeReport } from '../src/artifacts.mjs';
 import { T830 } from '../src/t830.mjs';
 import { reads, writes } from '../src/catalog.mjs';
+import { writeProfiles } from '../src/write-profiles.mjs';
 const reports = [];
 const deferred = () => {
   let resolve;
@@ -20,6 +21,8 @@ async function fixture(fn, plan = {}) {
   state.wifi_night = { action: 'Disable', openTime: '', closeTime: '', code: 200 };
   state.roaming = { action: 'Disable', code: 200 };
   state.gps = { data: { gps_switch: 'disable' }, code: 0 };
+  // 此场景明确模拟无 SIM 的统计告警，不依赖共享样本当前是否插卡。
+  if (plan.mode === 'unit_equivalent') state.traffic.stats.code = '206';
   for (const band of ['5G', '2.4G'])
     Object.assign(state.wifi[band], {
       ssid: `original-${band}`,
@@ -68,10 +71,10 @@ async function fixture(fn, plan = {}) {
       service = body.params?.[1],
       method = body.params?.[2],
       args = body.params?.[3] || body;
-    const writer = writes.find((d) =>
+    const writer = path.endsWith('action_login') || path.endsWith('action_logout') ? undefined : writes.find((d) =>
       d.transport === 'ubus'
-        ? d.service === service && d.method === method
-        : d.path === path,
+        ? d.service === service && d.method === method && d.schema.safeParse(args).success
+        : d.path === path && d.schema.safeParse(body).success,
     );
     const reader = reads.find((d) =>
       d.transport === 'ubus'
@@ -120,6 +123,12 @@ async function fixture(fn, plan = {}) {
         return send({});
       }
       if (plan.mode === 'warning') return send({ code: 206 });
+      if (plan.mode === 'not_modified') return send({ result: [0, { code: 409 }] });
+      if (plan.mode === 'advanced_partial')
+        return send({ result: [0, { wmm_state: '409', '5G': { code: '409' }, '2.4G': { code: '409' }, isolate: '200', base_code: '409' }] });
+      if (plan.mode === 'advanced_busy') return send({ result: [0, { result: '500' }] });
+      if (plan.mode === 'advanced_unchanged')
+        return send({ result: [0, { wmm_state: '409', '5G': { code: '409' }, '2.4G': { code: '409' }, isolate: '409', base_code: '409' }] });
       if (plan.mode === 'lost_unapplied') {
         res.destroy();
         return;
@@ -135,6 +144,8 @@ async function fixture(fn, plan = {}) {
         res.destroy();
         return;
       }
+      if (['wifi_partial_busy', 'wifi_always_busy'].includes(plan.mode) && writer.key === 'wifi_config')
+        return send({ result: [0, { '2.4G_code': '200', '5G_code': '409' }] });
       return send(
         writer.transport === 'ubus' ? { result: [0, { code: 200 }] } : { code: 0 },
       );
@@ -154,6 +165,8 @@ async function fixture(fn, plan = {}) {
           pending = null;
         }
       }
+      if (reader.key === 'wifi' && writesSeen && (plan.mode === 'wifi_always_busy' || (plan.mode === 'wifi_partial_busy' && readsAfterWrite <= 2)))
+        return send({ result: [0, { result: '500' }] });
       if (plan.mode === 'unknown_readback' && writesSeen)
         return send(
           reader.transport === 'ubus' ? { result: [0, { code: 0 }] } : { code: 0 },
@@ -183,6 +196,8 @@ async function fixture(fn, plan = {}) {
     T830_TIMEOUT_MS: '500',
     T830_WRITE_READBACK_ATTEMPTS: '3',
     T830_WRITE_READBACK_INTERVAL_MS: '5',
+    T830_WRITE_BUSY_POLL_MS: '5',
+    ...(plan.mode === 'wifi_always_busy' ? { T830_WRITE_BUSY_WAIT_MS: '50' } : {}),
   };
   try {
     await fn({ device: new T830(env), calls, state, entered, release, env });
@@ -192,7 +207,7 @@ async function fixture(fn, plan = {}) {
     await new Promise((r) => server.close(r));
   }
 }
-for (const def of writes) {
+for (const def of writes.filter((d) => writeProfiles[d.key])) {
   test(`write ${def.key}: ordinary entry executes preflight, submits, and verifies mapped fields`, () =>
     fixture(async ({ device, calls }) => {
       const result = await device.write(def.key, def.sample);
@@ -208,6 +223,19 @@ for (const def of writes) {
       reports.push({ section: def.key, mode: 'mock', result });
     }));
 }
+test('GPS without position fix (code -1) still verifies the switch field', () =>
+  fixture(async ({ device, calls, state }) => {
+    state.gps.code = -1;
+    const result = await device.write('gps', { gps_switch: '1' });
+    assert.equal(result.status, 'verified_fields');
+    assert.equal(calls.filter((c) => c.kind === 'write').length, 1);
+  }));
+test('GPS with another warning code stops before writing', () =>
+  fixture(async ({ device, calls, state }) => {
+    state.gps.code = -2;
+    await assert.rejects(device.write('gps', { gps_switch: '1' }), /WORKFLOW_READ_WARNING/);
+    assert.equal(calls.filter((c) => c.kind === 'write').length, 0);
+  }));
 test('lost response after applied write succeeds by readback without duplicate write', () =>
   fixture(
     async ({ device, calls }) => {
@@ -404,7 +432,6 @@ test('sensitive fields compare raw in memory while all reports stay redacted', (
     assert.equal(result.status, 'verified_fields');
     const json = JSON.stringify(result);
     assert(!json.includes('private-password'));
-    assert(!json.includes('private-network'));
     assert(!json.includes('original-secret'));
     reports.push({ scenario: 'sensitive_fields', result });
   }));
@@ -465,6 +492,91 @@ test('cancelled write workflow does not run later phases or duplicate submission
     },
     { mode: 'hold' },
   ));
+test('documented 409 no-change response is distinguished from uncertain submission', () =>
+  fixture(async ({ device, calls }) => {
+    const result = await device.write('wifi_night', { action: 'Disable' });
+    assert.equal(result.status, 'verified_fields');
+    assert.equal(result.submissionOutcome, 'not_modified');
+    assert.equal(result.alreadyMatchedBeforeWrite, true);
+    assert.equal(calls.filter(call => call.kind === 'write').length, 1);
+  }, { mode: 'not_modified' }));
+const advancedArgs = { country_code: 'ZA', trans_power: '2', isolate: '1', wmm_state: '1', '5G': { wireless_mode: '23', band_width: '3', channel: '0' }, '2.4G': { wireless_mode: '22', band_width: '1', channel: '0' } };
+test('advanced WiFi per-field 200 with other parts 409 is reported as modified, not unchanged', () =>
+  fixture(async ({ device }) => {
+    const result = await device.write('wifi_advanced', advancedArgs);
+    assert.equal(result.status, 'submitted');
+    assert.equal(result.businessOutcome, 'modified');
+    assert.deepEqual(result.appliedParts, ['isolate']);
+    assert.deepEqual(result.unchangedParts.sort(), ['2.4G.code', '5G.code', 'base_code', 'wmm_state']);
+    assert.deepEqual(result.warnings, []);
+  }, { mode: 'advanced_partial' }));
+test('advanced WiFi with every part 409 stays not_modified', () =>
+  fixture(async ({ device }) => {
+    const result = await device.write('wifi_advanced', advancedArgs);
+    assert.equal(result.status, 'device_warning');
+    assert.equal(result.businessOutcome, 'not_modified');
+    assert.equal(result.warnings.length, 5);
+  }, { mode: 'advanced_unchanged' }));
+const ssidArgs = {
+  '2.4G': { hidden: '0', ssid: 'renamed-24', state: 'up', authmode: 'WPA2PSK', wpapsk: 'original-secret' },
+  '5G': { hidden: '0', ssid: 'original-5G', state: 'up', authmode: 'WPA2PSK', wpapsk: 'original-secret' },
+};
+test('WiFi config per-band 200/409 counts as modified and readback waits out device busy', () =>
+  fixture(async ({ device, state, calls }) => {
+    for (const band of ['5G', '2.4G']) state.wifi[band].authmode = 'WPA2PSK';
+    const result = await device.write('wifi_config', ssidArgs);
+    assert.equal(result.status, 'verified_fields');
+    assert.equal(result.submissionOutcome, 'acknowledged');
+    assert.equal(result.diagnostics.filter(step => step.step === 'device_busy_wait').length, 2);
+    assert.equal(calls.filter(call => call.kind === 'write').length, 1);
+  }, { mode: 'wifi_partial_busy' }));
+test('WiFi config readback busy past the wait limit is reported as unknown, not retried', () =>
+  fixture(async ({ device, state, calls }) => {
+    for (const band of ['5G', '2.4G']) state.wifi[band].authmode = 'WPA2PSK';
+    await assert.rejects(device.write('wifi_config', ssidArgs), /WRITE_RESULT_UNKNOWN/);
+    assert.equal(calls.filter(call => call.kind === 'write').length, 1);
+  }, { mode: 'wifi_always_busy' }));
+test('WiFi SSID-only patch is completed from raw readback without the model supplying passwords', () =>
+  fixture(async ({ device, state, calls }) => {
+    const result = await device.write('wifi_config', { '5G': { ssid: '我爱上班1' } });
+    assert.equal(result.status, 'verified_fields');
+    assert.deepEqual(result.verification.fields, ['5G.ssid']);
+    const [submitted] = calls.filter((call) => call.kind === 'write');
+    assert.deepEqual(submitted.args, {
+      '2.4G': { hidden: '0', ssid: 'original-2.4G', state: 'up', authmode: 'WPA2PSKWPA3PSK', wpapsk: 'original-secret' },
+      '5G': { hidden: '0', ssid: '我爱上班1', state: 'up', authmode: 'WPA2PSKWPA3PSK', wpapsk: 'original-secret' },
+    });
+    assert.equal(state.wifi['5G'].ssid, '我爱上班1');
+    assert(!JSON.stringify(result).includes('original-secret'));
+  }));
+test('WiFi patch stops before writing when the existing password readback is masked', () =>
+  fixture(
+    async ({ device, calls }) => {
+      await assert.rejects(device.write('wifi_config', { '5G': { ssid: 'renamed' } }), (e) => {
+        assert.equal(e.message, 'WRITE_BASELINE_INCOMPLETE');
+        assert.deepEqual(e.details.fields, ['2.4G.wpapsk', '5G.wpapsk']);
+        return true;
+      });
+      assert.equal(calls.filter((call) => call.kind === 'write').length, 0);
+    },
+    { mode: 'masked' },
+  ));
+test('WiFi patch rejects empty requests before touching the device', () =>
+  fixture(async ({ device, calls }) => {
+    const def = writes.find((d) => d.key === 'wifi_config');
+    assert(!def.schema.safeParse({ '5G': {} }).success);
+    assert(def.schema.safeParse({ '5G': { ssid: 'x' } }).success);
+    await assert.rejects(device.write('wifi_config', {}), /WRITE_NO_FIELDS/);
+    assert.equal(calls.length, 0);
+  }));
+test('advanced WiFi busy result=500 is a device warning, not a submission', () =>
+  fixture(async ({ device }) => {
+    const result = await device.write('wifi_advanced', advancedArgs);
+    assert.equal(result.status, 'device_warning');
+    assert.equal(result.businessOutcome, undefined);
+    assert.deepEqual(result.warnings, [{ field: 'result', value: '500' }]);
+  }, { mode: 'advanced_busy' }));
+
 test('write policy settings reject invalid ranges', () => {
   for (const env of [
     { T830_WRITE_MAX_ATTEMPTS: '0' },

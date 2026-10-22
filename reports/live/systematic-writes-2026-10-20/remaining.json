@@ -1,0 +1,549 @@
+{
+  "at": "2026-10-20T08:29:42.486Z",
+  "mode": "real-device-additional-tests",
+  "records": [
+    {
+      "name": "t830_get_phonebook",
+      "write": false,
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "output": {
+        "status": "returned",
+        "warnings": [],
+        "dataType": "string"
+      }
+    },
+    {
+      "name": "t830_set_phonebook_write",
+      "write": true,
+      "args": {
+        "name": "codex-ba61cee26e",
+        "type": "0",
+        "device": "1"
+      },
+      "output": {
+        "status": "device_warning",
+        "warnings": [
+          {
+            "field": "code",
+            "value": "5"
+          }
+        ],
+        "dataType": "undefined"
+      }
+    },
+    {
+      "name": "t830_get_phonebook",
+      "write": false,
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "output": {
+        "status": "returned",
+        "warnings": [],
+        "dataType": "string"
+      }
+    },
+    {
+      "name": "t830_get_phonebook",
+      "write": false,
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "output": {
+        "status": "returned",
+        "warnings": [],
+        "dataType": "string"
+      }
+    },
+    {
+      "name": "t830_get_phonebook",
+      "write": false,
+      "args": {
+        "device": "1",
+        "type": "ALL"
+      },
+      "output": {
+        "status": "returned",
+        "warnings": [],
+        "dataType": "string"
+      }
+    },
+    {
+      "name": "t830_set_wifi_scan_start",
+      "write": true,
+      "args": {
+        "async": "1",
+        "state": "1"
+      },
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T01:29:43.588-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 6,
+              "section": "wifi_scan_start",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T01:29:43.642-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "async": "1",
+                "state": "1"
+              },
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        }
+      }
+    },
+    {
+      "name": "t830_set_wifi_scan_list",
+      "write": true,
+      "args": {
+        "state": "2"
+      },
+      "output": {
+        "status": "error",
+        "error": "HTTP_403",
+        "details": {
+          "http": 403,
+          "loginRequired": true,
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "http_forbidden",
+              "evidence": "observation",
+              "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+              "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-20T01:29:43.645-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 7,
+              "section": "wifi_scan_list",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-20T01:29:43.696-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "state": "2"
+              },
+              "withCookie": true,
+              "error": "HTTP_403",
+              "details": {
+                "http": 403,
+                "loginRequired": true
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        }
+      }
+    },
+    {
+      "name": "t830_get_device_info",
+      "write": false,
+      "args": {},
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "MAC_24G": "[REDACTED]",
+            "boardSN": "23M05KHO91000094",
+            "ccmni_ipv6": "APN1: 2408:8459:3060:ae20:18e0:2f53:ae06:ef0c",
+            "DLRATE4g": "0",
+            "WiFiBW2g": "40",
+            "up_second": "4212",
+            "WiFiChannel2g": "13 (auto)",
+            "LanIP": "192.168.0.1",
+            "WiFiBW5g": "80",
+            "WiFiChannel5g": "36 (auto)",
+            "ccmni_dns": "APN1: 120.80.80.80/221.5.88.88",
+            "WiFiTX_PWR": "100% (high)",
+            "ULRATE5g": "0",
+            "MAC_WAN": "[REDACTED]",
+            "DLRATE5g": "0",
+            "ULRATE4g": "0",
+            "WLANRssi": "5G Rssi: 0 0 0 0 0 , 2.4G Rssi: 0 0 0 0 0 .",
+            "ModelName": "the101pro",
+            "VendorName": "VTJZNVNS",
+            "eth1_ipv4": "",
+            "SVN": "\n",
+            "ccmni_ipv4": "APN1: 10.4.230.190",
+            "HardwareVersion": "V2.0",
+            "NickName": "5G CPE",
+            "productSN": "RAWSZAC0P13003936",
+            "uptime": "  1:10",
+            "eth1_ipv6": "",
+            "cpu": "32.00%",
+            "WanInterface": "ccmni2,",
+            "MAC_5G": "[REDACTED]",
+            "SoftwareVersion": "RA_M5_v9.10.debug"
+          },
+          "code": "200"
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "ModelName"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "data",
+                "SoftwareVersion"
+              ],
+              "expected": "string"
+            },
+            {
+              "path": [
+                "data",
+                "LanIP"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T01:29:44.284-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "device_info",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T01:29:44.936-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "devinfo_get"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "ModelName"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "data",
+                    "SoftwareVersion"
+                  ],
+                  "expected": "string"
+                },
+                {
+                  "path": [
+                    "data",
+                    "LanIP"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T01:29:44.936-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "devinfo_get"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "MAC_24G": "[REDACTED]",
+                "boardSN": "23M05KHO91000094",
+                "ccmni_ipv6": "APN1: 2408:8459:3060:ae20:18e0:2f53:ae06:ef0c",
+                "DLRATE4g": "0",
+                "WiFiBW2g": "40",
+                "up_second": "4212",
+                "WiFiChannel2g": "13 (auto)",
+                "LanIP": "192.168.0.1",
+                "WiFiBW5g": "80",
+                "WiFiChannel5g": "36 (auto)",
+                "ccmni_dns": "APN1: 120.80.80.80/221.5.88.88",
+                "WiFiTX_PWR": "100% (high)",
+                "ULRATE5g": "0",
+                "MAC_WAN": "[REDACTED]",
+                "DLRATE5g": "0",
+                "ULRATE4g": "0",
+                "WLANRssi": "5G Rssi: 0 0 0 0 0 , 2.4G Rssi: 0 0 0 0 0 .",
+                "ModelName": "the101pro",
+                "VendorName": "VTJZNVNS",
+                "eth1_ipv4": "",
+                "SVN": "\n",
+                "ccmni_ipv4": "APN1: 10.4.230.190",
+                "HardwareVersion": "V2.0",
+                "NickName": "5G CPE",
+                "productSN": "RAWSZAC0P13003936",
+                "uptime": "  1:10",
+                "eth1_ipv6": "",
+                "cpu": "32.00%",
+                "WanInterface": "ccmni2,",
+                "MAC_5G": "[REDACTED]",
+                "SoftwareVersion": "RA_M5_v9.10.debug"
+              },
+              "code": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "key": "phonebook_write/phonebook_delete",
+      "created": false,
+      "restored": true
+    },
+    {
+      "key": "wifi_scan_start",
+      "acknowledged": false,
+      "functionalVerified": false
+    },
+    {
+      "key": "wifi_scan_list",
+      "acknowledged": false,
+      "functionalVerified": false
+    }
+  ],
+  "metadata": [
+    {
+      "key": "signal_record",
+      "service": "position_sigal",
+      "method": "write_file",
+      "deviceSignature": {
+        "sigal": "string",
+        "index": "string",
+        "position": "string",
+        "time": "string",
+        "qos": "string",
+        "name": "string"
+      },
+      "catalogSampleFields": [
+        "name",
+        "position"
+      ],
+      "omittedDeviceFields": [
+        "sigal",
+        "index",
+        "qos"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "phonebook_write",
+      "service": "phone_book",
+      "method": "write_book",
+      "deviceSignature": {
+        "type": "string",
+        "index": "string",
+        "device": "string",
+        "email": "string",
+        "name": "string",
+        "numb_house": "string",
+        "numb": "string",
+        "numb_work": "string",
+        "flag": "string"
+      },
+      "catalogSampleFields": [
+        "name",
+        "type",
+        "device"
+      ],
+      "omittedDeviceFields": [
+        "email",
+        "numb_house",
+        "numb",
+        "numb_work",
+        "flag"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "reboot_schedule",
+      "service": "gen.attr",
+      "method": "set_rebootSch_cfg",
+      "deviceSignature": {
+        "schTime": "string",
+        "action": "string",
+        "schweek": "string"
+      },
+      "catalogSampleFields": [
+        "action"
+      ],
+      "omittedDeviceFields": [],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    },
+    {
+      "key": "wifi_config",
+      "service": "mtk.wifi",
+      "method": "set_wifi_cfgs",
+      "deviceSignature": {
+        "2.4G": "object",
+        "Unity": "object",
+        "5G": "object"
+      },
+      "catalogSampleFields": [
+        "2.4G",
+        "5G"
+      ],
+      "omittedDeviceFields": [
+        "Unity"
+      ],
+      "note": "UBUS 签名不说明字段是否必填；缺项只记为待核查，不直接判定根因"
+    }
+  ]
+}

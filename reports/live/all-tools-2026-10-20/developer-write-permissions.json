@@ -1,0 +1,622 @@
+{
+  "at": "2026-10-20T03:10:43.793Z",
+  "mode": "developer-read-only-write-permissions",
+  "realWrites": 0,
+  "records": [
+    {
+      "tool": "t830_set_wifi_switch",
+      "section": "wifi_switch",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_wifi_config",
+      "section": "wifi_config",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_guest_switch",
+      "section": "guest_switch",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_guest_config",
+      "section": "guest_config",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_wifi_night",
+      "section": "wifi_night",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_apn_save",
+      "section": "apn_save",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_roaming",
+      "section": "roaming",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_upnp",
+      "section": "upnp",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_dns",
+      "section": "dns",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_gps",
+      "section": "gps",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_traffic",
+      "section": "traffic",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_setup_save",
+      "section": "setup_save",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_login",
+      "section": "login",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_logout",
+      "section": "logout",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_password",
+      "section": "password",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_wps_pbc",
+      "section": "wps_pbc",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_wps_pin",
+      "section": "wps_pin",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_wifi_advanced",
+      "section": "wifi_advanced",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_workmode",
+      "section": "workmode",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_wifi_scan_start",
+      "section": "wifi_scan_start",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_wifi_scan_list",
+      "section": "wifi_scan_list",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_wifi_router_connect",
+      "section": "wifi_router_connect",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_wifi_router_disconnect",
+      "section": "wifi_router_disconnect",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mesh_role",
+      "section": "mesh_role",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mesh_close",
+      "section": "mesh_close",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mesh_router_name",
+      "section": "mesh_router_name",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mesh_onboard",
+      "section": "mesh_onboard",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mesh_router_remove",
+      "section": "mesh_router_remove",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_client_name",
+      "section": "client_name",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_client_delete",
+      "section": "client_delete",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_firmware_upload",
+      "section": "firmware_upload",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_firmware_upgrade",
+      "section": "firmware_upgrade",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_reboot",
+      "section": "reboot",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_factory_reset",
+      "section": "factory_reset",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_sim_slot",
+      "section": "sim_slot",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_pin_verify",
+      "section": "pin_verify",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_puk_unblock",
+      "section": "puk_unblock",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_pin_enable",
+      "section": "pin_enable",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_pin_disable",
+      "section": "pin_disable",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_pin_change",
+      "section": "pin_change",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_network_mode",
+      "section": "network_mode",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_apn_remove",
+      "section": "apn_remove",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_band_lock",
+      "section": "band_lock",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_plmn_lock",
+      "section": "plmn_lock",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_plmn_unlock",
+      "section": "plmn_unlock",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_mac_filter_mode",
+      "section": "mac_filter_mode",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_mac_filter_rule",
+      "section": "mac_filter_rule",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_ip_filter_mode",
+      "section": "ip_filter_mode",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_ip_filter_rule",
+      "section": "ip_filter_rule",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_port_forward_switch",
+      "section": "port_forward_switch",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "section": "port_forward_rule",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_port_map_switch",
+      "section": "port_map_switch",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_port_map_rule",
+      "section": "port_map_rule",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_url_filter_rule",
+      "section": "url_filter_rule",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_dmz",
+      "section": "dmz",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_alg",
+      "section": "alg",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_dhcp",
+      "section": "dhcp",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_static_ip",
+      "section": "static_ip",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_ntp",
+      "section": "ntp",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_reboot_schedule",
+      "section": "reboot_schedule",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_signal_start",
+      "section": "signal_start",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_signal_record",
+      "section": "signal_record",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_signal_record_edit",
+      "section": "signal_record_edit",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_signal_record_delete",
+      "section": "signal_record_delete",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_tr069",
+      "section": "tr069",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_developer_login",
+      "section": "developer_login",
+      "permission": {
+        "status": "not_checked",
+        "reason": "CGI authorization is not established by UBUS session.access"
+      }
+    },
+    {
+      "tool": "t830_set_developer_verify",
+      "section": "developer_verify",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_net_probe",
+      "section": "net_probe",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_sms_center",
+      "section": "sms_center",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_sms_delete",
+      "section": "sms_delete",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_sms_send",
+      "section": "sms_send",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_phonebook_write",
+      "section": "phonebook_write",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_phonebook_delete",
+      "section": "phonebook_delete",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_backup_check",
+      "section": "backup_check",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_backup_restore",
+      "section": "backup_restore",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    },
+    {
+      "tool": "t830_set_backup_delete",
+      "section": "backup_delete",
+      "permission": {
+        "status": "returned",
+        "access": true
+      }
+    }
+  ],
+  "developerAuthenticated": true,
+  "summary": {
+    "granted": 40,
+    "denied": 0,
+    "notChecked": 36,
+    "errors": 0
+  }
+}

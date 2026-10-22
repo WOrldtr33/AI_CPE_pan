@@ -43,3 +43,10 @@ node --test：11 项自动测试，包括真实 MCP Client 对模拟设备的调
 48 项真实只读 smoke：31 项正常返回且通过关键字段校验，3 项设备告警，14 项失败。新增校验没有增加误报；不执行真实写操作。查看 reports/live/mcp-smoke-results.json 中的 validation、diagnosticSummary 和 diagnostics。
 
 test/fixtures/read-responses.json 是固定脱敏样本，自动测试不依赖随后覆盖的实机报告。reports/archive/mcp-smoke-before-validation.json 保留此次更新之前的报告。
+## 2026-10-20 实机故障处理修正
+
+CGI 请求的 `flag` 统一使用设备网页的接口标识，例如 `get_mesh_role`、`get_dns_protection`、`set_dns_protection` 和 `upgradeSet`，不再使用 Agent section 名。已有显式 flag（如扫描的 first/second）优先保留。
+
+失败的 MCP structuredContent 新增 `failure`，同时保存在 `details.diagnosticSummary.failure`，保留原始 error/isError 和 rootCause。字段包含 category、evidence、message、nextStep 和 retrySameRequest=false。category 区分确认的 permission_denied、尚缺少对照证据的 access_rejected、no_data、object_not_found、http_forbidden、unknown。设备返回 Object not found 是直接观察，不据此断言固件永久不支持；CGI 403 也不能据此断言密码错误。Agent 根据这些字段解释原因与下一步。
+
+详情与未解决项见 [实机修正报告](../testing/FAILED_READ_FIX_2026-10-20.md)。本次没有调整固件 ACL、切换网络模式或执行新的设备写入。

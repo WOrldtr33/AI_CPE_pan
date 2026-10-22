@@ -1,11 +1,11 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { verifiedReadSections } from './agent-policy.mjs';
+import { reads } from './catalog.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const credentialPath = fileURLToPath(new URL('../credentials-agent.json', import.meta.url));
-export const defaultTools = verifiedReadSections;
+export const defaultTools = reads.map(def => def.key);
 
 export function readApiKey(env = process.env) {
   if (env.DEEPSEEK_API_KEY?.trim()) return env.DEEPSEEK_API_KEY.trim();
@@ -35,7 +35,7 @@ export function config(env = process.env) {
   if (base.protocol !== 'https:' || base.username || base.password || base.search || base.hash) throw new Error('INVALID_API_URL：必须使用无凭据的 HTTPS 地址。');
   const thinking = env.AGENT_THINKING || 'off';
   if (!['off', 'low', 'high', 'max'].includes(thinking)) throw new Error('INVALID_THINKING');
-  const sections = (env.AGENT_TOOLS || defaultTools.join(',')).split(',').map(s => s.trim()).filter(Boolean);
+  const sections = (!env.AGENT_TOOLS || env.AGENT_TOOLS.trim() === '*' ? defaultTools.join(',') : env.AGENT_TOOLS).split(',').map(s => s.trim()).filter(Boolean);
   const flag = (name, fallback) => {
     const value = env[name] ?? fallback;
     if (!['0', '1'].includes(value)) throw new Error(`INVALID_CONFIG_${name}`);
@@ -45,7 +45,8 @@ export function config(env = process.env) {
     baseUrl: base.href.replace(/\/$/, ''), model: env.DEEPSEEK_MODEL || 'deepseek-flash', thinking, sections,
     maxRounds: number('AGENT_MAX_ROUNDS', 6, 1, 20), maxTools: number('AGENT_MAX_TOOLS', 8, 1, 50),
     maxTokens: number('AGENT_MAX_OUTPUT_TOKENS', 2048, 64, 16384),
-    tokenBudget: number('AGENT_TOKEN_BUDGET', 30000, 1000, 200000),
+    // 每次模型调用都会重发约 2.5 万 Token 的系统提示和工具目录，预算须容纳 maxRounds 次调用。
+    tokenBudget: number('AGENT_TOKEN_BUDGET', 200000, 1000, 2000000),
     turnTimeoutMs: number('AGENT_TURN_TIMEOUT_MS', 180000, 1000, 600000),
     requestTimeoutMs: number('AGENT_REQUEST_TIMEOUT_MS', 60000, 1000, 180000),
     contextChars: number('AGENT_CONTEXT_CHARS', 60000, 4000, 400000),

@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { deviceReading, validateResponse } from '../src/response.mjs';
 import { readFile } from 'node:fs/promises';
 import { writeReport } from '../src/artifacts.mjs';
+import { createHash } from 'node:crypto';
 
 async function fixture(fn, options = {}) {
   const samples = JSON.parse(
@@ -42,12 +43,14 @@ async function fixture(fn, options = {}) {
   const calls = [];
   let generation = 0;
   let expire = false;
+  let probeStarted = false, probeReads = 0;
   const server = createServer(async (req, res) => {
     let text = '';
     for await (const c of req) text += c;
-    const b = text ? JSON.parse(text) : {};
+    const contentType = String(req.headers['content-type'] || '');
+    const b = text && contentType.includes('application/json') ? JSON.parse(text) : {};
     const url = new URL(req.url, 'http://localhost');
-    calls.push({ path: url.pathname, cookie: req.headers.cookie, body: b });
+    calls.push({ path: url.pathname, search: url.search, cookie: req.headers.cookie, body: b, contentType });
     res.setHeader('Content-Type', 'application/json');
     const send = (data) => res.end(JSON.stringify(data));
     if (url.pathname.includes('action_login')) {
@@ -63,22 +66,36 @@ async function fixture(fn, options = {}) {
       res.setHeader('x-luci-login-required', 'yes');
       return send({ error: 'login required' });
     }
-    const cgiWrite = writes.find((d) => d.path === url.pathname);
+    if (options.nativeAuth && url.pathname === '/ubus/' && b.params?.[1] === 'session' && b.params?.[2] === 'login') {
+      generation++;
+      return send(options.rejectNative ? { result: [6] } : { result: [0, { ubus_rpc_session: `secret-${generation}`, timeout: 300 }] });
+    }
+    const cgiWrite = writes.find((d) => d.path === url.pathname && d.schema.safeParse(b).success);
     if (cgiWrite) {
       applyWrite(cgiWrite.key, b);
       return send({ code: 0 });
     }
     if (url.pathname === '/ubus/') {
+      if (b.method === 'list' && options.serviceList) return send({ jsonrpc: '2.0', id: b.id, result: options.serviceList });
       if (options.ubusSessionExpiry && (expire || options.alwaysDenyUbus || b.params[0] !== `test-session-${generation}`)) {
         return send(options.ubusPermissionCode === 6
           ? { result: [6] }
           : { error: { code: -32002, message: 'Access denied' } });
       }
       const [, service, method, args] = b.params;
+      if (options.probeWorkflow && service === 'netApp' && method === 'start') {
+        if (args.addr !== 'read_ping') { probeStarted = true; return send({ result: [0, { code: '0' }] }); }
+        probeReads++;
+        return send({ result: [0, !probeStarted || probeReads === 1 ? { code: '1', data: '' }
+          : { code: '0', data: '6 packets transmitted, 6 packets received, 0% packet loss' }] });
+      }
+      if (service === 'uci' && method === 'get' && options.stationValues) return send({ result: [0, { values: options.stationValues }] });
+      if (options.developerAuth && service === 'gen.attr' && method === 'check_asymmetric_verify')
+        return send({ result: [0, options.rejectDeveloperKey ? { code: 403 } : { code: 200, passwd: 'mock-elevated-password' }] });
       if (options.denyAfterRenew === method && generation >= 3)
         return send({ error: { code: -32002, message: 'Access denied' } });
       const writeDef = writes.find(
-        (d) => d.transport === 'ubus' && d.service === service && d.method === method,
+        (d) => d.transport === 'ubus' && d.service === service && d.method === method && d.schema.safeParse(args).success,
       );
       if (writeDef) {
         applyWrite(writeDef.key, args);
@@ -119,7 +136,7 @@ async function fixture(fn, options = {}) {
         return send({ error: 'unknown execution state' });
       }
       const def = reads.find(
-        (d) => d.transport === 'ubus' && d.service === service && d.method === method,
+        (d) => (d.transport === 'ubus' && d.service === service && d.method === method) || (d.readFallback?.service === service && d.readFallback?.method === method),
       );
       const sample = samples[def?.key];
       return send({ result: [0, sample || { code: 200, mock: true }] });
@@ -270,12 +287,15 @@ test('permission diagnostic does not retry an unauthorized target; NO_DATA colle
     const d = new T830(env);
     await assert.rejects(d.rpc('mtk.wifi', 'denied'), (e) => {
       assert(e.details.diagnostics.some((t) => t.reason === 'target_permission_denied'));
+      assert.equal(e.details.diagnosticSummary.failure.category, 'permission_denied');
+      assert.equal(e.details.diagnosticSummary.failure.retrySameRequest, false);
       assert(e.details.diagnostics.some((t) => t.data?.access === false));
       return true;
     });
     assert.equal(calls.filter((c) => c.body.params?.[2] === 'denied').length, 1);
     await assert.rejects(d.rpc('web_api', 'get_wifi_router', { noData: true }), (e) => {
       assert.equal(e.message, 'UBUS_ERROR_5_NO_DATA');
+      assert.equal(e.details.diagnosticSummary.failure.category, 'no_data');
       assert(
         e.details.diagnostics.some((t) => t.workmode === 4 && t.confirmed === false),
       );
@@ -297,6 +317,62 @@ test('bounded network retry and missing credentials', async () => {
   await assert.rejects(noCredentials.login(), /MISSING_CREDENTIALS/);
   await assert.rejects(noCredentials.login(), /MISSING_CREDENTIALS/);
 });
+
+test('documented APIs are registered and fixed file commands stay closed', async () => {
+  const md = await readFile(new URL('../docs/api/API_DOC.md', import.meta.url), 'utf8');
+  const missing = [...md.matchAll(/^### (\d+)\. /gm)].map((m) => Number(m[1])).filter((n) => ![...reads, ...writes].some((d) => d.api === n));
+  assert.deepEqual(missing, []);
+  const keys = [...reads, ...writes].map((d) => `${d.kind}:${d.key}`);
+  assert.equal(new Set(keys).size, keys.length);
+  assert.equal(writes.find((d) => d.key === 'backup_restore').schema.safeParse({ command: '/bin/sh', params: ['-c', 'id'] }).success, false);
+  assert.equal(writes.find((d) => d.key === 'backup_delete').schema.safeParse({ path: '/tmp/other' }).success, false);
+});
+
+test('cellular, WPS and SMS schemas follow the vendor web contracts', () => {
+  const ok = (key, args, kind = 'write') => [...reads, ...writes].find((d) => d.kind === kind && d.key === key).schema.safeParse(args).success;
+  assert.equal(ok('wps_run', { name: '2.4G', obj: 'host' }, 'read'), true);
+  assert.equal(ok('wps_run', { name: 'ra0', obj: 'host' }, 'read'), false);
+  assert.equal(ok('wps_pbc', { name: 'ra0', obj: 'host' }), false);
+  assert.equal(ok('wps_pin', { name: '5G', obj: 'guest', pincode: '12345670' }), true);
+  assert.equal(ok('network_mode', { ratMode: '19' }), true);
+  assert.equal(ok('network_mode', { ratMode: 'auto' }), false);
+  const band = { type: 'NR', state: 'FULL', band: 'n41', arfcn: '504990', pci: '850', multi_band: { list_3G: [], list_4G: [], list_5G: [] } };
+  assert.equal(ok('band_lock', band), true);
+  assert.equal(ok('band_lock', { ...band, state: 'PCI', arfcn: undefined }), false);
+  assert.equal(ok('band_lock', { ...band, pref: '1' }), false);
+  assert.equal(ok('band_lock', { type: 'band', state: '0', band: '1' }), false);
+  assert.equal(ok('plmn_lock', { plmn_array: ['46001'] }), true);
+  const text = Buffer.from('测试 test', 'utf8').toString('base64');
+  assert.equal(ok('sms_send', { addr: '15000000000', content: text, format: '2', myContent: text }), true);
+  assert.equal(ok('sms_send', { addr: '15000000000', content: 'test', format: '2', myContent: 'test' }), false);
+  assert.equal(ok('sms_send', { addr: '15000000000', content: text, format: '2', myContent: 'dGVzdA==' }), false);
+  assert.equal(ok('sms_send', { addr: '15000000000', content: '//8=', format: '2', myContent: '//8=' }), false);
+  assert.equal(ok('sms_delete', { content: '15000000000[1' }), true);
+  assert.equal(ok('sms_delete', { content: '15000000000[ALL,10086[3' }), true);
+  assert.equal(ok('sms_delete', { content: '10086[0]' }), false);
+  for (const d of writes) assert.equal(d.schema.safeParse(d.sample).success, true, d.key);
+});
+
+test('unprofiled write submits once without readback', () =>
+  fixture(async ({ env, calls }) => {
+    const writer = new T830({ ...env, T830_ENABLE_WRITES: '1' });
+    const result = await writer.write('reboot', { reboot: '1' });
+    assert.equal(result.status, 'submitted');
+    assert.equal(result.validation.status, 'passed');
+    assert.equal(calls.filter((c) => c.path.endsWith('/set_reboot')).length, 1);
+  }));
+
+test('one-shot CGI write displaced by another login renews once and resends once', () =>
+  fixture(async ({ env, calls }) => {
+    const writer = new T830({ ...env, T830_ENABLE_WRITES: '1' });
+    await writer.write('mac_filter_mode', { mode: '1' });
+    await new T830(env).login();
+    const result = await writer.write('mac_filter_mode', { mode: '1' });
+    assert.equal(result.status, 'submitted');
+    assert.equal(calls.filter((c) => c.path.endsWith('/set_macfilter_mode')).length, 3);
+    assert.equal(calls.filter((c) => c.path.includes('action_login')).length, 3);
+    assert(result.diagnostics.some((t) => t.reason === 'login_required_renew_session'));
+  }));
 
 test('write gate, parameter validation, and no automatic write retries', () =>
   fixture(async ({ env, calls }) => {
@@ -358,7 +434,12 @@ test('MCP handshake, all catalog callbacks and schemas against mock device (no r
         assert(expected, `wrong endpoint: ${def.key}`);
         if (def.transport === 'ubus')
           assert.deepEqual(expected.body.params[3], def.sample);
+        else if (def.encoding === 'multipart')
+          assert.match(expected.contentType, /multipart\/form-data/);
         else if (def.kind === 'write') assert.deepEqual(expected.body, def.sample);
+        if (def.flag) assert.match(expected.search, new RegExp(`[?&]flag=${def.flag}(?:&|$)`));
+        for (const [key, value] of Object.entries(def.search || {}))
+          assert.match(expected.search, new RegExp(`[?&]${key}=${value}(?:&|$)`));
         verified.push({
           api: def.api,
           key: def.key,
@@ -440,6 +521,7 @@ test('share Object not found collects access without repeating target or changin
       await assert.rejects(d.query('share'), (e) => {
         assert.equal(e.message, 'RPC_ERROR_-32000');
         assert.equal(e.details.response.error.message, 'Object not found');
+        assert.equal(e.details.diagnosticSummary.failure.category, 'object_not_found');
         const probes = e.details.diagnostics.filter(
           (t) =>
             t.step === 'diagnostic' && t.service === 'session' && t.method === 'access',
@@ -546,6 +628,7 @@ test('diagnostics identify target and control, preserve uncertainty and reach MC
         const result = await client.callTool({ name: 't830_get_share', arguments: {} });
         assert(result.isError);
         assert.equal(result.structuredContent.error, 'RPC_ERROR_-32000');
+        assert.equal(result.structuredContent.failure.category, 'object_not_found');
         assert.equal(
           result.structuredContent.details.diagnosticSummary.rootCause,
           'unknown',
@@ -607,3 +690,270 @@ test('MCP reports incomplete WiFi fields as structured validation failure withou
     },
     { incompleteWifi: true },
   ));
+
+test('CGI requests use the firmware webpage flag rather than section keys', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_ENABLE_WRITES: '1' });
+  try {
+    await device.query('mesh_role');
+    await device.query('dns');
+    await device.query('version');
+    await device.write('dns', { rebind_protection: '1' });
+    const flags = path => calls.filter(call => call.path === path).map(call => new URLSearchParams(call.search).get('flag'));
+    assert.deepEqual(flags('/cgi-bin/luci/admin/jt_easymesh/get_role'), ['get_mesh_role', 'get_mesh_role']);
+    assert(flags('/cgi-bin/luci/admin/jt_dns/get_dns').every(flag => flag === 'get_dns_protection'));
+    assert.deepEqual(flags('/cgi-bin/luci/admin/jt_dns/set_dns'), ['set_dns_protection']);
+    assert.deepEqual(flags('/cgi-bin/upgrade-set.lua'), ['upgradeSet']);
+  } finally { await device.close(); }
+}));
+
+test('HTTP forbidden diagnosis keeps uncertainty and never fabricates UBUS permission', () => fixture(async ({ env }) => {
+  const device = new T830({ ...env, T830_COOKIE_MODE: 'never' });
+  try {
+    await assert.rejects(device.run({ ...reads.find(def => def.key === 'gps'), readFallback: undefined }), error => {
+      const summary = error.details.diagnosticSummary;
+      assert.equal(error.message, 'HTTP_403');
+      assert.equal(summary.rootCause, 'unknown');
+      assert.equal(summary.failure.category, 'http_forbidden');
+      assert.equal(summary.failure.evidence, 'observation');
+      assert.equal(summary.permissionCheck.status, 'not_applicable');
+      return true;
+    });
+  } finally { await device.close(); }
+}));
+
+test('Explicit admin selection ignores developer keys loaded from configuration', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_AUTH_MODE: 'admin', T830_DEVELOPER_KEY: 'bW9jay1rZXk=' });
+  try {
+    await device.query('wifi');
+    assert.equal(device.developerAuthenticated, false);
+    assert.deepEqual(calls.filter(c => c.path.includes('action_login')).map(c => c.body.username), ['admin']);
+    assert.equal(calls.some(c => c.body.params?.[2] === 'check_asymmetric_verify'), false);
+  } finally { await device.close(); }
+}, { developerAuth: true }));
+
+test('Explicit developer key verifies then logs in superadmin; renewal repeats the same flow', () => fixture(async ({ env, calls }) => {
+  const key = 'bW9jay1kZXZlbG9wZXIta2V5';
+  const device = new T830({ ...env, T830_DEVELOPER_KEY: key });
+  try {
+    await device.query('wifi');
+    assert.equal(device.developerAuthenticated, true);
+    assert.deepEqual(calls.filter(c => c.path.includes('action_login')).map(c => c.body.username), ['admin', 'superadmin']);
+    const verification = calls.find(c => c.body.params?.[2] === 'check_asymmetric_verify');
+    assert.deepEqual(verification.body.params[3], { reply: 'superpasswd', base64: key });
+    const { createHash } = await import('node:crypto');
+    const elevated = calls.find(c => c.body.username === 'superadmin').body;
+    assert.equal(elevated.password, createHash('sha256').update(elevated.salt + ':mock-elevated-password').digest('hex'));
+    await device.renew();
+    assert.equal(device.developerAuthenticated, true);
+    assert.deepEqual(calls.filter(c => c.path.includes('action_login')).map(c => c.body.username), ['admin', 'superadmin', 'admin', 'superadmin']);
+    assert.equal(calls.filter(c => c.body.params?.[2] === 'check_asymmetric_verify').length, 2);
+    assert.equal(redact({ T830_DEVELOPER_KEY: key }).T830_DEVELOPER_KEY, '[REDACTED]');
+  } finally { await device.close(); }
+}, { developerAuth: true }));
+
+test('Rejected developer key fails closed and never dispatches requested device query', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_DEVELOPER_KEY: 'bW9jay1rZXk=' });
+  try {
+    await assert.rejects(device.query('wifi'), error => {
+      assert.equal(error.message, 'DEVELOPER_VERIFICATION_FAILED');
+      assert(!JSON.stringify(error.details).includes('mock-elevated-password'));
+      return true;
+    });
+    assert.equal(device.developerAuthenticated, false);
+    assert.equal(device.token, null);
+    await assert.rejects(device.query('wifi'), /DEVELOPER_VERIFICATION_FAILED/);
+    assert.equal(calls.filter(c => c.body.username === 'superadmin').length, 0);
+    assert.equal(calls.filter(c => c.body.params?.[2] === 'get_ssidPage_info').length, 0);
+  } finally { await device.close(); }
+}, { developerAuth: true, rejectDeveloperKey: true }));
+
+test('Explicit native UBUS developer authentication supports RPC, CGI cookies and renewal without broken CGI login', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_AUTH_TRANSPORT: 'ubus', T830_DEVELOPER_KEY: 'bW9jay1rZXk=' });
+  try {
+    const result = await device.query('mesh_status');
+    assert.equal(result.status, 'returned');
+    assert.equal(device.developerAuthenticated, true);
+    assert.equal(calls.filter(c => c.path.includes('action_login')).length, 0);
+    const native = () => calls.filter(c => c.body.params?.[1] === 'session' && c.body.params?.[2] === 'login');
+    assert.deepEqual(native().map(c => c.body.params[3].username), ['admin', 'superadmin']);
+    assert.equal(native()[0].body.params[3].password, 'test-only');
+    assert.equal(native()[1].body.params[3].password, 'mock-elevated-password');
+    assert(calls.some(c => c.path.includes('get_easymesh_switch') && c.cookie === 'sysauth_http=secret-2'));
+    assert(!JSON.stringify(result).includes('secret-2'));
+    await device.renew();
+    assert.deepEqual(native().map(c => c.body.params[3].username), ['admin','superadmin','admin','superadmin']);
+    assert.equal((await device.query('mesh_status')).status, 'returned');
+  } finally { await device.close(); }
+}, { nativeAuth: true, developerAuth: true }));
+
+test('Native login rejection stops without CGI fallback or leaking native session credentials', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_AUTH_TRANSPORT: 'ubus' });
+  try {
+    await assert.rejects(device.query('wifi'), error => {
+      assert.equal(error.message, 'UBUS_LOGIN_FAILED');
+      assert(!JSON.stringify(error.details).includes('test-only'));
+      return true;
+    });
+    assert.equal(calls.filter(c => c.path.includes('action_login')).length, 0);
+    assert.equal(calls.filter(c => c.body.params?.[2] === 'get_ssidPage_info').length, 0);
+  } finally { await device.close(); }
+}, { nativeAuth: true, rejectNative: true }));
+
+test('Native login requires a raw supplied password and rejects unknown transports', async () => {
+  assert.throws(() => new T830({ T830_AUTH_TRANSPORT: 'invalid' }), /INVALID_AUTH_TRANSPORT/);
+  const device = new T830({ T830_AUTH_TRANSPORT: 'ubus', T830_PASSWORD_HASH: 'a'.repeat(64), T830_SALT: 'salt' });
+  try { await assert.rejects(device.login(), /UBUS_LOGIN_REQUIRES_PLAINTEXT_PASSWORD/); }
+  finally { await device.close(); }
+});
+
+test('failed initial authentication can recover on a subsequent explicit request', async () => {
+  const device = new T830({ T830_PASSWORD: 'mock-only' });
+  let attempts = 0;
+  device.performLogin = async () => {
+    attempts++;
+    if (attempts === 1) throw new Error('HTTP_500');
+    device.token = 'recovered';
+  };
+  try {
+    await assert.rejects(device.login(), /HTTP_500/);
+    assert.equal(device.loginPromise, null);
+    await device.login();
+    assert.equal(device.token, 'recovered');
+    assert.equal(attempts, 2);
+  } finally { await device.close(); }
+});
+
+test('explicit native login and logout tools respect configured authentication transport', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_ENABLE_WRITES: '1', T830_AUTH_TRANSPORT: 'ubus' });
+  const salt = 'mock-salt';
+  const args = { username: 'admin', salt, password: createHash('sha256').update(salt + ':' + env.T830_PASSWORD).digest('hex') };
+  try {
+    const signedIn = await device.write('login', args);
+    assert.equal(signedIn.status, 'submitted');
+    assert.equal(signedIn.data.sessionid, '[REDACTED]');
+    assert.equal((await device.write('logout')).status, 'submitted');
+    assert.equal(device.token, null);
+    assert(calls.some(call => call.body.params?.[1] === 'session' && call.body.params?.[2] === 'destroy'));
+    assert.equal(calls.filter(call => call.path.includes('action_login') || call.path.includes('action_logout')).length, 0);
+    const before = calls.length;
+    await assert.rejects(device.write('login', { ...args, password: 'a'.repeat(64) }), /NATIVE_LOGIN_CREDENTIALS_MISMATCH/);
+    assert.equal(calls.length, before);
+  } finally { await device.close(); }
+}, { nativeAuth: true }));
+
+test('write contracts require measured signal fields, complete phonebook fields and device time format', () => {
+  const contract = key => writes.find(def => def.key === key).schema;
+  assert.equal(contract('signal_record').safeParse({ name: 'spot', position: 'lab' }).success, false);
+  assert.equal(contract('phonebook_write').safeParse({ name: 'home', device: '1', type: '0' }).success, false);
+  const contact = writes.find(def => def.key === 'phonebook_write').sample;
+  assert.equal(contract('phonebook_write').safeParse({ ...contact, flag: '1' }).success, false);
+  assert.equal(contract('phonebook_write').safeParse({ ...contact, flag: '1', index: '1' }).success, true);
+  assert.equal(contract('reboot_schedule').safeParse({ action: 'Disable' }).success, false);
+  assert.equal(contract('reboot_schedule').safeParse({ action: 'Disable', schweek: '', schTime: '00;00' }).success, true);
+  assert.equal(contract('reboot_schedule').safeParse({ action: 'Enable', schweek: '', schTime: '00;00' }).success, false);
+  assert.equal(contract('reboot_schedule').safeParse({ action: 'Enable', schweek: '1|2', schTime: '00:00' }).success, false);
+});
+
+test('signal measurement receives a longer default deadline while explicit timeout stays authoritative', async () => {
+  for (const explicit of [false, true]) {
+    const device = new T830({ T830_ENABLE_WRITES: '1', ...(explicit ? { T830_TIMEOUT_MS: '500' } : {}) });
+    device.token = 'mock-only';
+    let timeout;
+    device.rawRpc = async (...args) => { timeout = args[6]; return { code: 0 }; };
+    try {
+      assert.equal((await device.write('signal_start')).status, 'submitted');
+      assert.equal(timeout, explicit ? undefined : 20000);
+      assert.equal(device.timeout, explicit ? 500 : 10000);
+    } finally { await device.close(); }
+  }
+});
+
+test('native logout rejection preserves local session state and does not claim logout succeeded', async () => {
+  const device = new T830({ T830_ENABLE_WRITES: '1', T830_AUTH_TRANSPORT: 'ubus' });
+  device.token = 'mock-session';
+  device.rawRpc = async () => { throw new Error('RPC_ERROR_-32002'); };
+  try {
+    await assert.rejects(device.write('logout'), /RPC_ERROR_-32002/);
+    assert.equal(device.token, 'mock-session');
+  } finally { await device.close(); }
+});
+
+test('phonebook numbers, email and native session identifiers are redacted', () => {
+  assert.deepEqual(redact({ numb: '1234567', numb_house: '7654321', numb_work: '1234568', email: 'test@example.invalid', ubus_rpc_session: 'session-secret', index: '1' }), {
+    numb: '[REDACTED]', numb_house: '[REDACTED]', numb_work: '[REDACTED]', email: '[REDACTED]', ubus_rpc_session: '[REDACTED]', index: '1',
+  });
+});
+
+test('GPS and setup use only their declared read fallback on forbidden CGI, retaining original evidence', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_COOKIE_MODE: 'never' });
+  try {
+    for (const section of ['gps', 'setup']) {
+      const result = await device.query(section);
+      assert.equal(result.status, 'returned');
+      assert.equal(result.diagnostics.filter(d => d.step === 'queue').length, 1);
+      assert(result.diagnostics.some(d => d.step === 'attempt' && d.error === 'HTTP_403'));
+      assert(result.diagnostics.some(d => d.step === 'read_fallback'));
+      assert.equal(calls.filter(c => c.body.params?.[1] === 'web_api' && c.body.params?.[2] === `get_${section}`).length, 1);
+    }
+  } finally { await device.close(); }
+}));
+
+test('Phonebook query and selection keep their distinct documented type conventions', async () => {
+  const book = reads.find(d => d.key === 'phonebook');
+  const select = reads.find(d => d.key === 'phonebook_select');
+  assert.deepEqual(book.schema.parse({ device: '1', type: 'ALL' }), { device: '1', type: 'ALL' });
+  assert.deepEqual(select.schema.parse({ device: '1' }), { device: '1', type: '', name: '' });
+  assert.equal(select.schema.safeParse({ device: '1', type: 'ALL' }).success, false);
+  assert.equal(deviceReading('phonebook', { code: '0', data: '' }).state, 'empty');
+  assert.equal(deviceReading('phonebook_select', { code: '5' }).state, 'unknown');
+});
+
+test('GPS position and Ping progress are interpreted without turning incomplete states into success', () => {
+  const gps = deviceReading('gps', { code: -1, data: { gps_switch: 'enable', number: '1', is_good: '0' } });
+  assert.equal(gps.enabled, true); assert.equal(gps.fix, 'not_fixed'); assert.equal(gps.provesLocation, false);
+  assert.equal(deviceReading('ping_result', { code: '1', data: '' }).state, 'pending');
+  const done = deviceReading('ping_result', { code: '0', data: '6 packets transmitted, 6 packets received, 0% packet loss' });
+  assert.equal(done.state, 'complete'); assert.equal(done.lossPercent, 0); assert.equal(done.provesInternet, false);
+});
+
+test('Disabled upstream WiFi is diagnosed from authorized UCI state without exposing station keys', () => fixture(async ({ env }) => {
+  const device = new T830(env);
+  try {
+    await assert.rejects(device.rpc('web_api', 'get_wifi_router', { noData: true }), error => {
+      assert.equal(error.message, 'UBUS_ERROR_5_NO_DATA');
+      assert.equal(error.details.diagnosticSummary.rootCause, 'upstream_wifi_disabled');
+      assert.equal(error.details.diagnosticSummary.failure.category, 'precondition_not_met');
+      assert(!JSON.stringify(error.details).includes('sta-private-key'));
+      return true;
+    });
+  } finally { await device.close(); }
+}, { stationValues: { sta0: { mode: 'sta', disabled: '1', key: 'sta-private-key' }, sta1: { mode: 'sta', disabled: '1' } } }));
+
+test('A published service list confirms missing Share service while preserving the original RPC error', () => fixture(async ({ env, calls }) => {
+  const device = new T830(env);
+  try {
+    await assert.rejects(device.query('share'), error => {
+      assert.equal(error.message, 'RPC_ERROR_-32000');
+      assert.equal(error.details.diagnosticSummary.rootCause, 'service_not_registered');
+      assert.equal(error.details.diagnosticSummary.failure.category, 'service_unavailable');
+      return true;
+    });
+    assert.equal(calls.filter(c => c.body.method === 'list').length, 1);
+    assert.equal(calls.filter(c => c.body.params?.[2] === 'get_101share_status').length, 1);
+  } finally { await device.close(); }
+}, { shareMissing: true, serviceList: { web_api: { get_setup: {} } } }));
+
+test('Network diagnostic starts exactly once before result polling and uses vendor flags for each phase', () => fixture(async ({ env, calls }) => {
+  const device = new T830({ ...env, T830_ENABLE_WRITES: '1' });
+  try {
+    const start = await device.write('net_probe', { type: 'PING', addr: '127.0.0.1', time: '1' });
+    assert.equal(start.status, 'submitted');
+    const pending = await device.query('ping_result', { addr: 'read_ping' });
+    assert.equal(pending.reading.state, 'pending');
+    const done = await device.query('ping_result', { addr: 'read_ping' });
+    assert.equal(done.reading.state, 'complete'); assert.equal(done.reading.lossPercent, 0);
+    const requests = calls.filter(c => c.body.params?.[1] === 'netApp');
+    assert.deepEqual(requests.map(c => c.body.params[3].addr), ['127.0.0.1', 'read_ping', 'read_ping']);
+    assert.deepEqual(requests.map(c => new URLSearchParams(c.search).get('flag')), ['netAppStar1', 'netAppStar2', 'netAppStar2']);
+  } finally { await device.close(); }
+}, { probeWorkflow: true }));

@@ -1,0 +1,1732 @@
+{
+  "at": "2026-10-21T03:10:14.705-07:00",
+  "phase": "rules",
+  "records": [
+    {
+      "at": "2026-10-21T03:10:16.228-07:00",
+      "tool": "t830_get_dhcp",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "leasetime": 43200,
+            "end": "249",
+            "gateway": "192.168.0.1",
+            "start": "100",
+            "netmask": "255.255.255.0",
+            "dhcp_switch": "1"
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "dhcp_switch"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "start"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "end"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "netmask"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_retry_with_cookie"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:14.987-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "dhcp",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:16.100-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": false,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:16.100-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_retry_with_cookie"
+          },
+          {
+            "at": "2026-10-21T03:10:16.224-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "dhcp_switch"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "start"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "end"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "netmask"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:16.224-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/get_dhcp",
+              "httpMethod": "GET"
+            },
+            "params": {},
+            "withCookie": true,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "leasetime": 43200,
+                "end": "249",
+                "gateway": "192.168.0.1",
+                "start": "100",
+                "netmask": "255.255.255.0",
+                "dhcp_switch": "1"
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:19.050-07:00",
+      "tool": "t830_set_static_ip",
+      "args": {
+        "ip": "192.168.0.248",
+        "mac": "[REDACTED]",
+        "name": "mcptest",
+        "operate": "add"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:17.293-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "static_ip",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:17.334-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip": "192.168.0.248",
+              "mac": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:18.301-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:19.048-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:19.048-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip": "192.168.0.248",
+              "mac": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:21.646-07:00",
+      "tool": "t830_set_static_ip",
+      "args": {
+        "ip": "192.168.0.248",
+        "mac": "[REDACTED]",
+        "name": "mcptest",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:20.153-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "static_ip",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:20.200-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip": "192.168.0.248",
+              "mac": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:21.191-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:21.644-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:21.644-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_lan/set_static_ip",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip": "192.168.0.248",
+              "mac": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:24.132-07:00",
+      "tool": "t830_set_mac_filter_rule",
+      "args": {
+        "macaddr": "[REDACTED]",
+        "name": "mcptest",
+        "operate": "add"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:22.857-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "mac_filter_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:22.900-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "macaddr": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:23.850-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:24.131-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:24.131-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "macaddr": "[REDACTED]",
+              "name": "mcptest",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:26.571-07:00",
+      "tool": "t830_set_mac_filter_rule",
+      "args": {
+        "macaddr": "[REDACTED]",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:25.246-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "mac_filter_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:25.306-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "macaddr": "[REDACTED]",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:26.289-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:26.569-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:26.569-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_macfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "macaddr": "[REDACTED]",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:31.570-07:00",
+      "tool": "t830_set_ip_filter_rule",
+      "args": {
+        "ip_family": "ipv4",
+        "protocol": "tcp",
+        "proto": "tcp",
+        "name": "mcptest",
+        "lan_ip": "192.168.0.247",
+        "lan_port": "65000",
+        "operate": "add"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:27.905-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "ip_filter_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:27.949-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip_family": "ipv4",
+              "lan_ip": "192.168.0.247",
+              "name": "mcptest",
+              "protocol": "tcp",
+              "proto": "tcp",
+              "lan_port": "65000",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:29.008-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:31.569-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:31.569-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "ip_family": "ipv4",
+              "lan_ip": "192.168.0.247",
+              "name": "mcptest",
+              "protocol": "tcp",
+              "proto": "tcp",
+              "lan_port": "65000",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:37.431-07:00",
+      "tool": "t830_set_ip_filter_rule",
+      "args": {
+        "index": "1",
+        "ip_family": "ipv4",
+        "lan_ip": "192.168.0.247",
+        "name": "mcptest",
+        "protocol": "tcp",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:32.737-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "ip_filter_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:32.777-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "index": "1",
+              "ip_family": "ipv4",
+              "lan_ip": "192.168.0.247",
+              "name": "mcptest",
+              "protocol": "tcp",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:33.778-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:37.429-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:37.429-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_firewall/set_ipfilter",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "index": "1",
+              "ip_family": "ipv4",
+              "lan_ip": "192.168.0.247",
+              "name": "mcptest",
+              "protocol": "tcp",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:41.340-07:00",
+      "tool": "t830_set_port_forward_rule",
+      "args": {
+        "name": "mcptest",
+        "lan_ip": "192.168.0.247",
+        "protocol": "tcp",
+        "start_port": "65001",
+        "end_port": "65001",
+        "index": "1",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:38.610-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "port_forward_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:38.661-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:39.686-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:41.338-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:41.338-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:45.327-07:00",
+      "tool": "t830_set_port_forward_rule",
+      "args": {
+        "name": "mcptest",
+        "lan_ip": "192.168.0.247",
+        "protocol": "tcp",
+        "start_port": "65001",
+        "end_port": "65001",
+        "operate": "add"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:42.488-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "port_forward_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:42.538-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:43.615-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:45.326-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:45.326-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:49.287-07:00",
+      "tool": "t830_set_port_forward_rule",
+      "args": {
+        "name": "mcptest",
+        "lan_ip": "192.168.0.247",
+        "protocol": "tcp",
+        "start_port": "65001",
+        "end_port": "65001",
+        "index": "1",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:46.493-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "port_forward_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:46.540-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:47.630-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:49.286-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:49.286-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portforward",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "lan_ip": "192.168.0.247",
+              "protocol": "tcp",
+              "start_port": "65001",
+              "end_port": "65001",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:53.359-07:00",
+      "tool": "t830_set_port_map_rule",
+      "args": {
+        "name": "mcptest",
+        "wan_port": "65002",
+        "lan_ip": "192.168.0.247",
+        "lan_port": "65002",
+        "protocol": "tcp",
+        "start_port": "65002",
+        "end_port": "65002",
+        "operate": "add"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:50.531-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "port_map_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:50.578-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "wan_port": "65002",
+              "lan_ip": "192.168.0.247",
+              "lan_port": "65002",
+              "protocol": "tcp",
+              "start_port": "65002",
+              "end_port": "65002",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:51.614-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:53.357-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:53.358-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "wan_port": "65002",
+              "lan_ip": "192.168.0.247",
+              "lan_port": "65002",
+              "protocol": "tcp",
+              "start_port": "65002",
+              "end_port": "65002",
+              "operate": "add"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-21T03:10:57.321-07:00",
+      "tool": "t830_set_port_map_rule",
+      "args": {
+        "name": "mcptest",
+        "wan_port": "65002",
+        "lan_ip": "192.168.0.247",
+        "lan_port": "65002",
+        "protocol": "tcp",
+        "index": "1",
+        "operate": "del"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 2,
+          "retries": [
+            "login_required_renew_session"
+          ]
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-21T03:10:54.572-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "port_map_rule",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-21T03:10:54.612-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "wan_port": "65002",
+              "lan_ip": "192.168.0.247",
+              "lan_port": "65002",
+              "protocol": "tcp",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "error": "HTTP_403",
+            "details": {
+              "http": 403,
+              "loginRequired": true
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:55.647-07:00",
+            "step": "retry_reason",
+            "evidence": "observation",
+            "reason": "login_required_renew_session"
+          },
+          {
+            "at": "2026-10-21T03:10:57.320-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-21T03:10:57.320-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 2,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_nat/set_portmap",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "name": "mcptest",
+              "wan_port": "65002",
+              "lan_ip": "192.168.0.247",
+              "lan_port": "65002",
+              "protocol": "tcp",
+              "index": "1",
+              "operate": "del"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "tool": "t830_set_static_ip",
+      "outcome": "passed",
+      "add": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "found": true,
+      "del": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "gone": true
+    },
+    {
+      "tool": "t830_set_mac_filter_rule",
+      "outcome": "passed",
+      "add": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "found": true,
+      "del": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "gone": true
+    },
+    {
+      "tool": "t830_set_ip_filter_rule",
+      "outcome": "passed",
+      "add": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "found": true,
+      "del": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "gone": true
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "outcome": "cleanup",
+      "cleanup": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      }
+    },
+    {
+      "tool": "t830_set_port_forward_rule",
+      "outcome": "passed",
+      "add": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "found": true,
+      "del": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "gone": true
+    },
+    {
+      "tool": "t830_set_port_map_rule",
+      "outcome": "passed",
+      "add": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "found": true,
+      "del": {
+        "writeStatus": "submitted",
+        "deviceCode": 0
+      },
+      "gone": true
+    }
+  ]
+}

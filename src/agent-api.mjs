@@ -38,8 +38,12 @@ export class ModelApi {
   }
   async complete(messages, tools, settings, signal) {
     const started = Date.now();
+    // 大目录通过兼容查询入口提供全部 section，避免超过模型的工具数量限制。
+    const advertised = tools.length > 128 && tools.some(tool => tool.function.name === 't830_query')
+      ? tools.filter(tool => !tool.function.name.startsWith('t830_get_')) : tools;
+    if (advertised.length > 128) throw new Error('AI_TOOL_LIMIT');
     const data = await this.request('chat/completions', {
-      model: settings.model, messages, tools, stream: false, max_tokens: settings.maxTokens,
+      model: settings.model, messages, tools: advertised, stream: false, max_tokens: settings.maxTokens,
       thinking: { type: settings.thinking === 'off' ? 'disabled' : 'enabled' },
       ...(settings.thinking === 'off' ? {} : { reasoning_effort: settings.thinking }),
     }, signal);

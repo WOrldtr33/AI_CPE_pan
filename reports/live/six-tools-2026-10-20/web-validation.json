@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-20T07:47:31.103Z",
+  "http": 200,
+  "status": "answered",
+  "calls": 2,
+  "taskId": "e5b7b5d2-346a-4d53-abf7-df4245d95faa",
+  "tools": [
+    {
+      "name": "t830_query",
+      "args": {
+        "section": "setup",
+        "args": {}
+      },
+      "status": "returned"
+    },
+    {
+      "name": "t830_query",
+      "args": {
+        "section": "phonebook_select",
+        "args": {
+          "device": "1"
+        }
+      },
+      "status": "returned",
+      "reading": {
+        "state": "empty",
+        "count": 0,
+        "text": "本次电话本查询没有条目"
+      }
+    }
+  ]
+}

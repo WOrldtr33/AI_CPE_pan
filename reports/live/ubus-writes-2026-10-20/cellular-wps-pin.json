@@ -1,0 +1,3193 @@
+{
+  "at": "2026-10-20T10:01:44.261Z",
+  "mode": "change-readback-restore",
+  "management": "wired-route-verified",
+  "records": [
+    {
+      "at": "2026-10-20T10:01:45.516Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-82 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "0",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-82 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:44.553-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:45.513-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:45.513-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-82 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "0",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:01:45.744Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Timed-out"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:45.519-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:45.743-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:45.743-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Timed-out"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:01:46.209Z",
+      "key": "wps_pin",
+      "args": {
+        "name": "2.4G",
+        "obj": "host",
+        "pincode": "[REDACTED]"
+      },
+      "write": true,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "host": {
+            "2.4G": {
+              "code": "200"
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:45.747-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "wps_pin",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:46.207-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "set_WPS_pin"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:46.207-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "set_WPS_pin"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host",
+              "pincode": "[REDACTED]"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "code": "200"
+                }
+              }
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；不重试写操作。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:01:46.456Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:46.211-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:46.454-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:46.454-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:01:51.696Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:51.459-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:51.695-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:51.695-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:01:56.937Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:01:56.703-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:01:56.936-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:01:56.936-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:02.202Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:01.952-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:02.200-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:02.200-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:07.443Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:07.218-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 8,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:07.440-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:07.441-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:12.683Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:12.446-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:12.682-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:12.682-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:18.059Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:17.697-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 10,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:18.057-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:18.057-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:23.277Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:23.071-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:23.275-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:23.275-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:28.514Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:28.294-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 12,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:28.513-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:28.513-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:33.738Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:33.516-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:33.736-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:33.736-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:38.961Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:38.741-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:38.960-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:38.960-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:44.226Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:43.973-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:44.224-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:44.224-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:49.458Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:49.239-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:49.457-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:49.457-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:54.724Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:54.472-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 17,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:54.724-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:54.724-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:02:59.966Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:02:59.733-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 18,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:02:59.966-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:02:59.966-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:05.178Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:04.972-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 19,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:05.176-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:05.177-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:10.423Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:10.184-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 20,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:10.423-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:10.423-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:15.648Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:15.428-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 21,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:15.647-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:15.647-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:20.891Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:20.654-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 22,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:20.890-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:20.890-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:26.150Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:25.896-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 23,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:26.150-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:26.150-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:31.368Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:31.164-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 24,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:31.368-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:31.368-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:36.603Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:36.383-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 25,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:36.603-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:36.603-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:41.840Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Start WSC Process"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:41.618-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 26,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:41.839-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:41.839-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Start WSC Process"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:47.069Z",
+      "key": "wps_run",
+      "args": {
+        "name": "2.4G",
+        "obj": "host"
+      },
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "host": {
+            "2.4G": {
+              "WPS_info": {
+                "DRIVER_RSP": "YES",
+                "WscResult": "0",
+                "WscStatus": "Timed-out"
+              }
+            }
+          }
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:46.849-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 27,
+            "section": "wps_run",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:47.068-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:47.068-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "mtk.wifi",
+              "method": "get_WPSRun_info"
+            },
+            "params": {
+              "name": "2.4G",
+              "obj": "host"
+            },
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "host": {
+                "2.4G": {
+                  "WPS_info": {
+                    "DRIVER_RSP": "YES",
+                    "WscResult": "0",
+                    "WscStatus": "Timed-out"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-20T10:03:47.443Z",
+      "key": "status",
+      "args": {},
+      "write": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "long_eons": "ChinaUnicom",
+            "DLrate": "0",
+            "WifiType": "rai0,ra0",
+            "SIM": "[REDACTED]",
+            "IMEI": "[REDACTED]",
+            "MSI": "460018428538398",
+            "wifimode": "100",
+            "NR_or_LTE": "5G",
+            "SignalValue": "-78 dBm",
+            "ICCID": "[REDACTED]",
+            "SimStatus": "21",
+            "ULrate": "0",
+            "stcpinlock": "0",
+            "stcdatactrl": "1",
+            "open": "1",
+            "SignalName": "5G",
+            "stclockstatus": "0",
+            "wanstat": "true,ccmni"
+          },
+          "dataCode": "200"
+        },
+        "reading": {
+          "wanstat": "true,ccmni",
+          "uplink": "connected",
+          "simStatus": "21",
+          "pin": "not_indicated",
+          "signal": "-78 dBm",
+          "operator": "ChinaUnicom",
+          "radio": "5G",
+          "text": "上联已连接",
+          "provesSimSlot": false
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "SimStatus"
+              ],
+              "expected": "scalar"
+            },
+            {
+              "path": [
+                "data",
+                "wanstat"
+              ],
+              "expected": "string"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-20T03:03:47.073-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 28,
+            "section": "status",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-20T03:03:47.442-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "SimStatus"
+                  ],
+                  "expected": "scalar"
+                },
+                {
+                  "path": [
+                    "data",
+                    "wanstat"
+                  ],
+                  "expected": "string"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-20T03:03:47.442-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "jytl_api",
+              "method": "get_status_info"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "long_eons": "ChinaUnicom",
+                "DLrate": "0",
+                "WifiType": "rai0,ra0",
+                "SIM": "[REDACTED]",
+                "IMEI": "[REDACTED]",
+                "MSI": "460018428538398",
+                "wifimode": "100",
+                "NR_or_LTE": "5G",
+                "SignalValue": "-78 dBm",
+                "ICCID": "[REDACTED]",
+                "SimStatus": "21",
+                "ULrate": "0",
+                "stcpinlock": "0",
+                "stcdatactrl": "1",
+                "open": "1",
+                "SignalName": "5G",
+                "stclockstatus": "0",
+                "wanstat": "true,ccmni"
+              },
+              "dataCode": "200"
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "key": "wps_pin",
+      "args": {
+        "name": "2.4G",
+        "obj": "host",
+        "pincode": "[REDACTED]"
+      },
+      "statuses": [
+        "Start WSC Process",
+        "Timed-out"
+      ],
+      "before": "Timed-out",
+      "submission": "submitted",
+      "code": "200",
+      "started": true,
+      "result": "0",
+      "ended": true
+    }
+  ],
+  "startUplink": "connected",
+  "finalUplink": "connected"
+}

@@ -1,0 +1,1500 @@
+{
+  "at": "2026-10-20T03:06:55.186Z",
+  "mode": "live-read-only-developer",
+  "records": [
+    {
+      "section": "first_setup",
+      "tool": "t830_get_first_setup",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "first_setup"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "setup",
+      "tool": "t830_get_setup",
+      "before": "error",
+      "status": "error",
+      "error": "HTTP_403",
+      "failure": {
+        "retrySameRequest": false,
+        "category": "http_forbidden",
+        "evidence": "observation",
+        "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+        "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+      },
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "not_applicable",
+          "note": "UBUS session/access does not check CGI path authorization."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "http_forbidden",
+          "evidence": "observation",
+          "message": "设备拒绝此 HTTP 路径；仅凭 403 不能断言密码错误或接口无权限。",
+          "nextStep": "核对固件是否提供该页面接口及其访问限制；UBUS 权限查询不适用于此路径。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "country",
+      "tool": "t830_get_country",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "country_code"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wifi",
+      "tool": "t830_get_wifi",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "5G",
+              "ssid"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "5G",
+              "state"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "5G",
+              "Channel"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "5G",
+              "BandWidth"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "2.4G",
+              "ssid"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "2.4G",
+              "state"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "2.4G",
+              "Channel"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "2.4G",
+              "BandWidth"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "guest",
+      "tool": "t830_get_guest",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "Guest",
+              "ssid"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "Guest",
+              "state"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "Guest",
+              "on_mode"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "Guest5G",
+              "ssid"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "Guest5G",
+              "state"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "Guest5G",
+              "on_mode"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wps",
+      "tool": "t830_get_wps",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "host"
+            ],
+            "expected": "object"
+          },
+          {
+            "path": [
+              "guest"
+            ],
+            "expected": "object"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wps_run",
+      "tool": "t830_get_wps_run",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wifi_ad",
+      "tool": "t830_get_wifi_ad",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wifi_night",
+      "tool": "t830_get_wifi_night",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "workmode",
+      "tool": "t830_get_workmode",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "workmode"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "wifi_rt",
+      "tool": "t830_get_wifi_rt",
+      "before": "error",
+      "status": "error",
+      "error": "UBUS_ERROR_5_NO_DATA",
+      "failure": {
+        "retrySameRequest": false,
+        "category": "no_data",
+        "evidence": "observation",
+        "message": "接口权限允许，但设备本次未提供业务数据。",
+        "nextStep": "核对上游 WLAN 功能是否已配置；当前工作模式仅供参考，不自动切换模式或断网。"
+      },
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "completed",
+          "access": true,
+          "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [
+          {
+            "reason": "router_data_depends_on_mode_and_upstream_connection",
+            "evidence": "hypothesis",
+            "workmode": 4
+          }
+        ],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "no_data",
+          "evidence": "observation",
+          "message": "接口权限允许，但设备本次未提供业务数据。",
+          "nextStep": "核对上游 WLAN 功能是否已配置；当前工作模式仅供参考，不自动切换模式或断网。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "mesh_status",
+      "tool": "t830_get_mesh_status",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "easymesh_switch"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "mesh_role",
+      "tool": "t830_get_mesh_role",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "role"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "mesh_routers",
+      "tool": "t830_get_mesh_routers",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "count"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "dev_list"
+            ],
+            "expected": "collection"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "clients",
+      "tool": "t830_get_clients",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "brlan_list"
+            ],
+            "expected": "array"
+          },
+          {
+            "path": [
+              "data",
+              "offline_list"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "status",
+      "tool": "t830_get_status",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "SimStatus"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "wanstat"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "device_info",
+      "tool": "t830_get_device_info",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "ModelName"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "data",
+              "SoftwareVersion"
+            ],
+            "expected": "string"
+          },
+          {
+            "path": [
+              "data",
+              "LanIP"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "device",
+      "tool": "t830_get_device",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "code"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "PS_eAct"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "version",
+      "tool": "t830_get_version",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "version"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sim_presence",
+      "tool": "t830_get_sim_presence",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "simcard_inslot"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sim_slot",
+      "tool": "t830_get_sim_slot",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sim",
+      "tool": "t830_get_sim",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "sim"
+            ],
+            "expected": "object"
+          },
+          {
+            "path": [
+              "sim",
+              "status"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "network_mode",
+      "tool": "t830_get_network_mode",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "ratMode"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "modeList"
+            ],
+            "expected": "object"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "apn",
+      "tool": "t830_get_apn",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "manual",
+              "apn_list"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "cells",
+      "tool": "t830_get_cells",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "serving"
+            ],
+            "expected": "array"
+          },
+          {
+            "path": [
+              "neighbour"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "band_lock",
+      "tool": "t830_get_band_lock",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "Band"
+            ],
+            "expected": "object"
+          },
+          {
+            "path": [
+              "Pci"
+            ],
+            "expected": "object"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "roaming",
+      "tool": "t830_get_roaming",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "mac_filter",
+      "tool": "t830_get_mac_filter",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "enable"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "mode"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "ip_filter",
+      "tool": "t830_get_ip_filter",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "enable"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "ipfilter_list"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "port_forward",
+      "tool": "t830_get_port_forward",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "switch"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "rules"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "port_map",
+      "tool": "t830_get_port_map",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "switch"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "rules"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "url_filter",
+      "tool": "t830_get_url_filter",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "enable"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "urlfilter_list"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "upnp",
+      "tool": "t830_get_upnp",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "upnp_switch"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "pf_rules"
+            ],
+            "expected": "array"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "dmz",
+      "tool": "t830_get_dmz",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "dmz_switch"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "lan_ip"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "alg",
+      "tool": "t830_get_alg",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "alg_switch"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "dns",
+      "tool": "t830_get_dns",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "dhcp",
+      "tool": "t830_get_dhcp",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "dhcp_switch"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "start"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "end"
+            ],
+            "expected": "scalar"
+          },
+          {
+            "path": [
+              "data",
+              "netmask"
+            ],
+            "expected": "string"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "static_ip",
+      "tool": "t830_get_static_ip",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "ntp",
+      "tool": "t830_get_ntp",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "time",
+      "tool": "t830_get_time",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "result"
+            ],
+            "expected": "number"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "reboot_schedule",
+      "tool": "t830_get_reboot_schedule",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "signal_records",
+      "tool": "t830_get_signal_records",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "tr069",
+      "tool": "t830_get_tr069",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "gps",
+      "tool": "t830_get_gps",
+      "before": "error",
+      "status": "device_warning",
+      "validation": {
+        "status": "skipped_business_warning",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+          "Key fields were not required because the device reported a business warning."
+        ]
+      }
+    },
+    {
+      "section": "developer_mode",
+      "tool": "t830_get_developer_mode",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "data",
+              "develop_mode"
+            ],
+            "expected": "scalar"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "traffic",
+      "tool": "t830_get_traffic",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "key_fields",
+        "basis": "saved_real_device_response",
+        "checkedFields": [
+          {
+            "path": [
+              "cfgs"
+            ],
+            "expected": "object"
+          },
+          {
+            "path": [
+              "stats"
+            ],
+            "expected": "object"
+          }
+        ],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "diagnose",
+      "tool": "t830_get_diagnose",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "share",
+      "tool": "t830_get_share",
+      "before": "error",
+      "status": "error",
+      "error": "RPC_ERROR_-32000",
+      "failure": {
+        "retrySameRequest": false,
+        "category": "object_not_found",
+        "evidence": "observation",
+        "message": "设备报告目标 UBUS 对象不存在，不能据此断言账号密码错误或仅是权限不足。",
+        "nextStep": "由设备管理员或厂商检查当前固件是否提供该服务；不自动安装、启动服务或升级固件。"
+      },
+      "diagnosticSummary": {
+        "outcome": "failed",
+        "rootCause": "unknown",
+        "permissionCheck": {
+          "status": "completed",
+          "access": false,
+          "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+        },
+        "confirmedFindings": [],
+        "hypotheses": [],
+        "attempts": 1,
+        "retries": [],
+        "failure": {
+          "retrySameRequest": false,
+          "category": "object_not_found",
+          "evidence": "observation",
+          "message": "设备报告目标 UBUS 对象不存在，不能据此断言账号密码错误或仅是权限不足。",
+          "nextStep": "由设备管理员或厂商检查当前固件是否提供该服务；不自动安装、启动服务或升级固件。"
+        },
+        "remainingUnknowns": [
+          "Failure root cause has not been established."
+        ],
+        "stopped": true
+      }
+    },
+    {
+      "section": "login_status",
+      "tool": "t830_get_login_status",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "ping_result",
+      "tool": "t830_get_ping_result",
+      "before": "error",
+      "status": "device_warning",
+      "validation": {
+        "status": "skipped_business_warning",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+          "Key fields were not required because the device reported a business warning."
+        ]
+      }
+    },
+    {
+      "section": "sms_all",
+      "tool": "t830_get_sms_all",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sms_center",
+      "tool": "t830_get_sms_center",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sms_thread",
+      "tool": "t830_get_sms_thread",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sms_report",
+      "tool": "t830_get_sms_report",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "sms_unread",
+      "tool": "t830_get_sms_unread",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "phonebook",
+      "tool": "t830_get_phonebook",
+      "before": "error",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    },
+    {
+      "section": "phonebook_select",
+      "tool": "t830_get_phonebook_select",
+      "before": "error",
+      "status": "device_warning",
+      "validation": {
+        "status": "skipped_business_warning",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness.",
+          "Key fields were not required because the device reported a business warning."
+        ]
+      }
+    },
+    {
+      "section": "log_url",
+      "tool": "t830_get_log_url",
+      "before": "returned",
+      "status": "returned",
+      "validation": {
+        "status": "passed",
+        "coverage": "basic",
+        "basis": "generic_object_check",
+        "checkedFields": [],
+        "issues": [],
+        "limitations": [
+          "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+        ]
+      }
+    }
+  ],
+  "realWrites": 0,
+  "summary": {
+    "returned": 52,
+    "device_warning": 3,
+    "error": 3
+  }
+}
