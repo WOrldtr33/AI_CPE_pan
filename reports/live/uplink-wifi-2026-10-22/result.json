@@ -1,0 +1,4729 @@
+{
+  "at": "2026-10-22T21:06:58.006-07:00",
+  "ssid": "OPPO Find X8 F170",
+  "records": [
+    {
+      "at": "2026-10-22T21:06:59.457-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:06:58.273-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 1,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:06:59.453-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:06:59.453-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:06:59.981-07:00",
+      "tool": "t830_get_wifi_rt",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "info": {
+              "enabled": "0",
+              "ap_password": "[REDACTED]",
+              "ap_ssid": "",
+              "auth_list": [
+                "Enhanced Open",
+                "WPAPSK",
+                "WPA2PSK",
+                "WPA3PSK",
+                "AKM24",
+                "WPAPSKWPA2PSK",
+                "WPA2PSKWPA3PSK"
+              ],
+              "channel": "0",
+              "wifi_index": "2",
+              "encrypt_list": [
+                "WEP",
+                "TKIP",
+                "TKIPAES",
+                "AES",
+                "GCMP256"
+              ],
+              "encrypt": "NONE",
+              "auth": "OPEN"
+            },
+            "status": {
+              "status": "disconnected",
+              "bssid": "",
+              "ssid": "",
+              "ip": ""
+            }
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:06:59.458-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 2,
+            "section": "wifi_rt",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:06:59.979-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:06:59.979-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "info": {
+                  "enabled": "0",
+                  "ap_password": "[REDACTED]",
+                  "ap_ssid": "",
+                  "auth_list": [
+                    "Enhanced Open",
+                    "WPAPSK",
+                    "WPA2PSK",
+                    "WPA3PSK",
+                    "AKM24",
+                    "WPAPSKWPA2PSK",
+                    "WPA2PSKWPA3PSK"
+                  ],
+                  "channel": "0",
+                  "wifi_index": "2",
+                  "encrypt_list": [
+                    "WEP",
+                    "TKIP",
+                    "TKIPAES",
+                    "AES",
+                    "GCMP256"
+                  ],
+                  "encrypt": "NONE",
+                  "auth": "OPEN"
+                },
+                "status": {
+                  "status": "disconnected",
+                  "bssid": "",
+                  "ssid": "",
+                  "ip": ""
+                }
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:02.505-07:00",
+      "tool": "t830_set_wifi_scan_start",
+      "args": {
+        "async": "1",
+        "state": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:06:59.983-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 3,
+            "section": "wifi_scan_start",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 1,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:02.504-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:02.504-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "async": "1",
+              "state": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:10.865-07:00",
+      "tool": "t830_set_wifi_scan_list",
+      "args": {
+        "state": "2"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "data": {
+            "scanlist_5g": {},
+            "scanlist_2g": [
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1be4",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_JQNT",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1af4",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "rain_012F_2.4G",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "OPPO Find X8 F170",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1c3e",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "NONE              100      b",
+                "ssid": "home-guest",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1b26",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "TKIPAES  100      b",
+                "ssid": "DDDDEBUG",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_TUXM",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_MDDH",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES         100      b",
+                "ssid": "21wangduan_2.4G",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101pro_TGYY",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_WEXD",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "5G CPE_F307_2.4G",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_WEXD",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "###5G CPE_4960_2.4G",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES         100      b",
+                "ssid": "5G CPE_2392_2.4G",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "TKIPAES  100      b",
+                "ssid": "XiaoMi-999",
+                "channel": "2",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101xtender_UWZW",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "NONE              100      b",
+                "ssid": "!!11111111115G CPE_45BC_2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "JYTL-WW",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1c16",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_TUXM",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_MNJZ",
+                "channel": "2",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101xtender_MZGR",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "MTBF_2.4G002",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101pro_WUXN",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_GJKY",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_QMZZ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "JERRY专用WIFI，勿连",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "TKIPAES  99       b",
+                "ssid": "ChinaNet-ARTJ",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "99",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES            99       b",
+                "ssid": "5G CPE_2392_2.4G",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "99",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            96       b",
+                "ssid": "JYTL-caiwu_2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "96",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "TKIPAES  94       b",
+                "ssid": "ChinaNet-NMj3",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "94",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      91       b",
+                "ssid": "SZ-YHD-Guest",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "91",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     89       b",
+                "ssid": "XSJC",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "89",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES      86       b",
+                "ssid": "SZ-YHD-Office",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "86",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES            83       b",
+                "ssid": "DIRECT-9E-EPSON-AA0A36",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "83",
+                "mode": "b/g/n",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      81       b",
+                "ssid": "JYTL",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "81",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      81       b",
+                "ssid": "JYTL-Guest",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "81",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      81       b",
+                "ssid": "SZ-YHD-Office",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "81",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      78       b",
+                "ssid": "SZ-YHD-Guest",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "78",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES         76       b",
+                "ssid": "jishuyingyongbu",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "76",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            68       b",
+                "ssid": "Kitar-Bob",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "68",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            68       b",
+                "ssid": "Kitar-2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "68",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            55       b",
+                "ssid": "Kitar-Bob",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "55",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      52       b",
+                "ssid": "SZ-YHD-Office",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "52",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "NONE              52       b",
+                "ssid": "Kitar-Guest",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "52",
+                "mode": "b/g/n/ax",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "AES            47       b",
+                "ssid": "Kitar-2.4G",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "47",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES_GCMP25681",
+                "ssid": "Jytl-2.4gcpe0fang               ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25681",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "!!!!1115G CPE_454A_2.4G         ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_DHMG            ",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25696",
+                "ssid": "low_2.4G.the101_EYZM            ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25696",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25691",
+                "ssid": "low_2.4G.the101_WYZA            ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25691",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES100      b",
+                "ssid": "low_2.4G.the101_MYYZ            ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES89       b",
+                "ssid": "5G CPE_45A1_2.4G                ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25683",
+                "ssid": "1AAduoyonghu_2.4G               ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25683",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_2739_2.4G                ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_4628_2.4G                ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_4619_2.4G_11111          ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_DAYM            ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_ZTFM            ",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_ZHND            ",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_45B9_2.4Gxxx             ",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              }
+            ]
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:07:10.507-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 4,
+            "section": "wifi_scan_list",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:10.861-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:10.861-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "state": "2"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "data": {
+                "scanlist_5g": {},
+                "scanlist_2g": [
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1be4",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_JQNT",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1af4",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "rain_012F_2.4G",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "OPPO Find X8 F170",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1c3e",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "NONE              100      b",
+                    "ssid": "home-guest",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1b26",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  100      b",
+                    "ssid": "DDDDEBUG",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_TUXM",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_MDDH",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES         100      b",
+                    "ssid": "21wangduan_2.4G",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101pro_TGYY",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_WEXD",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "5G CPE_F307_2.4G",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_WEXD",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "###5G CPE_4960_2.4G",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES         100      b",
+                    "ssid": "5G CPE_2392_2.4G",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  100      b",
+                    "ssid": "XiaoMi-999",
+                    "channel": "2",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101xtender_UWZW",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "NONE              100      b",
+                    "ssid": "!!11111111115G CPE_45BC_2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "JYTL-WW",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1c16",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_TUXM",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_MNJZ",
+                    "channel": "2",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101xtender_MZGR",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "MTBF_2.4G002",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101pro_WUXN",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_GJKY",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_QMZZ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "JERRY专用WIFI，勿连",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  99       b",
+                    "ssid": "ChinaNet-ARTJ",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "99",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            99       b",
+                    "ssid": "5G CPE_2392_2.4G",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "99",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            96       b",
+                    "ssid": "JYTL-caiwu_2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "96",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  94       b",
+                    "ssid": "ChinaNet-NMj3",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "94",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      91       b",
+                    "ssid": "SZ-YHD-Guest",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "91",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     89       b",
+                    "ssid": "XSJC",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "89",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES      86       b",
+                    "ssid": "SZ-YHD-Office",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "86",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            83       b",
+                    "ssid": "DIRECT-9E-EPSON-AA0A36",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "83",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      81       b",
+                    "ssid": "JYTL",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "81",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      81       b",
+                    "ssid": "JYTL-Guest",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "81",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      81       b",
+                    "ssid": "SZ-YHD-Office",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "81",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      78       b",
+                    "ssid": "SZ-YHD-Guest",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "78",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES         76       b",
+                    "ssid": "jishuyingyongbu",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "76",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            68       b",
+                    "ssid": "Kitar-Bob",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "68",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            68       b",
+                    "ssid": "Kitar-2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "68",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            55       b",
+                    "ssid": "Kitar-Bob",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "55",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      52       b",
+                    "ssid": "SZ-YHD-Office",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "52",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "NONE              52       b",
+                    "ssid": "Kitar-Guest",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "52",
+                    "mode": "b/g/n/ax",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "AES            47       b",
+                    "ssid": "Kitar-2.4G",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "47",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25681",
+                    "ssid": "Jytl-2.4gcpe0fang               ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25681",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "!!!!1115G CPE_454A_2.4G         ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_DHMG            ",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25696",
+                    "ssid": "low_2.4G.the101_EYZM            ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25696",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25691",
+                    "ssid": "low_2.4G.the101_WYZA            ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25691",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES100      b",
+                    "ssid": "low_2.4G.the101_MYYZ            ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES89       b",
+                    "ssid": "5G CPE_45A1_2.4G                ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25683",
+                    "ssid": "1AAduoyonghu_2.4G               ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25683",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_2739_2.4G                ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_4628_2.4G                ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_4619_2.4G_11111          ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_DAYM            ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_ZTFM            ",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_ZHND            ",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_45B9_2.4Gxxx             ",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  }
+                ]
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:11.161-07:00",
+      "tool": "t830_set_workmode",
+      "args": {
+        "workmode": 5,
+        "bonding": "0",
+        "add_ccmni_to_bridge": "0",
+        "ip_passthrough": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:07:10.866-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 5,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:11.160-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:11.160-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "workmode": 5,
+              "bonding": "0",
+              "add_ccmni_to_bridge": "0",
+              "ip_passthrough": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:11.221-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 5
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:07:11.162-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 6,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:11.220-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:11.220-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 5
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:13.601-07:00",
+      "tool": "t830_set_wifi_scan_start",
+      "args": {
+        "async": "1",
+        "state": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:07:11.222-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 7,
+            "section": "wifi_scan_start",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:13.600-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:13.600-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "async": "1",
+              "state": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:31.617-07:00",
+      "tool": "t830_set_wifi_scan_list",
+      "args": {
+        "state": "2"
+      },
+      "isError": true,
+      "output": {
+        "status": "error",
+        "error": "DEVICE_TIMEOUT",
+        "details": {
+          "cause": "TimeoutError",
+          "executionState": "dispatched",
+          "remoteExecution": "unknown",
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "unknown",
+              "evidence": "inconclusive",
+              "message": "设备调用失败，现有证据不足以确定根因。",
+              "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-22T21:07:21.610-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 8,
+              "section": "wifi_scan_list",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-22T21:07:31.615-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "state": "2"
+              },
+              "withCookie": true,
+              "error": "DEVICE_TIMEOUT",
+              "details": {
+                "cause": "TimeoutError",
+                "executionState": "dispatched",
+                "remoteExecution": "unknown"
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "unknown",
+          "evidence": "inconclusive",
+          "message": "设备调用失败，现有证据不足以确定根因。",
+          "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+        }
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:35.818-07:00",
+      "tool": "t830_set_wifi_scan_list",
+      "args": {
+        "state": "2"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "data": {
+            "scanlist_5g": {},
+            "scanlist_2g": [
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1be4",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "rain_012F_2.4G",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1af4",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_MDDH",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "###5G CPE_4960_2.4G",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "TKIPAES  100      b",
+                "ssid": "ChinaNet-NMj3",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_YTQZ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "TKIPAES  100      b",
+                "ssid": "DDDDEBUG",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1c3e",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1b26",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "OPPO Find X8 F170",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "TKIPAES  100      b",
+                "ssid": "XiaoMi-999",
+                "channel": "2",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_JQNT",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_WEXD",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101pro_TGYY",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "JYTL-Dong-2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "5G CPE_F307_2.4G",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_WEXD",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "NONE              100      b",
+                "ssid": "!!11111111115G CPE_45BC_2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "NONE              100      b",
+                "ssid": "home-guest",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "AES         100      b",
+                "ssid": "5G CPE_2392_2.4G",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_TUXM",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES            100      b",
+                "ssid": "JYTL-caiwu_2.4G",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      100      b",
+                "ssid": "wifi_1c16",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101xtender_MZGR",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "MTBF_2.4G002",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low2.4G.101pro_WUXN",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_TUXM",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_GJKY",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     100      b",
+                "ssid": "low_2.4G.the101_QMZZ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "100",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES     99       b",
+                "ssid": "low_2.4G.the101_MNJZ",
+                "channel": "2",
+                "bssid": "[REDACTED]",
+                "rssi": "99",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES         99       b",
+                "ssid": "21wangduan_2.4G",
+                "channel": "4",
+                "bssid": "[REDACTED]",
+                "rssi": "99",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            96       b",
+                "ssid": "5G CPE_2392_2.4G",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "96",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            96       b",
+                "ssid": "JERRY专用WIFI，勿连",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "96",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      94       b",
+                "ssid": "SZ-YHD-Office",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "94",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES     89       b",
+                "ssid": "XSJC",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "89",
+                "mode": "b/g/n/ax/be",
+                "auth": "WPA2PSKWPA3PSK"
+              },
+              {
+                "encrypt": "AES      83       b",
+                "ssid": "SZ-YHD-Guest",
+                "channel": "10",
+                "bssid": "[REDACTED]",
+                "rssi": "83",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      81       b",
+                "ssid": "JYTL-Guest",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "81",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES      81       b",
+                "ssid": "JYTL",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "81",
+                "mode": "b/g/n",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES            78       b",
+                "ssid": "DIRECT-9E-EPSON-AA0A36",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "78",
+                "mode": "b/g/n",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES      70       b",
+                "ssid": "SZ-YHD-Guest",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "70",
+                "mode": "b/g/n/ax",
+                "auth": "WPAPSKWPA2PSK"
+              },
+              {
+                "encrypt": "AES         70       b",
+                "ssid": "jishuyingyongbu",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "70",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            60       b",
+                "ssid": "DIRECT-AB-HP 3104fdw LJ",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "60",
+                "mode": "b/g/n",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            50       b",
+                "ssid": "Kitar-Bob",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "50",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            47       b",
+                "ssid": "Kitar-Alice",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "47",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "AES            47       b",
+                "ssid": "Kitar-2.4G",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "47",
+                "mode": "b/g/n/ax",
+                "auth": "WPA2PSK"
+              },
+              {
+                "encrypt": "NONE              42       b",
+                "ssid": "Kitar-Guest",
+                "channel": "11",
+                "bssid": "[REDACTED]",
+                "rssi": "42",
+                "mode": "b/g/n/ax",
+                "auth": "OPEN"
+              },
+              {
+                "encrypt": "AES_GCMP25689",
+                "ssid": "low_2.4G.the101_WYZA            ",
+                "channel": "9",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25689",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_ZHND            ",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_WNTQ            ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_4619_2.4G_11111          ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_DHMG            ",
+                "channel": "5",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25681",
+                "ssid": "Jytl-2.4gcpe0fang               ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25681",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25696",
+                "ssid": "low_2.4G.the101_DAYM            ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25696",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES94       b",
+                "ssid": "5G CPE_45B6_2.4G                ",
+                "channel": "1",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25699",
+                "ssid": "low_2.4G.the101_EYZM            ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25699",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "low_2.4G.the101_ZTFM            ",
+                "channel": "6",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25676",
+                "ssid": "Jytl-2.4gcpe0fang               ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25676",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "!!!!1115G CPE_454A_2.4G         ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_2739_2.4G                ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP25678",
+                "ssid": "1AAduoyonghu_2.4G               ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP25678",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES100      b",
+                "ssid": "5G CPE_45A1_2.4G                ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_45B9_2.4Gxxx             ",
+                "channel": "3",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES100      b",
+                "ssid": "5G CPE_4625_2.4G                ",
+                "channel": "8",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES_GCMP256100",
+                "ssid": "5G CPE_4628_2.4G                ",
+                "channel": "7",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "MP256100",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              },
+              {
+                "encrypt": "AES100      b",
+                "ssid": "low_2.4G.the101_MYYZ            ",
+                "channel": "13",
+                "bssid": "[REDACTED]",
+                "rssi": "XT/AE",
+                "mode": "b/g/n/",
+                "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+              }
+            ]
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:07:35.630-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 9,
+            "section": "wifi_scan_list",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:07:35.815-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:07:35.815-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/wifi_scan_async",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "state": "2"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "data": {
+                "scanlist_5g": {},
+                "scanlist_2g": [
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1be4",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "rain_012F_2.4G",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1af4",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_MDDH",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "###5G CPE_4960_2.4G",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  100      b",
+                    "ssid": "ChinaNet-NMj3",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_YTQZ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  100      b",
+                    "ssid": "DDDDEBUG",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1c3e",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1b26",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "OPPO Find X8 F170",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "TKIPAES  100      b",
+                    "ssid": "XiaoMi-999",
+                    "channel": "2",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_JQNT",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_WEXD",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101pro_TGYY",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "JYTL-Dong-2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "5G CPE_F307_2.4G",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_WEXD",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "NONE              100      b",
+                    "ssid": "!!11111111115G CPE_45BC_2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "NONE              100      b",
+                    "ssid": "home-guest",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "AES         100      b",
+                    "ssid": "5G CPE_2392_2.4G",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_TUXM",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES            100      b",
+                    "ssid": "JYTL-caiwu_2.4G",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      100      b",
+                    "ssid": "wifi_1c16",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101xtender_MZGR",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "MTBF_2.4G002",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low2.4G.101pro_WUXN",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_TUXM",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_GJKY",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     100      b",
+                    "ssid": "low_2.4G.the101_QMZZ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "100",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES     99       b",
+                    "ssid": "low_2.4G.the101_MNJZ",
+                    "channel": "2",
+                    "bssid": "[REDACTED]",
+                    "rssi": "99",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES         99       b",
+                    "ssid": "21wangduan_2.4G",
+                    "channel": "4",
+                    "bssid": "[REDACTED]",
+                    "rssi": "99",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            96       b",
+                    "ssid": "5G CPE_2392_2.4G",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "96",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            96       b",
+                    "ssid": "JERRY专用WIFI，勿连",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "96",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      94       b",
+                    "ssid": "SZ-YHD-Office",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "94",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES     89       b",
+                    "ssid": "XSJC",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "89",
+                    "mode": "b/g/n/ax/be",
+                    "auth": "WPA2PSKWPA3PSK"
+                  },
+                  {
+                    "encrypt": "AES      83       b",
+                    "ssid": "SZ-YHD-Guest",
+                    "channel": "10",
+                    "bssid": "[REDACTED]",
+                    "rssi": "83",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      81       b",
+                    "ssid": "JYTL-Guest",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "81",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      81       b",
+                    "ssid": "JYTL",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "81",
+                    "mode": "b/g/n",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            78       b",
+                    "ssid": "DIRECT-9E-EPSON-AA0A36",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "78",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES      70       b",
+                    "ssid": "SZ-YHD-Guest",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "70",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPAPSKWPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES         70       b",
+                    "ssid": "jishuyingyongbu",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "70",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            60       b",
+                    "ssid": "DIRECT-AB-HP 3104fdw LJ",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "60",
+                    "mode": "b/g/n",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            50       b",
+                    "ssid": "Kitar-Bob",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "50",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            47       b",
+                    "ssid": "Kitar-Alice",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "47",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "AES            47       b",
+                    "ssid": "Kitar-2.4G",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "47",
+                    "mode": "b/g/n/ax",
+                    "auth": "WPA2PSK"
+                  },
+                  {
+                    "encrypt": "NONE              42       b",
+                    "ssid": "Kitar-Guest",
+                    "channel": "11",
+                    "bssid": "[REDACTED]",
+                    "rssi": "42",
+                    "mode": "b/g/n/ax",
+                    "auth": "OPEN"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25689",
+                    "ssid": "low_2.4G.the101_WYZA            ",
+                    "channel": "9",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25689",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_ZHND            ",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_WNTQ            ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_4619_2.4G_11111          ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_DHMG            ",
+                    "channel": "5",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25681",
+                    "ssid": "Jytl-2.4gcpe0fang               ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25681",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25696",
+                    "ssid": "low_2.4G.the101_DAYM            ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25696",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES94       b",
+                    "ssid": "5G CPE_45B6_2.4G                ",
+                    "channel": "1",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25699",
+                    "ssid": "low_2.4G.the101_EYZM            ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25699",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "low_2.4G.the101_ZTFM            ",
+                    "channel": "6",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25676",
+                    "ssid": "Jytl-2.4gcpe0fang               ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25676",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "!!!!1115G CPE_454A_2.4G         ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_2739_2.4G                ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP25678",
+                    "ssid": "1AAduoyonghu_2.4G               ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP25678",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES100      b",
+                    "ssid": "5G CPE_45A1_2.4G                ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_45B9_2.4Gxxx             ",
+                    "channel": "3",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES100      b",
+                    "ssid": "5G CPE_4625_2.4G                ",
+                    "channel": "8",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES_GCMP256100",
+                    "ssid": "5G CPE_4628_2.4G                ",
+                    "channel": "7",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "MP256100",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  },
+                  {
+                    "encrypt": "AES100      b",
+                    "ssid": "low_2.4G.the101_MYYZ            ",
+                    "channel": "13",
+                    "bssid": "[REDACTED]",
+                    "rssi": "XT/AE",
+                    "mode": "b/g/n/",
+                    "auth": "WPA2PSKWPA3PSKWPA3PSK-EXT"
+                  }
+                ]
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:04.051-07:00",
+      "tool": "t830_set_wifi_router_connect",
+      "args": {
+        "ap_ssid": "OPPO Find X8 F170",
+        "ap_password": "[REDACTED]",
+        "channel": "11",
+        "wifi_index": "2",
+        "encrypt": "AES            100      b",
+        "auth": "WPA2PSK"
+      },
+      "isError": true,
+      "output": {
+        "status": "error",
+        "error": "DEVICE_UNREACHABLE",
+        "details": {
+          "cause": "TypeError",
+          "executionState": "dispatched",
+          "remoteExecution": "unknown",
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_workmode/set_wifi_router",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "unknown",
+              "evidence": "inconclusive",
+              "message": "设备调用失败，现有证据不足以确定根因。",
+              "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-22T21:07:35.818-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 10,
+              "section": "wifi_router_connect",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-22T21:08:04.050-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_workmode/set_wifi_router",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "ap_ssid": "OPPO Find X8 F170",
+                "ap_password": "[REDACTED]",
+                "channel": "11",
+                "wifi_index": "2",
+                "encrypt": "AES            100      b",
+                "auth": "WPA2PSK"
+              },
+              "withCookie": true,
+              "error": "DEVICE_UNREACHABLE",
+              "details": {
+                "cause": "TypeError",
+                "executionState": "dispatched",
+                "remoteExecution": "unknown"
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "unknown",
+          "evidence": "inconclusive",
+          "message": "设备调用失败，现有证据不足以确定根因。",
+          "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+        }
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:24.417-07:00",
+      "tool": "t830_get_wifi_rt",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "info": {
+              "enabled": "1",
+              "ap_password": "[REDACTED]",
+              "ap_ssid": "OPPO Find X8 F170",
+              "auth_list": [
+                "Enhanced Open",
+                "WPAPSK",
+                "WPA2PSK",
+                "WPA3PSK",
+                "AKM24",
+                "WPAPSKWPA2PSK",
+                "WPA2PSKWPA3PSK"
+              ],
+              "channel": "11",
+              "wifi_index": "2",
+              "encrypt_list": [
+                "WEP",
+                "TKIP",
+                "TKIPAES",
+                "AES",
+                "GCMP256"
+              ],
+              "encrypt": "AES",
+              "auth": "WPA2PSK"
+            },
+            "status": {
+              "status": "connected",
+              "bssid": "[REDACTED]",
+              "ssid": "OPPO Find X8 F170",
+              "ip": "10.74.128.138"
+            }
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:24.054-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 11,
+            "section": "wifi_rt",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:24.416-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:24.416-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "info": {
+                  "enabled": "1",
+                  "ap_password": "[REDACTED]",
+                  "ap_ssid": "OPPO Find X8 F170",
+                  "auth_list": [
+                    "Enhanced Open",
+                    "WPAPSK",
+                    "WPA2PSK",
+                    "WPA3PSK",
+                    "AKM24",
+                    "WPAPSKWPA2PSK",
+                    "WPA2PSKWPA3PSK"
+                  ],
+                  "channel": "11",
+                  "wifi_index": "2",
+                  "encrypt_list": [
+                    "WEP",
+                    "TKIP",
+                    "TKIPAES",
+                    "AES",
+                    "GCMP256"
+                  ],
+                  "encrypt": "AES",
+                  "auth": "WPA2PSK"
+                },
+                "status": {
+                  "status": "connected",
+                  "bssid": "[REDACTED]",
+                  "ssid": "OPPO Find X8 F170",
+                  "ip": "10.74.128.138"
+                }
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:25.600-07:00",
+      "tool": "t830_set_wifi_router_disconnect",
+      "args": {
+        "connect": "0"
+      },
+      "isError": true,
+      "output": {
+        "status": "error",
+        "error": "DEVICE_UNREACHABLE",
+        "details": {
+          "cause": "TypeError",
+          "executionState": "dispatched",
+          "remoteExecution": "unknown",
+          "endpoint": {
+            "transport": "cgi",
+            "path": "/cgi-bin/luci/admin/jt_workmode/wifi_connect",
+            "httpMethod": "POST"
+          },
+          "diagnosticSummary": {
+            "outcome": "failed",
+            "rootCause": "unknown",
+            "permissionCheck": {
+              "status": "not_applicable",
+              "note": "UBUS session/access does not check CGI path authorization."
+            },
+            "confirmedFindings": [],
+            "hypotheses": [],
+            "attempts": 1,
+            "retries": [],
+            "failure": {
+              "retrySameRequest": false,
+              "category": "unknown",
+              "evidence": "inconclusive",
+              "message": "设备调用失败，现有证据不足以确定根因。",
+              "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+            },
+            "remainingUnknowns": [
+              "Failure root cause has not been established."
+            ],
+            "stopped": true
+          },
+          "diagnostics": [
+            {
+              "at": "2026-10-22T21:08:24.417-07:00",
+              "step": "queue",
+              "evidence": "observation",
+              "operationId": 12,
+              "section": "wifi_router_disconnect",
+              "maxPending": 16,
+              "waitTimeoutMs": 30000,
+              "waitMs": 0,
+              "policy": "fifo_per_device_instance",
+              "state": "started"
+            },
+            {
+              "at": "2026-10-22T21:08:25.599-07:00",
+              "step": "attempt",
+              "evidence": "observation",
+              "attempt": 1,
+              "endpoint": {
+                "transport": "cgi",
+                "path": "/cgi-bin/luci/admin/jt_workmode/wifi_connect",
+                "httpMethod": "POST"
+              },
+              "params": {
+                "connect": "0"
+              },
+              "withCookie": true,
+              "error": "DEVICE_UNREACHABLE",
+              "details": {
+                "cause": "TypeError",
+                "executionState": "dispatched",
+                "remoteExecution": "unknown"
+              }
+            }
+          ],
+          "exhausted": true
+        },
+        "failure": {
+          "retrySameRequest": false,
+          "category": "unknown",
+          "evidence": "inconclusive",
+          "message": "设备调用失败，现有证据不足以确定根因。",
+          "nextStep": "保留原始错误与诊断轨迹，核对接口和设备前置条件。"
+        }
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:25.974-07:00",
+      "tool": "t830_get_wifi_rt",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "info": {
+              "enabled": "0",
+              "ap_password": "[REDACTED]",
+              "ap_ssid": "",
+              "auth_list": [
+                "Enhanced Open",
+                "WPAPSK",
+                "WPA2PSK",
+                "WPA3PSK",
+                "AKM24",
+                "WPAPSKWPA2PSK",
+                "WPA2PSKWPA3PSK"
+              ],
+              "channel": "11",
+              "wifi_index": "2",
+              "encrypt_list": [
+                "WEP",
+                "TKIP",
+                "TKIPAES",
+                "AES",
+                "GCMP256"
+              ],
+              "encrypt": "NONE",
+              "auth": "OPEN"
+            },
+            "status": {
+              "status": "disconnected",
+              "bssid": "",
+              "ssid": "",
+              "ip": ""
+            }
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:25.600-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 13,
+            "section": "wifi_rt",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:25.973-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:25.973-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "info": {
+                  "enabled": "0",
+                  "ap_password": "[REDACTED]",
+                  "ap_ssid": "",
+                  "auth_list": [
+                    "Enhanced Open",
+                    "WPAPSK",
+                    "WPA2PSK",
+                    "WPA3PSK",
+                    "AKM24",
+                    "WPAPSKWPA2PSK",
+                    "WPA2PSKWPA3PSK"
+                  ],
+                  "channel": "11",
+                  "wifi_index": "2",
+                  "encrypt_list": [
+                    "WEP",
+                    "TKIP",
+                    "TKIPAES",
+                    "AES",
+                    "GCMP256"
+                  ],
+                  "encrypt": "NONE",
+                  "auth": "OPEN"
+                },
+                "status": {
+                  "status": "disconnected",
+                  "bssid": "",
+                  "ssid": "",
+                  "ip": ""
+                }
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:26.020-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "2",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 5
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:25.974-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 14,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:26.019-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:26.019-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "2",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 5
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:26.640-07:00",
+      "tool": "t830_set_workmode",
+      "args": {
+        "workmode": 4,
+        "bonding": "0",
+        "add_ccmni_to_bridge": "0",
+        "ip_passthrough": "1"
+      },
+      "isError": false,
+      "output": {
+        "status": "submitted",
+        "data": {
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "submitted",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_applicable",
+            "note": "UBUS session/access does not check CGI path authorization."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:26.020-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 15,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:26.639-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:26.639-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "cgi",
+              "path": "/cgi-bin/luci/admin/jt_workmode/set_workmode",
+              "httpMethod": "POST"
+            },
+            "params": {
+              "workmode": 4,
+              "bonding": "0",
+              "add_ccmni_to_bridge": "0",
+              "ip_passthrough": "1"
+            },
+            "withCookie": true,
+            "outcome": "submitted",
+            "data": {
+              "code": 0
+            }
+          }
+        ],
+        "note": "仅接口返回，未自动确认配置生效；除设备明确要求重新登录外不重发写操作。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:26.688-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:26.641-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 16,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:26.687-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:26.687-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:26.734-07:00",
+      "tool": "t830_get_workmode",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "bonding": "0",
+            "add_ccmni_to_bridge": "0",
+            "ip_passthrough": "1",
+            "if_index": "",
+            "data_switch": "1",
+            "gateway": "",
+            "workmode": 4
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "key_fields",
+          "basis": "saved_real_device_response",
+          "checkedFields": [
+            {
+              "path": [
+                "data",
+                "workmode"
+              ],
+              "expected": "scalar"
+            }
+          ],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:26.689-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 17,
+            "section": "workmode",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:26.733-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "key_fields",
+              "basis": "saved_real_device_response",
+              "checkedFields": [
+                {
+                  "path": [
+                    "data",
+                    "workmode"
+                  ],
+                  "expected": "scalar"
+                }
+              ],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:26.733-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_workmode"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "bonding": "0",
+                "add_ccmni_to_bridge": "0",
+                "ip_passthrough": "1",
+                "if_index": "",
+                "data_switch": "1",
+                "gateway": "",
+                "workmode": 4
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:27.109-07:00",
+      "tool": "t830_get_wifi_rt",
+      "args": {},
+      "isError": false,
+      "output": {
+        "status": "returned",
+        "data": {
+          "data": {
+            "info": {
+              "enabled": "0",
+              "ap_password": "[REDACTED]",
+              "ap_ssid": "",
+              "auth_list": [
+                "Enhanced Open",
+                "WPAPSK",
+                "WPA2PSK",
+                "WPA3PSK",
+                "AKM24",
+                "WPAPSKWPA2PSK",
+                "WPA2PSKWPA3PSK"
+              ],
+              "channel": "11",
+              "wifi_index": "2",
+              "encrypt_list": [
+                "WEP",
+                "TKIP",
+                "TKIPAES",
+                "AES",
+                "GCMP256"
+              ],
+              "encrypt": "NONE",
+              "auth": "OPEN"
+            },
+            "status": {
+              "status": "disconnected",
+              "bssid": "",
+              "ssid": "",
+              "ip": ""
+            }
+          },
+          "code": 0
+        },
+        "warnings": [],
+        "validation": {
+          "status": "passed",
+          "coverage": "basic",
+          "basis": "generic_object_check",
+          "checkedFields": [],
+          "issues": [],
+          "limitations": [
+            "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+          ]
+        },
+        "diagnosticSummary": {
+          "outcome": "returned",
+          "rootCause": "not_applicable",
+          "permissionCheck": {
+            "status": "not_run",
+            "note": "An access result alone does not establish the cause of Object not found or NO_DATA."
+          },
+          "confirmedFindings": [],
+          "hypotheses": [],
+          "attempts": 1,
+          "retries": []
+        },
+        "diagnostics": [
+          {
+            "at": "2026-10-22T21:08:26.734-07:00",
+            "step": "queue",
+            "evidence": "observation",
+            "operationId": 18,
+            "section": "wifi_rt",
+            "maxPending": 16,
+            "waitTimeoutMs": 30000,
+            "waitMs": 0,
+            "policy": "fifo_per_device_instance",
+            "state": "started"
+          },
+          {
+            "at": "2026-10-22T21:08:27.108-07:00",
+            "step": "response_validation",
+            "evidence": "observation",
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "validation": {
+              "status": "passed",
+              "coverage": "basic",
+              "basis": "generic_object_check",
+              "checkedFields": [],
+              "issues": [],
+              "limitations": [
+                "Not a full vendor response schema; does not prove connectivity or configuration effectiveness."
+              ]
+            }
+          },
+          {
+            "at": "2026-10-22T21:08:27.108-07:00",
+            "step": "attempt",
+            "evidence": "observation",
+            "attempt": 1,
+            "endpoint": {
+              "transport": "ubus",
+              "service": "web_api",
+              "method": "get_wifi_router"
+            },
+            "params": {},
+            "withCookie": false,
+            "outcome": "returned",
+            "data": {
+              "data": {
+                "info": {
+                  "enabled": "0",
+                  "ap_password": "[REDACTED]",
+                  "ap_ssid": "",
+                  "auth_list": [
+                    "Enhanced Open",
+                    "WPAPSK",
+                    "WPA2PSK",
+                    "WPA3PSK",
+                    "AKM24",
+                    "WPAPSKWPA2PSK",
+                    "WPA2PSKWPA3PSK"
+                  ],
+                  "channel": "11",
+                  "wifi_index": "2",
+                  "encrypt_list": [
+                    "WEP",
+                    "TKIP",
+                    "TKIPAES",
+                    "AES",
+                    "GCMP256"
+                  ],
+                  "encrypt": "NONE",
+                  "auth": "OPEN"
+                },
+                "status": {
+                  "status": "disconnected",
+                  "bssid": "",
+                  "ssid": "",
+                  "ip": ""
+                }
+              },
+              "code": 0
+            }
+          }
+        ],
+        "note": "返回数据不代表已联网；无 SIM 仍可能有无线信息。在槽和上联以 reading 为准。"
+      }
+    }
+  ],
+  "results": [
+    {
+      "at": "2026-10-22T21:06:59.981-07:00",
+      "step": "baseline",
+      "outcome": "info",
+      "workmode": 4,
+      "router": {
+        "enabled": "0",
+        "ap_ssid": "",
+        "wifi_index": "2",
+        "status": "disconnected",
+        "hasIp": false
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:02.505-07:00",
+      "step": "mode4 t830_set_wifi_scan_start",
+      "outcome": "passed",
+      "deviceCode": 0
+    },
+    {
+      "at": "2026-10-22T21:07:10.865-07:00",
+      "step": "mode4 t830_set_wifi_scan_list",
+      "outcome": "passed",
+      "attempt": 1,
+      "networks": 68,
+      "count5g": 0,
+      "count2g": 68,
+      "target": {
+        "channel": "11",
+        "index": "2",
+        "encrypt": "AES            100      b",
+        "auth": "WPA2PSK",
+        "rssi": "100",
+        "mode": "b/g/n"
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:11.221-07:00",
+      "step": "t830_set_workmode -> 5",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "appliedAfterSeconds": 0,
+      "readback": {
+        "bonding": "0",
+        "add_ccmni_to_bridge": "0",
+        "ip_passthrough": "1",
+        "if_index": "",
+        "data_switch": "1",
+        "gateway": "",
+        "workmode": 5
+      }
+    },
+    {
+      "at": "2026-10-22T21:07:13.601-07:00",
+      "step": "mode5 t830_set_wifi_scan_start",
+      "outcome": "passed",
+      "deviceCode": 0
+    },
+    {
+      "at": "2026-10-22T21:07:35.818-07:00",
+      "step": "mode5 t830_set_wifi_scan_list",
+      "outcome": "passed",
+      "attempt": 2,
+      "networks": 68,
+      "count5g": 0,
+      "count2g": 68,
+      "target": {
+        "channel": "11",
+        "index": "2",
+        "encrypt": "AES            100      b",
+        "auth": "WPA2PSK",
+        "rssi": "100",
+        "mode": "b/g/n"
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:24.417-07:00",
+      "step": "t830_set_wifi_router_connect",
+      "outcome": "passed",
+      "writeError": "DEVICE_UNREACHABLE",
+      "connectedAfterSeconds": 20,
+      "router": {
+        "enabled": "1",
+        "ap_ssid": "OPPO Find X8 F170",
+        "wifi_index": "2",
+        "status": "connected",
+        "hasIp": true
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:25.974-07:00",
+      "step": "t830_set_wifi_router_disconnect",
+      "outcome": "failed",
+      "writeStatus": "error",
+      "writeError": "DEVICE_UNREACHABLE",
+      "disconnectedAfterSeconds": 0,
+      "router": {
+        "enabled": "0",
+        "ap_ssid": "",
+        "wifi_index": "2",
+        "status": "disconnected",
+        "hasIp": false
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:26.688-07:00",
+      "step": "t830_set_workmode -> 4",
+      "outcome": "passed",
+      "writeStatus": "submitted",
+      "deviceCode": 0,
+      "appliedAfterSeconds": 0,
+      "readback": {
+        "bonding": "0",
+        "add_ccmni_to_bridge": "0",
+        "ip_passthrough": "1",
+        "if_index": "",
+        "data_switch": "1",
+        "gateway": "",
+        "workmode": 4
+      }
+    },
+    {
+      "at": "2026-10-22T21:08:27.109-07:00",
+      "step": "final",
+      "outcome": "info",
+      "workmode": 4,
+      "router": {
+        "enabled": "0",
+        "ap_ssid": "",
+        "wifi_index": "2",
+        "status": "disconnected",
+        "hasIp": false
+      }
+    }
+  ],
+  "baselineWorkmode": {
+    "bonding": "0",
+    "add_ccmni_to_bridge": "0",
+    "ip_passthrough": "1",
+    "if_index": "",
+    "data_switch": "1",
+    "gateway": "",
+    "workmode": 4
+  },
+  "baselineRouter": {
+    "enabled": "0",
+    "ap_ssid": "",
+    "wifi_index": "2",
+    "status": "disconnected",
+    "hasIp": false
+  },
+  "connectedRouterRaw": {
+    "info": {
+      "enabled": "1",
+      "ap_password": "[REDACTED]",
+      "ap_ssid": "OPPO Find X8 F170",
+      "auth_list": [
+        "Enhanced Open",
+        "WPAPSK",
+        "WPA2PSK",
+        "WPA3PSK",
+        "AKM24",
+        "WPAPSKWPA2PSK",
+        "WPA2PSKWPA3PSK"
+      ],
+      "channel": "11",
+      "wifi_index": "2",
+      "encrypt_list": [
+        "WEP",
+        "TKIP",
+        "TKIPAES",
+        "AES",
+        "GCMP256"
+      ],
+      "encrypt": "AES",
+      "auth": "WPA2PSK"
+    },
+    "status": {
+      "status": "connected",
+      "bssid": "[REDACTED]",
+      "ssid": "OPPO Find X8 F170",
+      "ip": "10.74.128.138"
+    }
+  },
+  "finalWorkmode": {
+    "bonding": "0",
+    "add_ccmni_to_bridge": "0",
+    "ip_passthrough": "1",
+    "if_index": "",
+    "data_switch": "1",
+    "gateway": "",
+    "workmode": 4
+  },
+  "finalRouter": {
+    "enabled": "0",
+    "ap_ssid": "",
+    "wifi_index": "2",
+    "status": "disconnected",
+    "hasIp": false
+  }
+}

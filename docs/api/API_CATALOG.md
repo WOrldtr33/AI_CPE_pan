@@ -55,7 +55,7 @@
 | 114 | diagnostics | diagnose | t830_get_diagnose | 诊断信息；无需 SIM，读取设备状态或已保存配置 |
 | 128 | system | share | t830_get_share | 101 Share 状态；无需 SIM，读取设备状态或已保存配置 |
 | 4 | system | login_status | t830_get_login_status | 登录状态；无需 SIM，读取设备状态或已保存配置 |
-| 116 | diagnostics | ping_result | t830_get_ping_result | Ping/Traceroute 结果；先经用户确认调用 t830_set_net_probe 启动诊断，再轮询本工具；code=1 为等待结果，code=0 为完成；addr 固定为 read_ping |
+| 116 | diagnostics | ping_result | t830_get_ping_result | Ping/Traceroute 结果；t830_set_net_probe 经用户确认执行后系统会自动轮询本工具并汇报结果；也可单独查询上次结果。code=1 为等待结果，code=0 为完成；addr 固定为 read_ping |
 | 117 | sms | sms_all | t830_get_sms_all | 全部短信。同编号批量里的电话本用 phonebook，短信中心用 sms_center；读取设备本地短信，不发送消息 |
 | 117 | sms | sms_center | t830_get_sms_center | 短信中心号码；读取设备本地短信配置，不发送消息 |
 | 118 | sms | sms_thread | t830_get_sms_thread | 短信会话内容；读取设备本地短信，不发送消息 |
@@ -72,9 +72,9 @@
 | API | 分组 | MCP 工具 | 功能 | 后续回读 section |
 |---|---|---|---|---|
 | 10 | wifi | t830_set_wifi_switch | WiFi 开关 | wifi |
-| 11 | wifi | t830_set_wifi_config | 双频 WiFi 配置（仅所列加密模式）。只填写要修改的频段和字段；未填写的字段（含 SSID、密码）由服务端读取设备当前值合并后整体提交，不需要也不应向用户索要原值。仅把加密方式从 Disable 改为加密时须提供 wpapsk。按频段返回 200 已修改、409 未变化；生效会重启无线，回读在设备忙期间自动等待 | wifi |
+| 11 | wifi | t830_set_wifi_config | 双频 WiFi 配置（仅所列加密模式）。只填要修改的频段和字段（如只改 5G 名称时仅提交 {"5G":{"ssid":"新名称"}}）；未填写的字段和现有密码由服务端按当前配置补齐，不需要也不应向用户索要原密码，只有改为加密或修改密码时才提交 wpapsk。按频段返回 200 已修改、409 未变化；生效会重启无线，回读在设备忙期间自动等待 | wifi |
 | 13 | wifi | t830_set_guest_switch | 访客 WiFi 开关 | guest |
-| 14 | wifi | t830_set_guest_config | 访客 WiFi 配置。只填写要修改的频段和字段；未填写的字段（含 SSID、密码）由服务端读取设备当前值合并后整体提交，不需要也不应向用户索要原值。仅把加密方式从 Disable 改为加密时须提供 wpapsk；按频段返回 200 已修改、409 未变化 | guest |
+| 14 | wifi | t830_set_guest_config | 访客 WiFi 配置。只填要修改的频段和字段；未填写的字段和现有密码由服务端按当前配置补齐，不需要向用户索要原密码，只有改为加密或修改密码时才提交 wpapsk。按频段返回 200 已修改、409 未变化 | guest |
 | 22 | wifi | t830_set_wifi_night | 夜间 WiFi 计划 | wifi_night |
 | 61 | cellular | t830_set_apn_save | 保存 APN，不验证拨号 | apn |
 | 68 | cellular | t830_set_roaming | 漫游开关 | roaming |
@@ -90,10 +90,10 @@
 | 18 | wifi | t830_set_wps_pin | 启动 PIN WPS（pincode 为客户端的 4 或 8 位 PIN）。name 与返回码同 t830_set_wps_pbc | wps |
 | 20 | wifi | t830_set_wifi_advanced | 提交高级 WiFi 配置。设备按字段返回结果：200 已修改、409 未变化；生效会重启无线，期间再次提交返回 result=500（设备忙），应先回读确认后再提交 | wifi_ad |
 | 24 | network | t830_set_workmode | 修改工作模式 | workmode |
-| 26 | network | t830_set_wifi_scan_start | 第一次扫描上游 WiFi | wifi_rt |
+| 26 | network | t830_set_wifi_scan_start | 扫描上游 WiFi；确认执行后系统自动读取扫描列表并汇报，无需再提交 t830_set_wifi_scan_list | wifi_rt |
 | 27 | network | t830_set_wifi_scan_list | 第二次读取上游 WiFi 扫描列表 | wifi_rt |
-| 28 | network | t830_set_wifi_router_connect | 连接上游 WiFi | wifi_rt |
-| 29 | network | t830_set_wifi_router_disconnect | 断开上游 WiFi | wifi_rt |
+| 28 | network | t830_set_wifi_router_connect | 连接上游 WiFi（需 WLAN router 模式）；字段取自扫描列表条目，wifi_index 5G 为 1、2.4G 为 2；设备连接期间阻塞应答，默认等待最多 120 秒，应用时常断开 HTTP 连接（DEVICE_UNREACHABLE 不代表未执行，不要重发）；code 10 表示该信道可能干扰蜂窝信号；提交后应轮询 wifi_rt 直到 status=connected 且有 IP | wifi_rt |
+| 29 | network | t830_set_wifi_router_disconnect | 断开上游 WiFi；设备应用时常断开 HTTP 连接（DEVICE_UNREACHABLE 不代表未执行，不要重发），应回读 wifi_rt 确认 status 不再是 connected | wifi_rt |
 | 32 | mesh | t830_set_mesh_role | 修改 Mesh 角色 | mesh_role |
 | 33 | mesh | t830_set_mesh_close | 关闭 Mesh | mesh_status |
 | 35 | mesh | t830_set_mesh_router_name | 修改 Mesh 路由名称 | mesh_routers |
@@ -138,7 +138,7 @@
 | 106 | system | t830_set_tr069 | 提交 TR069 配置 | tr069 |
 | 110 | system | t830_set_developer_login | 登录开发者模式。文档未列出请求字段 | developer_mode |
 | 111 | system | t830_set_developer_verify | 提交开发者随机码验证 | developer_mode |
-| 115 | diagnostics | t830_set_net_probe | 启动 Ping 或 Traceroute | ping_result |
+| 115 | diagnostics | t830_set_net_probe | 启动 Ping 或 Traceroute；确认执行后系统自动轮询结果并汇报。time 为单次超时秒数，jump 为 Traceroute 最大跳数；与厂商网页一样总是提交四个字段，省略时补 time=2、jump=15（固件缺少 time 会返回 code=2 且不执行） | ping_result |
 | 119 | sms | t830_set_sms_center | 修改短信设置：短信中心号码 addr、送达报告 status（1 开/0 关）及有效期 time；三项须一起提交，未修改的项填 t830_get_sms_center 的原值 | sms_center |
 | 120 | sms | t830_set_sms_delete | 删除短信。content 为“号码[序号”（无右括号，序号取 t830_get_sms_thread 中该条的 index）删除单条，或“号码[ALL”删除整个会话；多项用英文逗号分隔。返回 code 0 成功 | sms_all |
 | 121 | sms | t830_set_sms_send | 发送短信。content 与 myContent 都填正文 UTF-8 字节的 base64（两者相同），多个号码用英文逗号分隔；设备返回 code 0 全部发送、1 部分发送（error 列出失败号码） | none |

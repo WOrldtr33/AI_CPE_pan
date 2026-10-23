@@ -9,7 +9,7 @@ import { Dashboard } from './dashboard.mjs';
 import { writes, toolName } from './catalog.mjs';
 
 const fieldLabels = { ssid: '名称', wpapsk: '密码', authmode: '加密方式', hidden: '隐藏', state: '开关' };
-// 网页确认卡片需要看到即将写入的值；仅凭据类字段隐藏。
+// 网页确认卡片按原值显示即将写入的内容，包括密码，便于用户核对。
 export function describeProposal(proposal) {
   const args = proposal.args || {};
   if (proposal.name === 't830_set_upnp_verified')
@@ -19,7 +19,7 @@ export function describeProposal(proposal) {
   const parts = [];
   const walk = (value, path) => {
     if (value && typeof value === 'object' && !Array.isArray(value)) for (const [k, v] of Object.entries(value)) walk(v, [...path, k]);
-    else parts.push(`${path.map(k => fieldLabels[k] || k).join(' ')}：${/wpapsk|password|passwd|secret|key|pin|puk/i.test(path.at(-1) || '') ? '（已隐藏）' : String(value)}`);
+    else parts.push(`${path.map(k => fieldLabels[k] || k).join(' ')}：${String(value)}`);
   };
   walk(args, []);
   return `${title}：${parts.join('，') || '无参数'}`;
@@ -58,8 +58,9 @@ export async function attachWebAgent(service, env = process.env, dependencies = 
           } else throw new Error('MEDIA_VIDEO_UPLOAD_DISABLED');
         }
         const result = await agent.turn(input, signal);
-        const proposals = (result.proposals || []).map(p => ({ id: p.id, name: p.name, summary: clean(describeProposal(p)) }));
-        return { ...clean({ status: 'answered', ...result, proposals: [] }), proposals };
+        // 交互结果只发给本机网页，按原文显示；落盘内容由 store 和日志各自脱敏。
+        const proposals = (result.proposals || []).map(p => ({ id: p.id, name: p.name, summary: describeProposal(p) }));
+        return { status: 'answered', ...result, proposals };
       } catch (error) {
         return { status: 'error', error: clean(signal.aborted ? 'CALL_CANCELLED' : error.message) };
       } finally { active = undefined; progress = undefined; resolveSettled(); }

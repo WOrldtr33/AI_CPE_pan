@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-23T03:52:49.192Z",
+  "phase": "scan",
+  "steps": [
+    {
+      "tool": "t830_get_workmode",
+      "args": {},
+      "ok": false,
+      "status": "error",
+      "error": "LOGIN_FAILED_CHECK_CREDENTIALS"
+    }
+  ],
+  "error": "LOGIN_FAILED_CHECK_CREDENTIALS"
+}

@@ -77,6 +77,13 @@ for (const mode of ['ok', 'warning', 'denied', 'lost']) {
     setMode('bootstrap');
     const capabilities = await client.listTools();
     assert(capabilities.tools.some(tool => tool.name === 't830_set_factory_reset'));
+    const shape = schema => schema.innerType ? shape(schema.innerType()) : schema.shape || {};
+    for (const def of writes.filter(def => Object.keys(shape(def.schema)).length))
+      assert(Object.keys(capabilities.tools.find(tool => tool.name === toolName(def)).inputSchema.properties || {}).length, toolName(def));
+    assert.deepEqual(Object.keys(capabilities.tools.find(tool => tool.name === 't830_set_net_probe').inputSchema.properties).sort(), ['addr', 'jump', 'time', 'type']);
+    const mismatched = await client.callTool({ name: 't830_set_sms_send', arguments: { addr: '10086', content: 'dGVzdA==', format: '2', myContent: 'b3RoZXI=' } });
+    assert.equal(mismatched.isError, true);
+    assert.equal(output(mismatched).error, 'INVALID_ARGUMENTS');
     const bootstrap = await client.callTool({ name: 't830_set_backup_delete', arguments: { path: '/tmp/backup.tar.gz' } });
     assert.equal(output(bootstrap).status, 'submitted');
     setMode(mode);

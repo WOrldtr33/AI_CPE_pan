@@ -37,13 +37,15 @@ async function result(fn) {
     };
   }
 }
+const objectSchema = (schema) => schema instanceof z.ZodEffects ? objectSchema(schema.innerType()) : schema;
 // 从接口目录注册工具；extra.signal 将 MCP 取消通知传递到设备处理层。
 for (const def of [...reads, ...(device.writesEnabled ? writes : [])]) {
   server.registerTool(
     toolName(def),
     {
       description: `API${def.api} / ${def.group}: ${def.description}。${def.condition}`,
-      inputSchema: def.schema,
+      // MCP SDK 无法把 refine 后的 schema 转成参数列表；跨字段校验仍由 device.run 按完整 schema 执行。
+      inputSchema: objectSchema(def.schema),
       annotations: {
         readOnlyHint: def.kind === 'read',
         destructiveHint: def.kind === 'write',

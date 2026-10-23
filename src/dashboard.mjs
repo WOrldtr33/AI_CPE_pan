@@ -68,11 +68,11 @@ export class Dashboard {
    if(Date.now()-Date.parse(proposal.createdAt)>600000)throw new Error('MEDIA_SETTING_EXPIRED');
    if(proposal.name!=='t830_set_upnp_verified'){
     const output=await this.approve(body.id,signal),status=output.result?.status;this.current=undefined;
-    return {status:['verified_field','verified_fields'].includes(status)?'verified':status==='submitted'?'submitted':'unknown',id:body.id,result:output.result,canUndo:false};
+    return {status:['verified_field','verified_fields'].includes(status)?'verified':status==='submitted'?'submitted':'unknown',id:body.id,result:output.result,answer:output.answer,canUndo:false};
    }
    const before=proposal.args.expectedCurrent,after=proposal.args.upnp_switch;const output=await this.approve(body.id,signal);const verified=['verified_field','verified_fields'].includes(output.result?.status);
    if(verified)this.receipts.set(body.id,{before,after});this.cache.upnp=undefined;this.current=undefined;
-   return {status:verified?'verified':'unknown',id:body.id,before,after,result:output.result,canUndo:verified};
+   return {status:verified?'verified':'unknown',id:body.id,before,after,result:output.result,answer:output.answer,canUndo:verified};
   }
   if(action==='undo'){
    const receipt=this.receipts.get(body.id);if(!receipt)throw new Error('MEDIA_UNDO_UNAVAILABLE');

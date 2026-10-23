@@ -6,26 +6,30 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { validateResponse, summarizeDiagnostics, deviceReading } from './response.mjs';
 import { createHash, randomBytes } from 'node:crypto';
 import { readByKey, writeByKey, reads } from './catalog.mjs';
+// 用户可查看的配置密码（Wi-Fi、拨号、PIN 等）。passwd 是开发者验证返回的超级管理员口令，按凭据处理。
+const passwordKey = /password|wpapsk|pincode|pin_str|old_pin|new_pin|puk/i;
+const credentialKey =
+  /passwd|token|sessionid|ubus_rpc_session|cookie|imei|imsi|iccid|serial|mac|phone|salt|cnum|secret|developer.?key|base64|^file$|^reply$|^numb(?:_house|_work)?$|^email$/i;
+export const isPasswordKey = (key) => passwordKey.test(key);
 // 对外输出前统一脱敏；保留 withCookie 布尔值，便于判断认证处理过程。
-export function redact(value, key = '') {
+export function redact(value, key = '', { revealPasswords = false } = {}) {
   if (key === 'withCookie' && typeof value === 'boolean') {
     return value;
   }
   // 状态页的 SIM 字段是号码，不能和 SimStatus 一起按子串匹配。
   if (key === 'SIM') return '[REDACTED]';
-  if (
-    /password|passwd|wpapsk|token|sessionid|ubus_rpc_session|cookie|imei|imsi|iccid|serial|mac|phone|pincode|pin_str|old_pin|new_pin|puk|salt|cnum|secret|developer.?key|base64|^file$|^reply$|^numb(?:_house|_work)?$|^email$/i.test(
-      key,
-    )
-  )
-    return '[REDACTED]';
+  if (credentialKey.test(key) || (!revealPasswords && passwordKey.test(key))) return '[REDACTED]';
   if (Array.isArray(value)) {
-    return value.map((v) => redact(v));
+    return value.map((v) => redact(v, '', { revealPasswords }));
   }
   if (value && typeof value === 'object')
-    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, redact(v, k)]));
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [k, redact(v, k, { revealPasswords })]),
+    );
   return value;
 }
+// 交互结果中配置密码明文显示；诊断轨迹和落盘仍使用 redact 全部隐藏。
+export const redactCredentials = (value, key = '') => redact(value, key, { revealPasswords: true });
 // 错误码与诊断详情一起保存，供 CLI 和 MCP 客户端读取。
 export class DeviceError extends Error {
   constructor(code, details = {}) {
@@ -590,9 +594,9 @@ export class T830 {
           const reading = readonly ? deviceReading(def.key, data) : undefined;
           return {
             status,
-            data: redact(data),
+            data: redactCredentials(data),
             ...(reading ? { reading } : {}),
-            warnings: redact(issues),
+            warnings: redactCredentials(issues),
             ...(notModified ? { businessOutcome: 'not_modified' } : {}),
             ...(partiallyModified ? { businessOutcome: 'modified', appliedParts, unchangedParts: found.map(issue => issue.field) } : {}),
             validation,
@@ -801,7 +805,7 @@ export class T830 {
   executeWrite(def, args, queue, options) {
     return executeWriteWorkflow(this, def, args, queue, options, {
       error: (code, details) => new DeviceError(code, details),
-      sanitize: redact,
+      sanitize: redactCredentials,
     });
   }
   // 保留原 UPnP 连续工具入口，结果格式兼容旧版本。

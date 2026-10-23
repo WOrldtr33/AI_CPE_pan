@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createMediaService } from '../media/service.mjs';
 import { mediaConfig } from '../media/config.mjs';
-import { attachWebAgent } from '../src/agent-web.mjs';
+import { attachWebAgent, describeProposal } from '../src/agent-web.mjs';
 import { pcmWav } from '../media/omni.mjs';
 
 async function fixture(fn) {
@@ -55,6 +55,10 @@ test('Browser text, photo and audio requests reach the existing Agent; photo ana
   } finally { await web.close(); }
   assert.equal((await service.dispatch('media_status', {})).agentConnected, false);
 }));
+
+test('Proposal confirmation summary shows the password to be written', () => {
+  assert.equal(describeProposal({ name: 'mock_write', args: { '5G': { ssid: '潘鸿鑫', wpapsk: '12345678' } } }), 'mock_write：5G 名称：潘鸿鑫，5G 密码：12345678');
+});
 
 test('Web chat rejects concurrent turns and disconnect cancels work rather than replaying requests', () => fixture(async ({ service, post }) => {
   let began, finished; const started = new Promise(r => { began = r; }), ended = new Promise(r => { finished = r; }); let calls = 0;

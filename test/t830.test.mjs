@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
-import { T830, redact } from '../src/t830.mjs';
-import { reads, writes, toolName } from '../src/catalog.mjs';
+import { T830, redact, redactCredentials } from '../src/t830.mjs';
+import { reads, writes, writeByKey, toolName } from '../src/catalog.mjs';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { fileURLToPath } from 'node:url';
@@ -303,7 +303,9 @@ test('permission diagnostic does not retry an unauthorized target; NO_DATA colle
     });
     const warning = await d.rpc('mtk.wifi', 'warning');
     assert.equal(warning.status, 'device_warning');
-    assert.equal(warning.data.wpapsk, '[REDACTED]');
+    assert.equal(warning.data.wpapsk, 'secret');
+    assert.equal(warning.data.data.imei, '[REDACTED]');
+    assert(!JSON.stringify(warning.diagnostics).includes('secret'));
     assert.equal((await d.rpc('x', 'country_code')).status, 'returned');
   }));
 
@@ -594,6 +596,9 @@ test('response validation rejects incomplete or wrong-type data and preserves wa
   assert.equal(deviceReading('status', { data: { wanstat: 'true,ccmni', SimStatus: '21', SignalValue: '-78 dBm', long_eons: 'ChinaUnicom', NR_or_LTE: '5G' } }).signal, '-78 dBm');
   assert.equal(redact({ SIM: '8610000000000', SimStatus: '21' }).SIM, '[REDACTED]');
   assert.equal(redact({ SIM: '8610000000000', SimStatus: '21' }).SimStatus, '21');
+  assert.deepEqual(redactCredentials({ wpapsk: 'wifi-pass', user_password: 'ppp', pincode: '1234', passwd: 'super', sessionid: 's', mac: 'm' }),
+    { wpapsk: 'wifi-pass', user_password: 'ppp', pincode: '1234', passwd: '[REDACTED]', sessionid: '[REDACTED]', mac: '[REDACTED]' });
+  assert.equal(redact({ wpapsk: 'wifi-pass' }).wpapsk, '[REDACTED]');
   assert.equal(deviceReading('wifi', { data: {} }), undefined);
   assert.equal(check('wifi', []).status, 'failed');
 });
@@ -957,3 +962,9 @@ test('Network diagnostic starts exactly once before result polling and uses vend
     assert.deepEqual(requests.map(c => new URLSearchParams(c.search).get('flag')), ['netAppStar1', 'netAppStar2', 'netAppStar2']);
   } finally { await device.close(); }
 }, { probeWorkflow: true }));
+
+test('Network diagnostic fills the timeout the firmware requires when the model omits it', () => {
+  const schema = writeByKey.net_probe.schema;
+  assert.deepEqual(schema.parse({ type: 'PING', addr: '8.8.8.8' }), { type: 'PING', addr: '8.8.8.8', jump: '15', time: '2' });
+  assert.deepEqual(schema.parse({ type: 'Traceroute', addr: '8.8.8.8', jump: '3', time: '1' }), { type: 'Traceroute', addr: '8.8.8.8', jump: '3', time: '1' });
+});

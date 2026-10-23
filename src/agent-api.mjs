@@ -43,7 +43,7 @@ export class ModelApi {
       ? tools.filter(tool => !tool.function.name.startsWith('t830_get_')) : tools;
     if (advertised.length > 128) throw new Error('AI_TOOL_LIMIT');
     const data = await this.request('chat/completions', {
-      model: settings.model, messages, tools: advertised, stream: false, max_tokens: settings.maxTokens,
+      model: settings.model, messages, ...(advertised.length ? { tools: advertised } : {}), stream: false, max_tokens: settings.maxTokens,
       thinking: { type: settings.thinking === 'off' ? 'disabled' : 'enabled' },
       ...(settings.thinking === 'off' ? {} : { reasoning_effort: settings.thinking }),
     }, signal);

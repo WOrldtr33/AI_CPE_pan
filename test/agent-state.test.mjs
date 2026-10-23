@@ -33,7 +33,7 @@ function makeAgent(store, responses, overrides = {}) {
     executeApprovedWrite: async (name, args) => { writes.push({ name, args }); return { status: 'verified_field', value: args.upnp_switch }; },
   };
   Object.assign(mcp, overrides.mcp);
-  const agent = new Agent({ store, mcp, settings: { ...settings, ...overrides.settings }, sanitize: sanitizer(['known-private-value']), onEvent: e => events.push(e),
+  const agent = new Agent({ store, mcp, settings: { ...settings, ...overrides.settings }, sanitize: store.sanitize, onEvent: e => events.push(e),
     api: { complete: async messages => {
       sent.push(structuredClone(messages));
       const response = responses.shift();
@@ -111,6 +111,68 @@ test('Approved writes use real sensitive values while disk keeps them redacted',
   const copied = makeAgent(restarted, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, { '5G': { ssid: '[REDACTED]' } })] } }, answer('参数错误')], wifi);
   const rejected = await copied.agent.turn('照读到的值写回');
   assert.equal(rejected.proposals.length, 0);
+}));
+
+test('User-typed value equal to a process secret reaches the model and the write, but not the disk', () => fixture(async ({ store, directory }) => {
+  const wifiArgs = { '5G': { ssid: '潘鸿鑫', wpapsk: 'known-private-value' } };
+  const f = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, wifiArgs)] } }, answer('等待确认')], { mcp: { validate: () => {} } });
+  const result = await f.agent.turn('5G 密码改成 known-private-value');
+  assert.equal(f.sent[0].at(-1).content, '5G 密码改成 known-private-value');
+  assert.equal(result.proposals.length, 1);
+  for (const file of ['session.json', join('tasks', `${result.taskId}.json`)]) assert(!(await readFile(join(directory, file), 'utf8')).includes('known-private-value'));
+  await f.agent.approve(result.proposals[0].id);
+  assert.deepEqual(f.writes[0].args, wifiArgs);
+}));
+
+test('Queried Wi-Fi passwords are plain in model context and answers but redacted on disk', () => fixture(async ({ store, directory }) => {
+  const wifi = { mcp: { call: async () => ({ status: 'returned', data: { data: { '5G': { ssid: '潘鸿鑫', wpapsk: 'read-wifi-pass' } } } }) } };
+  const f = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(readTool.function.name, {})] } }, answer('5G 密码是 read-wifi-pass')], wifi);
+  const result = await f.agent.turn('查看 5G 密码');
+  assert(f.sent[1].at(-1).content.includes('read-wifi-pass'));
+  assert.equal(result.answer, '5G 密码是 read-wifi-pass');
+  for (const file of ['session.json', join('tasks', `${result.taskId}.json`)]) assert(!(await readFile(join(directory, file), 'utf8')).includes('read-wifi-pass'));
+}));
+
+test('Approval result shows the written password while the task file keeps it redacted', () => fixture(async ({ store, directory }) => {
+  const wifiArgs = { '5G': { ssid: '潘鸿鑫', wpapsk: 'approved-pass' } };
+  const wifi = { mcp: { validate: () => {}, executeApprovedWrite: async (name, args) => ({ status: 'verified_fields', expected: { '5G.wpapsk': args['5G'].wpapsk } }) } };
+  const f = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, wifiArgs)] } }, answer('等待确认')], wifi);
+  const pending = await f.agent.turn('5G 密码改成 approved-pass');
+  const approved = await f.agent.approve(pending.proposals[0].id);
+  assert.equal(approved.result.expected['5G.wpapsk'], 'approved-pass');
+  assert(!(await readFile(join(directory, 'tasks', `${pending.taskId}.json`), 'utf8')).includes('approved-pass'));
+}));
+
+test('Write proposals keep the validated arguments, including schema defaults, for confirmation and execution', () => fixture(async ({ store }) => {
+  const f = makeAgent(store, [{ message: { role: 'assistant', tool_calls: [request(writeTool.function.name, { upnp_switch: '1' })] } }, answer('等待确认'), answer('已开启')],
+    { mcp: { validate: (name, args) => ({ ...args, expectedCurrent: '0' }) } });
+  const pending = await f.agent.turn('开启 UPnP');
+  assert.deepEqual(pending.proposals[0].args, { upnp_switch: '1', expectedCurrent: '0' });
+  await f.agent.approve(pending.proposals[0].id);
+  assert.deepEqual(f.writes[0].args, { upnp_switch: '1', expectedCurrent: '0' });
+}));
+
+test('Approval asks the model to summarize the executed result and keeps the summary in context', () => fixture(async ({ store }) => {
+  const f = makeAgent(store, [...proposalResponses(), answer('UPnP 已开启，设备回读确认。')]);
+  const pending = await f.agent.turn('开启 UPnP');
+  const approved = await f.agent.approve(pending.proposals[0].id);
+  assert.equal(approved.answer, 'UPnP 已开启，设备回读确认。');
+  const report = f.sent.at(-1).at(-1);
+  assert.equal(report.role, 'user');
+  assert.match(report.content, /verified_field/);
+  assert.match(report.content, /已提交，暂时无法确认/);
+  assert.equal(f.agent.messages.at(-1).content, 'UPnP 已开启，设备回读确认。');
+  assert.equal(store.task(pending.taskId).writeSummary, 'UPnP 已开启，设备回读确认。');
+}));
+
+test('A failed summary never repeats the write and still returns the device result', () => fixture(async ({ store }) => {
+  const f = makeAgent(store, [...proposalResponses(), new Error('AI_NETWORK_ERROR')]);
+  const pending = await f.agent.turn('开启 UPnP');
+  const approved = await f.agent.approve(pending.proposals[0].id);
+  assert.equal(approved.answer, undefined);
+  assert.equal(approved.result.status, 'verified_field');
+  assert.equal(f.writes.length, 1);
+  assert.equal(store.task(pending.taskId).status, 'completed');
 }));
 
 test('Cancelled proposals and invalid args never reach the write executor', () => fixture(async ({ store }) => {

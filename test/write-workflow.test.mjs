@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { writeReport } from '../src/artifacts.mjs';
-import { T830 } from '../src/t830.mjs';
+import { T830, redact } from '../src/t830.mjs';
 import { reads, writes } from '../src/catalog.mjs';
 import { writeProfiles } from '../src/write-profiles.mjs';
 const reports = [];
@@ -419,7 +419,7 @@ test('partial WiFi change or external interference is not repaired by repeating 
     },
     { mode: 'partial' },
   ));
-test('sensitive fields compare raw in memory while all reports stay redacted', () =>
+test('sensitive fields compare raw in memory; results show passwords while reports stay redacted', () =>
   fixture(async ({ device }) => {
     const config = structuredClone(writes.find((d) => d.key === 'wifi_config').sample);
     for (const band of ['5G', '2.4G'])
@@ -430,7 +430,8 @@ test('sensitive fields compare raw in memory while all reports stay redacted', (
       });
     const result = await device.write('wifi_config', config);
     assert.equal(result.status, 'verified_fields');
-    const json = JSON.stringify(result);
+    assert(JSON.stringify(result).includes('private-password'));
+    const json = JSON.stringify(redact(result));
     assert(!json.includes('private-password'));
     assert(!json.includes('original-secret'));
     reports.push({ scenario: 'sensitive_fields', result });
@@ -547,7 +548,7 @@ test('WiFi SSID-only patch is completed from raw readback without the model supp
       '5G': { hidden: '0', ssid: '我爱上班1', state: 'up', authmode: 'WPA2PSKWPA3PSK', wpapsk: 'original-secret' },
     });
     assert.equal(state.wifi['5G'].ssid, '我爱上班1');
-    assert(!JSON.stringify(result).includes('original-secret'));
+    assert(!JSON.stringify(redact(result)).includes('original-secret'));
   }));
 test('WiFi patch stops before writing when the existing password readback is masked', () =>
   fixture(
@@ -600,4 +601,8 @@ test('save representative mock write outcomes without credentials', async () => 
       2,
     ),
   );
+  const saved = await readFile(new URL('../reports/mock/write-mock-results.json', import.meta.url), 'utf8');
+  assert(saved.includes('private-network'));
+  assert(!saved.includes('private-password'));
+  assert(!saved.includes('original-secret'));
 });
